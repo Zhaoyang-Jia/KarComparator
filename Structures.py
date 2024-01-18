@@ -18,7 +18,7 @@ class Segment:
         return abs(self.end - self.start) + 1
 
     def __lt__(self, other):
-        type_order = ["telomere1", "telomere2", "centromere", "hardmask", "superdup"]
+        type_order = ["telomere1", "telomere2", "centromere", "acrocentric", "hardmask", "superdup"]
 
         def get_chr_order(chromosome_name):
             chr_extracted = chromosome_name.replace('Chr', '')
@@ -82,20 +82,59 @@ class Segment:
     def duplicate(self):
         return Segment(self.chr_name, self.start, self.end, self.segment_type, self.kt_index)
 
+    def left_delete(self, bp_to_delete):
+        """
+        :param bp_to_delete: number of bp deleting
+        :return: None
+        """
+        if self.direction():
+            self.start = self.start + bp_to_delete
+        else:
+            self.start = self.start - bp_to_delete
+
+    def right_delete(self, bp_to_delete):
+        """
+        :param bp_to_delete: number of bp deleting
+        :return: None
+        """
+        if self.direction():
+            self.end = self.end - bp_to_delete
+        else:
+            self.end = self.end + bp_to_delete
+
     def invert(self, inplace=True):
         if inplace:
             temp_start = self.start
             self.start = self.end
             self.end = temp_start
+            if self.kt_index is not None:
+                kt_direction = self.kt_index[-1]
+                if kt_direction == '+':
+                    self.kt_index = self.kt_index[:-1] + '-'
+                else:
+                    self.kt_index = self.kt_index[:-1] + '+'
         else:
             new_segment = self.duplicate()
             new_segment.start = self.end
             new_segment.end = self.start
+            if new_segment.kt_index is not None:
+                kt_direction = new_segment.kt_index[-1]
+                if kt_direction == '+':
+                    new_segment.kt_index = new_segment.kt_index[:-1] + '-'
+                else:
+                    new_segment.kt_index = new_segment.kt_index[:-1] + '+'
             return new_segment
 
     def segment_intersection(self, other_segment):
+        """
+        Report intersection regardless of directions
+        :param other_segment:
+        :return:
+        """
         duplicate_self = self.duplicate()
         duplicate_other = other_segment.duplicate()
+
+        # put both into + directions
         if not duplicate_self.direction():
             duplicate_self.invert()
         if not duplicate_other.direction():
@@ -141,8 +180,17 @@ class Segment:
                 return False
 
     def is_continuous(self, other):
-        #TODO: implement
-        pass
+        if self.chr_name != other.chr_name:
+            return False
+
+        if self.direction():
+            if other.start == self.end + 1:
+                return True
+        else:
+            if other.start == self.end - 1:
+                return True
+
+        return False
 
 
 class Arm:
@@ -200,6 +248,11 @@ class Arm:
         self.segments[index_of_insertion:index_of_insertion] = new_segments
 
     def arm_intersection(self, other_arm):
+        """
+        If two arms have any segments that intersect, regardless of directions
+        :param other_arm:
+        :return:
+        """
         for segment1 in self.segments:
             for segment2 in other_arm.segments:
                 if segment1.segment_intersection(segment2):
@@ -295,7 +348,7 @@ class Arm:
 
     def merge_breakpoints(self):
         """
-        For Masking File Generation
+        merge all continuous breakpoints
         :return:
         """
         current_segment_index = 0
@@ -407,233 +460,233 @@ class Chromosome:
         # TODO: implement
         pass
 
-# class Genome:
-#     full_KT: {str: [Chromosome]}  # has as many slots as there are chromosome type, i.e. 24 for a male, 23 for a female
-#     motherboard: Arm  # using the Arm object to use generate breakpoint method
-#     centromere_segments = [Segment]
-#
-#     def __init__(self, full_KT, motherboard_segments, centromere_segments):
-#         self.full_KT = full_KT
-#         self.motherboard = Arm(motherboard_segments, 'motherboard')
-#         self.centromere_segments = centromere_segments
-#
-#     def duplicate(self):
-#         new_full_KT = {}
-#         for key in self.full_KT:
-#             new_chr_list = []
-#             for chr_itr in self.full_KT[key]:
-#                 new_chr_list.append(chr_itr.duplicate())
-#             new_full_KT[key] = new_chr_list
-#
-#         new_centromere_segments = []
-#         for chr_itr in self.centromere_segments:
-#             new_centromere_segments.append(chr_itr.duplicate())
-#
-#         return Genome(new_full_KT,
-#                       self.motherboard.duplicate(),
-#                       new_centromere_segments)
-#
-#     def __str__(self):
-#         return_str = ''
-#         for chromosome in self:
-#             return_str += str(chromosome) + '\n'
-#         return return_str
-#
-#     def __iter__(self):
-#         def custom_sort_chr(key):
-#             chr_part = key[3:]  # Extract the part after "Chr"
-#             if chr_part.isdigit():
-#                 return int(chr_part)
-#             elif chr_part == "X":
-#                 return int(23)  # Put ChrX at the end
-#             elif chr_part == "Y":
-#                 return int(24)  # Put ChrY after ChrX
-#             return key
-#
-#         class GenomeIterator:
-#             def __init__(self, genome: Genome):
-#                 self.genome = genome
-#                 self.KT_slots = genome.full_KT
-#                 self.KT_slot_keys = sorted(genome.full_KT.keys(), key=custom_sort_chr)
-#                 self.current_slot_index = 0
-#                 self.current_chromosome_index = 0
-#
-#             def __next__(self):
-#                 if self.current_slot_index < len(self.KT_slots):
-#                     current_slot = self.KT_slots[self.KT_slot_keys[self.current_slot_index]]
-#                     if self.current_chromosome_index < len(current_slot):
-#                         chromosome = current_slot[self.current_chromosome_index]
-#                         self.current_chromosome_index += 1
-#                         return chromosome
-#                     else:
-#                         self.current_slot_index += 1
-#                         self.current_chromosome_index = 0
-#                         return next(self)
-#                 else:
-#                     raise StopIteration
-#
-#         return GenomeIterator(self)
-#
-#     def get_chromosome_list(self):
-#         chr_list = []
-#         for chromosome in self:
-#             chr_list.append(chromosome)
-#         return chr_list
-#
-#     def segment_indexing(self):
-#         segment_dict = {}
-#         current_index = 1
-#         for segment_itr in self.motherboard.segments:
-#             segment_dict[segment_itr] = str(current_index)
-#             current_index += 1
-#         for centromere_itr in self.centromere_segments:
-#             centromere_name = centromere_itr.chr_name.replace('Chr', 'CEN')
-#             segment_dict[centromere_itr] = centromere_name
-#         return segment_dict
-#
-#     def motherboard_tostring(self):
-#         segment_dict = self.segment_indexing()
-#         sorted_segments = sorted(segment_dict)
-#         return_str = 'index\torigin\tstart\tend\n'
-#         for segment_itr in sorted_segments:
-#             return_str += '{}\t{}\t{}\t{}\n'.format(segment_dict[segment_itr], segment_itr.chr_name,
-#                                                     segment_itr.start, segment_itr.end)
-#         return return_str
-#
-#     def KT_tostring(self):
-#         segment_dict = self.segment_indexing()
-#         return_str = 'chromosome\tKT\ttelo1_len\ttelo2_len\n'
-#
-#         for chr_itr in self:
-#             if chr_itr.deleted:
-#                 return_str += '{}\tdeleted\t0\t0\n'.format(chr_itr.name)
-#                 continue
-#
-#             tostring_segment_list = []
-#             for segment_itr in chr_itr:
-#                 if segment_itr.direction():
-#                     tostring_segment_list.append(segment_dict[segment_itr] + '+')
-#                 else:
-#                     new_segment_itr = segment_itr.duplicate()
-#                     new_segment_itr.invert()
-#                     tostring_segment_list.append(segment_dict[new_segment_itr] + '-')
-#
-#             return_str += '{}\t{}\t{}\t{}\n'.format(chr_itr.name, ','.join(tostring_segment_list),
-#                                                     str(chr_itr.t1_len), str(chr_itr.t2_len))
-#         return return_str
-#
-#     def need_breakpoint(self, event_arm: Arm, breakpoint_index: int):
-#         """
-#         split segment such that the breakpoint_index is guaranteed to be the end index of a Segment
-#         :param event_arm: Arm which the event happens on, and the breakpoint_index point at
-#         :param breakpoint_index: the position of break on the current Arm
-#             (left_event_index - 1) OR (right_event_index)
-#         :return: None
-#         """
-#         # TODO: understand what is going on with all the unused
-#         if breakpoint_index == -1:
-#             # this happens when the break point is at the very beginning of the event_arm, no breaking required
-#             return 0
-#
-#         segment_to_break = Segment('temp', -1, -1)
-#         left_delete_len = -1
-#         right_delete_len = -1
-#
-#         current_bp_index = -1  # corrects 0-index off-shift
-#
-#         # locate the Segment to create breakpoint
-#         for segment in event_arm.segments:
-#             current_bp_index += len(segment)
-#             if current_bp_index == breakpoint_index:
-#                 # breakpoint exists
-#                 return 0
-#             elif current_bp_index > breakpoint_index:
-#                 # document the breakpoint location on the current segment
-#                 segment_to_break = segment.duplicate()
-#                 previous_bp_index = current_bp_index - len(segment)
-#                 left_delete_len = breakpoint_index - previous_bp_index
-#                 right_delete_len = current_bp_index - breakpoint_index
-#                 break
-#             else:
-#                 # breakpoint location not yet met
-#                 continue
-#         return 1
-#
-#     def generate_breakpoint(self, event_arm: Arm, breakpoint_index: int):
-#         """
-#         split segment such that the breakpoint_index is garenteed to be the end index of a Segment
-#         :param event_arm: Arm which the event happens on, and the breakpoint_index point at
-#         :param breakpoint_index: the position of break on the current Arm
-#             (left_event_index - 1) OR (right_event_index)
-#         :return: None
-#         """
-#         if breakpoint_index == -1:
-#             # this happens when the break point is at the very beginning of the event_arm, no breaking required
-#             return
-#
-#         segment_to_break = Segment('temp', -1, -1)
-#         left_delete_len = -1
-#         right_delete_len = -1
-#
-#         current_bp_index = -1  # corrects 0-index off-shift
-#
-#         # locate the Segment to create breakpoint
-#         for segment in event_arm.segments:
-#             current_bp_index += len(segment)
-#             if current_bp_index == breakpoint_index:
-#                 # breakpoint exists
-#                 return
-#             elif current_bp_index > breakpoint_index:
-#                 # document the breakpoint location on the current segment
-#                 segment_to_break = segment.duplicate()
-#                 previous_bp_index = current_bp_index - len(segment)
-#                 left_delete_len = breakpoint_index - previous_bp_index
-#                 right_delete_len = current_bp_index - breakpoint_index
-#                 break
-#             else:
-#                 # breakpoint location not yet met
-#                 continue
-#
-#         # create breakpoint on all identical Segments in the genome
-#         def break_segment(current_arm: Arm):
-#             left_segment = segment_to_break.duplicate()
-#             right_segment = segment_to_break.duplicate()
-#             left_segment.right_delete(right_delete_len)
-#             right_segment.left_delete(left_delete_len)
-#
-#             same_direction_match = \
-#                 [index for index, value in enumerate(current_arm.segments) if value == segment_to_break]
-#             for segment_index_itr in reversed(same_direction_match):
-#                 current_arm.segments.pop(segment_index_itr)
-#                 current_arm.segments.insert(segment_index_itr, left_segment.duplicate())
-#                 current_arm.segments.insert(segment_index_itr + 1, right_segment.duplicate())
-#
-#             all_match = \
-#                 [index for index, value in enumerate(current_arm.segments)
-#                  if segment_to_break.same_segment_ignore_dir(value)]
-#             same_direction_match = \
-#                 [index for index, value in enumerate(current_arm.segments) if value == segment_to_break]
-#             reversed_direction_match = [element for element in all_match if element not in same_direction_match]
-#             for segment_index_itr in reversed(reversed_direction_match):
-#                 current_arm.segments.pop(segment_index_itr)
-#                 new_right_segment = right_segment.duplicate()
-#                 new_left_segment = left_segment.duplicate()
-#                 new_right_segment.invert()
-#                 new_left_segment.invert()
-#                 current_arm.segments.insert(segment_index_itr, new_right_segment)
-#                 current_arm.segments.insert(segment_index_itr + 1, new_left_segment)
-#
-#         break_segment(self.motherboard)
-#         for slot in self.full_KT:
-#             for chromosome in self.full_KT[slot]:
-#                 break_segment(chromosome.p_arm)
-#                 break_segment(chromosome.q_arm)
-#
-#     def output_KT(self, output_file):
-#         with open(output_file, 'w') as fp_write:
-#             fp_write.write(self.motherboard_tostring())
-#             fp_write.write('---\n')
-#             fp_write.write(self.KT_tostring())
+class Genome:
+    full_KT: {str: [Chromosome]}  # has as many slots as there are chromosome type, i.e. 24 for a male, 23 for a female
+    motherboard: Arm  # using the Arm object to use generate breakpoint method
+    centromere_segments = [Segment]
+
+    def __init__(self, full_KT, motherboard_segments, centromere_segments):
+        self.full_KT = full_KT
+        self.motherboard = Arm(motherboard_segments, 'motherboard')
+        self.centromere_segments = centromere_segments
+
+    def duplicate(self):
+        new_full_KT = {}
+        for key in self.full_KT:
+            new_chr_list = []
+            for chr_itr in self.full_KT[key]:
+                new_chr_list.append(chr_itr.duplicate())
+            new_full_KT[key] = new_chr_list
+
+        new_centromere_segments = []
+        for chr_itr in self.centromere_segments:
+            new_centromere_segments.append(chr_itr.duplicate())
+
+        return Genome(new_full_KT,
+                      self.motherboard.duplicate(),
+                      new_centromere_segments)
+
+    def __str__(self):
+        return_str = ''
+        for chromosome in self:
+            return_str += str(chromosome) + '\n'
+        return return_str
+
+    def __iter__(self):
+        def custom_sort_chr(key):
+            chr_part = key[3:]  # Extract the part after "Chr"
+            if chr_part.isdigit():
+                return int(chr_part)
+            elif chr_part == "X":
+                return int(23)  # Put ChrX at the end
+            elif chr_part == "Y":
+                return int(24)  # Put ChrY after ChrX
+            return key
+
+        class GenomeIterator:
+            def __init__(self, genome: Genome):
+                self.genome = genome
+                self.KT_slots = genome.full_KT
+                self.KT_slot_keys = sorted(genome.full_KT.keys(), key=custom_sort_chr)
+                self.current_slot_index = 0
+                self.current_chromosome_index = 0
+
+            def __next__(self):
+                if self.current_slot_index < len(self.KT_slots):
+                    current_slot = self.KT_slots[self.KT_slot_keys[self.current_slot_index]]
+                    if self.current_chromosome_index < len(current_slot):
+                        chromosome = current_slot[self.current_chromosome_index]
+                        self.current_chromosome_index += 1
+                        return chromosome
+                    else:
+                        self.current_slot_index += 1
+                        self.current_chromosome_index = 0
+                        return next(self)
+                else:
+                    raise StopIteration
+
+        return GenomeIterator(self)
+
+    def get_chromosome_list(self):
+        chr_list = []
+        for chromosome in self:
+            chr_list.append(chromosome)
+        return chr_list
+
+    def segment_indexing(self):
+        segment_dict = {}
+        current_index = 1
+        for segment_itr in self.motherboard.segments:
+            segment_dict[segment_itr] = str(current_index)
+            current_index += 1
+        for centromere_itr in self.centromere_segments:
+            centromere_name = centromere_itr.chr_name.replace('Chr', 'CEN')
+            segment_dict[centromere_itr] = centromere_name
+        return segment_dict
+
+    def motherboard_tostring(self):
+        segment_dict = self.segment_indexing()
+        sorted_segments = sorted(segment_dict)
+        return_str = 'index\torigin\tstart\tend\n'
+        for segment_itr in sorted_segments:
+            return_str += '{}\t{}\t{}\t{}\n'.format(segment_dict[segment_itr], segment_itr.chr_name,
+                                                    segment_itr.start, segment_itr.end)
+        return return_str
+
+    def KT_tostring(self):
+        segment_dict = self.segment_indexing()
+        return_str = 'chromosome\tKT\ttelo1_len\ttelo2_len\n'
+
+        for chr_itr in self:
+            if chr_itr.deleted:
+                return_str += '{}\tdeleted\t0\t0\n'.format(chr_itr.name)
+                continue
+
+            tostring_segment_list = []
+            for segment_itr in chr_itr:
+                if segment_itr.direction():
+                    tostring_segment_list.append(segment_dict[segment_itr] + '+')
+                else:
+                    new_segment_itr = segment_itr.duplicate()
+                    new_segment_itr.invert()
+                    tostring_segment_list.append(segment_dict[new_segment_itr] + '-')
+
+            return_str += '{}\t{}\t{}\t{}\n'.format(chr_itr.name, ','.join(tostring_segment_list),
+                                                    str(chr_itr.t1_len), str(chr_itr.t2_len))
+        return return_str
+
+    # def need_breakpoint(self, event_arm: Arm, breakpoint_index: int):
+    #     """
+    #     split segment such that the breakpoint_index is guaranteed to be the end index of a Segment
+    #     :param event_arm: Arm which the event happens on, and the breakpoint_index point at
+    #     :param breakpoint_index: the position of break on the current Arm
+    #         (left_event_index - 1) OR (right_event_index)
+    #     :return: None
+    #     """
+    #     # TODO: understand what is going on with all the unused
+    #     if breakpoint_index == -1:
+    #         # this happens when the break point is at the very beginning of the event_arm, no breaking required
+    #         return 0
+    #
+    #     segment_to_break = Segment('temp', -1, -1)
+    #     left_delete_len = -1
+    #     right_delete_len = -1
+    #
+    #     current_bp_index = -1  # corrects 0-index off-shift
+    #
+    #     # locate the Segment to create breakpoint
+    #     for segment in event_arm.segments:
+    #         current_bp_index += len(segment)
+    #         if current_bp_index == breakpoint_index:
+    #             # breakpoint exists
+    #             return 0
+    #         elif current_bp_index > breakpoint_index:
+    #             # document the breakpoint location on the current segment
+    #             segment_to_break = segment.duplicate()
+    #             previous_bp_index = current_bp_index - len(segment)
+    #             left_delete_len = breakpoint_index - previous_bp_index
+    #             right_delete_len = current_bp_index - breakpoint_index
+    #             break
+    #         else:
+    #             # breakpoint location not yet met
+    #             continue
+    #     return 1
+
+    def generate_breakpoint(self, event_arm: Arm, breakpoint_index: int):
+        """
+        split segment such that the breakpoint_index is garenteed to be the end index of a Segment
+        :param event_arm: Arm which the event happens on, and the breakpoint_index point at
+        :param breakpoint_index: the position of break on the current Arm
+            (left_event_index - 1) OR (right_event_index)
+        :return: None
+        """
+        if breakpoint_index == -1:
+            # this happens when the break point is at the very beginning of the event_arm, no breaking required
+            return
+
+        segment_to_break = Segment('temp', -1, -1)
+        left_delete_len = -1
+        right_delete_len = -1
+
+        current_bp_index = -1  # corrects 0-index off-shift
+
+        # locate the Segment to create breakpoint
+        for segment in event_arm.segments:
+            current_bp_index += len(segment)
+            if current_bp_index == breakpoint_index:
+                # breakpoint exists
+                return
+            elif current_bp_index > breakpoint_index:
+                # document the breakpoint location on the current segment
+                segment_to_break = segment.duplicate()
+                previous_bp_index = current_bp_index - len(segment)
+                left_delete_len = breakpoint_index - previous_bp_index
+                right_delete_len = current_bp_index - breakpoint_index
+                break
+            else:
+                # breakpoint location not yet met
+                continue
+
+        # create breakpoint on all identical Segments in the genome
+        def break_segment(current_arm: Arm):
+            left_segment = segment_to_break.duplicate()
+            right_segment = segment_to_break.duplicate()
+            left_segment.right_delete(right_delete_len)
+            right_segment.left_delete(left_delete_len)
+
+            same_direction_match = \
+                [index for index, value in enumerate(current_arm.segments) if value == segment_to_break]
+            for segment_index_itr in reversed(same_direction_match):
+                current_arm.segments.pop(segment_index_itr)
+                current_arm.segments.insert(segment_index_itr, left_segment.duplicate())
+                current_arm.segments.insert(segment_index_itr + 1, right_segment.duplicate())
+
+            all_match = \
+                [index for index, value in enumerate(current_arm.segments)
+                 if segment_to_break.same_segment_ignore_dir(value)]
+            same_direction_match = \
+                [index for index, value in enumerate(current_arm.segments) if value == segment_to_break]
+            reversed_direction_match = [element for element in all_match if element not in same_direction_match]
+            for segment_index_itr in reversed(reversed_direction_match):
+                current_arm.segments.pop(segment_index_itr)
+                new_right_segment = right_segment.duplicate()
+                new_left_segment = left_segment.duplicate()
+                new_right_segment.invert()
+                new_left_segment.invert()
+                current_arm.segments.insert(segment_index_itr, new_right_segment)
+                current_arm.segments.insert(segment_index_itr + 1, new_left_segment)
+
+        break_segment(self.motherboard)
+        for slot in self.full_KT:
+            for chromosome in self.full_KT[slot]:
+                break_segment(chromosome.p_arm)
+                break_segment(chromosome.q_arm)
+
+    def output_KT(self, output_file):
+        with open(output_file, 'w') as fp_write:
+            fp_write.write(self.motherboard_tostring())
+            fp_write.write('---\n')
+            fp_write.write(self.KT_tostring())
 
 class Path:
     linear_path: Arm
@@ -651,7 +704,7 @@ class Path:
     def concise_str(self):
         segment_str = ""
         for segment in self.linear_path.segments:
-            segment_str += segment.concise_str()
+            segment_str += str(segment)
         return str("path_name: {}, segments: {}".format(self.path_name, segment_str))
 
     def reverse(self):
@@ -671,7 +724,7 @@ class Path:
 
     def generate_mutual_breakpoints(self, other_path=None, mutual=True):
         """
-        make sure all segments within the 1/2 paths have mutual breakpoints
+        make sure all segments within the 1/2 path/s have mutual breakpoints
         :param other_path: if None, then breaking within itself
         :param mutual: whether to generate breakpoints on the other_path
         :return:
