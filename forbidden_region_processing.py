@@ -11,6 +11,7 @@ def read_forbidden_regions(masking_file) -> Arm:
             segment_list.append(new_segment)
     return Arm(segment_list, 'forbidden_regions')
 
+
 def output_forbidden_regions_from_arm(input_arm: Arm, output_file_path):
     with open(output_file_path, 'w') as fp_write:
         fp_write.write('Chr\tStartPos\tEndPos\tType\n')
@@ -20,6 +21,7 @@ def output_forbidden_regions_from_arm(input_arm: Arm, output_file_path):
                                                        str(segment_itr.end),
                                                        segment_itr.segment_type)
             fp_write.write(output_str)
+
 
 def label_path_with_forbidden_regions(input_path_list: [Path], masking_file):
     forbidden_regions_path = Path(read_forbidden_regions(masking_file), 'forbidden_regions', 'forbidden_regions')
@@ -36,6 +38,7 @@ def label_path_with_forbidden_regions(input_path_list: [Path], masking_file):
                     labeled = True
             if not labeled:
                 path_segment_itr.segment_type = 'arm_region'
+
 
 def test():
     print(read_forbidden_regions('../Metadata/merged_forbidden_regions_unique.bed'))
