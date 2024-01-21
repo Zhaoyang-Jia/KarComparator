@@ -22,7 +22,7 @@ class Segment:
                       "centromere",
                       "telomere2",
                       "acrocentric",
-                      'acrocentric-telomere',
+                      'acrocentric-telomere1',
                       'acrocentric-centromere',
                       "arm_region",
                       "hardmask",
@@ -774,19 +774,49 @@ class Path:
                 origins.add(segment_chr)
         return origins
 
-    def tostring_path_by_index(self, index_dict):
+    def tostring_path_by_index(self, segment_to_index):
         output = "{}\t{}\t".format(self.path_name, self.path_chr)
         segment_indices = []
         for segment in self.linear_path.segments:
             current_segment = segment.duplicate()
-            if current_segment in index_dict:
-                segment_indices.append(index_dict[current_segment] + '+')
+            if current_segment in segment_to_index:
+                segment_indices.append(segment_to_index[current_segment] + '+')
             else:
                 current_segment.invert()
                 # if this is no-found error, mistake was made during the dict disjoint process
-                segment_indices.append(index_dict[current_segment] + '-')
+                segment_indices.append(segment_to_index[current_segment] + '-')
 
         return output + ','.join(segment_indices)
+
+
+def segment_indices_to_segments(segment_index_list, segment_dict):
+    """
+    :param segment_index_list: a list of segment indices with direction (eg. [1+, 2-, 12+])
+    :param segment_dict: key is int, value is Segment
+    :return: a list of Segments in the same order
+    """
+    segment_list = []
+    for segment_index_element in segment_index_list:
+        segment_index = int(segment_index_element[:-1])
+        segment_direction = segment_index_element[-1]
+
+        new_segment = segment_dict[segment_index].duplicate()
+        if segment_direction == "-":
+            new_segment.invert()
+        segment_list.append(new_segment)
+    return segment_list
+
+
+def flip_dict(input_dict):
+    """
+    input dict requires one-to-one correspondence
+    :param input_dict:
+    :return:
+    """
+    output_dict = {}
+    for key, value in input_dict.items():
+        output_dict[value] = key
+    return output_dict
 
 
 if __name__ == "__main__":

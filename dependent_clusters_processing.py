@@ -77,11 +77,12 @@ def form_dependent_clusters(karsim_path_list, omkar_path_list, output_dir):
                                                                                         len(clustered_omkar_path[cluster_ind]))
         segment_dict = {}  # also form dict for later parsing
         for segment_ind in range(len(all_segments)):
-            output_str += "{}\t{}\t{}\t{}\t{}\n".format(segment_ind,
-                                                        all_segments[segment_ind].chr_name,
-                                                        all_segments[segment_ind].start,
-                                                        all_segments[segment_ind].end,
-                                                        len(all_segments[segment_ind]))
+            output_str += "{}\t{}\t{}\t{}\t{}\t{}\n".format(segment_ind,
+                                                            all_segments[segment_ind].chr_name,
+                                                            all_segments[segment_ind].start,
+                                                            all_segments[segment_ind].end,
+                                                            all_segments[segment_ind].segment_type,
+                                                            len(all_segments[segment_ind]))
             segment_dict[all_segments[segment_ind]] = str(segment_ind)
         output_str += "---\n"
 
@@ -105,6 +106,7 @@ def form_least_disjoint_supergroups(all_origins):
     :param all_origins:
     :return:
     """
+
     class Bin:
         def __init__(self, chr_components: set):
             self.chr_components = set(chr_components)
