@@ -1,6 +1,6 @@
 from Structures import *
 from forbidden_region_processing import *
-from Start_Genome import *
+from Karsimulator_Start_Genome import *
 
 
 def read_KarSimulator_output_to_path(KarSimulator_output_file, forbidden_region_file):

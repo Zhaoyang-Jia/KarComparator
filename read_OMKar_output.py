@@ -116,7 +116,7 @@ def rotate_and_bin_path(path_list, forbidden_region_file):
 
 def report_centromere_anomaly(path_list):
     for path in path_list:
-        if path.path_chr.startswith("no centromere") or path.path_chr.startswith("multiple centromere"):
+        if "no centromere" in path.path_chr or "multiple centromere" in path.path_chr:
             print(path.get_path_notes())
 
 
