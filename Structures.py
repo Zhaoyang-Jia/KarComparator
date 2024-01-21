@@ -788,6 +788,14 @@ class Path:
 
         return output + ','.join(segment_indices)
 
+    def nonforbidden_len(self):
+        length = 0
+        forbidden_comparison_region_types = ['acrocentric', 'telomere1', 'telomere2', 'acrocentric-telomere1', 'acrocentric-centromere']
+        for segment in self.linear_path.segments:
+            if segment.segment_type not in forbidden_comparison_region_types:
+                length += len(segment)
+        return length
+
 
 def segment_indices_to_segments(segment_index_list, segment_dict):
     """
@@ -803,6 +811,9 @@ def segment_indices_to_segments(segment_index_list, segment_dict):
         new_segment = segment_dict[segment_index].duplicate()
         if segment_direction == "-":
             new_segment.invert()
+            new_segment.kt_index = str(segment_index) + '-'
+        else:
+            new_segment.kt_index = str(segment_index) + '+'
         segment_list.append(new_segment)
     return segment_list
 

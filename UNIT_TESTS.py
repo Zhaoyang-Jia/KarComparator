@@ -4,6 +4,7 @@ from read_OMKar_output import *
 from dependent_clusters_processing import *
 from read_cluster_file import *
 from NW_aligner import *
+from bipartite_matching import *
 
 
 def test_read_KarSimulator_output_to_path():
@@ -36,8 +37,8 @@ def test_form_dependent_clusters():
 
 
 def test_read_cluster_file():
-    file = 'tmp/cluster_6.txt'
-    karsim_path_list, omkar_path_list = read_cluster_file(file)
+    file = 'tmp/cluster_6_graph_test.txt'
+    _, karsim_path_list, omkar_path_list = read_cluster_file(file)
     for path in karsim_path_list:
         print(path)
     for path in omkar_path_list:
@@ -45,10 +46,10 @@ def test_read_cluster_file():
 
 
 def test_NW_aligner():
-    file = 'tmp/cluster_6.txt'
+    file = 'tmp/cluster_6_graph_test.txt'
     index_to_segment, karsim_path_list, omkar_path_list = read_cluster_file(file)
-    path1 = karsim_path_list[3].linear_path.segments
-    path2 = omkar_path_list[3].linear_path.segments
+    path1 = karsim_path_list[1].linear_path.segments
+    path2 = omkar_path_list[1].linear_path.segments
     score, karsim_alignment, omkar_alignment = align_paths(path1, path2)
     print(score)
     str1, str2 = tostring_alignment(index_to_segment, karsim_alignment, omkar_alignment)
@@ -68,6 +69,18 @@ def test_manual_correction():
     print(str2)
 
 
+def test_bipartite_matching():
+    file = 'tmp/cluster_12.txt'
+    index_to_segment, karsim_path_list, omkar_path_list = read_cluster_file(file)
+    hungarian_algorithm_for_cluster(karsim_path_list, omkar_path_list, index_to_segment, verbose=True)
+
+
 if __name__ == "__main__":
-    test_NW_aligner()
-    test_manual_correction()
+    # test_NW_aligner()
+    # test_manual_correction()
+
+    # test_read_cluster_file()
+
+    # test_NW_aligner()
+
+    test_bipartite_matching()
