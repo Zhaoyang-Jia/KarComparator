@@ -1,0 +1,21 @@
+cluster<5>, origin_chr<['Chr6']>, n_karsim<2>, n_omkar<2>
+0	Chr6	0	59999	telomere1	60000
+1	Chr6	60000	78490	arm_region	18491
+2	Chr6	78491	58553888	arm_region	58475398
+3	Chr6	58553889	59829934	centromere	1276046
+4	Chr6	59829935	66004129	arm_region	6174195
+5	Chr6	66004130	66006188	arm_region	2059
+6	Chr6	66006189	66023216	arm_region	17028
+7	Chr6	66023217	69741306	arm_region	3718090
+8	Chr6	69741307	69746164	arm_region	4858
+9	Chr6	69746165	69749575	arm_region	3411
+10	Chr6	69749576	170737419	arm_region	100987844
+11	Chr6	170737420	170745978	arm_region	8559
+12	Chr6	170745979	170805978	telomere2	60000
+---
+Chr6a	Chr6	0+,1+,2+,3+,4+,5+,6+,9+,10+,11+,12+
+Chr6b	Chr6	0+,1+,2+,3+,4+,5+,6+,7+,8+,9+,10+,11+,12+
+---
+Path11	Chr6	2+,3+,4+,6+,7+,10+
+Path12	Chr6	2+,3+,4+,10+
+---

@@ -25,8 +25,8 @@ def test_read_OMKar_output_to_path():
 
 
 def test_form_dependent_clusters():
-    karsim_file = 'sample_input/12q14_microdeletion_v2_r2.kt.txt'
-    omkar_file = 'sample_input/12q14_microdeletion_v2_r2.1.txt'
+    karsim_file = '/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/KarSimulator/23X_Angelman_r1.kt.txt'
+    omkar_file = '/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/OMKar/23X_Angelman_r1.1.txt'
     forbidden_region_file = 'Metadata/acrocentric_telo_cen.bed'
     output_dir = 'tmp/'
 
@@ -37,7 +37,7 @@ def test_form_dependent_clusters():
 
 
 def test_read_cluster_file():
-    file = 'tmp/cluster_6_graph_test.txt'
+    file = 'debug_files/cluster_6_graph_test.txt'
     _, karsim_path_list, omkar_path_list = read_cluster_file(file)
     for path in karsim_path_list:
         print(path)
@@ -46,7 +46,7 @@ def test_read_cluster_file():
 
 
 def test_NW_aligner():
-    file = 'tmp/cluster_6_graph_test.txt'
+    file = '/media/zhaoyang-new/workspace/KarSim/KarComparator/batch_processing/cluster_files/12q14_microdeletion_r1cluster_4.txt'
     index_to_segment, karsim_path_list, omkar_path_list = read_cluster_file(file)
     path1 = karsim_path_list[1].linear_path.segments
     path2 = omkar_path_list[1].linear_path.segments
@@ -58,7 +58,7 @@ def test_NW_aligner():
 
 
 def test_manual_correction():
-    file = 'tmp/cluster_6_runexample.txt'
+    file = 'debug_files/cluster_6_runexample.txt'
     index_to_segment, karsim_path_list, omkar_path_list = read_cluster_file(file)
     path1 = karsim_path_list[1].linear_path.segments
     path2 = omkar_path_list[1].linear_path.segments
@@ -70,12 +70,13 @@ def test_manual_correction():
 
 
 def test_bipartite_matching():
-    file = 'tmp/cluster_12.txt'
+    file = '/media/zhaoyang-new/workspace/KarSim/KarComparator/batch_processing/cluster_files/12q14_microdeletion_r1cluster_4.txt'
     index_to_segment, karsim_path_list, omkar_path_list = read_cluster_file(file)
     hungarian_algorithm_for_cluster(karsim_path_list, omkar_path_list, index_to_segment, verbose=True)
 
 
 if __name__ == "__main__":
+    test_form_dependent_clusters()
     # test_NW_aligner()
     # test_manual_correction()
 
@@ -83,4 +84,4 @@ if __name__ == "__main__":
 
     # test_NW_aligner()
 
-    test_bipartite_matching()
+    # test_bipartite_matching()

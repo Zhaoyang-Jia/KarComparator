@@ -42,12 +42,12 @@ def hungarian_algorithm_for_cluster(path_list1, path_list2, index_to_segment, ve
             # it is not possible that both sides have dummies
             if path_list1[row_ind].path_name == 'dummy':
                 score = path_list2[col_ind].nonforbidden_len()
-                alignment_1 = "skipped"
+                alignment_1 = "s" # stands for skipped
                 alignment_2 = "-"
             elif path_list2[col_ind].path_name == 'dummy':
                 score = path_list1[row_ind].nonforbidden_len()
                 alignment_1 = "-"
-                alignment_2 = "skipped"
+                alignment_2 = "s"
             else:
                 score, alignment_1, alignment_2 = align_paths(path_list1[row_ind].linear_path.segments,
                                                               path_list2[col_ind].linear_path.segments)

@@ -113,6 +113,8 @@ def tostring_alignment(index_to_segment, alignment_1, alignment_2):
     for segment in alignment_1:
         if segment == "-":
             str1.append("-")
+        elif segment == 's':
+            str1.append('skipped')
         else:
             appending_str = ""
             # to denote no penalty for certain regions
@@ -130,6 +132,8 @@ def tostring_alignment(index_to_segment, alignment_1, alignment_2):
     for segment in alignment_2:
         if segment == "-":
             str2.append("-")
+        elif segment == 's':
+            str2.append('skipped')
         else:
             appending_str = ""
             # to denote no penalty for certain regions

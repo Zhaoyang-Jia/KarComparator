@@ -1,0 +1,33 @@
+12q14_microdeletion_r2
+chr_bin: Chr2-no centromere, path_name: Path7, segment_chr: Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 
+chr_bin: Chr2-no centromere, path_name: Path8, segment_chr: Chr2 Chr2 
+chr_bin: Chr10-no centromere, path_name: Path25, segment_chr: Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 
+chr_bin: Chr10-no centromere, path_name: Path26, segment_chr: Chr10 Chr10 Chr10 
+chr_bin: Chr12-no centromere, path_name: Path29, segment_chr: Chr12 Chr12 Chr12 Chr12 Chr12 Chr12 Chr12 Chr12 Chr12 Chr12 
+chr_bin: Chr12-no centromere, path_name: Path32, segment_chr: Chr15 Chr15 Chr12 Chr12 Chr12 Chr12 Chr12 Chr12 Chr12 Chr12 Chr12 Chr12 
+1q21-1_recurrent_microdeletion_r2
+chr_bin: Chr1-multiple centromere: Chr8 Chr1 , path_name: Path3, segment_chr: Chr8 Chr8 Chr8 Chr8 Chr8 Chr8 Chr8 Chr8 Chr8 Chr1 Chr1 Chr1 Chr1 Chr1 
+chr_bin: Chr2-multiple centromere: Chr2 Chr2 , path_name: Path4, segment_chr: Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 
+chr_bin: Chr10-no centromere, path_name: Path14, segment_chr: Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 
+chr_bin: Chr6-no centromere, path_name: Path16, segment_chr: Chr10 Chr10 Chr10 Chr12 Chr12 Chr12 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr6 Chr6 
+chr_bin: Chr10-no centromere, path_name: Path20, segment_chr: Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr12 Chr12 Chr12 Chr10 Chr10 Chr10 
+chr_bin: Chr11-no centromere, path_name: Path23, segment_chr: Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 
+chr_bin: Chr11-no centromere, path_name: Path24, segment_chr: Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 
+chr_bin: Chr15-no centromere, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: Chr15-no centromere, path_name: Path30, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+Potocki_Lupski_r1
+chr_bin: Chr5-no centromere, path_name: Path13, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: Chr5-no centromere, path_name: Path14, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: Chr10-no centromere, path_name: Path21, segment_chr: Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 
+chr_bin: Chr10-no centromere, path_name: Path22, segment_chr: Chr10 
+chr_bin: Chr16-no centromere, path_name: Path35, segment_chr: Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 
+chr_bin: Chr16-no centromere, path_name: Path36, segment_chr: Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 Chr16 
+12q14_microdeletion_r1
+chr_bin: Chr2-no centromere, path_name: Path5, segment_chr: Chr2 Chr2 
+chr_bin: Chr2-no centromere, path_name: Path6, segment_chr: Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 
+chr_bin: Chr6-multiple centromere: Chr6 Chr6 , path_name: Path13, segment_chr: Chr6 Chr6 Chr6 Chr6 Chr6 Chr6 Chr6 Chr6 Chr6 Chr6 Chr6 Chr6 Chr6 Chr6 Chr6 
+chr_bin: Chr7-no centromere, path_name: Path15, segment_chr: Chr7 Chr7 
+1q21-1_recurrent_microdeletion_r1
+chr_bin: Chr3-multiple centromere: Chr3 Chr3 , path_name: Path9, segment_chr: Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 
+chr_bin: Chr13-no centromere, path_name: Path24, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 
+chr_bin: Chr13-no centromere, path_name: Path25, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 

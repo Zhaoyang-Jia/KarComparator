@@ -13,7 +13,7 @@ def genome_wide_mutual_breaking(karsim_path_list, omkar_path_list):
             karsim_path.generate_mutual_breakpoints(omkar_path, mutual=True)
 
 
-def form_dependent_clusters(karsim_path_list, omkar_path_list, output_dir):
+def form_dependent_clusters(karsim_path_list, omkar_path_list, output_dir, prefix=''):
     # check if the two path_list have mutually broken segments, only runs if this is ensured
     check_all_segments = []
     for path in karsim_path_list:
@@ -96,7 +96,7 @@ def form_dependent_clusters(karsim_path_list, omkar_path_list, output_dir):
             output_str += path.tostring_path_by_index(segment_dict) + '\n'
         output_str += "---\n"
 
-        with open("{}/cluster_{}.txt".format(output_dir, str(cluster_ind)), 'w') as fp_write:
+        with open("{}/{}cluster_{}.txt".format(output_dir, prefix, str(cluster_ind)), 'w') as fp_write:
             fp_write.write(output_str)
 
 
