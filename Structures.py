@@ -18,7 +18,15 @@ class Segment:
         return abs(self.end - self.start) + 1
 
     def __lt__(self, other):
-        type_order = ["telomere1", "telomere2", "centromere", "acrocentric", "hardmask", "superdup"]
+        type_order = ["telomere1",
+                      "centromere",
+                      "telomere2",
+                      "acrocentric",
+                      'acrocentric-telomere1',
+                      'acrocentric-centromere',
+                      "arm_region",
+                      "hardmask",
+                      "superdup"]
 
         def get_chr_order(chromosome_name):
             chr_extracted = chromosome_name.replace('Chr', '')
@@ -688,6 +696,7 @@ class Genome:
             fp_write.write('---\n')
             fp_write.write(self.KT_tostring())
 
+
 class Path:
     linear_path: Arm
     path_chr: str
@@ -724,7 +733,7 @@ class Path:
 
     def generate_mutual_breakpoints(self, other_path=None, mutual=True):
         """
-        make sure all segments within the 1/2 path/s have mutual breakpoints
+        make sure all segments within the one/two path/s have mutual breakpoints
         :param other_path: if None, then breaking within itself
         :param mutual: whether to generate breakpoints on the other_path
         :return:
@@ -743,9 +752,82 @@ class Path:
             for breakpoint_itr in path1_breakpoints:
                 self.linear_path.introduce_breakpoint(*breakpoint_itr)
 
+    def is_disjoint(self):
+        tmp_self = self.duplicate()
+        before_breaking_len = len(tmp_self.linear_path.segments)
+        tmp_self.generate_mutual_breakpoints()
+        after_breaking_len = len(tmp_self.linear_path.segments)
+        if before_breaking_len == after_breaking_len:
+            return True
+        else:
+            return False
+
     def duplicate(self):
         new_arm = self.linear_path.duplicate()
         return Path(new_arm, self.path_chr, self.path_name)
+
+    def get_origins(self):
+        origins = set()
+        for segment in self.linear_path.segments:
+            segment_chr = segment.chr_name.split('-')[0]
+            if segment_chr not in origins:
+                origins.add(segment_chr)
+        return origins
+
+    def tostring_path_by_index(self, segment_to_index):
+        output = "{}\t{}\t".format(self.path_name, self.path_chr)
+        segment_indices = []
+        for segment in self.linear_path.segments:
+            current_segment = segment.duplicate()
+            if current_segment in segment_to_index:
+                segment_indices.append(segment_to_index[current_segment] + '+')
+            else:
+                current_segment.invert()
+                # if this is no-found error, mistake was made during the dict disjoint process
+                segment_indices.append(segment_to_index[current_segment] + '-')
+
+        return output + ','.join(segment_indices)
+
+    def nonforbidden_len(self):
+        length = 0
+        forbidden_comparison_region_types = ['acrocentric', 'telomere1', 'telomere2', 'acrocentric-telomere1', 'acrocentric-centromere']
+        for segment in self.linear_path.segments:
+            if segment.segment_type not in forbidden_comparison_region_types:
+                length += len(segment)
+        return length
+
+
+def segment_indices_to_segments(segment_index_list, segment_dict):
+    """
+    :param segment_index_list: a list of segment indices with direction (eg. [1+, 2-, 12+])
+    :param segment_dict: key is int, value is Segment
+    :return: a list of Segments in the same order
+    """
+    segment_list = []
+    for segment_index_element in segment_index_list:
+        segment_index = int(segment_index_element[:-1])
+        segment_direction = segment_index_element[-1]
+
+        new_segment = segment_dict[segment_index].duplicate()
+        if segment_direction == "-":
+            new_segment.invert()
+            new_segment.kt_index = str(segment_index) + '-'
+        else:
+            new_segment.kt_index = str(segment_index) + '+'
+        segment_list.append(new_segment)
+    return segment_list
+
+
+def flip_dict(input_dict):
+    """
+    input dict requires one-to-one correspondence
+    :param input_dict:
+    :return:
+    """
+    output_dict = {}
+    for key, value in input_dict.items():
+        output_dict[value] = key
+    return output_dict
 
 
 if __name__ == "__main__":

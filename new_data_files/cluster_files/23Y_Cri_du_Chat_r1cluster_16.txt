@@ -1,0 +1,14 @@
+cluster<16>, origin_chr<['Chr17']>, n_karsim<2>, n_omkar<2>
+0	Chr17	0	59999	telomere1	60000
+1	Chr17	60000	22813679	arm_region	22753680
+2	Chr17	22813680	26885980	centromere	4072301
+3	Chr17	26885981	83246392	arm_region	56360412
+4	Chr17	83246393	83247440	arm_region	1048
+5	Chr17	83247441	83257440	telomere2	10000
+---
+Chr17a	Chr17	0+,1+,2+,3+,4+,5+
+Chr17b	Chr17	0+,1+,2+,3+,4+,5+
+---
+Path33	Chr17	0+,1+,2+,3+
+Path34	Chr17	0+,1+,2+,3+
+---

@@ -1,6 +1,12 @@
 from Structures import *
-from forbidden_region_processing import read_forbidden_regions
-from Start_Genome import *
+from forbidden_region_processing import *
+from Karsimulator_Start_Genome import *
+
+
+def read_KarSimulator_output_to_path(KarSimulator_output_file, forbidden_region_file):
+    path_list = read_KarSimulator_output(KarSimulator_output_file, forbidden_region_file)
+    label_path_with_forbidden_regions(path_list, forbidden_region_file)
+    return path_list
 
 
 def read_KarSimulator_output(KT_file, masking_file):
@@ -60,6 +66,7 @@ def get_kt_index(input_index_dict, input_segment):
         if input_segment.same_segment_ignore_dir(key):
             return input_index_dict[key]
 
+
 def get_t2_segments(masking_file):
     masking_arm = read_forbidden_regions(masking_file)
     t2_segments = []
@@ -78,9 +85,10 @@ def segments_are_continuous(segment1: Segment, segment2: Segment):
             return True
     return False
 
+
 def test():
-    return_list = read_KarSimulator_output("sample_input/23X_Cri_du_Chat_r1.kt.txt",
-                                           "Metadata/merged_forbidden_regions_unique.bed")
+    return_list = read_KarSimulator_output_to_path("sample_input/23X_Cri_du_Chat_r1.kt.txt",
+                                           "Metadata/acrocentric_telo_cen.bed")
     for path in return_list:
         print(path)
 

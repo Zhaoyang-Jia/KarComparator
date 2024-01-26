@@ -59,7 +59,9 @@ def read_OMKar_output(file):
 
 def rotate_and_bin_path(path_list, forbidden_region_file):
     """
-    only works if each path contains exactly one centromere, will mark path accordingly if centromere anomaly exists
+    only works if each path contains exactly one centromere, OW will bin according to t1+t2+centromere percentage,
+    if still no, will bin according to overall chr-content percentage
+    will mark path accordingly if centromere anomaly exists
     :param forbidden_region_file:
     :param path_list:
     :return: path_list
@@ -72,9 +74,12 @@ def rotate_and_bin_path(path_list, forbidden_region_file):
     # get centromere, rotate if backward, and bin path
     for path in path_list:
         path_centromere = []
+        path_telomeres = []
         for segment_itr in path.linear_path.segments:
             if 'centromere' in segment_itr.segment_type:
                 path_centromere.append(segment_itr.duplicate())
+            elif 'telomere' in segment_itr.segment_type:
+                path_telomeres.append(segment_itr.duplicate())
 
         path_centromere_arm = Arm(path_centromere, 'centromeres')
         path_centromere_arm.merge_breakpoints()
@@ -83,25 +88,61 @@ def rotate_and_bin_path(path_list, forbidden_region_file):
             path.path_chr = path_centromere_arm.segments[0].chr_name
             if not path_centromere_arm.segments[0].direction():
                 # flip if centromere is backward
-                print(path.path_name + " is flipped")
-                segment_list = path.linear_path.segments
-                segment_list.reverse()
-                for segment_itr in segment_list:
-                    segment_itr.invert()
-                path.linear_path.segments = segment_list
+                # print(path.path_name + " is flipped")
+                rotate_path(path)
         elif len(path_centromere_arm.segments) == 0:
-            path.path_chr = "no centromere"
+            # print(path)
+            chr_bin = get_highest_represented_chr(path_centromere + path_telomeres)
+            if chr_bin is not None:
+                # bin by cen + telo1 + telo2 %content
+                path.path_chr = chr_bin
+            else:
+                # bin by the whole chr %centent
+                path.path_chr = get_highest_represented_chr(path.linear_path.segments)
+            path.path_chr += "-no centromere"
         else:
-            path.path_chr = "multiple centromere: "
+            # print(path)
+            chr_bin = get_highest_represented_chr(path_centromere + path_telomeres)
+            if chr_bin is not None:
+                # bin by cen + telo1 + telo2 %content
+                path.path_chr = chr_bin
+            else:
+                # bin by the whole chr %centent
+                path.path_chr = get_highest_represented_chr(path.linear_path.segments)
+            path.path_chr += "-multiple centromere: "
             for centromere_itr in path_centromere:
                 path.path_chr += centromere_itr.chr_name + " "
 
 
 def report_centromere_anomaly(path_list):
     for path in path_list:
-        if path.path_chr.startswith("no centromere") or path.path_chr.startswith("multiple centromere"):
+        if "no centromere" in path.path_chr or "multiple centromere" in path.path_chr:
             print(path.get_path_notes())
 
+
+def get_highest_represented_chr(segment_list):
+    tally = {}
+    for segment in segment_list:
+        if segment.chr_name in tally:
+            tally[segment.chr_name] += len(segment)
+        else:
+            tally[segment.chr_name] = len(segment)
+
+    max_count = -1
+    max_count_chr = None
+    for key in tally:
+        if tally[key] > max_count:
+            max_count = tally[key]
+            max_count_chr = key
+    return max_count_chr
+
+
+def rotate_path(input_path):
+    segment_list = input_path.linear_path.segments
+    segment_list.reverse()
+    for segment_itr in segment_list:
+        segment_itr.invert()
+    input_path.linear_path.segments = segment_list
 
 # def cmd_centromere_anomaly():
 #     # TODO: verify errors before restoring
@@ -153,7 +194,7 @@ def test():
 
 
 def test_read_OMKar_output():
-    path_list = read_OMKar_output("sample_input/23Y_Cri_du_Chat_r1.1.txt")
+    path_list = read_OMKar_output("sample_input/23Y_C ri_du_Chat_r1.1.txt")
     for path in path_list:
         print(path)
 
