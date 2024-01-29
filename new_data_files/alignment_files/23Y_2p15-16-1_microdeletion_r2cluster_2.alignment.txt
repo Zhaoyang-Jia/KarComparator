@@ -1,0 +1,11 @@
+total cost: 15177308
+alignment 0: Chr4a, Path10 	 cost: 7671227
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	10-	9-	8-	7-	x11+
+-	-	2+	3+	4+	5+	6+	7+	-	9+	-	-	-	-	-	-
+alignment 1: Chr4b, Path11 	 cost: 8500
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+-	-	2+	3+	4+	5+	6+	7+	-	9+	-	-
+alignment 2: dummy, Path12 	 cost: 7497581
+skipped
+-
+

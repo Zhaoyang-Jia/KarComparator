@@ -1,0 +1,8 @@
+total cost: 177407114
+alignment 0: Chr14a, Path26 	 cost: 88696919
+x0+	1+	x2+	3+	4+	5+	6+	8-	7-	7+	-	-	-	-	-	-	8+	x9+
+x0+	1+	x2+	3+	4+	5+	6+	-	-	7+	5-	4-	3-	x2-	1+	x0-	-	-
+alignment 1: Chr14b, dummy 	 cost: 88710195
+-
+skipped
+

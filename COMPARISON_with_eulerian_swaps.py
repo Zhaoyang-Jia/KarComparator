@@ -1,6 +1,8 @@
-from typing import Set
-
 from Structures import *
+from read_cluster_file import *
+
+from typing import Set
+import re
 
 
 class Node:
@@ -127,3 +129,27 @@ def form_graph(path_list: [Path]):
         graph.append_sink(last_node)
 
     return Graph
+
+def read_alignment_file(alignment_file, cluster_file):
+    """
+    combine alignment file's bipartite matching + scoring with the paths from the cluster_file
+    :param alignment_file:
+    :param cluster_file:
+    :return:
+    """
+    total_cost = -1
+    path_cost = []  # associated costs for each path in the path_list
+
+    # index_to_segment, karsim_path_list, omkar_path_list = read_cluster_file
+
+    with open(alignment_file) as fp_read:
+        line1 = fp_read.readline()
+        line1 = line1.replace('\n', '').split(': ')[1]
+        total_cost = int(line1)
+
+        karsim_path_name = ''
+        omkar_path_name = ''
+        for line in fp_read:
+            if line.startswith('alignment'):
+                info = re.match(r"alignment (\d+): (.+), (.+) \t cost: (\d+)", line)
+                print(info)

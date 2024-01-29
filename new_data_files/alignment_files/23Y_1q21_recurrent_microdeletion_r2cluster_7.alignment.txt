@@ -1,0 +1,8 @@
+total cost: 6904
+alignment 0: Chr12a, Path24 	 cost: 5556
+x0+	1+	2+	3+	4+	6-	5-	-	-	7+	8+	x9+
+x0+	1+	2+	3+	-	-	5-	4-	6+	7+	-	-
+alignment 1: Chr12b, Path23 	 cost: 1348
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+

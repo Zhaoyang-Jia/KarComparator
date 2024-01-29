@@ -1,0 +1,8 @@
+total cost: 18936
+alignment 0: Chr6a, Path17 	 cost: 12855
+x0+	1+	2+	3+	-	6-	5-	-	4-	7+	8+	x9+
+x0+	1+	2+	3+	4+	-	5-	6+	-	7+	-	-
+alignment 1: Chr6b, Path16 	 cost: 6081
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+

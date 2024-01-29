@@ -1,0 +1,8 @@
+total cost: 1127748
+alignment 0: Chr20a, Path38 	 cost: 1127300
+x0+	1+	-	2-	3+	4+	5+	6+	x7+
+x0+	1+	2+	-	3+	4+	5+	-	-
+alignment 1: Chr20b, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+

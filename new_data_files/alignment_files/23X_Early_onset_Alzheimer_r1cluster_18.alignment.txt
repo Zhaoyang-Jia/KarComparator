@@ -1,0 +1,8 @@
+total cost: 10564
+alignment 0: ChrXa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: ChrXb, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+

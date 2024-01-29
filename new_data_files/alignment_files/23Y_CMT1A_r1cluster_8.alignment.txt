@@ -1,0 +1,8 @@
+total cost: 7630
+alignment 0: Chr10a, Path20 	 cost: 5475
+x0+	1+	-	-	3-	2-	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	4-	3-	-	-	5+	6+	7+	-	-
+alignment 1: Chr10b, Path19 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+

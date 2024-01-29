@@ -1,0 +1,11 @@
+total cost: 16057728
+alignment 0: Chr8a, Path17 	 cost: 9122593
+x0+	4-	3-	2-	1-	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+-	-	-	-	-	-	2+	-	4+	5+	6+	7+	8+	9+	-	-
+alignment 1: Chr8b, Path18 	 cost: 25359
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+-	-	2+	-	4+	5+	6+	7+	8+	9+	-	-
+alignment 2: dummy, Path19 	 cost: 6909776
+skipped
+-
+

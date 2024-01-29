@@ -1,0 +1,5742 @@
+23X_Cri_du_Chat_r1cluster_18
+total cost: 5504
+alignment 0: Chr21a, Path41 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_NF1_microdeletion_r2cluster_5
+total cost: 18563491
+alignment 0: Chr1b, Path3 	 cost: 18282281
+x1+	0+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	x25+
+-	-	-	3+	4+	5+	-	7+	-	9+	10+	11+	-	13+	14+	-	-	17+	-	19+	-	21+	-	23+	-	-
+alignment 1: Chr7a, Path2 	 cost: 8828
+x26+	27+	28+	29+	30+	5+	6+	7+	8+	9+	-	10+	31+	32+	33+	x34+
+x26+	27+	28+	29+	-	-	-	7+	-	9+	30+	-	31+	32+	-	-
+alignment 2: Chr7b, Path1 	 cost: 988
+x26+	27+	28+	29+	30+	31+	32+	33+	x34+
+x26+	27+	28+	29+	30+	31+	32+	-	-
+alignment 3: dummy, Path4 	 cost: 271394
+skipped
+-
+
+23Y_Cri_du_Chat_r2cluster_13
+total cost: 7186
+alignment 0: Chr16a, Path31 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr16b, Path32 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_15q26_overgrowth_r1cluster_8
+total cost: 504
+alignment 0: Chr9a, Path16 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path17 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_6
+total cost: 1976
+alignment 0: Chr7a, Path13 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path14 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r1cluster_16
+total cost: 2096
+alignment 0: Chr17a, Path33 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path34 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_13
+total cost: 13820
+alignment 0: Chr18a, Path35 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path36 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r2cluster_21
+total cost: 10564
+alignment 0: ChrXa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: ChrXb, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_22
+total cost: 10564
+alignment 0: ChrXa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: ChrXb, Path47 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r2cluster_7
+total cost: 238473811
+alignment 0: Chr1a, Path4 	 cost: 121607484
+-	-	-	-	-	-	x0+	1+	2+	6+	7+	8+	9+	10+	11+	12+	13+	14+	13+	14+	x15+
+x16+	17+	18+	19+	4+	5+	-	-	-	6+	7+	8+	9+	10+	-	12+	-	-	13+	-	-
+alignment 1: Chr1b, Path1 	 cost: 13995
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	x15+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	10+	-	12+	13+	-	-
+alignment 2: Chr11a, Path2 	 cost: 111763076
+-	x16+	17+	3+	4+	5+	18+	19+	20+	21+	22+	23+	x24+
+2+	-	-	3+	4+	-	-	-	20+	21+	22+	-	-
+alignment 3: Chr11b, Path3 	 cost: 7056
+x16+	17+	18+	19+	20+	21+	22+	23+	x24+
+x16+	17+	18+	19+	20+	21+	22+	-	-
+alignment 4: dummy, Path5 	 cost: 5082200
+skipped
+-
+
+23Y_Cri_du_Chat_r2cluster_6
+total cost: 19125166
+alignment 0: Chr6a, Path16 	 cost: 17993
+x0+	1+	-	36+	37+	38+	4+	5+	6+	7+	-	-	11+	12+	x13+
+x0+	1+	2+	-	37+	-	-	5+	6+	7+	8+	10+	11+	-	-
+alignment 1: Chr6b, Path14 	 cost: 6081
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	-	-
+alignment 2: Chr8a, Path11 	 cost: 9527327
+x14+	15+	8+	9+	10+	16+	17+	18+	19+	20+	-	21+	22-	-	23+	24+	25+	x26+
+x14+	15+	-	-	-	16+	17+	18+	19+	20+	23-	-	22-	21-	-	24+	-	-
+alignment 3: Chr8b, Path13 	 cost: 9499155
+x14+	15+	16+	17+	-	18+	19+	20+	21+	22+	23+	24+	25+	x26+
+x14+	15+	16+	17+	9+	18+	19+	20+	21+	22+	23+	24+	-	-
+alignment 4: Chr9a, Path12 	 cost: 42600
+x27+	28+	29+	30+	31+	32+	33+	34+	35+	-	2+	3+	-	-	39+	40+	x41+
+-	-	29+	30+	31+	-	33+	-	35+	36+	-	3+	4+	38+	39+	-	-
+alignment 5: Chr9b, Path15 	 cost: 32010
+x27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	39+	40+	x41+
+-	-	29+	30+	31+	-	33+	-	35+	36+	37+	38+	39+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_15
+total cost: 13820
+alignment 0: Chr18a, Path33 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path34 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_4
+total cost: 1461148021
+alignment 0: Chr1a, Path8 	 cost: 721987151
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	x0+	1+	2+	3+	4+	5+	6+	7+	-	7-	6-	5-	-	-	8+	9+	10+	11+	12+	13+	16+	17+	20+	21+	x22+
+38-	37-	36-	34-	34-	32-	31-	30-	29-	28-	27+	26-	62-	61-	60-	59-	58-	49-	48-	47-	46-	45-	18-	17-	11-	10-	9-	-	-	-	-	4+	5+	-	7+	8+	-	-	5-	4-	2-	-	-	-	-	-	-	-	-	-	-	-
+alignment 1: Chr1b, Path1 	 cost: 43740
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	x22+
+-	-	2+	-	4+	5+	-	7+	8+	9+	10+	11+	-	13+	14+	-	-	17+	18+	19+	20+	-	-
+alignment 2: Chr3a, Path4 	 cost: 2615992
+x23+	24+	25+	26+	61+	62+	63+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	36-	35-	34-	33-	32-	31-	37+	38+	39+	x40+
+-	-	25+	26+	-	-	-	27+	28+	29+	30+	31+	32+	-	34+	-	36+	-	-	-	-	-	-	37+	38+	-	-
+alignment 3: Chr3b, Path7 	 cost: 265434970
+-	-	-	-	x23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	39+	x40+
+64-	63-	62-	25-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 4: Chr8a, Path5 	 cost: 240377288
+-	-	-	x41+	42+	18+	19+	43+	-	-	44+	45+	46+	47+	51+	52+	x53+
+20-	19-	44-	-	-	-	-	43+	42-	x41-	-	-	-	-	-	-	-
+alignment 5: Chr8b, Path2 	 cost: 2510
+x41+	42+	43+	44+	45+	46+	47+	48+	49+	50+	51+	52+	x53+
+x41+	42+	43+	44+	45+	46+	47+	48+	49+	50+	51+	-	-
+alignment 6: Chr9a, Path6 	 cost: 230686118
+-	-	-	-	x54+	55+	48+	49+	50+	56+	-	-	57+	58+	59+	60+	64+	65+	x66+
+51-	50-	49-	57-	-	-	-	-	-	56+	55-	x54-	-	-	-	-	-	-	-
+alignment 7: Chr9b, Path3 	 cost: 252
+x54+	55+	56+	57+	58+	59+	60+	61+	62+	63+	64+	65+	x66+
+x54+	55+	56+	57+	58+	59+	60+	61+	62+	63+	64+	-	-
+
+23X_STS_r2cluster_0
+total cost: 20238
+alignment 0: Chr1a, Path2 	 cost: 17150
+x0+	1+	2+	3+	-	6-	5-	-	4-	7+	8+	x9+
+x0+	1+	2+	3+	4+	-	5-	6+	-	7+	-	-
+alignment 1: Chr1b, Path1 	 cost: 3088
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_15
+total cost: 2096
+alignment 0: Chr17a, Path33 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path34 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_5
+total cost: 5020
+alignment 0: Chr8a, Path17 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr8b, Path18 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_STS_r1cluster_8
+total cost: 17707881
+alignment 0: Chr1a, Path4 	 cost: 7404345
+x0+	1+	2+	3+	4+	5+	6+	7+	25+	26+	27+	28+	29+	30+	3+	4+	5+	6+	7+	-	-	-	25+	26+	27+	28+	29+	30+	31+	32+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	-	5+	-	-	-	26+	27+	28+	-	-	-	-	5+	-	7+	8+	9+	23+	-	26+	27+	28+	-	30+	31+	-	-	-	10+	11+	12+	-	-
+alignment 1: Chr1b, Path1 	 cost: 72926
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	-	5+	-	7+	8+	9+	10+	11+	12+	-	-
+alignment 2: Chr12a, Path2 	 cost: 10175819
+x15+	16+	17+	18+	19+	20+	27-	26-	25-	24-	23-	22-	21-	21+	22+	23+	-	-	-	-	-	-	24+	33+	34+	x35+
+-	-	17+	18+	19+	20+	-	-	-	-	-	-	-	21+	-	23+	26+	27+	28+	30+	31+	32+	-	33+	-	-
+alignment 3: Chr12b, Path3 	 cost: 54791
+x15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	x35+
+-	-	17+	18+	19+	20+	21+	-	23+	-	-	26+	27+	28+	-	30+	31+	32+	33+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_10
+total cost: 355375041
+alignment 0: Chr12a, Path28 	 cost: 88542784
+x0+	1+	2+	3+	-	4+	23+	-	-	5+	6+	7+	x8+
+x0+	1+	2+	3+	22+	-	23+	24+	25+	-	-	-	-
+alignment 1: Chr12b, Path25 	 cost: 1348
+x0+	1+	2+	3+	4+	5+	6+	7+	x8+
+x0+	1+	2+	3+	4+	5+	6+	-	-
+alignment 2: Chr13a, Path26 	 cost: 250490125
+-	-	-	-	-	-	-	-	x9+	10+	x11+	x12+	13+	14+	15+	16+	17+	18+	19+	19-	18-	17-	16-	15-	14-	-	-	20+	21+	22+	24+	25+	26+	x27+
+6-	5+	4-	24-	23-	22-	21-	20-	-	-	-	-	-	-	-	-	-	-	-	19-	-	17-	-	15-	14-	13-	x12-	-	-	-	-	-	-	-
+alignment 3: Chr13b, Path27 	 cost: 16340784
+x9+	10+	x11+	x12+	13+	14+	15+	-	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	x27+
+-	-	-	x12+	13+	14+	15+	17+	-	17+	-	19+	20+	21+	-	-	-	25+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_3
+total cost: 11088
+alignment 0: Chr5a, Path11 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr5b, Path12 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_10
+total cost: 20870
+alignment 0: Chr14a, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path29 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_11
+total cost: 205524674
+alignment 0: Chr6a, Path17 	 cost: 105209400
+x0+	1+	2+	3+	4+	-	-	-	-	-	8+	9+	10+	11+	12+	13+	14+	14-	13-	12-	11-	10-	9-	15+	16+	17+	x18+
+-	-	2+	3+	4+	5+	6+	23+	24+	25+	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 1: Chr6b, Path14 	 cost: 36552
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	x18+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	10+	-	12+	-	14+	15+	16+	-	-
+alignment 2: Chr15a, Path15 	 cost: 100274043
+x19+	20+	x21+	22+	23+	5+	6+	7+	-	-	-	-	-	-	-	-	24+	25+	26+	x27+
+x19+	20+	x21+	22+	-	-	6+	7+	8+	9+	10+	12+	12+	14+	15+	16+	-	-	-	-
+alignment 3: Chr15b, Path16 	 cost: 4679
+x19+	20+	x21+	22+	23+	24+	25+	26+	x27+
+x19+	20+	x21+	22+	23+	24+	25+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_2
+total cost: 6758
+alignment 0: Chr4a, Path10 	 cost: 4768
+x0+	1+	2+	3+	4+	6-	5-	-	-	7+	8+	x9+
+x0+	1+	2+	3+	-	-	5-	4-	6+	7+	-	-
+alignment 1: Chr4b, Path9 	 cost: 1990
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23X_STS_r1cluster_9
+total cost: 4450
+alignment 0: Chr13a, Path27 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path28 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_11
+total cost: 20870
+alignment 0: Chr14a, Path29 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path30 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_4
+total cost: 82325783
+alignment 0: Chr5a, Path12 	 cost: 41165750
+-	-	-	x0+	1+	2+	26+	27+	3+	4+	5+	6+	7+	8+	9+	11+	12+	13+	14+	15+	16+	17+	-	18+	17+	18+	19+	20+	21+	x22+
+x23+	24+	25+	-	-	-	26+	-	-	-	5+	6+	7+	-	-	-	12+	-	14+	-	16+	17+	16+	-	17+	-	-	20+	-	-
+alignment 1: Chr5b, Path11 	 cost: 35163
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	x22+
+-	-	2+	3+	4+	5+	6+	7+	-	9+	10+	11+	12+	-	14+	-	16+	17+	-	-	20+	-	-
+alignment 2: Chr7a, Path13 	 cost: 6503
+x23+	24+	-	25+	28+	29+	30+	31+	x32+
+x23+	24+	27+	-	28+	29+	30+	-	-
+alignment 3: Chr7b, Path14 	 cost: 41118367
+-	-	-	x23+	24+	25+	26+	27+	28+	29+	30+	31+	x32+
+2+	3+	4+	-	-	25+	26+	27+	28+	29+	30+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_14
+total cost: 7186
+alignment 0: Chr16a, Path31 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr16b, Path32 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23X_STS_r2cluster_1
+total cost: 32264
+alignment 0: Chr3a, Path9 	 cost: 27302
+x0+	1+	2+	3+	-	-	9+	-	-	7+	8+	4+	5+	6+	10+	11+	12+	x13+
+x0+	1+	2+	3+	4+	8+	9+	10+	6+	7+	-	-	5+	-	-	11+	-	-
+alignment 1: Chr3b, Path8 	 cost: 4962
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_14
+total cost: 2096
+alignment 0: Chr17a, Path31 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path32 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_5
+total cost: 2141660
+alignment 0: Chr10a, Path21 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr10b, Path22 	 cost: 2139505
+x0+	1+	2+	3+	-	4+	5+	6+	x7+
+x0+	1+	2+	3+	4-	-	5+	-	-
+
+23Y_Cri_du_Chat_r2cluster_7
+total cost: 12520
+alignment 0: Chr10a, Path20 	 cost: 10365
+x0+	1+	2+	3+	-	4+	5-	-	6+	7+	8+	x9+
+x0+	1+	2+	3+	6-	-	5-	4-	-	7+	-	-
+alignment 1: Chr10b, Path19 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_CMT1A_r2cluster_6
+total cost: 8837629
+alignment 0: Chr10a, Path25 	 cost: 8807740
+x0+	6-	5-	4-	3-	2-	1-	1+	2+	3+	4+	5+	6+	7+	8+	-	9+	10+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	x20+
+-	-	-	-	-	-	-	-	2+	-	-	-	6+	7+	8+	4-	-	-	-	-	-	4+	-	6+	7+	8+	-	10+	11+	12+	13+	14+	15+	16+	17+	18+	-	-
+alignment 1: Chr10b, Path24 	 cost: 29889
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	x20+
+-	-	2+	-	4+	-	6+	7+	8+	-	10+	11+	12+	13+	14+	15+	16+	17+	18+	-	-
+
+23X_Cri_du_Chat_r2cluster_20
+total cost: 5760
+alignment 0: Chr22a, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_Cri_du_Chat_r1cluster_17
+total cost: 22574
+alignment 0: Chr18a, Path36 	 cost: 15664
+x0+	1+	2+	3+	-	-	8+	9+	4+	5+	6+	-	7+	10+	11+	x12+
+x0+	1+	2+	3+	4+	7+	8+	-	-	5+	6+	9+	-	10+	-	-
+alignment 1: Chr18b, Path35 	 cost: 6910
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_12
+total cost: 185959
+alignment 0: Chr17a, Path34 	 cost: 147571
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	-	7+	-	-	-	-	7+	-	9+	10+	-	-
+alignment 1: Chr17b, Path33 	 cost: 38388
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	-	7+	-	9+	10+	-	-
+
+23X_15q26_overgrowth_r1cluster_9
+total cost: 4310
+alignment 0: Chr10a, Path18 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr10b, Path19 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_7
+total cost: 5020
+alignment 0: Chr8a, Path15 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr8b, Path16 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r2cluster_12
+total cost: 9358
+alignment 0: Chr15a, Path29 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr15b, Path30 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_NF1_microdeletion_r2cluster_4
+total cost: 37228
+alignment 0: Chr6a, Path14 	 cost: 31147
+x0+	1+	2+	3+	-	4+	9+	-	6+	7+	-	8+	5+	-	10+	11+	12+	x13+
+x0+	1+	2+	3+	8+	-	9+	10+	-	7+	4+	-	5+	6+	-	11+	-	-
+alignment 1: Chr6b, Path13 	 cost: 6081
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	-	-
+
+23X_Cri_du_Chat_r1cluster_19
+total cost: 5760
+alignment 0: Chr22a, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_STS_r1cluster_18
+total cost: 5504
+alignment 0: Chr21a, Path41 	 cost: 2752
+x0+	x1+	x2+	x3+	4+	x5+	6+	7+	x8+
+x0+	x1+	x2+	x3+	4+	x5+	6+	-	-
+alignment 1: Chr21b, Path42 	 cost: 2752
+x0+	x1+	x2+	x3+	4+	x5+	6+	7+	x8+
+x0+	x1+	x2+	x3+	4+	x5+	6+	-	-
+
+23Y_NF1_microdeletion_r2cluster_6
+total cost: 91929115
+alignment 0: Chr8a, Path16 	 cost: 91132602
+-	-	-	x0+	1+	2+	3+	4+	x16+
+14-	3-	2-	-	-	-	-	-	-
+alignment 1: Chr8b, Path15 	 cost: 796513
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	2+	3+	-	-	6+	7+	8+	-	10+	-	12+	-	14+	-	-
+
+23Y_Cri_du_Chat_r2cluster_10
+total cost: 178130065
+alignment 0: Chr13a, Path26 	 cost: 178082777
+-	x0+	1+	x2+	x3+	4+	9-	8-	7-	6-	5-	5+	6+	7+	-	-	-	8+	9+	10+	11+	x12+
+10-	-	-	-	-	-	9-	-	7-	-	-	-	-	7+	5-	4-	x3-	-	-	-	-	-
+alignment 1: Chr13b, Path25 	 cost: 47288
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	-	x3+	4+	5+	-	7+	-	9+	10+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_5
+total cost: 12162
+alignment 0: Chr6a, Path11 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr6b, Path12 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_10
+total cost: 19628
+alignment 0: Chr15a, Path30 	 cost: 14949
+x0+	1+	x2+	3+	-	-	5-	4-	6+	7+	8+	x9+
+x0+	1+	x2+	3+	4+	6-	5-	-	-	7+	-	-
+alignment 1: Chr15b, Path29 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	x2+	3+	4+	5+	6+	7+	-	-
+
+23Y_Cri_du_Chat_r1cluster_15
+total cost: 7186
+alignment 0: Chr16a, Path31 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr16b, Path32 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23Y_CMT1A_r2cluster_4
+total cost: 801598990
+alignment 0: Chr5a, Path16 	 cost: 8062258
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	x33+
+-	-	2+	-	4+	-	6+	7+	-	9+	10+	-	12+	-	14+	-	16+	-	18+	-	-	-	-	-	-	-	21+	-	23+	24+	25+	26+	27+	28+	29+	-	31+	-	-
+alignment 1: Chr5b, dummy 	 cost: 183579005
+-
+skipped
+alignment 2: Chr5c, Path17 	 cost: 529197391
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	x33+
+56-	55-	54-	53-	25-	24-	23-	21-	18-	16-	14-	12-	10-	9-	7-	6-	4-	21-	23-	21-	18-	16-	14-	12-	10-	9-	7-	6-	4-	2-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 3: Chr8a, Path15 	 cost: 62583
+x34+	35+	36+	37+	49+	50+	-	-	40+	41+	42+	43+	-	44+	45+	43+	44+	45+	46+	47+	48+	-	-	38+	39+	51+	52+	-	53+	27+	-	55+	56+	57+	x58+
+-	-	36+	-	-	50+	51+	39+	40+	-	42+	43+	42+	-	-	43+	-	45+	46+	47+	48+	49+	37+	38+	-	-	52+	26+	-	27+	28+	-	56+	-	-
+alignment 4: Chr8b, Path14 	 cost: 80697753
+x34+	35+	36+	37+	38+	39+	40+	41+	42+	43+	44+	45+	46+	47+	48+	49+	50+	51+	52+	53+	54+	55+	-	-	-	-	-	-	-	-	56+	57+	x58+
+-	-	36+	37+	38+	39+	40+	-	42+	43+	-	45+	46+	47+	48+	49+	50+	51+	52+	53+	54+	55+	29+	24+	25+	26+	27+	28+	29+	31+	-	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_21
+total cost: 239814
+alignment 0: Chr22a, Path45 	 cost: 220463
+x0+	x1+	x2+	3+	x4+	5+	6+	7+	9+	10+	11+	12+	x13+
+-	-	x2+	3+	x4+	5+	-	-	-	-	11+	-	-
+alignment 1: Chr22b, Path44 	 cost: 19351
+x0+	x1+	x2+	3+	x4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	x2+	3+	x4+	5+	-	7+	8+	9+	-	11+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_8
+total cost: 523942369
+alignment 0: Chr1a, Path6 	 cost: 149159022
+x0+	1+	2+	-	3+	4-	-	5+	6+	7+	8+	9+	10+	11+	-	12+	13+	11+	12+	13+	14+	-	41+	42+	43+	-	-	-	-	-	-	-	17+	18+	19+	x20+
+-	-	2+	5-	-	4-	3-	-	6+	7+	8+	-	10+	11+	10+	-	-	11+	-	13+	14+	15+	-	42+	43+	44+	45+	30+	31+	32+	33+	34+	-	-	-	-
+alignment 1: Chr1b, Path1 	 cost: 16052
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	x20+
+-	-	2+	3+	4+	5+	6+	7+	8+	-	10+	11+	-	13+	14+	15+	16+	17+	18+	-	-
+alignment 2: Chr2a, Path8 	 cost: 725417
+x21+	22+	-	23+	57+	-	25+	26+	27+	28+	-	45+	46+	47+	31+	32+	33+	33+	34+	35+	x36+
+x21+	22+	56+	-	57+	58+	-	26+	27+	28+	29+	-	46+	-	-	32+	-	33+	34+	-	-
+alignment 3: Chr2b, Path4 	 cost: 149753204
+x21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	-	-	32+	33+	34+	35+	x36+
+x21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	47+	48+	-	-	-	-	-
+alignment 4: Chr7a, Path3 	 cost: 2802073
+x37+	38+	39+	40+	-	15+	16+	-	-	44+	-	-	-	29+	30+	48+	49+	x50+
+x37+	38+	39+	40+	41+	-	16+	17+	43+	44+	45+	46+	47+	-	-	48+	-	-
+alignment 5: Chr7b, Path2 	 cost: 23890279
+x37+	38+	39+	40+	41+	42+	-	43+	44+	45+	46+	47+	48+	49+	x50+
+x37+	38+	39+	40+	41+	42+	18+	-	-	-	-	-	-	-	-
+alignment 6: Chr13a, Path5 	 cost: 197578260
+-	-	-	-	-	-	-	-	-	-	-	x51+	52+	x53+	x54+	55+	56+	24+	58+	59+	60+	61+	62+	63+	64+	60+	61+	62+	63+	64+	65+	66+	x67+
+65-	64-	62-	62-	60-	59-	25-	24-	23-	55-	x54-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 7: Chr13b, Path7 	 cost: 18062
+x51+	52+	x53+	x54+	55+	56+	57+	58+	59+	60+	61+	62+	63+	64+	65+	66+	x67+
+-	-	-	x54+	55+	56+	57+	58+	59+	60+	-	62+	-	64+	65+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_7
+total cost: 6904
+alignment 0: Chr12a, Path24 	 cost: 5556
+x0+	1+	2+	3+	4+	6-	5-	-	-	7+	8+	x9+
+x0+	1+	2+	3+	-	-	5-	4-	6+	7+	-	-
+alignment 1: Chr12b, Path23 	 cost: 1348
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_16
+total cost: 3800
+alignment 0: Chr19a, Path35 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path36 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r2cluster_5
+total cost: 1976
+alignment 0: Chr7a, Path17 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path18 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_16
+total cost: 41746
+alignment 0: Chr18a, Path36 	 cost: 34836
+x0+	1+	2+	3+	-	-	5-	4-	6+	7+	8+	10-	9-	-	-	11+	12+	x13+
+x0+	1+	2+	3+	4+	6-	5-	-	-	7+	-	-	9-	8-	10+	11+	-	-
+alignment 1: Chr18b, Path35 	 cost: 6910
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	-	-
+
+23X_STS_r2cluster_3
+total cost: 10337022
+alignment 0: Chr2a, Path6 	 cost: 5185137
+x0+	1+	2+	3+	4+	-	8+	9+	10+	5+	6+	7+	-	-	11+	12+	26+	27+	-	28+	15+	16+	17+	18+	19+	20+	21+	18+	19+	20+	21+	x22+
+-	-	2+	3+	4+	5+	-	9+	-	-	6+	7+	8+	10+	11+	-	-	27+	14+	-	15+	16+	17+	-	-	-	-	18+	-	20+	-	-
+alignment 1: Chr2b, Path3 	 cost: 15432
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	x22+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	-	20+	-	-
+alignment 2: Chr5a, Path4 	 cost: 95405
+x23+	24+	25+	-	-	13+	-	14+	29+	30+	31+	32+	33+	34+	35+	36+	36-	35-	34-	-	-	37+	38+	x39+
+-	-	25+	26+	12+	13+	28+	-	29+	30+	31+	-	33+	34+	-	-	-	-	34-	33-	36+	37+	-	-
+alignment 3: Chr5b, Path5 	 cost: 45277
+x23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	x39+
+-	-	25+	26+	27+	28+	29+	30+	31+	-	33+	34+	-	36+	37+	-	-
+alignment 4: dummy, Path7 	 cost: 4995771
+skipped
+-
+
+23X_22q11-2_distal_deletion_r2cluster_6
+total cost: 504
+alignment 0: Chr9a, Path19 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path20 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_13
+total cost: 7186
+alignment 0: Chr16a, Path33 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr16b, Path34 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_0
+total cost: 151442
+alignment 0: Chr1a, Path2 	 cost: 132565
+x0+	1+	2+	3+	4+	5+	6+	7+	-	8+	9+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	6+	-	-	7+	-	9+	10+	-	-
+alignment 1: Chr1b, Path1 	 cost: 18877
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	-	9+	10+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_13
+total cost: 2096
+alignment 0: Chr17a, Path32 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path33 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_18
+total cost: 28228
+alignment 0: Chr1a, Path4 	 cost: 18996
+x0+	1+	-	2+	15+	-	-	3+	4+	5+	6+	7+	x8+
+x0+	1+	14+	-	15+	16+	2+	3+	4+	5+	6+	-	-
+alignment 1: Chr1b, Path1 	 cost: 3088
+x0+	1+	2+	3+	4+	5+	6+	7+	x8+
+x0+	1+	2+	3+	4+	5+	6+	-	-
+alignment 2: Chr21a, Path2 	 cost: 3392
+x9+	x10+	11+	x12+	13+	14+	16+	17+	18+	x19+
+x9+	x10+	11+	x12+	13+	-	-	17+	-	-
+alignment 3: Chr21b, Path3 	 cost: 2752
+x9+	x10+	11+	x12+	13+	14+	15+	16+	17+	18+	x19+
+x9+	x10+	11+	x12+	13+	14+	15+	16+	17+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_19
+total cost: 159926
+alignment 0: Chr22a, Path45 	 cost: 133006
+x0+	x1+	x2+	3+	x4+	5+	6+	7+	9+	10+	11+	12+	x13+
+-	-	x2+	3+	x4+	5+	-	-	-	-	11+	-	-
+alignment 1: Chr22b, Path44 	 cost: 26920
+x0+	x1+	x2+	3+	x4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	x2+	3+	x4+	5+	-	7+	8+	9+	-	11+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_12
+total cost: 7186
+alignment 0: Chr16a, Path30 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr16b, Path31 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_1
+total cost: 154045
+alignment 0: Chr2a, Path4 	 cost: 103281
+x0+	1+	2+	3+	4+	7+	8+	9+	10+	11+	-	12+	13+	11+	12+	13+	14+	15+	16+	17+	x18+
+-	-	2+	-	-	-	8+	-	10+	11+	10+	-	-	11+	-	13+	14+	15+	16+	-	-
+alignment 1: Chr2b, Path3 	 cost: 50764
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	x18+
+-	-	2+	-	4+	5+	-	-	8+	-	10+	11+	-	13+	14+	15+	16+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_12
+total cost: 9358
+alignment 0: Chr15a, Path31 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+alignment 1: Chr15b, Path32 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_7
+total cost: 2145446
+alignment 0: Chr10a, Path22 	 cost: 2143291
+x0+	1+	2+	3+	-	4+	5+	-	-	7-	6-	8+	9+	10+	x11+
+x0+	1+	2+	3+	4-	-	5+	6+	8-	7-	-	-	9+	-	-
+alignment 1: Chr10b, Path21 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	-	-
+
+23X_STS_r2cluster_2
+total cost: 3980
+alignment 0: Chr4a, Path10 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path11 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_17
+total cost: 3800
+alignment 0: Chr19a, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r2cluster_4
+total cost: 642800391
+alignment 0: Chr5a, Path10 	 cost: 334495169
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	x0+	1+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	32+	33+	34+	35+	36+	x37+
+35-	33-	31-	29-	27-	25-	24-	23-	21-	20-	18-	16-	14-	13-	11-	10-	8-	-	-	-	-	8+	-	10+	11+	-	13+	14+	-	16+	-	18+	-	20+	21+	-	23+	24+	25+	-	27+	-	29+	-	31+	33-	31-	29-	27-	25-	20+	21+	23+	24+	21-	20-	18-	14-	13-	3-	-	-	-	-	-	-
+alignment 1: Chr5b, dummy 	 cost: 134992358
+-
+skipped
+alignment 2: Chr5c, dummy 	 cost: 173169336
+-
+skipped
+alignment 3: Chr5d, Path9 	 cost: 143528
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	x37+
+-	-	-	3+	-	5+	6+	-	8+	-	10+	11+	-	13+	14+	-	16+	-	18+	-	20+	21+	-	23+	24+	25+	-	27+	-	29+	-	31+	-	33+	-	35+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_6
+total cost: 192512
+alignment 0: Chr2a, Path12 	 cost: 135165
+x0+	1+	2+	-	-	22+	-	23+	6+	7+	8+	9+	10+	11+	-	12+	13+	11+	12+	13+	14+	15+	x16+
+-	-	2+	3+	21+	22+	5+	-	6+	7+	8+	-	10+	11+	10+	-	-	11+	-	13+	14+	-	-
+alignment 1: Chr2b, Path9 	 cost: 38508
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	2+	3+	4+	5+	6+	7+	8+	-	10+	11+	-	13+	14+	-	-
+alignment 2: Chr11a, Path10 	 cost: 11783
+x17+	18+	19+	20+	21+	3+	4+	-	5+	24+	25+	x26+
+x17+	18+	19+	20+	-	-	4+	23+	-	24+	-	-
+alignment 3: Chr11b, Path11 	 cost: 7056
+x17+	18+	19+	20+	21+	22+	23+	24+	25+	x26+
+x17+	18+	19+	20+	21+	22+	23+	24+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_17
+total cost: 106812424
+alignment 0: Chr20a, dummy 	 cost: 72549112
+-
+skipped
+alignment 1: Chr20b, Path37 	 cost: 34263312
+-	-	-	-	-	-	-	-	x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	x15+
+10-	9-	8-	10-	9-	8-	2-	2+	-	-	2+	-	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_20
+total cost: 5504
+alignment 0: Chr21a, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path43 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_9
+total cost: 20870
+alignment 0: Chr14a, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path29 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_CMT1A_r2cluster_5
+total cost: 504
+alignment 0: Chr9a, Path22 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path23 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_11
+total cost: 1585559
+alignment 0: Chr16a, Path31 	 cost: 1581966
+x0+	1+	1+	2+	3+	4+	5+	6+	7+	8+	9+	x10+
+x0+	-	1+	2+	3+	4+	5+	6+	7+	8+	-	-
+alignment 1: Chr16b, Path32 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	x10+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	-	-
+
+23Y_Cri_du_Chat_r1cluster_14
+total cost: 9358
+alignment 0: Chr15a, Path29 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+alignment 1: Chr15b, Path30 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_4
+total cost: 11088
+alignment 0: Chr5a, Path9 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr5b, Path10 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r2cluster_11
+total cost: 20870
+alignment 0: Chr14a, Path27 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_NF1_microdeletion_r2cluster_7
+total cost: 162864
+alignment 0: Chr10a, Path22 	 cost: 93431
+x0+	1+	2+	3+	4+	5+	6+	8+	9+	10+	11+	12+	14+	15+	16+	17+	x18+
+-	-	2+	3+	4+	-	-	-	-	10+	-	-	-	-	16+	-	-
+alignment 1: Chr10b, Path21 	 cost: 69433
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	x18+
+-	-	2+	3+	4+	-	6+	7+	8+	-	10+	-	12+	13+	14+	-	16+	-	-
+
+23X_STS_r1cluster_19
+total cost: 5760
+alignment 0: Chr22a, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_NF1_microdeletion_r2cluster_3
+total cost: 11088
+alignment 0: Chr5a, Path11 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr5b, Path12 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_0
+total cost: 6176
+alignment 0: Chr1a, Path1 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr1b, Path2 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r2cluster_15
+total cost: 84855
+alignment 0: Chr18a, Path36 	 cost: 50262
+x0+	1+	2+	3+	4+	5+	6+	7+	-	8+	9+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	6+	-	-	7+	-	9+	10+	-	-
+alignment 1: Chr18b, Path35 	 cost: 34593
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	-	9+	10+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_8
+total cost: 104410
+alignment 0: Chr10a, Path22 	 cost: 102255
+x0+	1+	-	20+	21+	-	4+	5+	-	6+	7-	-	8+	9+	-	-	17+	-	12+	13+	14+	15+	16+	10+	11+	-	18+	19+	-	2+	3+	-	22+	23+	24+	x25+
+x0+	1+	2+	-	21+	22+	-	5+	8-	-	7-	6-	-	9+	10+	16+	17+	18+	-	13+	14+	15+	-	-	11+	12+	-	19+	20+	-	3+	4+	-	23+	-	-
+alignment 1: Chr10b, Path21 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	x25+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	-	-
+
+23Y_Cri_du_Chat_r1cluster_10
+total cost: 73838245
+alignment 0: Chr8a, Path18 	 cost: 73835735
+x0+	1+	2+	3+	-	10+	11+	12+	-	7+	8+	x9+
+x0+	1+	2+	3+	4+	-	11+	12+	13+	-	-	-
+alignment 1: Chr8b, Path15 	 cost: 2510
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_15
+total cost: 896
+alignment 0: Chr20a, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_STS_r2cluster_18
+total cost: 5760
+alignment 0: Chr22a, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path45 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_13
+total cost: 177738024
+alignment 0: Chr16a, dummy 	 cost: 90218345
+-
+skipped
+alignment 1: Chr16b, Path30 	 cost: 87519679
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-	-	-	-	-	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	5-	4-	3-	2-	1-	x0-	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_2
+total cost: 764134
+alignment 0: Chr6a, Path18 	 cost: 730024
+x0+	1+	2+	3+	3+	4+	5+	6+	7+	8+	9+	-	10+	11+	11-	10-	9-	-	12+	13+	14+	x15+
+-	-	2+	-	3+	4+	5+	6+	-	8+	9+	12-	-	-	11-	-	9-	8-	-	13+	-	-
+alignment 1: Chr6b, Path17 	 cost: 34110
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	x15+
+-	-	2+	3+	4+	5+	6+	-	8+	9+	-	11+	12+	13+	-	-
+
+23Y_Cri_du_Chat_r2cluster_0
+total cost: 6176
+alignment 0: Chr1a, Path1 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr1b, Path2 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_18
+total cost: 3800
+alignment 0: Chr19a, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path39 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r2cluster_1
+total cost: 51764
+alignment 0: Chr4a, Path13 	 cost: 27489
+x0+	1+	2+	3+	4+	5+	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	4+	-	-	9+	10+	11+	-	-
+alignment 1: Chr4b, Path12 	 cost: 24275
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	4+	5+	6+	-	-	9+	10+	11+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_3
+total cost: 12162
+alignment 0: Chr6a, Path15 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr6b, Path16 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_13
+total cost: 25494
+alignment 0: Chr15a, Path30 	 cost: 20815
+x0+	1+	x2+	3+	-	6-	5-	-	4-	7+	8+	x9+
+x0+	1+	x2+	3+	4+	-	5-	6+	-	7+	-	-
+alignment 1: Chr15b, Path29 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	x2+	3+	4+	5+	6+	7+	-	-
+
+23X_STS_r2cluster_6
+total cost: 190409882
+alignment 0: Chr9a, Path21 	 cost: 190374648
+-	-	-	x0+	7+	8+	9+	10+	11+	x12+
+10-	9-	2-	-	-	-	-	-	-	-
+alignment 1: Chr9b, Path20 	 cost: 35234
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	4+	-	6+	7+	-	9+	10+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_16
+total cost: 3800
+alignment 0: Chr19a, Path39 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path40 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_16
+total cost: 9058304
+alignment 0: Chr20a, Path38 	 cost: 4746234
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	10-	9-	8-	7-	6-	5-	11+	12+	13+	x14+
+-	-	2+	3+	4+	5+	6+	-	8+	-	10+	-	-	-	-	-	-	11+	12+	-	-
+alignment 1: Chr20b, Path39 	 cost: 4312070
+x0+	1+	2+	3+	4+	5+	6+	-	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	4+	5+	6+	8+	-	8+	-	10+	11+	12+	-	-
+
+23Y_Cri_du_Chat_r1cluster_8
+total cost: 283487
+alignment 0: Chr10a, Path22 	 cost: 234602
+x0+	1+	2+	3+	4+	5+	10-	9-	8-	-	7-	6-	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	-	-	8-	5+	-	-	6+	-	8+	-	10+	11+	-	-
+alignment 1: Chr10b, Path21 	 cost: 48885
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	5+	6+	-	8+	-	10+	11+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_5
+total cost: 1976
+alignment 0: Chr7a, Path13 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path14 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r1cluster_9
+total cost: 14112
+alignment 0: Chr11a, Path21 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr11b, Path22 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r1cluster_8
+total cost: 7630
+alignment 0: Chr10a, Path20 	 cost: 5475
+x0+	1+	-	-	3-	2-	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	4-	3-	-	-	5+	6+	7+	-	-
+alignment 1: Chr10b, Path19 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_20
+total cost: 10564
+alignment 0: ChrXa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: ChrXb, Path47 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_4
+total cost: 1646314
+alignment 0: Chr3a, Path8 	 cost: 230840
+x0+	1+	2+	-	-	32+	33+	34+	3+	4+	5+	6+	7+	8+	9+	10+	10-	9-	8-	-	7-	11+	-	16-	15-	14-	13-	12-	12+	13+	14+	15+	16+	17+	18+	19+	20+	-	21+	22+	20+	21+	22+	23+	24+	25+	26+	x27+
+-	-	2+	3+	4+	-	33+	-	-	-	5+	-	-	8+	-	-	-	-	8-	10+	-	11+	12+	-	-	14-	-	-	-	-	14+	-	16+	17+	-	19+	20+	19+	-	-	20+	-	22+	23+	24+	25+	-	-
+alignment 1: Chr3b, Path5 	 cost: 92540
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	x27+
+-	-	2+	3+	4+	5+	-	-	8+	-	10+	11+	12+	-	14+	-	16+	17+	-	19+	20+	-	22+	23+	24+	25+	-	-
+alignment 2: Chr6a, Path6 	 cost: 1316853
+x28+	29+	30+	31+	-	-	-	35+	36+	x37+
+x28+	29+	30+	31+	32+	33+	34+	35+	-	-
+alignment 3: Chr6b, Path7 	 cost: 6081
+x28+	29+	30+	31+	32+	33+	34+	35+	36+	x37+
+x28+	29+	30+	31+	32+	33+	34+	35+	-	-
+
+23Y_Cri_du_Chat_r1cluster_9
+total cost: 14112
+alignment 0: Chr11a, Path23 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr11b, Path24 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_17
+total cost: 5504
+alignment 0: Chr21a, Path40 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path41 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_17
+total cost: 25995121
+alignment 0: Chr11a, Path24 	 cost: 25967428
+x0+	1+	2+	3+	4+	7+	8+	9+	10+	11+	17+	18+	-	-	14+	15+	x16+
+-	-	2+	-	-	-	8+	9+	10+	-	-	18+	19+	20+	-	-	-
+alignment 1: Chr11b, Path21 	 cost: 27693
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	2+	-	4+	5+	-	-	8+	9+	10+	11+	12+	13+	14+	-	-
+
+23X_STS_r2cluster_7
+total cost: 14112
+alignment 0: Chr11a, Path26 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr11b, Path27 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_12
+total cost: 20870
+alignment 0: Chr14a, Path27 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_2
+total cost: 5168471
+alignment 0: Chr4a, Path9 	 cost: 2712024
+x0+	1+	2+	3+	4+	5+	11-	10-	9-	8-	7-	6-	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	4+	5+	-	-	-	-	-	-	6+	-	8+	-	10+	11+	12+	-	-
+alignment 1: Chr4b, Path10 	 cost: 2456447
+x0+	1+	2+	3+	4+	5+	6+	-	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	4+	5+	6+	8+	-	8+	-	10+	11+	12+	-	-
+
+23Y_CMT1A_r2cluster_0
+total cost: 4342
+alignment 0: Chr2a, Path6 	 cost: 2171
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr2b, Path7 	 cost: 2171
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_19
+total cost: 896
+alignment 0: Chr20a, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path41 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r2cluster_1
+total cost: 4342
+alignment 0: Chr2a, Path3 	 cost: 2171
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr2b, Path4 	 cost: 2171
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_12
+total cost: 20185769
+alignment 0: Chr11a, Path23 	 cost: 10144256
+x0+	1+	2+	3+	4+	6+	7+	8+	9+	10+	11+	20+	21+	22+	-	12+	13+	14+	x15+
+-	-	2+	-	-	-	-	8+	9+	10+	-	-	21+	22+	23+	-	-	-	-
+alignment 1: Chr11b, Path20 	 cost: 13015
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	x15+
+-	-	2+	-	4+	5+	6+	-	8+	9+	10+	11+	12+	13+	-	-
+alignment 2: Chr15a, Path22 	 cost: 8592
+x16+	17+	x18+	19+	-	-	23+	24+	x25+
+x16+	17+	x18+	19+	20+	22+	23+	-	-
+alignment 3: Chr15b, Path21 	 cost: 10019906
+x16+	17+	x18+	19+	20+	21+	-	-	-	22+	23+	24+	x25+
+x16+	17+	x18+	19+	20+	21+	11+	12+	13+	-	-	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_3
+total cost: 1976
+alignment 0: Chr7a, Path19 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path20 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_STS_r2cluster_19
+total cost: 161963
+alignment 0: ChrXa, Path47 	 cost: 129598
+x0+	1+	2+	3+	4+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	-	-	-	8+	9+	10+	-	-
+alignment 1: ChrXb, Path46 	 cost: 32365
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	4+	5+	6+	-	8+	9+	10+	-	-
+
+23Y_Cri_du_Chat_r1cluster_11
+total cost: 73838745
+alignment 0: Chr12a, Path17 	 cost: 5994
+x4+	5+	6+	7+	-	0+	1+	-	2+	11+	12+	x13+
+x4+	5+	6+	7+	8+	-	1+	10+	-	11+	-	-
+alignment 1: Chr12b, Path16 	 cost: 73832751
+x4+	5+	6+	7+	8+	9+	-	-	10+	11+	12+	x13+
+x4+	5+	6+	7+	8+	9+	2+	3+	-	-	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_14
+total cost: 3800
+alignment 0: Chr19a, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_9
+total cost: 174998
+alignment 0: Chr4a, Path8 	 cost: 18689
+x0+	1+	2+	3+	-	-	7+	8+	x9+
+x0+	1+	2+	3+	4+	6+	7+	-	-
+alignment 1: Chr4b, Path10 	 cost: 1990
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+alignment 2: Chr11a, Path9 	 cost: 137902
+x10+	11+	12+	-	13+	14+	18+	-	-	4+	5+	6+	19+	20+	21+	22+	23+	24+	x25+
+-	-	12+	17+	-	-	18+	19+	20+	-	5+	-	-	-	21+	22+	23+	-	-
+alignment 3: Chr11b, Path7 	 cost: 16417
+x10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	x25+
+-	-	12+	-	14+	15+	-	17+	18+	19+	20+	21+	22+	23+	-	-
+
+23Y_Cri_du_Chat_r2cluster_14
+total cost: 2096
+alignment 0: Chr17a, Path33 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path34 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_1
+total cost: 174426
+alignment 0: Chr2a, Path4 	 cost: 113009
+x0+	1+	2+	3+	4+	5+	6+	8+	9+	10+	11+	12+	13+	15+	16+	17+	-	-	19-	18-	20+	21+	22+	x23+
+-	-	2+	3+	4+	-	-	-	-	10+	-	12+	-	-	-	17+	18+	20-	19-	-	-	21+	-	-
+alignment 1: Chr2b, Path3 	 cost: 61417
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	x23+
+-	-	2+	3+	4+	-	6+	7+	8+	-	10+	-	12+	13+	14+	15+	-	17+	18+	19+	20+	21+	-	-
+
+23Y_NF1_microdeletion_r2cluster_2
+total cost: 3980
+alignment 0: Chr4a, Path9 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path10 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_STS_r1cluster_20
+total cost: 96259
+alignment 0: ChrXa, Path46 	 cost: 82223
+x0+	1+	2+	3+	5+	6+	7+	8+	9+	10+	x11+
+-	-	2+	-	-	-	7+	8+	9+	-	-
+alignment 1: ChrXb, Path45 	 cost: 14036
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+-	-	2+	3+	4+	5+	-	7+	8+	9+	-	-
+
+23Y_NF1_microdeletion_r2cluster_0
+total cost: 4342
+alignment 0: Chr2a, Path5 	 cost: 2171
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr2b, Path6 	 cost: 2171
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_3
+total cost: 2265934
+alignment 0: Chr4a, Path8 	 cost: 2259369
+x0+	1+	2+	3+	4+	x11+
+-	-	2+	-	-	-
+alignment 1: Chr4b, Path7 	 cost: 6565
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_8
+total cost: 627577
+alignment 0: Chr12a, Path30 	 cost: 590663
+x0+	1+	2+	3+	4+	5+	6+	7+	-	8+	9+	7+	8+	9+	10+	11+	12+	14+	15+	16+	17+	x18+
+-	-	2+	3+	4+	-	6+	7+	6+	-	-	7+	-	9+	10+	-	-	-	-	16+	-	-
+alignment 1: Chr12b, Path29 	 cost: 36914
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	x18+
+-	-	2+	3+	4+	-	6+	7+	-	9+	10+	-	12+	13+	14+	-	16+	-	-
+
+23Y_Cri_du_Chat_r2cluster_16
+total cost: 3800
+alignment 0: Chr19a, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_16
+total cost: 5504
+alignment 0: Chr21a, Path41 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_Cri_du_Chat_r1cluster_13
+total cost: 20870
+alignment 0: Chr14a, Path27 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_Cri_du_Chat_r2cluster_18
+total cost: 896
+alignment 0: Chr20a, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_8
+total cost: 14112
+alignment 0: Chr11a, Path23 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr11b, Path24 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r2cluster_3
+total cost: 3980
+alignment 0: Chr4a, Path7 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path8 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_1
+total cost: 11088
+alignment 0: Chr5a, Path15 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr5b, Path16 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_10
+total cost: 4450
+alignment 0: Chr13a, Path26 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path27 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_CMT1A_r2cluster_2
+total cost: 7796983
+alignment 0: Chr6a, Path18 	 cost: 4010563
+x0+	1+	2+	3+	9-	8-	7-	6-	5-	4-	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	-	-	-	-	-	-	4+	-	6+	-	8+	9+	10+	11+	12+	-	-
+alignment 1: Chr6b, Path19 	 cost: 3786420
+x0+	1+	2+	3+	4+	-	5+	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	4+	6+	-	6+	-	8+	9+	10+	11+	12+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_0
+total cost: 74345
+alignment 0: Chr2a, Path6 	 cost: 38907
+x0+	1+	2+	3+	4+	5+	6+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	-	-	9+	-	11+	-	-
+alignment 1: Chr2b, Path5 	 cost: 35438
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	6+	7+	8+	9+	-	11+	-	-
+
+23X_STS_r2cluster_5
+total cost: 16057728
+alignment 0: Chr8a, Path17 	 cost: 9122593
+x0+	4-	3-	2-	1-	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+-	-	-	-	-	-	2+	-	4+	5+	6+	7+	8+	9+	-	-
+alignment 1: Chr8b, Path18 	 cost: 25359
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+-	-	2+	-	4+	5+	6+	7+	8+	9+	-	-
+alignment 2: dummy, Path19 	 cost: 6909776
+skipped
+-
+
+23Y_WAGR_11p13_deletion_r2cluster_10
+total cost: 2696
+alignment 0: Chr12a, Path23 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path24 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_8
+total cost: 3620570
+alignment 0: Chr9a, Path19 	 cost: 3620318
+x0+	1+	-	-	-	-	6+	7+	2+	3+	4+	-	5+	8+	9+	10+	11+	x12+
+x0+	1+	2+	3+	4+	5+	6+	-	-	3+	4+	7+	-	8+	9+	10+	-	-
+alignment 1: Chr9b, Path18 	 cost: 252
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_15
+total cost: 13820
+alignment 0: Chr18a, Path37 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path38 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_15
+total cost: 3800
+alignment 0: Chr19a, Path36 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_6
+total cost: 808741
+alignment 0: Chr8a, Path16 	 cost: 783720
+x0+	1+	2+	3+	4+	-	5+	6+	4+	5+	6+	7+	8+	9+	10+	11+	-	x14+
+-	-	2+	3+	4+	3+	-	-	4+	-	6+	7+	8+	9+	10+	11+	12+	-
+alignment 1: Chr8b, Path15 	 cost: 25021
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	4+	-	6+	7+	8+	9+	10+	11+	12+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_7
+total cost: 504
+alignment 0: Chr9a, Path17 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path18 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_14
+total cost: 13820
+alignment 0: Chr18a, Path34 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path35 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_14
+total cost: 2096
+alignment 0: Chr17a, Path35 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path36 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_9
+total cost: 4310
+alignment 0: Chr10a, Path20 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr10b, Path21 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_11
+total cost: 4450
+alignment 0: Chr13a, Path25 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path26 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_STS_r2cluster_4
+total cost: 864921
+alignment 0: Chr6b, Path12 	 cost: 864921
+x1+	0+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	-	3+	4+	-	-	7+	8+	-	10+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_1
+total cost: 398142855
+alignment 0: Chr3a, Path7 	 cost: 2130374
+x0+	1+	2+	3+	4+	5+	x12+
+-	-	2+	3+	-	-	-
+alignment 1: Chr3b, Path8 	 cost: 396012481
+-	-	-	-	-	-	x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+10-	8-	6-	5-	3-	2-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+23Y_CMT1A_r2cluster_3
+total cost: 97383
+alignment 0: Chr7a, Path21 	 cost: 67592
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	-	5+	-	7+	-	-	-	5+	-	7+	8+	9+	10+	11+	-	-
+alignment 1: Chr7b, Path20 	 cost: 29791
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	-	5+	-	7+	8+	9+	10+	11+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_0
+total cost: 81217
+alignment 0: Chr4a, Path14 	 cost: 63396
+x0+	1+	2+	3+	4+	5+	6+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	-	-	-	10+	-	-
+alignment 1: Chr4b, Path13 	 cost: 17821
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	8+	-	10+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_11
+total cost: 20870
+alignment 0: Chr14a, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path29 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_Cri_du_Chat_r2cluster_2
+total cost: 70252
+alignment 0: Chr3a, Path6 	 cost: 39618
+x0+	1+	2+	3+	4+	-	5+	6+	10+	11+	x12+
+-	-	2+	3+	4+	9+	-	-	10+	-	-
+alignment 1: Chr3b, Path5 	 cost: 30634
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	-	9+	10+	-	-
+
+23X_Cri_du_Chat_r2cluster_19
+total cost: 5504
+alignment 0: Chr21a, Path41 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_NF1_microdeletion_r1cluster_9
+total cost: 18082325
+alignment 0: Chr12a, Path26 	 cost: 9101216
+x0+	1+	2+	3+	4+	5+	7-	6-	-	-	8+	9+	10+	14-	13-	12-	11-	11+	12+	13+	14+	x15+
+-	-	2+	3+	4+	-	-	6-	5-	7+	8+	9+	10+	-	-	-	-	11+	-	13+	-	-
+alignment 1: Chr12b, Path25 	 cost: 11786
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	x15+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	-	13+	-	-
+alignment 2: dummy, Path27 	 cost: 8969323
+skipped
+-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_17
+total cost: 5760
+alignment 0: Chr22a, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_Cri_du_Chat_r1cluster_12
+total cost: 185824044
+alignment 0: Chr13a, Path26 	 cost: 185790528
+x0+	1+	x2+	x3+	4+	5+	6-	7+	8+	9+	10+	16-	15-	14-	13-	12-	11-	11+	12+	13+	-	-	-	-	-	-	-	-	-	14+	15+	16+	x17+
+-	-	-	-	-	-	-	-	-	-	-	-	15-	-	13-	-	-	-	-	13+	11-	10-	9-	8-	5+	6+	7+	4-	x3-	-	-	-	-
+alignment 1: Chr13b, Path25 	 cost: 33516
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+-	-	-	x3+	4+	5+	6+	7+	8+	9+	10+	11+	-	13+	-	15+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_9
+total cost: 4450
+alignment 0: Chr13a, Path31 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path32 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_Cri_du_Chat_r2cluster_17
+total cost: 896
+alignment 0: Chr20a, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_2
+total cost: 9924
+alignment 0: Chr3a, Path5 	 cost: 4962
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr3b, Path6 	 cost: 4962
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r2cluster_1
+total cost: 398142855
+alignment 0: Chr3a, Path7 	 cost: 2130374
+x0+	1+	2+	3+	4+	5+	x12+
+-	-	2+	3+	-	-	-
+alignment 1: Chr3b, Path8 	 cost: 396012481
+-	-	-	-	-	-	x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+10-	8-	6-	5-	3-	2-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+23X_Cri_du_Chat_r1cluster_20
+total cost: 10564
+alignment 0: ChrXa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: ChrXb, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_18
+total cost: 896
+alignment 0: Chr20a, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path41 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_11
+total cost: 4450
+alignment 0: Chr13a, Path25 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path26 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_4
+total cost: 288951930
+alignment 0: Chr8a, dummy 	 cost: 145018636
+-
+skipped
+alignment 1: Chr8b, Path19 	 cost: 143933294
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-	-	-	-	-	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	5-	4-	3-	2-	1-	x0-	-	-
+
+23X_22q11_duplication_r2cluster_1
+total cost: 4342
+alignment 0: Chr2a, Path3 	 cost: 2171
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr2b, Path4 	 cost: 2171
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_18
+total cost: 102203
+alignment 0: ChrXa, Path45 	 cost: 76082
+x0+	1+	2+	3+	4+	5+	6+	-	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	-	5+	6+	7+	-	-	5+	6+	7+	-	9+	10+	11+	-	-
+alignment 1: ChrXb, Path44 	 cost: 26121
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	-	5+	6+	7+	-	9+	10+	11+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_5
+total cost: 1976
+alignment 0: Chr7a, Path15 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path16 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_14
+total cost: 13820
+alignment 0: Chr18a, Path34 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path35 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r2cluster_21
+total cost: 5282
+alignment 0: ChrYa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_12
+total cost: 2096
+alignment 0: Chr17a, Path37 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path38 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r2cluster_5
+total cost: 13076
+alignment 0: Chr6a, Path12 	 cost: 6995
+x0+	1+	-	2+	3-	-	4+	5+	6+	7+	8+	x9+
+x0+	1+	4-	-	3-	2-	-	5+	6+	7+	-	-
+alignment 1: Chr6b, Path11 	 cost: 6081
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23X_15q26_overgrowth_r1cluster_17
+total cost: 13820
+alignment 0: Chr18a, Path33 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path34 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r1cluster_11
+total cost: 174682251
+alignment 0: Chr14a, Path30 	 cost: 174647243
+x0+	1+	x2+	x3+	4+	5+	6+	12-	11-	-	10-	9-	8-	7-	-	-	-	-	7+	8+	9+	10+	11+	12+	x13+
+-	-	-	-	-	-	-	-	11-	9-	-	9-	-	7-	6-	5-	4-	x3-	-	-	-	-	-	-	-
+alignment 1: Chr14b, Path29 	 cost: 35008
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	-	x3+	4+	5+	6+	7+	-	9+	-	11+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_2
+total cost: 395665859
+alignment 0: Chr3b, Path6 	 cost: 197990545
+x1+	0+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	x25+
+-	-	-	3+	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 1: dummy, Path5 	 cost: 197675314
+skipped
+-
+
+23Y_CMT1A_r2cluster_14
+total cost: 13820
+alignment 0: Chr18a, Path36 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path37 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r2cluster_6
+total cost: 494051897
+alignment 0: Chr5a, Path13 	 cost: 494046353
+-	-	-	-	-	x0+	1+	2+	3+	4+	-	14+	15+	16+	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	7+	8+	x9+
+x10+	11+	12+	13+	14+	-	-	-	-	4+	5+	-	-	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	23-	22-	21-	20-	18+	19+	17-	16-	15-	3-	2-	1-	x0-	-	-	-
+alignment 1: Chr5b, Path11 	 cost: 5544
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_16
+total cost: 896
+alignment 0: Chr20a, Path41 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path42 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_11
+total cost: 4450
+alignment 0: Chr13a, Path26 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path27 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_10
+total cost: 260576319
+alignment 0: Chr12a, dummy 	 cost: 131967411
+-
+skipped
+alignment 1: Chr12b, Path25 	 cost: 128608908
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	-	-	-	-	-	-	-	-	21+	x22+
+-	-	2+	-	4+	5+	-	7+	8+	-	10+	11+	12+	-	14+	15+	16+	17+	18+	19+	20+	18-	17-	16-	15-	14-	8-	7-	2-	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_17
+total cost: 5504
+alignment 0: Chr21a, Path43 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path44 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_Angelman_r2cluster_7
+total cost: 326711143
+alignment 0: Chr8a, dummy 	 cost: 148587327
+-
+skipped
+alignment 1: Chr8b, Path12 	 cost: 178123816
+x3+	4+	5+	6+	7+	8+	-	-	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	x20+
+x3+	4+	5+	6+	7+	8+	1+	2+	-	-	-	-	-	-	-	-	-	-	-	-
+
+23Y_CMT1A_r2cluster_15
+total cost: 3800
+alignment 0: Chr19a, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path39 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_3
+total cost: 143847
+alignment 0: Chr4a, Path8 	 cost: 116705
+x0+	1+	2+	3+	4+	5+	6+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	-	-	-	10+	-	-
+alignment 1: Chr4b, Path7 	 cost: 27142
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	8+	-	10+	-	-
+
+23Y_CMT1A_r1cluster_10
+total cost: 2696
+alignment 0: Chr12a, Path23 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path24 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_15q26_overgrowth_r1cluster_16
+total cost: 2096
+alignment 0: Chr17a, Path31 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path32 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r2cluster_4
+total cost: 859695
+alignment 0: Chr5a, Path10 	 cost: 799983
+-	x0+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	10+	11+	12+	13+	14+	15+	16+	x17+
+2+	-	-	-	7+	8+	9+	10+	-	12+	-	-	-	-	12+	-	14+	15+	-	-
+alignment 1: Chr5b, Path9 	 cost: 59712
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+-	-	2+	-	4+	5+	-	7+	8+	9+	10+	-	12+	-	14+	15+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_13
+total cost: 260755637
+alignment 0: Chr8a, Path20 	 cost: 94435800
+-	-	-	-	-	x0+	1+	2+	3+	4+	23+	24+	7+	8+	-	14-	13-	12-	11-	10-	9-	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+x18+	19+	x20+	21+	22+	-	-	-	-	-	23+	-	-	8+	9+	-	-	12-	-	-	-	-	10+	-	12+	-	14+	15+	-	-
+alignment 1: Chr8b, Path19 	 cost: 17851
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	10+	-	12+	-	14+	15+	-	-
+alignment 2: Chr14a, Path21 	 cost: 1712290
+x18+	19+	x20+	21+	22+	5+	6+	-	-	25+	26+	35+	36+	27+	28+	29+	x30+
+x18+	19+	x20+	21+	-	-	6+	7+	24+	25+	26+	-	-	27+	28+	-	-
+alignment 3: Chr14b, Path24 	 cost: 129453734
+-	-	-	-	x18+	19+	x20+	21+	22+	23+	24+	25+	-	-	-	26+	27+	28+	29+	x30+
+2+	3+	4+	5+	-	-	-	-	22+	23+	24+	25+	36+	37+	38+	-	-	-	-	-
+alignment 4: Chr18a, Path23 	 cost: 1684580
+x31+	32+	33+	34+	-	-	37+	38+	39+	x40+
+x31+	32+	33+	34+	35+	36+	37+	38+	-	-
+alignment 5: Chr18b, Path22 	 cost: 33451382
+x31+	32+	33+	34+	35+	36+	37+	-	-	-	38+	39+	x40+
+x31+	32+	33+	34+	35+	36+	37+	26+	27+	28+	-	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_15
+total cost: 3800
+alignment 0: Chr19a, Path36 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r2cluster_20
+total cost: 5282
+alignment 0: ChrXa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_4
+total cost: 11088
+alignment 0: Chr5a, Path9 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr5b, Path10 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_0
+total cost: 42098
+alignment 0: Chr1a, Path2 	 cost: 24776
+x0+	1+	2+	3+	4+	5+	6+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	-	-	9+	-	11+	-	-
+alignment 1: Chr1b, Path1 	 cost: 17322
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	6+	7+	8+	9+	-	11+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_5
+total cost: 20550
+alignment 0: Chr11a, Path25 	 cost: 13494
+x0+	1+	2+	3+	-	-	5-	4-	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	6-	5-	-	-	7+	-	-
+alignment 1: Chr11b, Path24 	 cost: 7056
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_10
+total cost: 2696
+alignment 0: Chr12a, Path23 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path24 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_19
+total cost: 5504
+alignment 0: Chr21a, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path43 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_7
+total cost: 127542074
+alignment 0: Chr12a, Path22 	 cost: 3200664
+-	x4+	6-	5-	7+	8+	9+	10+	11+	-	0+	1+	-	14+	15+	16+	17+	-	19+	20+	21+	22+	x23+
+6+	-	-	-	7+	8+	9+	10+	11+	12+	-	1+	2+	-	15+	-	17+	18+	19+	-	21+	-	-
+alignment 1: Chr12b, Path21 	 cost: 124341410
+x4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	-	15+	16+	17+	18+	19+	20+	21+	22+	x23+
+-	-	6+	7+	8+	9+	10+	11+	12+	13+	14+	3+	-	-	-	-	-	-	-	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_12
+total cost: 20870
+alignment 0: Chr14a, Path27 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_2
+total cost: 205986
+alignment 0: Chr3a, Path6 	 cost: 138527
+x0+	1+	2+	3+	4+	-	-	7-	6-	5-	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	8-	7-	-	-	-	-	7+	8+	-	10+	-	-
+alignment 1: Chr3b, Path5 	 cost: 67459
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	-	7+	8+	-	10+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_6
+total cost: 441706
+alignment 0: Chr8a, Path18 	 cost: 423948
+x0+	1+	2+	3+	4+	5+	6+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	-	-	-	10+	-	-
+alignment 1: Chr8b, Path17 	 cost: 17758
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	8+	-	10+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_19
+total cost: 7184
+alignment 0: Chr22a, Path44 	 cost: 4304
+x0+	x1+	2+	x3+	4+	-	7-	6-	-	5-	8+	9+	x10+
+x0+	x1+	2+	x3+	4+	5+	-	6-	7+	-	8+	-	-
+alignment 1: Chr22b, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	6+	7+	8+	9+	x10+
+x0+	x1+	2+	x3+	4+	5+	6+	7+	8+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_17
+total cost: 5504
+alignment 0: Chr21a, Path40 	 cost: 2752
+x0+	x1+	x2+	x3+	4+	x5+	6+	7+	x8+
+x0+	x1+	x2+	x3+	4+	x5+	6+	-	-
+alignment 1: Chr21b, Path41 	 cost: 2752
+x0+	x1+	x2+	x3+	4+	x5+	6+	7+	x8+
+x0+	x1+	x2+	x3+	4+	x5+	6+	-	-
+
+23X_Angelman_r2cluster_18
+total cost: 3800
+alignment 0: Chr19a, Path35 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path36 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_19
+total cost: 5504
+alignment 0: Chr21a, Path43 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path44 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_11
+total cost: 7186
+alignment 0: Chr16a, Path35 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr16b, Path36 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23Y_CMT1A_r1cluster_12
+total cost: 9358
+alignment 0: Chr15a, Path31 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+alignment 1: Chr15b, Path32 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+
+23X_15q26_overgrowth_r1cluster_14
+total cost: 153408633
+alignment 0: Chr15a, Path28 	 cost: 153366646
+-	-	-	-	-	-	x0+	1+	x2+	x3+	4+	5+	-	-	6+	7+	8+	10+	11+	12+	13+	14+	15+	16+	17+	18+	13+	14+	15+	16+	17+	18+	x19+
+17-	15-	15-	13-	12-	6-	-	-	-	-	-	5+	4-	x3-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 1: Chr15b, Path27 	 cost: 41987
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	x19+
+-	-	-	x3+	4+	5+	6+	-	8+	9+	10+	-	12+	13+	-	15+	-	17+	-	-
+
+23X_Cri_du_Chat_r2cluster_6
+total cost: 243111
+alignment 0: Chr7a, Path14 	 cost: 223606
+x0+	1+	2+	3+	4+	5+	6+	7+	-	8+	9+	9-	8-	7-	-	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	6+	7+	10-	-	-	9-	-	7-	6-	-	11+	-	-
+alignment 1: Chr7b, Path13 	 cost: 19505
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	6+	7+	-	9+	10+	11+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_1
+total cost: 149556
+alignment 0: Chr2a, Path4 	 cost: 122733
+x0+	1+	2+	3+	4+	5+	6+	7+	-	8+	9+	9-	8-	7-	6-	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	-	7+	10-	-	-	9-	-	7-	-	-	11+	-	-
+alignment 1: Chr2b, Path3 	 cost: 26823
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	-	7+	-	9+	10+	11+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_9
+total cost: 4450
+alignment 0: Chr13a, Path29 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path30 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_CMT1A_r2cluster_17
+total cost: 5504
+alignment 0: Chr21a, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path43 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_9
+total cost: 4450
+alignment 0: Chr13a, Path26 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path27 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_Angelman_r2cluster_5
+total cost: 268085
+alignment 0: Chr7a, Path15 	 cost: 255159
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	5+	6+	7+	8+	9+	10+	x11+
+-	-	2+	3+	4+	5+	6+	-	-	-	6+	-	8+	9+	-	-
+alignment 1: Chr7b, Path14 	 cost: 12926
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+-	-	2+	3+	4+	5+	6+	-	8+	9+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_15
+total cost: 3800
+alignment 0: Chr19a, Path39 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path40 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r1cluster_21
+total cost: 10564
+alignment 0: ChrXa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: ChrXb, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_12
+total cost: 157028411
+alignment 0: Chr6a, Path14 	 cost: 157022330
+x0+	1+	2+	3+	4+	10+	11+	-	-	-	7+	8+	x9+
+x0+	1+	2+	3+	-	-	11+	12+	13+	14+	-	-	-
+alignment 1: Chr6b, Path11 	 cost: 6081
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_13
+total cost: 159023717
+alignment 0: Chr14a, Path13 	 cost: 2006913
+x4+	5+	x6+	7+	8+	9+	-	-	1+	2+	12+	13+	-	15-	14-	x16+
+x4+	5+	x6+	7+	8+	9+	10+	0+	1+	-	-	13+	14+	-	-	-
+alignment 1: Chr14b, Path12 	 cost: 157016804
+x4+	5+	x6+	7+	8+	9+	10+	11+	12+	-	-	13+	14+	15+	x16+
+x4+	5+	x6+	7+	8+	9+	10+	11+	12+	2+	3+	-	-	-	-
+
+23X_Angelman_r1cluster_20
+total cost: 5760
+alignment 0: Chr22a, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_14
+total cost: 108646
+alignment 0: Chr18a, Path38 	 cost: 58728
+x0+	1+	2+	3+	4+	5+	6+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	-	-	-	10+	-	-
+alignment 1: Chr18b, Path37 	 cost: 49918
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	8+	-	10+	-	-
+
+23X_Angelman_r2cluster_4
+total cost: 112023694
+alignment 0: Chr6a, Path3 	 cost: 15267
+x4+	5+	6+	7+	-	0+	1+	-	2+	11+	12+	x13+
+x4+	5+	6+	7+	8+	-	1+	10+	-	11+	-	-
+alignment 1: Chr6b, Path2 	 cost: 112008427
+x4+	5+	6+	7+	8+	9+	-	-	10+	11+	12+	x13+
+x4+	5+	6+	7+	8+	9+	2+	3+	-	-	-	-
+
+23Y_Potocki_Shaffer_r2cluster_8
+total cost: 2696
+alignment 0: Chr12a, Path24 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path25 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r2cluster_16
+total cost: 896
+alignment 0: Chr20a, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path41 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_8
+total cost: 221066102
+alignment 0: Chr10a, Path26 	 cost: 112251335
+x0+	1+	2+	3+	4+	5+	-	-	-	-	-	9+	10+	x11+
+x0+	1+	2+	3+	4+	5+	6+	7+	16+	17+	18+	-	-	-
+alignment 1: Chr10b, Path23 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	-	-
+alignment 2: Chr12a, Path24 	 cost: 108811264
+x12+	13+	14+	15+	16+	6+	7+	8+	-	17+	18+	19+	x20+
+x12+	13+	14+	15+	-	-	7+	8+	9+	-	-	-	-
+alignment 3: Chr12b, Path25 	 cost: 1348
+x12+	13+	14+	15+	16+	17+	18+	19+	x20+
+x12+	13+	14+	15+	16+	17+	18+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_0
+total cost: 6176
+alignment 0: Chr1a, Path1 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr1b, Path2 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r2cluster_7
+total cost: 5020
+alignment 0: Chr8a, Path15 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr8b, Path16 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_15q26_overgrowth_r1cluster_15
+total cost: 7186
+alignment 0: Chr16a, Path29 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr16b, Path30 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23Y_CMT1A_r1cluster_13
+total cost: 281587068
+alignment 0: Chr13a, Path28 	 cost: 234361262
+-	-	-	-	x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	5+	6+	7+	8+	9+	10+	11+	12+	24+	25+	26+	13+	-	-	-	-	-	-	-	-	-	-	-	14+	15+	16+	x17+
+27-	26-	25-	14-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	13+	12-	11-	10-	8-	6-	10-	8-	6-	5-	4-	x3-	-	-	-	-
+alignment 1: Chr13b, Path25 	 cost: 12041
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+-	-	-	x3+	4+	5+	6+	-	8+	-	10+	11+	12+	13+	14+	15+	-	-
+alignment 2: Chr16a, Path27 	 cost: 13304
+x18+	19+	20+	21+	22+	23+	-	-	27+	28+	x29+
+x18+	19+	20+	21+	22+	23+	24+	26+	27+	-	-
+alignment 3: Chr16b, Path26 	 cost: 47200461
+x18+	19+	20+	21+	22+	23+	24+	25+	-	26+	27+	28+	x29+
+x18+	19+	20+	21+	22+	23+	24+	25+	15+	-	-	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_10
+total cost: 9358
+alignment 0: Chr15a, Path33 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr15b, Path34 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_18
+total cost: 896
+alignment 0: Chr20a, Path41 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path42 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r2cluster_19
+total cost: 896
+alignment 0: Chr20a, Path37 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path38 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_18
+total cost: 5504
+alignment 0: Chr21a, Path41 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_16
+total cost: 896
+alignment 0: Chr20a, Path38 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_7
+total cost: 504
+alignment 0: Chr9a, Path19 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path20 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_3
+total cost: 3980
+alignment 0: Chr4a, Path7 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path8 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_13
+total cost: 9358
+alignment 0: Chr15a, Path29 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+alignment 1: Chr15b, Path30 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_6
+total cost: 123009511
+alignment 0: Chr10a, Path23 	 cost: 123007356
+x0+	1+	2+	3+	-	10+	11+	-	-	-	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	-	11+	12+	13+	14+	-	-	-	-
+alignment 1: Chr10b, Path20 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_2
+total cost: 12162
+alignment 0: Chr6a, Path15 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr6b, Path16 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_17
+total cost: 3800
+alignment 0: Chr19a, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_22
+total cost: 5282
+alignment 0: ChrYa, Path47 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_7
+total cost: 504
+alignment 0: Chr9a, Path19 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path20 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_12
+total cost: 63929675
+alignment 0: Chr16a, Path14 	 cost: 34374
+x4+	5+	6+	7+	8+	9+	10+	-	-	12-	11-	13+	14+	15+	16+	-	0+	1+	2+	19+	20+	21+	x22+
+-	-	6+	-	8+	-	10+	11+	13-	12-	-	-	14+	15+	16+	17+	-	1+	-	-	20+	-	-
+alignment 1: Chr16b, Path13 	 cost: 63895301
+x4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	-	-	20+	21+	x22+
+-	-	6+	-	8+	-	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	2+	3+	-	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_3
+total cost: 3650949
+alignment 0: Chr4a, Path7 	 cost: 1879526
+x0+	1+	2+	3+	4+	9-	8-	7-	6-	5-	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	-	-	-	-	5+	-	7+	-	9+	10+	-	-
+alignment 1: Chr4b, Path8 	 cost: 1771423
+x0+	1+	2+	3+	4+	5+	-	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	7+	-	7+	-	9+	10+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_20
+total cost: 5282
+alignment 0: ChrXa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r2cluster_21
+total cost: 5760
+alignment 0: Chr22a, Path41 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path42 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_14
+total cost: 44559992
+alignment 0: Chr7a, Path18 	 cost: 22764118
+x0+	1+	-	4-	3-	-	2-	5+	6+	7+	-	-	-	-	-	11+	12+	x13+
+x0+	1+	2+	-	3-	4+	-	5+	6+	7+	8+	9+	18+	19+	20+	-	-	-
+alignment 1: Chr7b, Path15 	 cost: 988
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	-	-
+alignment 2: Chr19a, Path16 	 cost: 21792986
+x14+	15+	16+	17+	18+	8+	9+	10+	-	19+	20+	21+	x22+
+x14+	15+	16+	17+	-	-	9+	10+	11+	-	-	-	-
+alignment 3: Chr19b, Path17 	 cost: 1900
+x14+	15+	16+	17+	18+	19+	20+	21+	x22+
+x14+	15+	16+	17+	18+	19+	20+	-	-
+
+23X_22q11_duplication_r2cluster_20
+total cost: 406617
+alignment 0: Chr22a, Path46 	 cost: 399696
+x0+	x1+	x2+	3+	x4+	5+	6+	7+	8+	9+	10+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	x2+	3+	x4+	5+	6+	-	8+	-	-	-	-	8+	-	10+	11+	-	-
+alignment 1: Chr22b, Path45 	 cost: 6921
+x0+	x1+	x2+	3+	x4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	x2+	3+	x4+	5+	6+	-	8+	-	10+	11+	-	-
+
+23X_Angelman_r1cluster_8
+total cost: 4310
+alignment 0: Chr10a, Path19 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr10b, Path20 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_4
+total cost: 11088
+alignment 0: Chr5a, Path9 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr5b, Path10 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r1cluster_17
+total cost: 147186
+alignment 0: Chr20a, Path40 	 cost: 118395
+x0+	1+	2+	3+	4+	5+	-	6+	7+	7-	6-	5-	4-	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	-	5+	8-	-	-	7-	-	5-	-	-	9+	10+	11+	-	-
+alignment 1: Chr20b, Path39 	 cost: 28791
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	-	5+	-	7+	8+	9+	10+	11+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_8
+total cost: 57241317
+alignment 0: Chr1a, Path6 	 cost: 57089264
+-	-	x0+	1+	2+	3+	23+	24+	-	-	6+	-	-	38+	-	39+	10+	11+	12+	13+	14+	15+	-	16+	17+	15+	16+	17+	18+	19+	x20+
+x21+	22+	-	-	-	-	23+	24+	25+	5+	6+	7+	37+	38+	9+	-	10+	11+	12+	-	14+	15+	14+	-	-	15+	-	17+	18+	-	-
+alignment 1: Chr1b, Path1 	 cost: 19591
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	x20+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	-	14+	15+	-	17+	18+	-	-
+alignment 2: Chr12a, Path2 	 cost: 96022
+x26+	27+	28+	29+	30+	31+	32+	34+	35+	36+	37+	7+	8+	-	9+	40+	41+	x42+
+-	-	28+	29+	30+	-	-	-	-	36+	-	-	8+	39+	-	40+	-	-
+alignment 3: Chr12b, Path5 	 cost: 36440
+x26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	39+	40+	41+	x42+
+-	-	28+	29+	30+	-	32+	33+	34+	-	36+	37+	38+	39+	40+	-	-
+
+23X_15q26_overgrowth_r1cluster_11
+total cost: 2696
+alignment 0: Chr12a, Path22 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path23 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r2cluster_3
+total cost: 3980
+alignment 0: Chr4a, Path7 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path8 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r2cluster_12
+total cost: 7186
+alignment 0: Chr16a, Path34 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr16b, Path35 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_17
+total cost: 13820
+alignment 0: Chr18a, Path34 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path35 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r1cluster_18
+total cost: 896
+alignment 0: Chr20a, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r2cluster_0
+total cost: 8208162
+alignment 0: Chr2a, Path6 	 cost: 8174353
+x0+	1+	2+	3+	9-	8-	7-	6-	5-	4-	4+	-	5+	6+	7+	8+	9+	10+	-	17+	18+	19+	13+	14+	15+	16+	-	11+	12+	-	-	20+	21+	22+	24+	25+	26+	27+	x28+
+-	-	2+	3+	-	-	-	-	-	-	4+	6+	-	6+	-	8+	9+	10+	11+	-	18+	-	-	14+	15+	16+	17+	-	12+	13+	19+	20+	-	-	-	-	26+	-	-
+alignment 1: Chr2b, Path5 	 cost: 33809
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	x28+
+-	-	2+	3+	4+	-	6+	-	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	-	22+	23+	24+	-	26+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_10
+total cost: 176227354
+alignment 0: Chr2a, Path7 	 cost: 92587
+x0+	1+	2+	3+	4+	6+	7+	8+	9+	10+	-	-	14+	15+	x16+
+-	-	2+	-	-	-	-	8+	9+	10+	11+	13+	14+	-	-
+alignment 1: Chr2b, Path4 	 cost: 88066885
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	-	-	-	13+	14+	15+	x16+
+-	-	2+	-	4+	5+	6+	-	8+	9+	10+	11+	12+	21+	22+	23+	-	-	-	-
+alignment 2: Chr14a, Path6 	 cost: 88057447
+x17+	18+	x19+	20+	21+	11+	12+	13+	-	22+	23+	24+	x25+
+x17+	18+	x19+	20+	-	-	12+	13+	14+	-	-	-	-
+alignment 3: Chr14b, Path5 	 cost: 10435
+x17+	18+	x19+	20+	21+	22+	23+	24+	x25+
+x17+	18+	x19+	20+	21+	22+	23+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_11
+total cost: 9358
+alignment 0: Chr15a, Path31 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+alignment 1: Chr15b, Path32 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+
+23X_Angelman_r2cluster_1
+total cost: 155224
+alignment 0: Chr3a, Path8 	 cost: 93745
+x0+	1+	2+	3+	4+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	-	-	7+	-	9+	10+	11+	-	-
+alignment 1: Chr3b, Path7 	 cost: 61479
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	4+	5+	6+	7+	-	9+	10+	11+	-	-
+
+23X_Angelman_r1cluster_19
+total cost: 52510
+alignment 0: Chr21a, Path42 	 cost: 43071
+x0+	x1+	x2+	3+	x4+	5+	6+	7+	9+	10+	11+	12+	x13+
+-	-	x2+	3+	x4+	5+	-	-	-	-	11+	-	-
+alignment 1: Chr21b, Path41 	 cost: 9439
+x0+	x1+	x2+	3+	x4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	x2+	3+	x4+	5+	-	7+	8+	9+	-	11+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_16
+total cost: 1377988
+alignment 0: Chr17a, Path32 	 cost: 1376940
+x0+	1+	2+	3+	-	4-	5+	6+	x7+
+x0+	1+	2+	3+	4+	-	5+	-	-
+alignment 1: Chr17b, Path33 	 cost: 1048
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23Y_CMT1A_r2cluster_13
+total cost: 7502329
+alignment 0: Chr3a, Path11 	 cost: 5273470
+x0+	1+	2+	3+	29+	30+	-	31+	4+	5+	6+	7+	-	8+	9+	10+	11+	11-	10-	9-	8-	7-	6-	12+	13+	14+	15+	16+	x17+
+-	-	2+	-	-	30+	3+	-	4+	5+	6+	7+	9+	-	9+	-	11+	-	-	-	-	-	-	12+	13+	14+	15+	-	-
+alignment 1: Chr3b, Path8 	 cost: 41200
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+-	-	2+	3+	4+	5+	6+	7+	-	9+	-	11+	12+	13+	14+	15+	-	-
+alignment 2: Chr17a, Path9 	 cost: 2150575
+x18+	19+	20+	21+	22+	23+	-	24+	25+	23+	24+	25+	26+	27+	28+	-	-	-	32+	33+	x34+
+-	-	20+	-	22+	23+	22+	-	-	23+	-	25+	26+	27+	28+	29+	30+	31+	32+	-	-
+alignment 3: Chr17b, Path10 	 cost: 37084
+x18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	x34+
+-	-	20+	-	22+	23+	-	25+	26+	27+	28+	29+	30+	31+	32+	-	-
+
+23X_Cri_du_Chat_r2cluster_2
+total cost: 472595
+alignment 0: Chr3a, Path6 	 cost: 424265
+x0+	1+	2+	3+	4+	5+	6+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	12+	13+	14+	15+	16+	17+	18+	19+	x20+
+-	-	2+	-	4+	-	-	-	-	-	4+	-	6+	7+	-	9+	-	-	-	14+	15+	16+	17+	18+	-	-
+alignment 1: Chr3b, Path5 	 cost: 48330
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	x20+
+-	-	2+	-	4+	-	6+	7+	-	9+	10+	11+	12+	-	14+	15+	16+	17+	18+	-	-
+
+23X_15q26_overgrowth_r1cluster_10
+total cost: 22574
+alignment 0: Chr11a, Path21 	 cost: 15518
+x0+	1+	2+	3+	-	4+	5-	-	6+	7+	8+	x9+
+x0+	1+	2+	3+	6-	-	5-	4-	-	7+	-	-
+alignment 1: Chr11b, Path20 	 cost: 7056
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_CMT1A_r1cluster_16
+total cost: 3800
+alignment 0: Chr19a, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_9
+total cost: 4450
+alignment 0: Chr13a, Path27 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path28 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_5
+total cost: 86926
+alignment 0: Chr6a, Path12 	 cost: 49548
+x0+	1+	2+	3+	4+	5+	6+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	-	-	10+	-	-
+alignment 1: Chr6b, Path11 	 cost: 37378
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	-	-	10+	-	-
+
+23X_Angelman_r1cluster_9
+total cost: 8188655
+alignment 0: Chr11a, Path22 	 cost: 8159499
+x0+	1+	2+	-	3+	16+	-	17+	14+	-	15+	4+	5+	6+	-	7+	8+	9+	10+	10-	9-	8-	7-	6-	5-	11+	12+	-	13+	18+	19+	20+	21+	22+	23+	24+	25+	21+	22+	23+	24+	25+	26+	27+	x28+
+-	-	2+	15+	-	16+	13+	-	14+	3+	-	4+	5+	6+	8+	-	8+	-	10+	-	-	-	-	-	-	11+	12+	17+	-	18+	19+	20+	21+	-	23+	-	-	-	-	23+	-	25+	26+	-	-
+alignment 1: Chr11b, Path21 	 cost: 29156
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	x28+
+-	-	2+	3+	4+	5+	6+	-	8+	-	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	-	23+	-	25+	26+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_15
+total cost: 896
+alignment 0: Chr20a, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_21
+total cost: 242910485
+alignment 0: Chr14a, Path30 	 cost: 122606684
+-	-	-	-	-	-	x0+	1+	x2+	3+	7+	8+	x9+
+x10+	11+	12+	13+	5+	6+	-	-	-	-	7+	-	-
+alignment 1: Chr14b, Path29 	 cost: 10435
+x0+	1+	x2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	x2+	3+	4+	5+	6+	7+	-	-
+alignment 2: ChrXa, Path32 	 cost: 120288084
+-	-	-	-	x10+	11+	12+	13+	14+	4+	5+	-	6+	15+	16+	17+	x18+
+x0+	1+	x2+	3+	-	-	-	-	-	4+	5+	14+	-	15+	16+	-	-
+alignment 3: ChrXb, Path31 	 cost: 5282
+x10+	11+	12+	13+	14+	15+	16+	17+	x18+
+x10+	11+	12+	13+	14+	15+	16+	-	-
+
+23X_Angelman_r2cluster_20
+total cost: 5504
+alignment 0: Chr21a, Path39 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path40 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_21
+total cost: 5282
+alignment 0: ChrYa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_2
+total cost: 9924
+alignment 0: Chr3a, Path5 	 cost: 4962
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr3b, Path6 	 cost: 4962
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_13
+total cost: 2096
+alignment 0: Chr17a, Path32 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path33 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_6
+total cost: 463901
+alignment 0: Chr8a, Path18 	 cost: 446189
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	11-	10-	9-	8-	7-	-	6-	12+	13+	-	14+	x19+
+-	-	2+	3+	4+	-	-	7+	8+	-	-	-	-	10-	-	8-	7-	11+	-	12+	13+	17+	-	-
+alignment 1: Chr8b, Path17 	 cost: 17712
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	x19+
+-	-	2+	3+	4+	-	-	7+	8+	-	10+	11+	12+	13+	14+	15+	-	17+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_16
+total cost: 242034
+alignment 0: Chr18a, Path36 	 cost: 190727
+x0+	1+	2+	3+	4+	-	-	6-	5-	7+	8+	9+	10+	11+	-	12+	13+	11+	12+	13+	14+	15+	x16+
+-	-	2+	3+	4+	5+	7-	6-	-	-	8+	-	10+	11+	10+	-	-	11+	-	13+	14+	-	-
+alignment 1: Chr18b, Path35 	 cost: 51307
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	2+	3+	4+	5+	6+	7+	8+	-	10+	11+	-	13+	14+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_3
+total cost: 1976
+alignment 0: Chr7a, Path17 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path18 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_21
+total cost: 5282
+alignment 0: ChrXa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_14
+total cost: 133834
+alignment 0: Chr16a, Path32 	 cost: 97577
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	10-	9-	8-	7-	6-	-	5-	11+	12+	x13+
+-	-	2+	3+	4+	5+	6+	-	8+	-	-	-	-	8-	-	6-	10+	-	11+	-	-
+alignment 1: Chr16b, Path31 	 cost: 36257
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	5+	6+	-	8+	-	10+	11+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_1
+total cost: 11088
+alignment 0: Chr5a, Path13 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr5b, Path14 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_4
+total cost: 16820
+alignment 0: Chr5a, Path10 	 cost: 11276
+x0+	1+	2+	3+	-	6-	5-	-	4-	7+	8+	x9+
+x0+	1+	2+	3+	4+	-	5-	6+	-	7+	-	-
+alignment 1: Chr5b, Path9 	 cost: 5544
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_11
+total cost: 63894339
+alignment 0: Chr5a, Path15 	 cost: 63888795
+x0+	1+	2+	3+	-	10+	11+	-	-	7+	8+	x9+
+x0+	1+	2+	3+	4+	-	11+	12+	13+	-	-	-
+alignment 1: Chr5b, Path12 	 cost: 5544
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_NF1_microdeletion_r2cluster_18
+total cost: 5504
+alignment 0: Chr21a, Path41 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_0
+total cost: 6176
+alignment 0: Chr1a, Path1 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr1b, Path2 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_17
+total cost: 5760
+alignment 0: Chr22a, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_Angelman_r2cluster_22
+total cost: 10564
+alignment 0: ChrXa, Path43 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: ChrXb, Path44 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_7
+total cost: 10665410
+alignment 0: Chr8a, Path16 	 cost: 10648649
+-	x0+	2-	1-	3+	4+	5+	6+	7+	8+	9+	12+	13+	14+	16-	15-	-	-	17+	18+	x19+
+2+	-	-	-	3+	4+	5+	6+	7+	-	-	-	13+	-	-	15-	14-	16+	17+	-	-
+alignment 1: Chr8b, Path15 	 cost: 16761
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	x19+
+-	-	2+	3+	4+	5+	6+	7+	-	9+	10+	-	-	13+	14+	15+	16+	17+	-	-
+
+23X_Cri_du_Chat_r2cluster_0
+total cost: 199144
+alignment 0: Chr1a, Path2 	 cost: 177674
+x0+	1+	2+	3+	4+	5+	6+	8+	9+	10+	-	11+	12-	-	13+	14+	15+	x16+
+-	-	2+	3+	4+	-	-	-	-	10+	13-	-	12-	11-	-	14+	-	-
+alignment 1: Chr1b, Path1 	 cost: 21470
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	2+	3+	4+	-	6+	7+	8+	-	10+	11+	12+	13+	14+	-	-
+
+23X_15q26_overgrowth_r1cluster_12
+total cost: 183591686
+alignment 0: Chr13a, dummy 	 cost: 96303080
+-
+skipped
+alignment 1: Chr13b, Path24 	 cost: 87288606
+x0+	1+	x2+	3+	4+	5+	6+	7+	-	-	-	-	-	-	8+	x9+
+x0+	1+	x2+	3+	4+	5+	6+	7+	5-	4-	3-	x2-	1+	x0-	-	-
+
+23Y_CMT1A_r1cluster_14
+total cost: 174133
+alignment 0: Chr17a, Path34 	 cost: 138357
+x0+	1+	2+	3+	4+	5+	6+	7+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	-	5+	-	-	-	5+	-	7+	8+	9+	10+	-	-
+alignment 1: Chr17b, Path33 	 cost: 35776
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	-	5+	-	7+	8+	9+	10+	-	-
+
+23X_Cri_du_Chat_r1cluster_8
+total cost: 14112
+alignment 0: Chr11a, Path21 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr11b, Path22 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r2cluster_11
+total cost: 9358
+alignment 0: Chr15a, Path32 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr15b, Path33 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_14
+total cost: 9358
+alignment 0: Chr15a, Path28 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr15b, Path29 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_Angelman_r2cluster_3
+total cost: 112010864
+alignment 0: Chr1a, Path4 	 cost: 112007776
+x0+	1+	2+	3+	-	10+	11+	12+	-	7+	8+	x9+
+x0+	1+	2+	3+	4+	-	11+	12+	13+	-	-	-
+alignment 1: Chr1b, Path1 	 cost: 3088
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_13
+total cost: 2096
+alignment 0: Chr17a, Path35 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path36 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_12
+total cost: 7186
+alignment 0: Chr16a, Path33 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr16b, Path34 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r2cluster_2
+total cost: 110108
+alignment 0: Chr4a, Path10 	 cost: 66133
+x0+	1+	2+	3+	4+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	-	-	7+	-	9+	10+	11+	-	-
+alignment 1: Chr4b, Path9 	 cost: 43975
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	4+	5+	6+	7+	-	9+	10+	11+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_15
+total cost: 204161
+alignment 0: Chr16a, Path31 	 cost: 167701
+x0+	1+	2+	3+	4+	5+	6+	7+	-	8+	9+	9-	8-	7-	6-	5-	10+	11+	12+	x13+
+-	-	2+	3+	4+	5+	-	7+	10-	-	-	9-	-	7-	-	-	-	11+	-	-
+alignment 1: Chr16b, Path30 	 cost: 36460
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	5+	-	7+	-	9+	10+	11+	-	-
+
+23X_Cri_du_Chat_r1cluster_9
+total cost: 2696
+alignment 0: Chr12a, Path23 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path24 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r2cluster_10
+total cost: 20870
+alignment 0: Chr14a, Path30 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path31 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_CMT1A_r1cluster_15
+total cost: 174856
+alignment 0: Chr18a, Path36 	 cost: 106725
+x0+	1+	2+	3+	4+	5+	-	6+	7+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	4+	5+	4+	-	-	5+	-	7+	8+	9+	10+	-	-
+alignment 1: Chr18b, Path35 	 cost: 68131
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	4+	5+	-	7+	8+	9+	10+	-	-
+
+23X_15q26_overgrowth_r1cluster_13
+total cost: 20870
+alignment 0: Chr14a, Path25 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path26 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_Cri_du_Chat_r2cluster_1
+total cost: 4342
+alignment 0: Chr2a, Path3 	 cost: 2171
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr2b, Path4 	 cost: 2171
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_6
+total cost: 1976
+alignment 0: Chr7a, Path13 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path14 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_16
+total cost: 296084
+alignment 0: Chr21a, Path41 	 cost: 293332
+x0+	x1+	2+	x3+	4+	5+	5+	6+	7+	x8+
+x0+	x1+	2+	x3+	4+	-	5+	6+	-	-
+alignment 1: Chr21b, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	6+	7+	x8+
+x0+	x1+	2+	x3+	4+	5+	6+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_1
+total cost: 2249292
+alignment 0: Chr2a, Path4 	 cost: 2194491
+x0+	1+	2+	-	3+	4+	8+	9+	10+	11+	12+	13+	14+	15+	12+	13+	14+	15+	16+	17+	18+	19+	20+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	27+	28+	29+	30+	31+	32+	33+	34+	35+	33+	34+	35+	34+	35+	x36+
+-	-	2+	7+	-	-	8+	9+	10+	-	-	13+	-	-	-	13+	-	15+	16+	17+	18+	-	-	-	-	24+	25+	26+	27+	-	29+	-	-	-	-	29+	-	31+	32+	-	-	-	33+	-	-	34+	-	-
+alignment 1: Chr2b, Path3 	 cost: 54801
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	x36+
+-	-	2+	-	4+	5+	-	7+	8+	9+	10+	-	-	13+	-	15+	16+	17+	18+	-	20+	21+	22+	-	24+	25+	26+	27+	-	29+	-	31+	32+	33+	34+	-	-
+
+23Y_NF1_microdeletion_r2cluster_19
+total cost: 5760
+alignment 0: Chr22a, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_10
+total cost: 9358
+alignment 0: Chr15a, Path30 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr15b, Path31 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_5
+total cost: 1976
+alignment 0: Chr7a, Path15 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path16 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_0
+total cost: 4342
+alignment 0: Chr2a, Path11 	 cost: 2171
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr2b, Path12 	 cost: 2171
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_20
+total cost: 5760
+alignment 0: Chr22a, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path45 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_15
+total cost: 2096
+alignment 0: Chr17a, Path33 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path34 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_18
+total cost: 896
+alignment 0: Chr20a, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_11
+total cost: 119139574
+alignment 0: Chr2a, Path10 	 cost: 108474273
+x0+	1+	2+	-	35+	36+	-	-	6+	-	-	-	10+	11+	12+	13+	18-	17-	16-	-	15-	14-	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	20+	21+	22+	-	23+	64+	65+	-	30+	67+	68+	33+	34+	3+	4+	5+	37+	38+	39+	44-	43-	42-	41-	40-	40+	41+	42+	43+	44+	45+	46+	x47+
+-	-	2+	3+	-	36+	37+	5+	6+	7+	8+	9+	10+	11+	12+	-	-	-	16-	13+	-	-	14+	-	16+	-	18+	19+	20+	-	22+	23+	24+	-	26+	-	-	-	22+	63+	-	64+	65+	66+	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 1: Chr2b, Path3 	 cost: 57874
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	39+	40+	41+	42+	43+	44+	45+	46+	x47+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	-	16+	-	18+	19+	20+	-	22+	23+	24+	-	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	39+	40+	-	42+	-	44+	45+	-	-
+alignment 2: Chr4a, Path9 	 cost: 10605437
+x48+	49+	50+	51+	55+	54+	52+	53+	-	-	56+	57+	58+	7+	8+	-	9+	59+	60+	61+	x62+
+x48+	49+	50+	51+	-	-	52+	53+	54+	55+	56+	57+	-	-	8+	58+	-	59+	60+	-	-
+alignment 3: Chr4b, Path8 	 cost: 1990
+x48+	49+	50+	51+	52+	53+	54+	55+	56+	57+	58+	59+	60+	61+	x62+
+x48+	49+	50+	51+	52+	53+	54+	55+	56+	57+	58+	59+	60+	-	-
+
+23X_22q11_duplication_r2cluster_8
+total cost: 4310
+alignment 0: Chr10a, Path21 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr10b, Path22 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_11
+total cost: 7186
+alignment 0: Chr16a, Path32 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr16b, Path33 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_13
+total cost: 7186
+alignment 0: Chr16a, Path31 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr16b, Path32 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23Y_NF1_microdeletion_r2cluster_14
+total cost: 133635
+alignment 0: Chr17a, Path34 	 cost: 98390
+x0+	1+	2+	3+	4+	5+	6+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	-	-	10+	-	-
+alignment 1: Chr17b, Path33 	 cost: 35245
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	-	-	10+	-	-
+
+23X_Angelman_r2cluster_12
+total cost: 4450
+alignment 0: Chr13a, Path24 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path25 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_Angelman_r1cluster_7
+total cost: 270813098
+alignment 0: Chr1a, Path4 	 cost: 8752
+x0+	1+	2+	3+	-	-	7+	8+	x9+
+x0+	1+	2+	3+	4+	6+	7+	-	-
+alignment 1: Chr1b, Path1 	 cost: 135379546
+x0+	1+	2+	3+	4+	5+	-	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	21+	-	-	-	-
+alignment 2: Chr9a, Path3 	 cost: 135399832
+x10+	11+	12+	13+	14+	15+	16+	17+	18+	-	-	4+	5+	6+	-	19+	20+	21+	22+	x23+
+-	-	12+	13+	14+	-	16+	-	18+	19+	20+	-	5+	6+	7+	-	-	-	-	-
+alignment 3: Chr9b, Path2 	 cost: 24968
+x10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	x23+
+-	-	12+	13+	14+	-	16+	-	18+	19+	20+	21+	-	-
+
+23X_22q11_duplication_r2cluster_13
+total cost: 90676792
+alignment 0: Chr15a, Path13 	 cost: 8420857
+x3+	4+	x5+	x6+	7+	-	-	1+	-	10+	11+	12+	13+	14+	15+	16+	13+	14+	15+	16+	17+	18+	x19+
+-	-	-	x6+	7+	8+	0+	1+	2+	-	11+	-	-	-	-	-	-	14+	-	16+	17+	-	-
+alignment 1: Chr15b, dummy 	 cost: 82255935
+-
+skipped
+
+23Y_2p15-16-1_microdeletion_r2cluster_3
+total cost: 89981517
+alignment 0: Chr6a, Path18 	 cost: 89915181
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	-	5+	6+	7+	15-	14-	13-	12-	11-	10-	9-	8-	-	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	x18+
+-	-	2+	3+	4+	5+	-	7+	8+	9+	-	11+	12+	-	-	-	-	-	-	-	-	-	9-	8-	7-	-	9+	-	11+	12+	-	14+	-	-	-	-
+alignment 1: Chr6b, Path17 	 cost: 66336
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	x18+
+-	-	2+	3+	4+	5+	-	7+	8+	9+	-	11+	12+	-	14+	15+	16+	-	-
+
+23X_15q26_overgrowth_r1cluster_22
+total cost: 10564
+alignment 0: ChrXa, Path43 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: ChrXb, Path44 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_7
+total cost: 173402
+alignment 0: Chr11a, Path26 	 cost: 140481
+x0+	1+	2+	3+	4+	5+	6+	7+	-	8+	9+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	6+	-	-	7+	-	9+	10+	-	-
+alignment 1: Chr11b, Path25 	 cost: 32921
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	-	9+	10+	-	-
+
+23Y_CMT1A_r1cluster_18
+total cost: 5504
+alignment 0: Chr21a, Path41 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_3
+total cost: 3980
+alignment 0: Chr4a, Path6 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path7 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r1cluster_4
+total cost: 51983
+alignment 0: Chr7a, Path16 	 cost: 38372
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	5+	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	4+	5+	6+	-	8+	-	10+	-	-	6+	-	8+	-	10+	11+	12+	-	-
+alignment 1: Chr7b, Path15 	 cost: 13611
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	4+	5+	6+	-	8+	-	10+	11+	12+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_18
+total cost: 3800
+alignment 0: Chr19a, Path36 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r1cluster_17
+total cost: 3800
+alignment 0: Chr19a, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r1cluster_16
+total cost: 13820
+alignment 0: Chr18a, Path35 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path36 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_19
+total cost: 896
+alignment 0: Chr20a, Path38 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r1cluster_5
+total cost: 5020
+alignment 0: Chr8a, Path17 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr8b, Path18 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_2
+total cost: 6031840
+alignment 0: Chr3a, Path5 	 cost: 5965599
+-	x0+	2-	1-	3+	4+	5+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	-	17+	16+	17+	18+	19+	20+	x21+
+2+	-	-	-	3+	-	-	-	-	9+	10+	11+	12+	13+	-	15+	16+	15+	-	16+	-	-	19+	-	-
+alignment 1: Chr3b, Path4 	 cost: 66241
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	x21+
+-	-	2+	3+	-	5+	6+	7+	-	9+	10+	11+	12+	13+	-	15+	16+	-	-	19+	-	-
+
+23Y_CMT1A_r2cluster_20
+total cost: 5282
+alignment 0: ChrYa, Path47 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_6
+total cost: 3696266
+alignment 0: Chr10a, Path23 	 cost: 3694111
+x0+	1+	2+	3+	4+	5+	-	7-	6-	x8+
+x0+	1+	2+	3+	4+	5+	6+	-	-	-
+alignment 1: Chr10b, Path24 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	7+	x8+
+x0+	1+	2+	3+	4+	5+	6+	-	-
+
+23Y_CMT1A_r1cluster_19
+total cost: 5760
+alignment 0: Chr22a, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_2
+total cost: 15177308
+alignment 0: Chr4a, Path10 	 cost: 7671227
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	10-	9-	8-	7-	x11+
+-	-	2+	3+	4+	5+	6+	7+	-	9+	-	-	-	-	-	-
+alignment 1: Chr4b, Path11 	 cost: 8500
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+-	-	2+	3+	4+	5+	6+	7+	-	9+	-	-
+alignment 2: dummy, Path12 	 cost: 7497581
+skipped
+-
+
+23X_22q11_duplication_r2cluster_12
+total cost: 280387685
+alignment 0: Chr6a, Path14 	 cost: 153166322
+x0+	1+	2+	3+	4+	12+	13+	-	-	-	-	-	-	6+	7+	8+	x9+
+x0+	1+	2+	3+	-	-	13+	14+	15+	16+	16+	17+	18+	-	-	-	-
+alignment 1: Chr6b, Path11 	 cost: 6081
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+alignment 2: dummy, Path12 	 cost: 127215282
+skipped
+-
+
+23X_Angelman_r1cluster_6
+total cost: 5020
+alignment 0: Chr8a, Path17 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr8b, Path18 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r2cluster_13
+total cost: 177407114
+alignment 0: Chr14a, Path26 	 cost: 88696919
+x0+	1+	x2+	3+	4+	5+	6+	8-	7-	7+	-	-	-	-	-	-	8+	x9+
+x0+	1+	x2+	3+	4+	5+	6+	-	-	7+	5-	4-	3-	x2-	1+	x0-	-	-
+alignment 1: Chr14b, dummy 	 cost: 88710195
+-
+skipped
+
+23Y_NF1_microdeletion_r2cluster_15
+total cost: 13820
+alignment 0: Chr18a, Path35 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path36 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_12
+total cost: 9358
+alignment 0: Chr15a, Path29 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr15b, Path30 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_10
+total cost: 161972318
+alignment 0: Chr15a, Path31 	 cost: 161951914
+-	-	-	x0+	1+	x2+	x3+	4+	5+	6+	8+	9+	10+	11+	x12+
+10-	4-	x3-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 1: Chr15b, Path30 	 cost: 20404
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	-	x3+	4+	-	6+	7+	8+	-	10+	-	-
+
+23X_22q11_duplication_r2cluster_9
+total cost: 14112
+alignment 0: Chr11a, Path23 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr11b, Path24 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_10
+total cost: 4450
+alignment 0: Chr13a, Path28 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path29 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_19
+total cost: 1161787
+alignment 0: Chr21a, Path41 	 cost: 659491
+x0+	x1+	x2+	3+	x4+	5+	6+	7+	8+	9+	10+	10-	9-	8-	7-	6-	11+	12+	x13+
+-	-	x2+	3+	x4+	5+	6+	-	8+	-	10+	-	-	-	-	-	11+	-	-
+alignment 1: Chr21b, Path42 	 cost: 502296
+x0+	x1+	x2+	3+	x4+	5+	6+	-	7+	8+	9+	10+	11+	12+	x13+
+-	-	x2+	3+	x4+	5+	6+	8+	-	8+	-	10+	11+	-	-
+
+23Y_NF1_microdeletion_r1cluster_12
+total cost: 71803747
+alignment 0: Chr14a, Path5 	 cost: 15805
+x12+	13+	x14+	15+	16+	1+	2+	-	-	19+	20+	x21+
+x12+	13+	x14+	15+	-	-	2+	3+	18+	19+	-	-
+alignment 1: Chr14b, Path4 	 cost: 71787942
+x12+	13+	x14+	15+	16+	17+	-	-	-	-	-	-	-	-	-	-	18+	19+	20+	x21+
+x12+	13+	x14+	15+	16+	17+	4+	5+	0+	6+	9-	7+	8+	9+	10+	11+	-	-	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_12
+total cost: 759362242
+alignment 0: Chr1a, Path2 	 cost: 76784038
+x0+	1+	-	-	-	5+	6+	7+	-	-	-	-	-	-	11+	64+	65+	66+	14+	15+	16+	x17+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	49+	50+	56+	57+	-	-	-	-	-	-	-	-
+alignment 1: Chr1b, Path10 	 cost: 223558724
+-	-	-	-	-	-	x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+x28+	29+	30+	31+	32+	33+	-	-	-	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	-	-
+alignment 2: Chr3a, Path3 	 cost: 14345
+x18+	19+	-	-	38+	-	39+	23+	24+	25+	26+	x27+
+x18+	19+	20+	37+	38+	22+	-	23+	24+	25+	-	-
+alignment 3: Chr3b, Path7 	 cost: 140467547
+-	-	-	-	-	-	-	x18+	19+	20+	21+	22+	23+	24+	25+	26+	x27+
+x0+	1+	2+	3+	34+	35+	36+	-	-	-	21+	22+	23+	24+	25+	-	-
+alignment 4: Chr4a, Path9 	 cost: 231727618
+-	-	-	-	-	-	x28+	29+	30-	31+	32+	33+	34+	2+	3+	4+	35+	36+	37+	20+	21+	22+	40+	41+	x42+
+40-	39-	21-	20-	19-	x18-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 5: Chr4b, Path8 	 cost: 1990
+x28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	39+	40+	41+	x42+
+x28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	39+	40+	-	-
+alignment 6: Chr9a, Path6 	 cost: 58693556
+x43+	44+	45+	54+	55+	56+	50+	51+	52+	53+	-	-	46+	-	-	8+	9+	10+	-	-	-	-	-	47+	48+	49+	57+	58+	x59+
+x43+	44+	-	-	55+	-	-	51+	52+	53+	54+	45+	46+	47+	48+	-	9+	10+	11+	12+	65+	66+	67+	-	-	-	-	-	-
+alignment 7: Chr9b, Path1 	 cost: 252
+x43+	44+	45+	46+	47+	48+	49+	50+	51+	52+	53+	54+	55+	56+	57+	58+	x59+
+x43+	44+	45+	46+	47+	48+	49+	50+	51+	52+	53+	54+	55+	56+	57+	-	-
+alignment 8: Chr17a, Path5 	 cost: 19311
+x60+	61+	62+	63+	-	12+	13+	-	-	67+	68+	x69+
+x60+	61+	62+	63+	64+	-	13+	14+	66+	67+	-	-
+alignment 9: Chr17b, Path4 	 cost: 28094861
+x60+	61+	62+	63+	64+	65+	-	66+	67+	68+	x69+
+x60+	61+	62+	63+	64+	65+	15+	-	-	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_10
+total cost: 46896654
+alignment 0: Chr3a, Path10 	 cost: 46867865
+x0+	1+	2+	7-	6-	5-	4-	3-	3+	-	4+	5+	6+	7+	8+	9+	10+	-	-	18+	19+	-	13+	14+	15+	x16+
+-	-	2+	-	-	-	-	-	3+	5+	-	5+	-	7+	8+	9+	10+	11+	17+	18+	19+	20+	-	-	-	-
+alignment 1: Chr3b, Path7 	 cost: 28789
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	2+	3+	-	5+	-	7+	8+	9+	10+	11+	12+	13+	14+	-	-
+
+23Y_NF1_microdeletion_r2cluster_17
+total cost: 293567
+alignment 0: Chr20a, Path40 	 cost: 273167
+-	x0+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+2+	-	-	-	7+	8+	9+	10+	11+	-	-
+alignment 1: Chr20b, Path39 	 cost: 20400
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	4+	5+	-	7+	8+	9+	10+	11+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_18
+total cost: 10564
+alignment 0: ChrXa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: ChrXb, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_10
+total cost: 96491
+alignment 0: Chr12a, Path26 	 cost: 57820
+x0+	1+	2+	3+	4+	5+	6+	7+	-	8+	9+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	6+	-	-	7+	-	9+	10+	-	-
+alignment 1: Chr12b, Path25 	 cost: 38671
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	-	9+	10+	-	-
+
+23X_Angelman_r2cluster_11
+total cost: 2696
+alignment 0: Chr12a, Path22 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path23 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r1cluster_4
+total cost: 12162
+alignment 0: Chr6a, Path13 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr6b, Path14 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_0
+total cost: 10930353
+alignment 0: Chr1a, Path1 	 cost: 5458997
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	9+	10+	x11+
+-	-	2+	3+	4+	5+	6+	-	8+	-	-	9+	-	-
+alignment 1: Chr1b, Path2 	 cost: 18587
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+-	-	2+	3+	4+	5+	6+	-	8+	9+	-	-
+alignment 2: dummy, Path3 	 cost: 5452769
+skipped
+-
+
+23X_15q26_overgrowth_r1cluster_21
+total cost: 5760
+alignment 0: Chr22a, Path41 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path42 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_8
+total cost: 521488253
+alignment 0: Chr9a, Path19 	 cost: 360801857
+-	-	-	-	-	-	-	-	-	-	x0+	1+	2+	3+	4+	5+	10-	9-	8-	7-	6-	-	6+	7+	8+	-	-	-	9+	10+	11+	15+	16+	17+	18+	20-	19-	19+	20+	x21+
+38-	37-	36-	34-	27-	26+	25-	13-	12-	11-	-	-	-	-	-	-	10-	-	8-	-	6-	5-	-	-	8+	4-	3-	2-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 1: Chr9b, Path17 	 cost: 27582672
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	-	-	-	-	-	-	20+	x21+
+-	-	2+	3+	4+	5+	6+	-	8+	-	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	17-	16-	15-	14-	13-	24-	-	-
+alignment 2: Chr10a, dummy 	 cost: 133068943
+-
+skipped
+alignment 3: Chr10b, Path18 	 cost: 34781
+x22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	39+	x40+
+-	-	24+	25+	26+	27+	-	29+	30+	-	32+	33+	34+	-	36+	37+	38+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_4
+total cost: 5020
+alignment 0: Chr8a, Path19 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr8b, Path20 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_0
+total cost: 55929
+alignment 0: Chr1a, Path2 	 cost: 31963
+x0+	1+	2+	3+	4+	5+	6+	-	7+	11+	12+	x13+
+-	-	2+	3+	4+	-	6+	10+	-	11+	-	-
+alignment 1: Chr1b, Path1 	 cost: 23966
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	6+	7+	8+	-	10+	11+	-	-
+
+23X_Cri_du_Chat_r1cluster_7
+total cost: 4310
+alignment 0: Chr10a, Path19 	 cost: 2155
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr10b, Path20 	 cost: 2155
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_20
+total cost: 5282
+alignment 0: ChrYa, Path48 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r1cluster_14
+total cost: 7186
+alignment 0: Chr16a, Path31 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr16b, Path32 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r1cluster_15
+total cost: 2096
+alignment 0: Chr17a, Path33 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path34 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r1cluster_6
+total cost: 792411093
+alignment 0: Chr3a, Path7 	 cost: 109270767
+x0+	1+	2+	3+	4+	-	-	-	-	-	8+	9+	10+	15-	14-	13-	12-	11-	11+	12+	13+	14+	15+	x16+
+-	-	2+	3+	4+	5+	6+	39+	40+	41+	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 1: Chr3b, Path8 	 cost: 265505767
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	15+	x16+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	-	13+	14+	11-	10-	10+	11+	14-	13-	6-	38+	37-	36-	34-	34+	32-	31-	30-	29-	28-	27-	25-	24+	23-	22-	23+	24+	25+	65+	64-	63-	62-	61-	60-	59-	57-	55-	54-	53-	52-	51-	49-	48-	46-	-	-
+alignment 2: Chr4a, Path6 	 cost: 27364498
+x17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	21+	22+	23+	64+	65+	66+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	36-	35-	34-	33-	32-	31-	37+	38+	39+	5+	6+	7+	40+	41+	42+	x43+
+-	-	19+	-	-	-	-	-	-	-	-	-	22+	23+	-	-	-	24+	25+	-	27+	28+	29+	30+	31+	32+	-	34+	-	36+	-	-	-	-	-	-	37+	38+	39+	-	-	-	40+	41+	-	-
+alignment 3: Chr4b, Path10 	 cost: 241558829
+-	-	-	-	-	x17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	39+	40+	41+	42+	x43+
+67-	66-	65-	22-	19-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 4: Chr9a, dummy 	 cost: 139196416
+-
+skipped
+alignment 5: Chr9b, Path9 	 cost: 9514816
+x44+	45+	46+	-	-	47+	48+	49+	50+	51+	52+	53+	54+	55+	-	56+	57+	58+	59+	60+	61+	62+	63+	64+	65+	66+	67+	68+	x69+
+-	-	46+	48+	49+	-	48+	49+	-	51+	52+	53+	54+	55+	57+	-	57+	-	59+	60+	61+	62+	63+	64+	65+	66+	67+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_1
+total cost: 475027076
+alignment 0: Chr2a, Path3 	 cost: 232853547
+-	-	-	-	-	-	x0+	x1+	2-	-	3+	4+	5+	6+	7+	8+	9+	x10+
+8-	7-	6-	5-	4-	3-	-	-	2-	x1-	-	4+	5+	6+	7+	8+	-	-
+alignment 1: Chr2b, dummy 	 cost: 242173529
+-
+skipped
+
+23Y_12q14_recurrent_microdeletion_r2cluster_5
+total cost: 504
+alignment 0: Chr9a, Path21 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path22 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_9
+total cost: 2696
+alignment 0: Chr12a, Path24 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path25 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_15q26_overgrowth_r1cluster_20
+total cost: 5504
+alignment 0: Chr21a, Path39 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path40 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_1
+total cost: 9924
+alignment 0: Chr3a, Path8 	 cost: 4962
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr3b, Path9 	 cost: 4962
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r1cluster_5
+total cost: 116357
+alignment 0: Chr7a, Path16 	 cost: 69091
+x0+	1+	2+	3+	4+	5+	-	6+	7+	5+	6+	7+	8+	9+	10+	11+	12+	14+	15+	16+	17+	x18+
+-	-	2+	-	4+	5+	4+	-	-	5+	-	7+	8+	9+	10+	-	-	-	-	16+	-	-
+alignment 1: Chr7c, Path15 	 cost: 47266
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	x18+
+-	-	2+	-	4+	5+	-	7+	8+	9+	10+	-	12+	13+	14+	-	16+	-	-
+
+23X_Angelman_r2cluster_10
+total cost: 14112
+alignment 0: Chr11a, Path20 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr11b, Path21 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_11
+total cost: 4450
+alignment 0: Chr13a, Path27 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path28 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_NF1_microdeletion_r2cluster_16
+total cost: 3800
+alignment 0: Chr19a, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_11
+total cost: 45472043
+alignment 0: Chr14a, Path9 	 cost: 15450
+x4+	5+	x6+	7+	8+	0+	1+	-	-	11+	12+	x13+
+x4+	5+	x6+	7+	-	-	1+	2+	10+	11+	-	-
+alignment 1: Chr14b, Path8 	 cost: 45456593
+x4+	5+	x6+	7+	8+	9+	-	10+	11+	12+	x13+
+x4+	5+	x6+	7+	8+	9+	3+	-	-	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_13
+total cost: 13820
+alignment 0: Chr18a, Path34 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path35 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_13
+total cost: 9358
+alignment 0: Chr15a, Path30 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr15b, Path31 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_17
+total cost: 3800
+alignment 0: Chr19a, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path39 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_17
+total cost: 5760
+alignment 0: Chr22a, Path42 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_NF1_microdeletion_r2cluster_12
+total cost: 178910146
+alignment 0: Chr15a, Path29 	 cost: 7236334
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	7+	8+	9+	10+	11+	12+	x13+
+-	-	-	x3+	4+	-	6+	-	-	-	-	7+	-	9+	10+	11+	-	-
+alignment 1: Chr15b, Path30 	 cost: 171673812
+-	-	-	-	-	-	-	-	-	-	x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+11-	10-	9-	7-	6-	9-	7-	6-	4-	x3-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_15
+total cost: 102786
+alignment 0: Chr18a, Path36 	 cost: 58698
+x0+	1+	2+	3+	4+	5+	9-	8-	7-	6-	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	-	-	7-	-	-	7+	-	9+	10+	-	-
+alignment 1: Chr18b, Path35 	 cost: 44088
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	-	7+	-	9+	10+	-	-
+
+23X_22q11_duplication_r2cluster_15
+total cost: 2096
+alignment 0: Chr17a, Path35 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path36 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r2cluster_14
+total cost: 152902735
+alignment 0: Chr15a, Path28 	 cost: 152889637
+-	-	-	x0+	1+	x2+	x3+	4+	5+	6+	8+	9+	10+	11+	x12+
+10-	4-	x3-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 1: Chr15b, Path27 	 cost: 13098
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	-	x3+	4+	-	6+	7+	8+	-	10+	-	-
+
+23X_Angelman_r1cluster_1
+total cost: 9924
+alignment 0: Chr3a, Path7 	 cost: 4962
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr3b, Path8 	 cost: 4962
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_15q26_overgrowth_r1cluster_18
+total cost: 3800
+alignment 0: Chr19a, Path35 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path36 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_1
+total cost: 1468610
+alignment 0: Chr4a, Path11 	 cost: 775702
+x0+	1+	2+	3+	4+	7-	6-	5-	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	-	-	5+	-	7+	8+	-	10+	-	-
+alignment 1: Chr4b, Path12 	 cost: 692908
+x0+	1+	2+	3+	4+	5+	-	-	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	7+	8+	-	7+	8+	-	10+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_5
+total cost: 5020
+alignment 0: Chr8a, Path19 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr8b, Path20 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r1cluster_2
+total cost: 482396
+alignment 0: Chr5b, Path11 	 cost: 89984
+x1+	0+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+-	-	-	3+	-	5+	6+	-	8+	9+	-	11+	12+	13+	-	15+	-	-
+alignment 1: dummy, Path12 	 cost: 392412
+skipped
+-
+
+23Y_Potocki_Shaffer_r2cluster_5
+total cost: 504
+alignment 0: Chr9a, Path18 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path19 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_22
+total cost: 5282
+alignment 0: ChrXa, Path44 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r2cluster_9
+total cost: 2437627
+alignment 0: Chr10a, Path19 	 cost: 2371394
+x0+	1+	2+	3+	4+	-	5+	6+	-	12-	11-	10-	9-	8-	7-	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	14+	15+	16+	17+	18+	19+	20+	21+	23+	24+	25+	26+	x27+
+-	-	2+	3+	4+	5-	-	6+	7+	-	11-	-	9-	-	-	-	-	9+	-	11+	12+	13+	14+	-	16+	-	-	-	16+	-	-	19+	-	-	-	-	25+	-	-
+alignment 1: Chr10b, Path18 	 cost: 66233
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	x27+
+-	-	2+	3+	4+	5+	6+	7+	-	9+	-	11+	12+	13+	14+	-	16+	-	-	19+	-	21+	22+	23+	-	25+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_19
+total cost: 5282
+alignment 0: ChrXa, Path47 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r1cluster_11
+total cost: 4450
+alignment 0: Chr13a, Path25 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path26 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_Angelman_r1cluster_10
+total cost: 2696
+alignment 0: Chr12a, Path23 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path24 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_18
+total cost: 5760
+alignment 0: Chr22a, Path45 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path46 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_Angelman_r2cluster_8
+total cost: 504
+alignment 0: Chr9a, Path16 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path17 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_23
+total cost: 5282
+alignment 0: ChrYa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_4
+total cost: 266111571
+alignment 0: Chr5a, Path11 	 cost: 123345863
+x0+	1+	2+	3+	4+	5+	57+	58+	59+	-	6+	7+	8+	9+	10+	11+	12+	13+	14+	30+	31+	32+	33+	34+	34-	33-	32-	31-	30-	14-	13-	12-	11-	10-	9-	35+	36+	17+	18+	x19+
+-	-	2+	3+	4+	-	-	58+	59+	60+	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 1: Chr5b, Path8 	 cost: 23119
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	x19+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	-	11+	-	13+	14+	15+	16+	17+	-	-
+alignment 2: Chr7a, Path9 	 cost: 9735163
+x20+	21+	22+	23+	24+	25+	26+	27+	28+	28-	27-	26-	25-	24-	-	23-	29+	-	-	15+	16+	37+	38+	39+	40+	-	-	-	43-	42-	41-	44+	45+	46+	-	48+	49+	50+	51+	x52+
+-	-	22+	23+	24+	-	26+	-	-	-	-	26-	-	24-	28+	-	29+	30+	14+	15+	-	-	38+	39+	40+	41+	42+	43+	-	-	-	44+	-	46+	47+	48+	-	50+	-	-
+alignment 3: Chr7b, Path12 	 cost: 9875441
+x20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	39+	40+	41+	-	42+	43+	44+	45+	46+	47+	48+	49+	50+	51+	x52+
+-	-	22+	23+	24+	-	26+	-	28+	29+	30+	-	32+	-	34+	35+	36+	37+	38+	39+	40+	41+	42-	-	43+	44+	-	-	-	-	-	50+	-	-
+alignment 4: Chr8a, Path10 	 cost: 5383
+x53+	54+	55+	56+	-	-	60+	61+	x62+
+x53+	54+	55+	56+	57+	59+	60+	-	-
+alignment 5: Chr8b, Path13 	 cost: 123126602
+x53+	54+	55+	56+	57+	58+	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	59+	60+	61+	x62+
+x53+	54+	55+	56+	57+	58+	5+	6+	7+	8+	9+	11+	13+	32+	35-	34-	32-	13-	11-	9-	8-	36+	37+	16+	17+	-	-	-	-
+
+23X_Cri_du_Chat_r1cluster_3
+total cost: 21062
+alignment 0: Chr6a, Path14 	 cost: 14981
+x0+	1+	2+	3+	-	4+	5-	-	6+	7+	8+	x9+
+x0+	1+	2+	3+	6-	-	5-	4-	-	7+	-	-
+alignment 1: Chr6b, Path13 	 cost: 6081
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_4
+total cost: 250865190
+alignment 0: Chr5a, Path15 	 cost: 121731255
+x0+	1+	2+	3+	4+	5+	6+	-	-	-	26+	27+	-	-	-	-	-	7+	8+	9+	10+	11+	x16+
+-	-	2+	3+	4+	5+	6+	7+	8+	25+	26+	27+	28+	29+	30+	31+	32+	-	-	-	-	-	-
+alignment 1: Chr5b, Path14 	 cost: 3753404
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	-	-	-	-	14+	-	-
+alignment 2: Chr7a, Path16 	 cost: 37201
+x17+	18+	-	29+	30+	-	-	22+	23+	24+	-	25+	28+	-	19+	20+	21+	31+	32+	33+	x34+
+x17+	18+	19+	-	30+	31+	21+	22+	23+	24+	27+	-	28+	29+	-	20+	-	-	32+	-	-
+alignment 3: Chr7b, Path13 	 cost: 125343330
+x17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	-	-	-	-	27+	28+	29+	30+	31+	32+	33+	x34+
+x17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	9+	11+	12+	14+	-	-	-	-	-	-	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_0
+total cost: 62648350
+alignment 0: Chr2a, Path4 	 cost: 59836881
+-	-	x4+	5+	2+	3+	8+	9+	10+	11+	-	12+	13-	-	14+	15+	16+	x17+
+0+	7+	-	-	-	-	8+	9+	10+	11+	14-	-	13-	12-	-	15+	-	-
+alignment 1: Chr2b, Path3 	 cost: 2811469
+x4+	5+	6+	-	-	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+x4+	5+	6+	1+	2+	-	-	9+	10+	11+	12+	13+	14+	15+	-	-
+
+23X_15q26_overgrowth_r1cluster_19
+total cost: 896
+alignment 0: Chr20a, Path37 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path38 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r1cluster_0
+total cost: 161441
+alignment 0: Chr2a, Path6 	 cost: 130902
+x0+	1+	2+	-	-	4-	3-	5+	6+	7+	8+	9+	10+	11+	-	12+	13+	13-	12-	11-	-	14+	15+	16+	x17+
+-	-	2+	3+	5-	4-	-	-	6+	7+	8+	-	10+	11+	14-	-	-	13-	-	11-	10-	-	15+	-	-
+alignment 1: Chr2b, Path5 	 cost: 30539
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+-	-	2+	3+	4+	5+	6+	7+	8+	-	10+	11+	-	13+	14+	15+	-	-
+
+23X_Angelman_r2cluster_15
+total cost: 4150928
+alignment 0: Chr16a, Path30 	 cost: 4082769
+-	-	x0+	15+	16+	17+	x18+
+2+	14+	-	15+	16+	-	-
+alignment 1: Chr16b, Path29 	 cost: 68159
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	x18+
+-	-	2+	-	4+	-	6+	-	8+	-	10+	-	12+	-	14+	15+	16+	-	-
+
+23X_22q11_duplication_r2cluster_14
+total cost: 221834
+alignment 0: Chr16a, Path34 	 cost: 186334
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	-	7+	-	-	-	-	7+	-	9+	10+	-	-
+alignment 1: Chr16b, Path33 	 cost: 35500
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	-	7+	-	9+	10+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_14
+total cost: 2096
+alignment 0: Chr17a, Path33 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path34 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r2cluster_13
+total cost: 7186
+alignment 0: Chr16a, Path31 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr16b, Path32 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_16
+total cost: 5504
+alignment 0: Chr21a, Path40 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path41 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_NF1_microdeletion_r1cluster_16
+total cost: 13820
+alignment 0: Chr18a, Path36 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path37 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_21
+total cost: 224779
+alignment 0: ChrXa, Path46 	 cost: 194715
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	-	7+	-	-	-	-	7+	-	9+	10+	-	-
+alignment 1: ChrXb, Path45 	 cost: 30064
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	-	7+	-	9+	10+	-	-
+
+23Y_NF1_microdeletion_r1cluster_14
+total cost: 7186
+alignment 0: Chr16a, Path32 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr16b, Path33 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_8
+total cost: 189446269
+alignment 0: Chr13a, Path27 	 cost: 189436406
+-	x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	-	9-	8-	7-	6-	5-	-	-	10+	11+	12+	x13+
+11-	-	-	-	-	-	-	-	7+	-	9+	10+	-	-	7-	-	5-	4-	x3-	-	-	-	-
+alignment 1: Chr13b, Path26 	 cost: 9863
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	-	x3+	4+	5+	-	7+	-	9+	10+	11+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_14
+total cost: 3800
+alignment 0: Chr19a, Path36 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_9
+total cost: 14112
+alignment 0: Chr11a, Path23 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr11b, Path24 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r2cluster_11
+total cost: 438190996
+alignment 0: Chr9a, Path17 	 cost: 128564
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	x38+
+-	-	2+	-	4+	5+	6+	-	8+	-	10+	11+	12+	13+	14+	-	16+	17+	-	19+	20+	21+	22+	-	24+	-	26+	-	28+	-	30+	-	32+	-	34+	-	36+	-	-
+alignment 1: Chr9b, Path19 	 cost: 231091236
+-	-	-	-	-	-	-	-	-	-	-	x0+	1+	2+	3+	4+	5+	48-	47-	46-	45-	44-	-	-	11-	10-	9-	8-	7-	6-	6+	7+	8+	9+	10+	11+	44+	45+	46+	47+	48+	49+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	x38+
+58-	56-	55-	53-	56-	55-	53-	52-	51-	50-	49-	-	-	-	-	-	-	48-	-	46-	-	44-	43-	x42-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 2: Chr9c, Path20 	 cost: 108694359
+x0+	1+	2+	-	-	-	-	-	-	-	3+	4+	5+	6+	7+	8+	9+	10+	-	-	-	-	-	-	-	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	-	-	-	-	-	-	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	x38+
+-	-	2+	4+	46-	10-	8-	5+	6+	8+	-	4+	5+	6+	-	8+	-	10+	46+	48+	49+	50+	14+	16+	17+	11+	12+	13+	14+	-	16+	17+	-	19+	20+	21+	22+	24+	26+	28+	30+	32+	34+	-	24+	-	26+	-	28+	-	30+	-	32+	-	34+	-	36+	-	-
+alignment 3: Chr14a, Path18 	 cost: 9566642
+x39+	40+	x41+	x42+	43+	-	-	12+	-	50+	51+	52+	53+	54+	55+	52+	53+	54+	55+	56+	57+	58+	59+	x60+
+-	-	-	x42+	43+	44+	11+	12+	13+	-	51+	-	-	-	-	52+	53+	-	55+	56+	-	58+	-	-
+alignment 4: Chr14b, dummy 	 cost: 88710195
+-
+skipped
+
+23X_1q21_recurrent_microduplication_r2cluster_18
+total cost: 5760
+alignment 0: Chr22a, Path42 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_16
+total cost: 3800
+alignment 0: Chr19a, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r2cluster_17
+total cost: 13820
+alignment 0: Chr18a, Path33 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path34 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r1cluster_2
+total cost: 3980
+alignment 0: Chr4a, Path9 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path10 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11_duplication_r2cluster_16
+total cost: 13820
+alignment 0: Chr18a, Path37 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path38 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_2
+total cost: 882147
+alignment 0: Chr6a, Path17 	 cost: 876066
+x0+	2-	1+	-	1-	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+x0+	-	1+	2+	-	3+	4+	5+	6+	7+	8+	9+	-	-
+alignment 1: Chr6b, Path18 	 cost: 6081
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	-	-
+
+23X_Cri_du_Chat_r2cluster_9
+total cost: 561934814
+alignment 0: Chr10a, Path22 	 cost: 126999146
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	-	18+	19+	20+	21+	22+	23+	24+	25+	-	-	-	-	-	-	26+	27+	28+	29+	30+	31+	32+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	x37+
+-	-	2+	-	4+	-	6+	7+	8+	6+	7+	8+	-	10+	-	12+	-	-	15+	16+	17+	18-	-	19+	-	-	22+	23+	-	25+	40+	41+	42+	43+	44+	45+	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 1: Chr10b, Path20 	 cost: 300870288
+-	-	-	-	-	x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	28+	28-	27+	26-	25-	-	-	-	-	-	-	-	-	-	-	-	-	-	24-	23-	22-	21-	29+	30+	31+	32+	23+	24+	25+	26+	41+	42+	27+	28+	29+	30+	31+	32+	33+	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	34+	35+	36+	x37+
+35-	33-	32-	30-	29-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	28-	27+	26-	25-	23-	22-	19-	18+	17-	16-	15-	12-	10-	8-	7-	6-	4-	-	23-	22-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	30+	-	32+	33+	29-	28-	27+	26-	25-	30-	29-	28-	27+	26-	25-	30-	29-	28-	27+	26-	25-	30-	29-	28-	27+	26-	41-	40-	39-	x38-	-	-	-	-
+alignment 2: Chr10c, Path19 	 cost: 1214889
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	x37+
+-	-	2+	-	4+	-	6+	7+	8+	-	10+	-	12+	-	-	15+	16+	17+	18+	19+	-	-	22+	23+	-	25+	26+	27+	28+	29+	30+	-	32+	33+	-	35+	-	-
+alignment 3: Chr11a, dummy 	 cost: 132843435
+-
+skipped
+alignment 4: Chr11b, Path21 	 cost: 7056
+x38+	39+	40+	41+	42+	43+	44+	45+	46+	x47+
+x38+	39+	40+	41+	42+	43+	44+	45+	-	-
+
+23Y_CMT1A_r1cluster_21
+total cost: 5282
+alignment 0: ChrYa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_6
+total cost: 504
+alignment 0: Chr9a, Path21 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path22 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r2cluster_18
+total cost: 5760
+alignment 0: Chr22a, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path45 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_Cri_du_Chat_r1cluster_1
+total cost: 18881946
+alignment 0: Chr2a, Path4 	 cost: 9500886
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	-	11+	9+	10+	11+	12+	13+	13-	12-	11-	10-	x14+
+-	-	2+	3+	4+	5+	6+	-	8+	9+	10+	8+	-	9+	10+	11+	12+	-	-	-	-	-	-
+alignment 1: Chr2b, Path3 	 cost: 19160
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	4+	5+	6+	-	8+	9+	10+	11+	12+	-	-
+alignment 2: dummy, Path5 	 cost: 9361900
+skipped
+-
+
+23Y_Potocki_Shaffer_r2cluster_6
+total cost: 2157958
+alignment 0: Chr10a, Path21 	 cost: 2155803
+x0+	1+	2+	3+	-	4+	5+	-	-	7-	6-	8+	9+	10+	x11+
+x0+	1+	2+	3+	4-	-	5+	6+	8-	7-	-	-	9+	-	-
+alignment 1: Chr10b, Path20 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	-	-
+
+23X_Angelman_r1cluster_12
+total cost: 20870
+alignment 0: Chr14a, Path27 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_21
+total cost: 5760
+alignment 0: Chr22a, Path42 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_20
+total cost: 5504
+alignment 0: Chr21a, Path40 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path41 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_Angelman_r1cluster_13
+total cost: 127646578
+alignment 0: Chr15a, Path30 	 cost: 127560295
+-	-	-	x0+	1+	x2+	x3+	4+	5+	6+	8+	9+	10+	11+	16-	15-	14-	13-	12-	-	12+	13+	14+	-	-	-	15+	16+	17+	20+	21+	22+	23+	x24+
+22-	18-	17-	-	-	-	-	-	-	-	-	-	-	-	16-	-	14-	-	12-	11-	-	-	14+	10-	4-	x3-	-	-	-	-	-	-	-	-
+alignment 1: Chr15b, Path29 	 cost: 86283
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	x24+
+-	-	-	x3+	4+	-	6+	7+	8+	-	10+	11+	12+	-	14+	-	16+	17+	18+	19+	20+	-	22+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_7
+total cost: 150077
+alignment 0: Chr11a, Path23 	 cost: 131847
+x0+	1+	2+	3+	4+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	-	-	-	8+	9+	10+	-	-
+alignment 1: Chr11b, Path22 	 cost: 18230
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	4+	5+	6+	-	8+	9+	10+	-	-
+
+23Y_CMT1A_r2cluster_19
+total cost: 5282
+alignment 0: ChrXa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r1cluster_0
+total cost: 2386734
+alignment 0: Chr1a, Path2 	 cost: 2383646
+x0+	1+	2+	3+	-	7+	8+	9+	4+	5+	6+	-	-	-	10+	11+	x12+
+x0+	1+	2+	3+	4+	-	8+	-	-	5+	6+	7+	8+	9+	10+	-	-
+alignment 1: Chr1b, Path1 	 cost: 3088
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	-	-
+
+23Y_2p15-16-1_microdeletion_r2cluster_7
+total cost: 14112
+alignment 0: Chr11a, Path27 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr11b, Path28 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r1cluster_20
+total cost: 5282
+alignment 0: ChrXa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r2cluster_8
+total cost: 366012
+alignment 0: Chr9a, Path18 	 cost: 343696
+x0+	1+	2+	3+	4+	5+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	-	-	-	-	-	-	10+	11+	12+	-	-
+alignment 1: Chr9b, Path17 	 cost: 22316
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	-	4+	5+	6+	7+	8+	-	10+	11+	12+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_3
+total cost: 301387370
+alignment 0: Chr5a, Path16 	 cost: 151083356
+x0+	1+	2+	3+	9-	8-	7-	6-	5-	4-	4+	-	5+	6+	7+	8+	9+	10+	11+	12+	13+	22+	23+	-	-	14+	15+	16+	x17+
+-	-	2+	3+	-	-	-	-	-	-	4+	6+	-	6+	-	8+	9+	10+	11+	12+	-	-	23+	24+	25+	-	-	-	-
+alignment 1: Chr5b, Path13 	 cost: 32998
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+-	-	2+	3+	4+	-	6+	-	8+	9+	10+	11+	12+	13+	14+	15+	-	-
+alignment 2: Chr7a, Path15 	 cost: 1482970
+x18+	19+	20+	21+	-	-	24+	25+	26+	x27+
+x18+	19+	20+	21+	22+	23+	24+	25+	-	-
+alignment 3: Chr7b, Path14 	 cost: 148788046
+x18+	19+	20+	21+	22+	23+	24+	-	-	-	25+	26+	x27+
+x18+	19+	20+	21+	22+	23+	24+	13+	14+	15+	-	-	-
+
+23X_22q11_duplication_r2cluster_17
+total cost: 3800
+alignment 0: Chr19a, Path39 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path40 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Angelman_r1cluster_3
+total cost: 18498415
+alignment 0: Chr5a, Path12 	 cost: 18451531
+x0+	1+	2+	3+	4+	5+	6+	-	7+	8+	9+	10+	10-	9-	8-	7-	6-	5-	11+	12+	13+	14+	15+	16+	17+	13+	14+	15+	16+	17+	18+	19+	x20+
+-	-	2+	3+	4+	5+	6+	8+	-	8+	-	10+	-	-	-	-	-	-	11+	12+	13+	-	15+	-	-	-	-	15+	-	17+	18+	-	-
+alignment 1: Chr5b, Path11 	 cost: 46884
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	x20+
+-	-	2+	3+	4+	5+	6+	-	8+	-	10+	11+	12+	13+	-	15+	-	17+	18+	-	-
+
+23X_Angelman_r2cluster_16
+total cost: 2096
+alignment 0: Chr17a, Path31 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path32 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_19
+total cost: 10564
+alignment 0: ChrXa, Path44 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: ChrXb, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_12q14_recurrent_microdeletion_r2cluster_17
+total cost: 896
+alignment 0: Chr20a, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r2cluster_10
+total cost: 4450
+alignment 0: Chr13a, Path27 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path28 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_8q21_recurrent_microdeletion_r2cluster_8
+total cost: 149022
+alignment 0: Chr10a, Path22 	 cost: 122501
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	10+	11+	12+	13+	x14+
+-	-	2+	3+	4+	5+	6+	-	-	-	-	12+	-	-
+alignment 1: Chr10b, Path21 	 cost: 26521
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	4+	5+	6+	-	8+	9+	10+	-	12+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_15
+total cost: 1127748
+alignment 0: Chr20a, Path38 	 cost: 1127300
+x0+	1+	-	2-	3+	4+	5+	6+	x7+
+x0+	1+	2+	-	3+	4+	5+	-	-
+alignment 1: Chr20b, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23X_Xp11_22_Microduplication_r2cluster_9
+total cost: 177161437
+alignment 0: Chr14a, Path29 	 cost: 177126620
+-	-	x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	10-	-	9-	8-	7-	6-	5-	-	-	11+	12+	13+	x14+
+12-	11-	-	-	-	-	-	-	-	-	-	-	-	10-	8-	-	8-	-	6-	5-	4-	x3-	-	-	-	-
+alignment 1: Chr14b, Path28 	 cost: 34817
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	-	x3+	4+	5+	6+	-	8+	-	10+	11+	12+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_20
+total cost: 5760
+alignment 0: Chr22a, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_NF1_microdeletion_r1cluster_15
+total cost: 92422
+alignment 0: Chr17a, Path35 	 cost: 46630
+x0+	1+	2+	3+	4+	-	5+	6+	10+	11+	x12+
+-	-	2+	3+	4+	9+	-	-	10+	-	-
+alignment 1: Chr17b, Path34 	 cost: 45792
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	-	9+	10+	-	-
+
+23X_STS_r1cluster_12
+total cost: 76806137
+alignment 0: Chr16a, Path34 	 cost: 75718367
+-	-	-	x0+	1+	2+	3+	4+	5+	x10+
+8-	3-	2-	-	-	-	-	-	-	-
+alignment 1: Chr16b, Path33 	 cost: 1087770
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	x10+
+-	-	2+	3+	-	5+	6+	-	8+	-	-
+
+23X_Cri_du_Chat_r1cluster_11
+total cost: 20870
+alignment 0: Chr14a, Path27 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_15q26_overgrowth_r1cluster_1
+total cost: 188445274
+alignment 0: Chr2a, Path3 	 cost: 188232388
+-	-	-	x0+	1+	2+	3+	4+	5+	x18+
+16-	3-	2-	-	-	-	-	-	-	-
+alignment 1: Chr2b, Path4 	 cost: 212886
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	x18+
+-	-	2+	3+	-	5+	6+	7+	8+	-	10+	-	12+	13+	14+	-	16+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_4
+total cost: 12162
+alignment 0: Chr6a, Path13 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr6b, Path14 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_7
+total cost: 504
+alignment 0: Chr9a, Path19 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path20 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r1cluster_23
+total cost: 5282
+alignment 0: ChrYa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_STS_r2cluster_17
+total cost: 5504
+alignment 0: Chr21a, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path43 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_Cri_du_Chat_r2cluster_14
+total cost: 7186
+alignment 0: Chr16a, Path31 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr16b, Path32 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23Y_NF1_microdeletion_r1cluster_4
+total cost: 1976
+alignment 0: Chr7a, Path15 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path16 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_17
+total cost: 25331248
+alignment 0: Chr18a, Path36 	 cost: 12860550
+x0+	1+	2+	3+	4+	5+	17-	16-	15-	14-	13-	12-	11-	10-	11-	10-	9-	8-	7-	6-	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	x20+
+-	-	2+	3+	4+	5+	-	-	-	-	-	-	-	-	-	-	-	-	-	-	6+	-	8+	-	-	11+	12+	-	14+	-	16+	17+	18+	-	-
+alignment 1: Chr18b, Path37 	 cost: 12470698
+x0+	1+	2+	3+	4+	5+	6+	-	-	-	-	-	-	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	x20+
+-	-	2+	3+	4+	5+	6+	8+	11+	12+	11+	12+	14+	-	8+	-	-	11+	12+	-	14+	-	16+	17+	18+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_20
+total cost: 5282
+alignment 0: ChrXa, Path42 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_2
+total cost: 18936
+alignment 0: Chr6a, Path17 	 cost: 12855
+x0+	1+	2+	3+	-	6-	5-	-	4-	7+	8+	x9+
+x0+	1+	2+	3+	4+	-	5-	6+	-	7+	-	-
+alignment 1: Chr6b, Path16 	 cost: 6081
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_20
+total cost: 5760
+alignment 0: Chr22a, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path45 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_STS_r2cluster_9
+total cost: 177339696
+alignment 0: Chr7a, Path16 	 cost: 88676655
+x0+	1+	2+	3+	-	-	13+	14+	15+	-	4+	5+	6+	7+	x8+
+x0+	1+	2+	3+	4+	5+	-	14+	15+	16+	-	-	-	-	-
+alignment 1: Chr7b, Path13 	 cost: 988
+x0+	1+	2+	3+	4+	5+	6+	7+	x8+
+x0+	1+	2+	3+	4+	5+	6+	-	-
+alignment 2: Chr13a, Path15 	 cost: 9437
+x9+	10+	x11+	12+	-	-	16+	17+	x18+
+x9+	10+	x11+	12+	13+	15+	16+	-	-
+alignment 3: Chr13b, Path14 	 cost: 88652616
+x9+	10+	x11+	12+	13+	14+	-	15+	16+	17+	x18+
+x9+	10+	x11+	12+	13+	14+	6+	-	-	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_4
+total cost: 11088
+alignment 0: Chr5a, Path9 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr5b, Path10 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_19
+total cost: 5504
+alignment 0: Chr21a, Path41 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_STS_r1cluster_1
+total cost: 11088
+alignment 0: Chr5a, Path15 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr5b, Path16 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_19
+total cost: 5282
+alignment 0: ChrXa, Path44 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r1cluster_7
+total cost: 504
+alignment 0: Chr9a, Path19 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path20 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_12
+total cost: 9358
+alignment 0: Chr15a, Path31 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+alignment 1: Chr15b, Path32 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+
+23Y_CMT1A_r1cluster_6
+total cost: 5020
+alignment 0: Chr8a, Path15 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr8b, Path16 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r1cluster_7
+total cost: 504
+alignment 0: Chr9a, Path17 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path18 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_13
+total cost: 7186
+alignment 0: Chr16a, Path33 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr16b, Path34 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r1cluster_6
+total cost: 1976
+alignment 0: Chr7a, Path13 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path14 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_18
+total cost: 5760
+alignment 0: Chr22a, Path42 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_18
+total cost: 25841801
+alignment 0: Chr20a, Path23 	 cost: 12290
+x4+	5+	6+	7+	-	-	1+	2+	10+	11+	12+	x13+
+x4+	5+	6+	7+	8+	0+	1+	-	-	11+	-	-
+alignment 1: Chr20b, Path22 	 cost: 25829511
+x4+	5+	6+	7+	8+	9+	10+	-	-	11+	12+	x13+
+x4+	5+	6+	7+	8+	9+	10+	2+	3+	-	-	-
+
+23X_STS_r1cluster_0
+total cost: 3980
+alignment 0: Chr4a, Path13 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path14 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_5
+total cost: 343830334
+alignment 0: Chr6a, Path13 	 cost: 2458376
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	-	15+	18-	17-	16-	-	19+	20+	-	21+	22+	23+	x24+
+-	-	2+	3+	4+	-	-	7+	8+	-	10+	-	12+	-	14+	19-	-	18-	-	16-	15-	-	20+	12-	-	-	-	-
+alignment 1: Chr6b, Path11 	 cost: 869085
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	x24+
+-	-	2+	3+	4+	-	-	7+	8+	-	10+	-	12+	-	14+	15+	16+	-	18+	19+	20+	-	22+	-	-
+alignment 2: Chr6c, Path12 	 cost: 340502873
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	x24+
+22-	20-	19-	18-	16-	15-	14-	12-	10-	8-	7-	4-	3-	2-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+23X_STS_r2cluster_8
+total cost: 61673848
+alignment 0: Chr10a, Path25 	 cost: 30459649
+x0+	1+	2+	-	3+	4+	8+	-	-	-	28+	-	-	-	-	9+	10+	11+	15+	16+	17+	18+	19+	20+	21+	21-	20-	x22+
+-	-	2+	7+	-	-	8+	9+	10+	27+	28+	29+	30+	13+	14+	-	-	-	15+	16+	17+	18+	19+	20+	-	-	-	-
+alignment 1: Chr10b, Path22 	 cost: 22840
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	x22+
+-	-	2+	-	4+	5+	-	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	-	-
+alignment 2: Chr12a, Path23 	 cost: 3138974
+x23+	24+	25+	26+	27+	29+	30+	31+	12+	13+	14+	32+	33+	34+	x35+
+x23+	24+	25+	26+	-	-	30+	31+	-	-	-	32+	33+	-	-
+alignment 3: Chr12b, Path24 	 cost: 28052385
+x23+	24+	25+	26+	27+	28+	29+	-	-	-	30+	31+	32+	33+	34+	x35+
+x23+	24+	25+	26+	27+	28+	29+	11+	12+	13+	-	31+	32+	33+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_21
+total cost: 5282
+alignment 0: ChrXa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_3
+total cost: 5020
+alignment 0: Chr8a, Path18 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr8b, Path19 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_21
+total cost: 5282
+alignment 0: ChrYa, Path43 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_16
+total cost: 2096
+alignment 0: Chr17a, Path34 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path35 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r2cluster_15
+total cost: 2096
+alignment 0: Chr17a, Path33 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path34 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_5
+total cost: 4791953
+alignment 0: Chr8a, Path18 	 cost: 4744727
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	11-	10-	9-	-	8-	12+	-	14-	13-	x15+
+-	-	2+	3+	4+	5+	6+	-	-	9+	-	-	-	-	9-	11+	-	12+	13+	-	-	-
+alignment 1: Chr8b, Path17 	 cost: 47226
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	x15+
+-	-	2+	3+	4+	5+	6+	-	-	9+	-	11+	12+	13+	-	-
+
+23X_STS_r2cluster_16
+total cost: 293003
+alignment 0: Chr20a, Path41 	 cost: 263857
+x0+	1+	2+	3+	4+	5+	6+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	4+	-	-	-	-	-	4+	-	6+	7+	8+	9+	10+	11+	-	-
+alignment 1: Chr20b, Path40 	 cost: 29146
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	4+	-	6+	7+	8+	9+	10+	11+	-	-
+
+23Y_Cri_du_Chat_r1cluster_22
+total cost: 5282
+alignment 0: ChrXa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_6
+total cost: 5020
+alignment 0: Chr8a, Path17 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr8b, Path18 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_5
+total cost: 504
+alignment 0: Chr9a, Path25 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path26 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_15q26_overgrowth_r1cluster_0
+total cost: 64203
+alignment 0: Chr1a, Path2 	 cost: 41160
+x0+	1+	2+	3+	4+	5+	6+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	-	-	-	10+	-	-
+alignment 1: Chr1b, Path1 	 cost: 23043
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	8+	-	10+	-	-
+
+23X_Cri_du_Chat_r1cluster_10
+total cost: 4450
+alignment 0: Chr13a, Path25 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path26 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_STS_r1cluster_13
+total cost: 2096
+alignment 0: Chr17a, Path35 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path36 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r1cluster_12
+total cost: 9358
+alignment 0: Chr15a, Path29 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr15b, Path30 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_STS_r1cluster_11
+total cost: 179365108
+alignment 0: Chr15a, Path31 	 cost: 7465587
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	-	x3+	4+	5+	6+	-	-	-	-	-	-	-	7+	8+	-	10+	-	12+	13+	14+	-	-
+alignment 1: Chr15b, Path32 	 cost: 171899521
+-	-	-	-	-	-	-	-	-	-	-	-	-	x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+14-	13-	12-	10-	8-	12-	10-	8-	7-	6-	5-	4-	x3-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+23X_15q26_overgrowth_r1cluster_2
+total cost: 16802
+alignment 0: Chr3a, Path6 	 cost: 11840
+x0+	1+	-	4-	3-	-	2-	5+	6+	7+	8+	x9+
+x0+	1+	2+	-	3-	4+	-	5+	6+	7+	-	-
+alignment 1: Chr3b, Path5 	 cost: 4962
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_Cri_du_Chat_r2cluster_19
+total cost: 5760
+alignment 0: Chr22a, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_7
+total cost: 21224
+alignment 0: Chr11a, Path28 	 cost: 14168
+x0+	1+	-	4-	3-	-	2-	5+	6+	7+	8+	x9+
+x0+	1+	2+	-	3-	4+	-	5+	6+	7+	-	-
+alignment 1: Chr11b, Path27 	 cost: 7056
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_4
+total cost: 12162
+alignment 0: Chr6a, Path13 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr6b, Path14 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r1cluster_20
+total cost: 5504
+alignment 0: Chr21a, Path41 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_19
+total cost: 5282
+alignment 0: ChrYa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_7
+total cost: 4310
+alignment 0: Chr10a, Path21 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr10b, Path22 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23X_Cri_du_Chat_r2cluster_17
+total cost: 3800
+alignment 0: Chr19a, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_STS_r2cluster_14
+total cost: 13820
+alignment 0: Chr18a, Path36 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path37 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_14
+total cost: 9358
+alignment 0: Chr15a, Path30 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr15b, Path31 	 cost: 4679
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_1
+total cost: 383186730
+alignment 0: Chr4a, Path11 	 cost: 192992175
+-	-	-	-	-	-	-	-	-	-	x0+	1+	2+	2-	1-	3+	4+	5+	6+	7+	8+	9+	-	10+	11+	12+	13+	13-	12-	11-	10-	9-	14+	15+	x16+
+14-	13-	11-	9-	8-	7-	6-	5-	4-	3-	-	-	-	2-	-	-	4+	5+	6+	7+	8+	9+	11+	-	11+	-	13+	-	-	-	-	-	14+	-	-
+alignment 1: Chr4b, dummy 	 cost: 190194555
+-
+skipped
+
+23X_22q11-2_distal_deletion_r1cluster_7
+total cost: 314174
+alignment 0: Chr8a, Path17 	 cost: 300218
+x0+	1+	2+	3+	4+	5+	6+	-	7+	8+	x13+
+-	-	2+	3+	4+	5+	6+	11+	-	-	-
+alignment 1: Chr8b, Path16 	 cost: 13956
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	5+	6+	-	8+	9+	-	11+	-	-
+
+23X_STS_r1cluster_2
+total cost: 12162
+alignment 0: Chr6a, Path17 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr6b, Path18 	 cost: 6081
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_11
+total cost: 20870
+alignment 0: Chr14a, Path29 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path30 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_Cri_du_Chat_r1cluster_4
+total cost: 400248
+alignment 0: Chr5a, Path10 	 cost: 357707
+-	x0+	1+	6+	7+	8+	9+	10+	11+	12+	13+	-	11+	12+	13+	14+	15+	16+	17+	x18+
+3+	-	-	-	-	8+	9+	10+	11+	-	13+	14+	-	-	13+	14+	-	16+	-	-
+alignment 1: Chr5b, Path9 	 cost: 42541
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	x18+
+-	-	-	3+	-	5+	6+	-	8+	9+	10+	11+	-	13+	14+	-	16+	-	-
+
+23Y_CMT1A_r1cluster_5
+total cost: 232634535
+alignment 0: Chr3a, Path9 	 cost: 345896
+x0+	1+	2+	3+	4+	5+	-	-	5+	6+	7+	8+	-	9+	12-	11-	10-	10+	11+	12+	13+	14+	15+	16+	17+	18+	26+	27+	-	-	19+	20+	21+	x22+
+-	-	2+	-	4+	5+	6+	4+	5+	6+	-	8+	13-	-	12-	-	-	-	-	12+	13+	-	15+	16+	17+	-	-	27+	28+	18+	19+	20+	-	-
+alignment 1: Chr3b, Path6 	 cost: 41577
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	x22+
+-	-	2+	-	4+	5+	6+	-	8+	9+	10+	-	12+	13+	-	15+	16+	17+	18+	19+	20+	-	-
+alignment 2: Chr7a, Path8 	 cost: 113872151
+x23+	24+	25+	-	-	28+	29+	30+	31+	-	-	-	-	-	32+	33+	34+	35+	-	-	-	-	-	-	-	-	-	44-	43-	42-	41-	40-	39-	38-	37-	36-	36+	37+	38+	39+	40+	41+	42+	43+	44+	45+	46+	47+	48+	49+	50+	51+	52+	x53+
+-	-	25+	26+	27+	28+	29+	30+	31+	33+	35+	36+	42-	40-	-	33+	-	35+	36+	42-	40-	38-	38+	40+	49-	47-	45-	44-	-	42-	-	40-	-	38-	-	-	-	-	38+	-	40+	-	42+	-	44+	45+	-	47+	-	49+	-	51+	-	-
+alignment 3: Chr7b, dummy 	 cost: 110766683
+-
+skipped
+alignment 4: Chr7c, Path7 	 cost: 7608228
+x23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	39+	40+	41+	42+	43+	44+	45+	46+	47+	48+	49+	50+	51+	52+	x53+
+-	-	25+	26+	-	-	29+	30+	31+	-	33+	-	35+	36+	-	38+	-	40+	-	42+	-	44+	45+	-	47+	-	49+	-	51+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_9
+total cost: 38438
+alignment 0: Chr11a, Path22 	 cost: 31382
+x0+	1+	2+	3+	-	4+	5-	-	6+	7+	8+	x9+
+x0+	1+	2+	3+	6-	-	5-	4-	-	7+	-	-
+alignment 1: Chr11b, Path21 	 cost: 7056
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23X_1q21_recurrent_microduplication_r1cluster_8
+total cost: 4310
+alignment 0: Chr10a, Path19 	 cost: 2155
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr10b, Path20 	 cost: 2155
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r1cluster_4
+total cost: 343711777
+alignment 0: Chr6a, Path14 	 cost: 173025798
+x0+	1+	2+	3+	4+	5+	6+	10-	9-	8-	7-	7+	8+	9+	-	-	-	-	-	-	-	10+	x11+
+-	-	2+	3+	4+	5+	6+	-	-	-	-	7+	-	9+	2+	3+	4+	5+	6+	7+	9-	-	-
+alignment 1: Chr6b, dummy 	 cost: 170685979
+-
+skipped
+
+23Y_Cri_du_Chat_r1cluster_5
+total cost: 376226
+alignment 0: Chr6a, Path12 	 cost: 344565
+x0+	1+	2+	3+	4+	5+	6+	7+	-	8+	9+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	6+	-	-	7+	-	9+	10+	-	-
+alignment 1: Chr6b, Path11 	 cost: 31661
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	-	6+	7+	-	9+	10+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_10
+total cost: 4450
+alignment 0: Chr13a, Path27 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path28 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_STS_r1cluster_3
+total cost: 17457776
+alignment 0: Chr7a, Path20 	 cost: 17409325
+-	x0+	2-	1-	3+	4+	5+	6+	-	-	x13+
+2+	-	-	-	3+	4+	5+	6+	7+	11+	-
+alignment 1: Chr7b, Path19 	 cost: 48451
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	5+	6+	7+	-	9+	-	11+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_6
+total cost: 1976
+alignment 0: Chr7a, Path14 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path15 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_22
+total cost: 5282
+alignment 0: ChrYa, Path47 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_0
+total cost: 1083545
+alignment 0: Chr3a, Path10 	 cost: 1049631
+x0+	2-	1-	1+	2+	3+	4+	5+	6+	7+	9+	10+	11+	12+	13+	14+	x15+
+-	-	-	-	2+	3+	4+	5+	-	-	-	-	11+	12+	13+	-	-
+alignment 1: Chr3b, Path9 	 cost: 33914
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	x15+
+-	-	2+	3+	4+	5+	-	7+	8+	9+	-	11+	12+	13+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_15
+total cost: 7186
+alignment 0: Chr16a, Path32 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr16b, Path33 	 cost: 3593
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23X_STS_r2cluster_15
+total cost: 3800
+alignment 0: Chr19a, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path39 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_6
+total cost: 504
+alignment 0: Chr9a, Path19 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr9b, Path20 	 cost: 252
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r2cluster_16
+total cost: 110227
+alignment 0: Chr18a, Path36 	 cost: 59325
+x0+	1+	2+	3+	4+	5+	6+	7+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	6+	-	-	11+	-	-
+alignment 1: Chr18b, Path35 	 cost: 50902
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	6+	7+	8+	-	-	11+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_18
+total cost: 5282
+alignment 0: ChrXa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r1cluster_21
+total cost: 5760
+alignment 0: Chr22a, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_5
+total cost: 1976
+alignment 0: Chr7a, Path15 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path16 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r2cluster_18
+total cost: 5504
+alignment 0: Chr21a, Path41 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path42 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_6
+total cost: 2334273
+alignment 0: Chr2a, Path3 	 cost: 2253042
+x0+	1+	-	-	-	5+	6+	7+	-	8-	9+	10+	x11+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	-	9+	-	-
+alignment 1: Chr2b, Path6 	 cost: 2171
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	x11+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	-	-
+alignment 2: Chr10a, Path5 	 cost: 57177
+x12+	13+	14+	15+	16+	17+	2+	3+	-	4+	18+	19+	20+	21+	22+	23+	24+	21+	22+	23+	24+	25+	26+	x27+
+-	-	14+	15+	16+	-	-	3+	17+	-	18+	19+	-	-	22+	-	-	-	22+	-	24+	25+	-	-
+alignment 3: Chr10b, Path4 	 cost: 21883
+x12+	13+	14+	15+	16+	17+	18+	19+	20+	21+	22+	23+	24+	25+	26+	x27+
+-	-	14+	15+	16+	17+	18+	19+	-	-	22+	-	24+	25+	-	-
+
+23X_15q26_overgrowth_r1cluster_3
+total cost: 3980
+alignment 0: Chr4a, Path7 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path8 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_STS_r1cluster_10
+total cost: 20870
+alignment 0: Chr14a, Path29 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path30 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_Cri_du_Chat_r1cluster_13
+total cost: 60007
+alignment 0: Chr16a, Path32 	 cost: 31727
+x0+	1+	2+	3+	4+	5+	6+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	-	-	9+	-	11+	-	-
+alignment 1: Chr16b, Path31 	 cost: 28280
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	6+	7+	8+	9+	-	11+	-	-
+
+23X_Cri_du_Chat_r1cluster_17
+total cost: 252174
+alignment 0: Chr20a, Path40 	 cost: 224453
+x0+	1+	2+	3+	4+	5+	6+	7+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	-	5+	-	-	-	-	5+	-	7+	8+	9+	10+	-	-
+alignment 1: Chr20b, Path39 	 cost: 27721
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	-	5+	-	7+	8+	9+	10+	-	-
+
+23X_STS_r1cluster_14
+total cost: 52982094
+alignment 0: Chr3a, Path12 	 cost: 52954790
+x0+	1+	2+	3+	4+	5+	6+	-	7+	11+	12+	18+	19+	20+	-	15+	16+	x17+
+-	-	2+	3+	4+	-	6+	10+	-	11+	-	-	19+	20+	21+	-	-	-
+alignment 1: Chr3b, Path9 	 cost: 27304
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+-	-	2+	3+	4+	-	6+	7+	8+	-	10+	11+	12+	13+	14+	15+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_2
+total cost: 3980
+alignment 0: Chr4a, Path9 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path10 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_9
+total cost: 82516783
+alignment 0: Chr10a, Path20 	 cost: 81379823
+-	-	x0+	1+	2+	3+	4+	5+	x10+
+8-	2-	-	-	-	-	-	-	-
+alignment 1: Chr10b, Path19 	 cost: 1136960
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	x10+
+-	-	2+	-	-	5+	6+	-	8+	-	-
+
+23X_15q26_overgrowth_r1cluster_7
+total cost: 67506
+alignment 0: Chr8a, Path15 	 cost: 47571
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	5+	6+	-	8+	-	-	-	6+	-	8+	-	10+	11+	-	-
+alignment 1: Chr8b, Path14 	 cost: 19935
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	5+	6+	-	8+	-	10+	11+	-	-
+
+23Y_Cri_du_Chat_r2cluster_20
+total cost: 5282
+alignment 0: ChrXa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r1cluster_19
+total cost: 896
+alignment 0: Chr20a, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_1
+total cost: 158915
+alignment 0: Chr2a, Path4 	 cost: 90235
+x0+	1+	2+	3+	4+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	-	-	-	8+	9+	10+	-	-
+alignment 1: Chr2b, Path3 	 cost: 68680
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	4+	5+	6+	-	8+	9+	10+	-	-
+
+23X_Cri_du_Chat_r2cluster_12
+total cost: 20870
+alignment 0: Chr14a, Path27 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_2
+total cost: 58865093
+alignment 0: Chr5a, Path7 	 cost: 22558
+x9+	10+	11+	12+	-	13+	1+	2+	3+	4+	5+	-	6+	16+	17+	x18+
+x9+	10+	11+	12+	0+	-	1+	-	3+	4+	5+	15+	-	16+	-	-
+alignment 1: Chr5b, Path6 	 cost: 58842535
+x9+	10+	11+	12+	13+	14+	-	-	-	-	-	-	-	15+	16+	17+	x18+
+x9+	10+	11+	12+	13+	14+	6+	7+	8+	19+	20+	21+	22+	-	-	-	-
+
+23X_STS_r2cluster_11
+total cost: 9358
+alignment 0: Chr15a, Path30 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+alignment 1: Chr15b, Path31 	 cost: 4679
+x0+	1+	x2+	3+	4+	5+	6+	x7+
+x0+	1+	x2+	3+	4+	5+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_4
+total cost: 4632
+alignment 0: Chr9a, Path21 	 cost: 4380
+x0+	1+	-	2+	3-	-	4+	5+	6+	7+	8+	x9+
+x0+	1+	4-	-	3-	2-	-	5+	6+	7+	-	-
+alignment 1: Chr9b, Path20 	 cost: 252
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23Y_CMT1A_r2cluster_8
+total cost: 2696
+alignment 0: Chr12a, Path26 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path27 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r2cluster_9
+total cost: 2696
+alignment 0: Chr12a, Path23 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path24 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_11
+total cost: 123124
+alignment 0: Chr12a, Path25 	 cost: 76754
+x0+	1+	2+	3+	4+	5+	6+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	-	-	9+	-	11+	-	-
+alignment 1: Chr12b, Path24 	 cost: 46370
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	6+	7+	8+	9+	-	11+	-	-
+
+23X_STS_r1cluster_7
+total cost: 19245664
+alignment 0: Chr2a, Path6 	 cost: 33705
+x0+	1+	2+	-	3+	8+	9+	10+	-	-	14+	15+	x16+
+-	-	2+	7+	-	8+	9+	10+	11+	13+	14+	-	-
+alignment 1: Chr2b, Path8 	 cost: 29337
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	2+	-	-	5+	-	7+	8+	9+	10+	11+	12+	13+	14+	-	-
+alignment 2: Chr11a, Path5 	 cost: 9740925
+x17+	18+	19+	11+	12+	13+	20+	21+	22+	-	23+	24+	28+	29+	30+	31+	-	32+	33+	33-	32-	31-	30-	34+	35+	36+	37+	38+	x39+
+-	-	19+	-	-	-	20+	21+	22+	27+	-	-	28+	-	-	31+	34-	-	-	33-	-	31-	-	-	35+	36+	37+	-	-
+alignment 3: Chr11b, Path7 	 cost: 9441697
+x17+	18+	19+	20+	21+	-	22+	23+	24+	25+	26+	27+	28+	29+	30+	31+	32+	33+	34+	35+	36+	37+	38+	x39+
+-	-	19+	20+	21+	12+	22+	-	24+	25+	-	27+	28+	-	-	31+	-	33+	34+	35+	36+	37+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_2
+total cost: 9924
+alignment 0: Chr3a, Path5 	 cost: 4962
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr3b, Path6 	 cost: 4962
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r1cluster_0
+total cost: 3878183
+alignment 0: Chr1a, Path1 	 cost: 144124
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	4+	-	6+	-	8+	9+	10+	-	-
+alignment 1: Chr1b, Path3 	 cost: 3589935
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	x12+
+-	-	2+	-	4+	-	6+	-	-	-	-
+alignment 2: Chr1c, Path2 	 cost: 144124
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	4+	-	6+	-	8+	9+	10+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_14
+total cost: 174850187
+alignment 0: Chr17a, Path35 	 cost: 3427303
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+-	-	2+	-	4+	-	6+	-	-	9+	-	11+	12+	13+	-	15+	-	-
+alignment 1: Chr17b, Path37 	 cost: 8475305
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+-	-	2+	-	4+	-	6+	-	-	9+	-	11+	12+	13+	-	-	-	-
+alignment 2: Chr17c, Path36 	 cost: 162947579
+-	-	-	-	-	-	-	-	x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+15-	13-	12-	11-	9-	6-	4-	2-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+23Y_Cri_du_Chat_r1cluster_1
+total cost: 12469561
+alignment 0: Chr2a, Path4 	 cost: 12425290
+-	-	x0+	1+	2+	18+	19+	-	5+	6+	7+	9+	10+	11+	12+	13+	14+	x15+
+x16+	17+	-	-	-	18+	19+	20+	-	6+	-	-	-	11+	12+	13+	-	-
+alignment 1: Chr2b, Path3 	 cost: 44271
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	x15+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	-	11+	12+	13+	-	-
+
+23Y_Cri_du_Chat_r1cluster_0
+total cost: 19546
+alignment 0: Chr1a, Path2 	 cost: 16458
+x0+	1+	2+	3+	-	4+	5-	-	6+	7+	8+	x9+
+x0+	1+	2+	3+	6-	-	5-	4-	-	7+	-	-
+alignment 1: Chr1b, Path1 	 cost: 3088
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	x9+
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_15
+total cost: 13820
+alignment 0: Chr18a, Path38 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path39 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r1cluster_1
+total cost: 143773
+alignment 0: Chr2a, Path5 	 cost: 97171
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	-	7+	-	-	-	-	7+	-	9+	10+	-	-
+alignment 1: Chr2b, Path4 	 cost: 46602
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	-	7+	-	9+	10+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_22
+total cost: 5282
+alignment 0: ChrYa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_3
+total cost: 3980
+alignment 0: Chr4a, Path7 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path8 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_STS_r1cluster_6
+total cost: 4310
+alignment 0: Chr10a, Path25 	 cost: 2155
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr10b, Path26 	 cost: 2155
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_10
+total cost: 18195164
+alignment 0: Chr11a, Path22 	 cost: 9153157
+x0+	1+	2+	8-	7-	6-	5-	4-	3-	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	-	-	-	-	-	3+	-	5+	-	7+	8+	9+	10+	11+	-	-
+alignment 1: Chr11b, Path23 	 cost: 9042007
+x0+	1+	2+	3+	-	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	5+	-	5+	-	7+	8+	9+	10+	11+	-	-
+
+23Y_Cri_du_Chat_r2cluster_8
+total cost: 14112
+alignment 0: Chr11a, Path21 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr11b, Path22 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r2cluster_9
+total cost: 187860462
+alignment 0: Chr13a, Path29 	 cost: 187850771
+-	-	-	x0+	1+	x2+	x3+	4+	5+	6+	8+	9+	10+	11+	x12+
+10-	4-	x3-	-	-	-	-	-	-	-	-	-	-	-	-
+alignment 1: Chr13b, Path28 	 cost: 9691
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	-	x3+	4+	-	6+	7+	8+	-	10+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_5
+total cost: 4310
+alignment 0: Chr10a, Path22 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+alignment 1: Chr10b, Path23 	 cost: 2155
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23X_STS_r2cluster_10
+total cost: 20870
+alignment 0: Chr14a, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path29 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_Cri_du_Chat_r2cluster_13
+total cost: 163900349
+alignment 0: Chr15a, Path30 	 cost: 163875138
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	12-	11-	-	10-	9-	8-	7-	-	-	-	-	x13+
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	11-	9-	-	9-	-	7-	6-	5-	4-	x3-	-
+alignment 1: Chr15b, Path29 	 cost: 25211
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	-	x3+	4+	5+	6+	7+	-	9+	-	11+	-	-
+
+23Y_NF1_microdeletion_r1cluster_3
+total cost: 527050
+alignment 0: Chr6a, Path14 	 cost: 460705
+x0+	1+	2+	3+	4+	-	5+	6-	-	7+	8+	9+	10+	11+	12+	13+	14+	-	-	14+	15+	16+	17+	18+	18-	17-	16-	15-	14-	13-	12-	11-	-	10-	9-	19+	20+	x21+
+-	-	2+	3+	4+	7-	-	6-	5-	-	8+	9+	-	11+	-	13+	14+	15+	13+	14+	15+	-	-	-	-	17-	-	15-	14-	13-	-	11-	18+	-	-	19+	-	-
+alignment 1: Chr6b, Path13 	 cost: 66345
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	20+	x21+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	-	11+	-	13+	14+	15+	-	17+	18+	19+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_0
+total cost: 6176
+alignment 0: Chr1a, Path1 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr1b, Path2 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r1cluster_18
+total cost: 3800
+alignment 0: Chr19a, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r2cluster_21
+total cost: 5282
+alignment 0: ChrYa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_8
+total cost: 164779193
+alignment 0: Chr9a, Path17 	 cost: 97931
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	2+	3+	4+	-	6+	-	8+	-	10+	-	12+	-	14+	-	-
+alignment 1: Chr9b, dummy 	 cost: 95098549
+-
+skipped
+alignment 2: Chr9c, Path18 	 cost: 69582713
+x0+	1+	2+	3+	4+	-	-	-	-	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	2+	3+	4+	6+	8+	10+	12+	-	6+	-	8+	-	10+	-	12+	-	14+	-	-
+
+23X_15q26_overgrowth_r1cluster_6
+total cost: 1976
+alignment 0: Chr7a, Path12 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path13 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_3
+total cost: 604523
+alignment 0: Chr5a, Path11 	 cost: 598979
+x0+	1+	2+	3+	4+	4+	5+	6+	x7+
+x0+	1+	2+	3+	-	4+	5+	-	-
+alignment 1: Chr5b, Path12 	 cost: 5544
+x0+	1+	2+	3+	4+	5+	6+	x7+
+x0+	1+	2+	3+	4+	5+	-	-
+
+23X_STS_r1cluster_15
+total cost: 52935090
+alignment 0: Chr18a, Path11 	 cost: 11883
+x4+	5+	6+	7+	-	-	1+	-	2+	11+	12+	x13+
+x4+	5+	6+	7+	8+	0+	1+	10+	-	11+	-	-
+alignment 1: Chr18b, Path10 	 cost: 52923207
+x4+	5+	6+	7+	8+	9+	-	-	10+	11+	12+	x13+
+x4+	5+	6+	7+	8+	9+	2+	3+	-	-	-	-
+
+23X_Cri_du_Chat_r1cluster_16
+total cost: 3800
+alignment 0: Chr19a, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r2cluster_9
+total cost: 64362
+alignment 0: Chr12a, Path26 	 cost: 45007
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	-	7+	-	-	-	-	7+	-	9+	10+	-	-
+alignment 1: Chr12b, Path25 	 cost: 19355
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	3+	4+	5+	-	7+	-	9+	10+	-	-
+
+23X_STS_r1cluster_17
+total cost: 896
+alignment 0: Chr20a, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r1cluster_14
+total cost: 2096
+alignment 0: Chr17a, Path33 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path34 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Early_onset_Alzheimer_r1cluster_1
+total cost: 152643
+alignment 0: Chr3a, Path8 	 cost: 102299
+x0+	1+	2+	-	3+	4-	-	5+	6+	7+	8+	9+	10+	11+	12+	13+	13-	12-	11-	-	10-	9-	14+	15+	x16+
+-	-	2+	5-	-	4-	3-	-	6+	7+	8+	9+	-	11+	-	-	-	-	11-	13+	-	-	14+	-	-
+alignment 1: Chr3b, Path7 	 cost: 50344
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	2+	3+	4+	5+	6+	7+	8+	9+	-	11+	-	13+	14+	-	-
+
+23X_15q26_overgrowth_r1cluster_4
+total cost: 61524
+alignment 0: Chr5a, Path10 	 cost: 26876
+x0+	1+	2+	-	3+	4+	8+	9+	10+	11+	x12+
+-	-	2+	7+	-	-	8+	9+	10+	-	-
+alignment 1: Chr5b, Path9 	 cost: 34648
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	4+	5+	-	7+	8+	9+	10+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_2
+total cost: 289807
+alignment 0: Chr3a, Path6 	 cost: 242818
+x0+	1+	2+	3+	4+	5+	10-	9-	8-	-	7-	6-	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	-	-	8-	5+	-	-	6+	-	8+	-	10+	11+	-	-
+alignment 1: Chr3b, Path5 	 cost: 46989
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	5+	6+	-	8+	-	10+	11+	-	-
+
+23X_STS_r2cluster_12
+total cost: 7186
+alignment 0: Chr16a, Path32 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr16b, Path33 	 cost: 3593
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_1
+total cost: 1201863
+alignment 0: Chr3a, Path11 	 cost: 34541
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	x10+
+-	-	2+	-	4+	-	6+	7+	8+	-	-
+alignment 1: Chr3b, Path12 	 cost: 1167322
+x0+	1+	2+	-	3+	4+	5+	6+	7+	8+	9+	x10+
+-	-	2+	4+	-	4+	-	6+	7+	8+	-	-
+
+23X_Cri_du_Chat_r2cluster_11
+total cost: 4450
+alignment 0: Chr13a, Path25 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path26 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_7
+total cost: 195062
+alignment 0: Chr12a, Path27 	 cost: 168224
+x0+	1+	2+	3+	4+	5+	11-	10-	9-	8-	7-	6-	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	4+	-	-	10-	-	8-	-	-	-	-	8+	-	10+	11+	12+	-	-
+alignment 1: Chr12b, Path26 	 cost: 26838
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	x14+
+-	-	2+	3+	4+	5+	6+	-	8+	-	10+	11+	12+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_19
+total cost: 5760
+alignment 0: Chr22a, Path40 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path41 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_8
+total cost: 193635223
+alignment 0: Chr13a, Path25 	 cost: 524030
+x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	6+	7+	8+	9+	10+	11+	x12+
+-	-	-	x3+	4+	-	-	-	-	-	-	7+	-	9+	10+	-	-
+alignment 1: Chr13b, Path26 	 cost: 193111193
+-	-	-	-	-	-	x0+	1+	x2+	x3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+10-	9-	7-	7-	4-	x3-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_12
+total cost: 4450
+alignment 0: Chr13a, Path26 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr13b, Path27 	 cost: 2225
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_19
+total cost: 67862032
+alignment 0: Chr21a, Path41 	 cost: 36975
+x0+	x1+	x2+	3+	x4+	x5+	x6+	7+	8+	9+	10+	11+	12+	13+	14+	x15+
+-	-	x2+	3+	x4+	-	x6+	7+	-	9+	-	11+	-	13+	-	-
+alignment 1: Chr21b, Path43 	 cost: 293684
+x0+	x1+	x2+	3+	x4+	x5+	x6+	7+	8+	9+	10+	11+	12+	13+	14+	x15+
+-	-	x2+	3+	x4+	-	x6+	7+	-	9+	-	11+	-	-	-	-
+alignment 2: Chr21c, Path42 	 cost: 67531373
+-	-	-	-	-	-	x0+	x1+	x2+	3+	-	x4+	x5+	x6+	7+	8+	9+	10+	11+	12+	13+	14+	x15+
+13-	11-	9-	7-	x6-	x4-	-	-	-	3+	x2-	-	-	-	-	-	-	-	-	-	-	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_9
+total cost: 2696
+alignment 0: Chr12a, Path25 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path26 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_STS_r1cluster_4
+total cost: 5020
+alignment 0: Chr8a, Path21 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr8b, Path22 	 cost: 2510
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_1
+total cost: 16426
+alignment 0: Chr2a, Path4 	 cost: 14255
+x0+	1+	-	-	9+	-	4+	5+	6+	7+	8+	2+	3+	-	10+	11+	12+	x13+
+x0+	1+	2+	8+	9+	10+	-	5+	6+	7+	-	-	3+	4+	-	11+	-	-
+alignment 1: Chr2b, Path3 	 cost: 2171
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_20
+total cost: 5760
+alignment 0: Chr22a, Path43 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr22b, Path44 	 cost: 2880
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_Potocki_Shaffer_r2cluster_20
+total cost: 5282
+alignment 0: ChrYa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r1cluster_3
+total cost: 482396
+alignment 0: Chr5b, Path12 	 cost: 89984
+x1+	0+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	x16+
+-	-	-	3+	-	5+	-	7+	8+	-	10+	11+	12+	-	14+	-	-
+alignment 1: dummy, Path13 	 cost: 392412
+skipped
+-
+
+23Y_Cri_du_Chat_r1cluster_2
+total cost: 12372814
+alignment 0: Chr3a, Path5 	 cost: 10096
+x4+	5+	-	1+	2+	-	8+	9+	10+	11+	12+	x13+
+x4+	5+	6+	-	2+	3+	-	9+	10+	11+	-	-
+alignment 1: Chr3b, Path6 	 cost: 12362718
+-	-	x4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+0+	1+	-	-	-	7+	8+	9+	10+	11+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_17
+total cost: 896
+alignment 0: Chr20a, Path42 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path43 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_16
+total cost: 3800
+alignment 0: Chr19a, Path40 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path41 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_Cri_du_Chat_r1cluster_3
+total cost: 3980
+alignment 0: Chr4a, Path7 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path8 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_CMT1A_r1cluster_2
+total cost: 3980
+alignment 0: Chr4a, Path10 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr4b, Path11 	 cost: 1990
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_0
+total cost: 176114
+alignment 0: Chr1a, Path2 	 cost: 156576
+x0+	1+	2+	3+	8-	7-	6-	-	5-	4-	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	-	-	-	6-	3+	-	-	4+	-	6+	-	8+	9+	10+	11+	-	-
+alignment 1: Chr1b, Path1 	 cost: 19538
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	3+	4+	-	6+	-	8+	9+	10+	11+	-	-
+
+23Y_WAGR_11p13_deletion_r1cluster_21
+total cost: 5282
+alignment 0: ChrXa, Path45 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_STS_r1cluster_5
+total cost: 172664
+alignment 0: Chr9a, Path24 	 cost: 145957
+x0+	1+	2+	3+	8-	7-	6-	-	5-	4-	4+	5+	6+	7+	8+	9+	-	10+	11-	-	12+	13+	14+	15+	16+	x17+
+-	-	2+	-	-	-	6-	3+	-	-	4+	-	6+	-	8+	9+	12-	-	11-	10-	-	13+	14+	15+	-	-
+alignment 1: Chr9b, Path23 	 cost: 26707
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	13+	14+	15+	16+	x17+
+-	-	2+	3+	4+	-	6+	-	8+	9+	10+	11+	12+	13+	14+	15+	-	-
+
+23X_22q11-2_distal_deletion_r2cluster_8
+total cost: 10088977
+alignment 0: Chr11a, Path23 	 cost: 6067305
+x0+	6-	5-	4-	3-	2-	1-	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	-	-	-	-	-	-	2+	-	4+	-	6+	7+	8+	9+	10+	11+	-	-
+alignment 1: Chr11b, Path24 	 cost: 4021672
+x0+	1+	2+	-	3+	4+	5+	6+	7+	8+	9+	10+	11+	12+	x13+
+-	-	2+	4+	-	4+	-	6+	7+	8+	9+	10+	11+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_18
+total cost: 896
+alignment 0: Chr20a, Path39 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr20b, Path40 	 cost: 448
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_22q11-2_distal_deletion_r1cluster_13
+total cost: 20870
+alignment 0: Chr14a, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path29 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23Y_Potocki_Shaffer_r1cluster_18
+total cost: 5504
+alignment 0: Chr21a, Path38 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+alignment 1: Chr21b, Path39 	 cost: 2752
+x0+	x1+	2+	x3+	4+	5+	x6+
+x0+	x1+	2+	x3+	4+	-	-
+
+23Y_1q21_recurrent_microdeletion_r2cluster_9
+total cost: 20870
+alignment 0: Chr14a, Path27 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path28 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+
+23X_1q21_recurrent_microduplication_r2cluster_6
+total cost: 14112
+alignment 0: Chr11a, Path24 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr11b, Path25 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r1cluster_0
+total cost: 6176
+alignment 0: Chr1a, Path1 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr1b, Path2 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_Cri_du_Chat_r2cluster_10
+total cost: 2696
+alignment 0: Chr12a, Path23 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr12b, Path24 	 cost: 1348
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_STS_r2cluster_13
+total cost: 2096
+alignment 0: Chr17a, Path34 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr17b, Path35 	 cost: 1048
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_WAGR_11p13_deletion_r2cluster_3
+total cost: 11088
+alignment 0: Chr5a, Path11 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr5b, Path12 	 cost: 5544
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_15q26_overgrowth_r1cluster_5
+total cost: 342136757
+alignment 0: Chr6a, Path11 	 cost: 171450778
+x0+	1+	2+	3+	4+	5+	6+	7+	-	-	-	13-	12-	11-	10-	9-	8-	-	8+	9+	10+	11+	12+	-	-	-	-	-	13+	x14+
+-	-	2+	3+	4+	5+	6+	7+	8+	10+	12+	-	-	-	10-	-	8-	7-	-	-	10+	-	12+	6-	5-	4-	3-	2-	-	-
+alignment 1: Chr6b, dummy 	 cost: 170685979
+-
+skipped
+
+23X_Early_onset_Alzheimer_r1cluster_0
+total cost: 153980
+alignment 0: Chr1a, Path2 	 cost: 117666
+x0+	1+	2+	-	3+	4+	8+	9+	10+	11+	x12+
+-	-	2+	7+	-	-	8+	9+	10+	-	-
+alignment 1: Chr1b, Path1 	 cost: 36314
+x0+	1+	2+	3+	4+	5+	6+	7+	8+	9+	10+	11+	x12+
+-	-	2+	-	4+	5+	-	7+	8+	9+	10+	-	-
+
+23X_Cri_du_Chat_r1cluster_15
+total cost: 13820
+alignment 0: Chr18a, Path35 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr18b, Path36 	 cost: 6910
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23X_STS_r1cluster_16
+total cost: 3800
+alignment 0: Chr19a, Path37 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path38 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+
+23Y_NF1_microdeletion_r2cluster_8
+total cost: 14112
+alignment 0: Chr11a, Path23 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr11b, Path24 	 cost: 7056
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+

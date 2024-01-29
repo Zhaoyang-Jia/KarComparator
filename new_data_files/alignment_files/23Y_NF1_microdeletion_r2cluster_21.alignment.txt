@@ -1,0 +1,5 @@
+total cost: 5282
+alignment 0: ChrYa, Path46 	 cost: 5282
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+

@@ -32,6 +32,7 @@ def hungarian_algorithm_for_cluster(path_list1, path_list2, index_to_segment, ve
             path_list2.append(Path(Arm([], 'dummy'), path_name='dummy'))
 
     if len(path_list2) - len(path_list1) != 0:
+        # make sure the bipartite graph is equal-size before proceeding
         raise RuntimeError('bipartite sizes not equal')
 
     # form cost_matrix

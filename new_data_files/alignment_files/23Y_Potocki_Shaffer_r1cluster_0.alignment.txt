@@ -1,0 +1,8 @@
+total cost: 6176
+alignment 0: Chr1a, Path1 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr1b, Path2 	 cost: 3088
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+

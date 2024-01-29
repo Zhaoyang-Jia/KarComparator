@@ -1,0 +1,8 @@
+total cost: 1976
+alignment 0: Chr7a, Path13 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr7b, Path14 	 cost: 988
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+

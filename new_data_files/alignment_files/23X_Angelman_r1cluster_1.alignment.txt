@@ -1,0 +1,8 @@
+total cost: 9924
+alignment 0: Chr3a, Path7 	 cost: 4962
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr3b, Path8 	 cost: 4962
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+

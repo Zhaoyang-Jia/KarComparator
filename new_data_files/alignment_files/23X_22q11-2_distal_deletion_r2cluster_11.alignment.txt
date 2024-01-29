@@ -1,0 +1,8 @@
+total cost: 20870
+alignment 0: Chr14a, Path29 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+alignment 1: Chr14b, Path30 	 cost: 10435
+x0+	1+	x2+	3+	4+	x5+
+x0+	1+	x2+	3+	-	-
+

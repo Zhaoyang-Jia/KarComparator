@@ -1,0 +1,8 @@
+total cost: 3800
+alignment 0: Chr19a, Path35 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+alignment 1: Chr19b, Path36 	 cost: 1900
+x0+	1+	2+	3+	4+	x5+
+x0+	1+	2+	3+	-	-
+

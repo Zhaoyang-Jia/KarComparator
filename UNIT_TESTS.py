@@ -5,6 +5,7 @@ from dependent_clusters_processing import *
 from read_cluster_file import *
 from NW_aligner import *
 from bipartite_matching import *
+from COMPARISON_with_eulerian_swaps import *
 
 
 def test_read_KarSimulator_output_to_path():
@@ -75,8 +76,13 @@ def test_bipartite_matching():
     hungarian_algorithm_for_cluster(karsim_path_list, omkar_path_list, index_to_segment, verbose=True)
 
 
+def test_form_graph():
+    file = 'new_data_files/cluster_files/23X_Early_onset_Alzheimer_r1cluster_14.txt'
+    read_alignment_file(file, '')
+
+
 if __name__ == "__main__":
-    test_form_dependent_clusters()
+    # test_form_dependent_clusters()
     # test_NW_aligner()
     # test_manual_correction()
 
@@ -85,3 +91,5 @@ if __name__ == "__main__":
     # test_NW_aligner()
 
     # test_bipartite_matching()
+
+    test_form_graph()

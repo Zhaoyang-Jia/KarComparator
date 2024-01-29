@@ -1,0 +1,8 @@
+total cost: 326711143
+alignment 0: Chr8a, dummy 	 cost: 148587327
+-
+skipped
+alignment 1: Chr8b, Path12 	 cost: 178123816
+x3+	4+	5+	6+	7+	8+	-	-	9+	10+	11+	12+	13+	14+	15+	16+	17+	18+	19+	x20+
+x3+	4+	5+	6+	7+	8+	1+	2+	-	-	-	-	-	-	-	-	-	-	-	-
+
