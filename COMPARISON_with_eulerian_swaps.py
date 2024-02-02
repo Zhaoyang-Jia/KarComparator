@@ -130,6 +130,7 @@ def form_graph(path_list: [Path]):
 
     return Graph
 
+
 def read_alignment_file(alignment_file, cluster_file):
     """
     combine alignment file's bipartite matching + scoring with the paths from the cluster_file

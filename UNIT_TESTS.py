@@ -6,6 +6,7 @@ from read_cluster_file import *
 from NW_aligner import *
 from bipartite_matching import *
 from COMPARISON_with_eulerian_swaps import *
+from COMPARISON_with_graphs import *
 
 
 def test_read_KarSimulator_output_to_path():
@@ -77,8 +78,13 @@ def test_bipartite_matching():
 
 
 def test_form_graph():
+    # TODO: complete writing this test
     file = 'new_data_files/cluster_files/23X_Early_onset_Alzheimer_r1cluster_14.txt'
     read_alignment_file(file, '')
+
+
+def test_form_graph_2():
+    draw_graph('new_data_files/cluster_files/23X_1q21_recurrent_microduplication_r1cluster_0.txt')
 
 
 if __name__ == "__main__":
@@ -92,4 +98,6 @@ if __name__ == "__main__":
 
     # test_bipartite_matching()
 
-    test_form_graph()
+    # test_form_graph()
+
+    test_form_graph_2()
