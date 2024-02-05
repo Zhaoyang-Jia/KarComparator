@@ -10,7 +10,7 @@ def read_OMKar_output_to_path(OMKar_output_file, forbidden_region_file):
     return path_list
 
 
-def read_OMKar_output(file):
+def read_OMKar_output(file, return_segment_dict=False):
     segment_dict = {}
     path_list = []
     with open(file) as fp_read:
@@ -54,7 +54,10 @@ def read_OMKar_output(file):
                         raise ValueError("direction must be + or -")
                 path_list.append(Path(Arm(path_segments, "solved_path"), path_name))
 
-    return path_list
+    if return_segment_dict:
+        return path_list, segment_dict
+    else:
+        return path_list
 
 
 def rotate_and_bin_path(path_list, forbidden_region_file):

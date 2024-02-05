@@ -74,28 +74,29 @@ class Edge:
 
 
 class Graph:
-    nodes: {(str, int): str}
-    edges: Set[Edge]
-    karsim_dict: {End_Point: [End_Point]}
-    omkar_dict: {End_Point: [End_Point]}
+    node_name: {(str, int): str}  # chr, position: node name
+    edge_type: {(str, int, str, int): str}  # chr1, position1, chr2, position2: edge type
+    karsim_dict: {(str, int): (str, int)}
+    omkar_dict: {(str, int): (str, int)}
 
     def __init__(self):
-        self.nodes = {}
-        self.edges = set()
+        self.node_name = {}
+        self.edge_type = {}
         self.karsim_dict = {}
         self.omkar_dict = {}
 
-    def add_edge_to_dict(self, edge: Edge, target_dict: str):
+    def add_edge_to_dict(self, chr1, pos1, chr2, pos2, target_dict: str):
         if target_dict == 'omkar':
             target_dict = self.omkar_dict
         elif target_dict == 'karsim':
             target_dict = self.karsim_dict
         else:
             raise ValueError()
-        if edge.endpoint1 in target_dict:
-            target_dict[edge.endpoint1].append(edge.endpoint2)
+
+        if (chr1, pos1) in target_dict:
+            target_dict[(chr1, pos1)].append((chr2, pos2))
         else:
-            target_dict[edge.endpoint1] = [edge.endpoint2]
+            target_dict[(chr1, pos1)] = [(chr2, pos2)]
 
     def add_segment_edge(self, input_segment: Segment, target_graph: str):
         """
@@ -103,17 +104,18 @@ class Graph:
         :param target_graph: "omkar" or "karsim"
         :return:
         """
-        new_endpoint1 = End_Point(input_segment.chr_name, input_segment.start, input_segment.kt_index[:-1] + "$")
-        new_endpoint2 = End_Point(input_segment.chr_name, input_segment.end, input_segment.kt_index[:-1] + "#")
-        new_edge = Edge(new_endpoint1, new_endpoint2, 'segment')
-
         # add node
-        self.nodes[(new_endpoint1.origin_chr, new_endpoint1.position)] = new_endpoint1.name
-        self.nodes[(new_endpoint2.origin_chr, new_endpoint2.position)] = new_endpoint2.name
-        # add edge to set
-        self.edges.add(new_edge)
+        self.node_name[(input_segment.chr_name, input_segment.start)] = input_segment.kt_index[:-1] + "$"
+        self.node_name[(input_segment.chr_name, input_segment.end)] = input_segment.kt_index[:-1] + "#"
+
+        # document edge type
+        self.edge_type[(input_segment.chr_name, input_segment.start,
+                        input_segment.chr_name, input_segment.end)] = 'segment'
+
         # add edge to dict
-        self.add_edge_to_dict(new_edge, target_graph)
+        self.add_edge_to_dict(input_segment.chr_name, input_segment.start,
+                              input_segment.chr_name, input_segment.end,
+                              target_graph)
 
     def add_transition_edge(self, start_segment: Segment, end_segment: Segment, target_graph: str):
         """
@@ -123,71 +125,106 @@ class Graph:
         :param target_graph: "omkar" or "karsim"
         :return:
         """
-        new_endpoint1 = End_Point(start_segment.chr_name, start_segment.end, "transition_start")
-        new_endpoint2 = End_Point(end_segment.chr_name, end_segment.start, "transition_end")
-        new_edge = Edge(new_endpoint1, new_endpoint2, 'transition')
+        # document edge type
+        self.edge_type[(start_segment.chr_name, start_segment.end,
+                        end_segment.chr_name, end_segment.start)] = 'transition'
 
-        # add edge to set
-        self.edges.add(new_edge)
         # add edge to dict
-        self.add_edge_to_dict(new_edge, target_graph)
+        self.add_edge_to_dict(start_segment.chr_name, start_segment.end,
+                              end_segment.chr_name, end_segment.start,
+                              target_graph)
 
-    def get_all_segment_edges(self):
-        segment_edges = []
-        for edge in self.edges:
-            if edge.edge_type == 'segment':
-                segment_edges.append(edge)
-        return segment_edges
+    def gather_edges(self, target_graph: str) -> ({(str, str): int}, {(str, str): int}):
+        if target_graph == 'karsim':
+            target_dict = self.karsim_dict
+        elif target_graph == 'omkar':
+            target_dict = self.omkar_dict
+        else:
+            raise ValueError
 
-    def locate_edge_object(self, endpoint1, endpoint2):
-        for edge in self.edges:
-            if edge.endpoint1 == endpoint1 and endpoint2 == endpoint2:
-                return edge
+        E_segment = {}
+        E_transition = {}
+        for node1, value in target_dict.items():
+            for node2 in value:
+                node1_name = self.node_name[(node1[0], node1[1])]
+                node2_name = self.node_name[(node2[0], node2[1])]
+                edge_type = self.edge_type[(node1[0], node1[1], node2[0], node2[1])]
+
+                if edge_type == 'segment':
+                    if (node1_name, node2_name) in E_segment:
+                        E_segment[(node1_name, node2_name)] += 1
+                    else:
+                        E_segment[(node1_name, node2_name)] = 1
+                elif edge_type == 'transition':
+                    if (node1_name, node2_name) in E_transition:
+                        E_transition[(node1_name, node2_name)] += 1
+                    else:
+                        E_transition[(node1_name, node2_name)] = 1
+                else:
+                    raise ValueError
+
+        return E_segment, E_transition
 
     def visualize_graph(self):
         # create sorted nodes (Endpoints)
-        all_segment_edges = self.get_all_segment_edges()
-        all_segment_endpoints = []
-        for segment_edge in all_segment_edges:
-            all_segment_endpoints.append(segment_edge.endpoint1)
-            all_segment_endpoints.append(segment_edge.endpoint2)
-        all_segment_endpoints = sorted(all_segment_endpoints)
+        def custom_sort_node(node_tuple):
+            chr_info = node_tuple[0]
+            pos_info = int(node_tuple[1])
+            chr_index = chr_info[3:]
+            if chr_index == "X":
+                chr_index = 23
+            elif chr_index == "Y":
+                chr_index = 24
+            else:
+                chr_index = int(chr_index)
 
-        visualized_nodes = []
-        for segment_endpoint in all_segment_endpoints:
-            visualized_nodes.append(segment_endpoint.name)
+            return chr_index, pos_info
 
-        G = nx.DiGraph()
-        G.add_nodes_from(visualized_nodes)
+        nodes = self.node_name.keys()
+        sorted_nodes = sorted(nodes, key=custom_sort_node)
+        V = []
+        for node in sorted_nodes:
+            V.append(self.node_name[node])
+
+        E_karsim_segment, E_karsim_transition = self.gather_edges('karsim')
+        E_omkar_segment, E_omkar_transition = self.gather_edges('omkar')
+
+        def iterative_add_edge(edges_dict: {(str, str): int}, group_color, graph):
+            for edge, edge_weight in edges_dict.items():
+                graph.add_edge(edge[0], edge[1], color=group_color, weight=edge_weight)
+
+        G_karsim = nx.DiGraph()
+        G_karsim.add_nodes_from(V)
+
+        G_omkar = nx.DiGraph()
+        G_omkar.add_nodes_from(V)
 
         # add all edges
-        # TODO: edge weights
-        for endpoint1 in self.karsim_dict:
-            for endpoint2 in self.karsim_dict[endpoint1]:
-                current_edge = self.locate_edge_object(endpoint1, endpoint2)
-                if current_edge.edge_type == 'segment':
-                    G.add_edge(endpoint1.name, endpoint2.name, color='red')
-                elif current_edge.edge_type == 'transition':
-                    endpoint1_name = self.nodes[(endpoint1.origin_chr, endpoint1.position)]
-                    endpoint2_name = self.nodes[(endpoint2.origin_chr, endpoint2.position)]
-                    G.add_edge(endpoint1_name, endpoint2_name, color='orange')
-                else:
-                    raise ValueError
+        iterative_add_edge(E_karsim_segment, 'black', G_karsim)
+        iterative_add_edge(E_karsim_transition, 'blue', G_karsim)
+        iterative_add_edge(E_omkar_segment, 'black', G_omkar)
+        iterative_add_edge(E_omkar_transition, 'blue', G_omkar)
 
-        for endpoint1 in self.omkar_dict:
-            for endpoint2 in self.omkar_dict[endpoint1]:
-                current_edge = self.locate_edge_object(endpoint1, endpoint2)
-                if current_edge.edge_type == 'segment':
-                    G.add_edge(endpoint1.name, endpoint2.name, color='blue')
-                elif current_edge.edge_type == 'transition':
-                    endpoint1_name = self.nodes[(endpoint1.origin_chr, endpoint1.position)]
-                    endpoint2_name = self.nodes[(endpoint2.origin_chr, endpoint2.position)]
-                    G.add_edge(endpoint1_name, endpoint2_name, color='cyan')
-                else:
-                    raise ValueError
+        karsim_color_mapping = nx.get_edge_attributes(G_karsim, 'color')
+        karsim_pos = nx.circular_layout(G_karsim, scale=2)
+        karsim_weight_labels = nx.get_edge_attributes(G_karsim, 'weight')
 
-        pos = nx.circular_layout(G)  # TODO: replace with linear layout
-        nx.draw(G, pos, with_labels=True)
+        karsim_colors = []
+        for edge_itr, color_itr in karsim_color_mapping.items():
+            karsim_colors.append(color_itr)
+
+        # node_sizes = [100 for _ in V]
+
+        # pos = {}
+        # y_value = 0
+        # x_value = 0
+        # for node in V:
+        #     pos[node] = [x_value, y_value]
+        #     x_value += 300
+
+        # plt.figure(figsize=(100, 100))
+        nx.draw(G_karsim, karsim_pos, edge_color=karsim_colors, with_labels=True)
+        nx.draw_networkx_edge_labels(G_karsim, karsim_pos, edge_labels=karsim_weight_labels)
         plt.savefig("test_graph.png")
 
 
@@ -216,5 +253,4 @@ def draw_graph(cluster_file):
     iterative_add_transition_edge(omkar_path_list, 'omkar')
 
     graph.visualize_graph()
-
 
