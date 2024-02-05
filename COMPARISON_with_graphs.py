@@ -1,6 +1,8 @@
 from typing import Set
 import networkx as nx
+import netgraph as ng
 import matplotlib.pyplot as plt
+import math
 
 from Structures import *
 from read_cluster_file import *
@@ -134,6 +136,9 @@ class Graph:
                               end_segment.chr_name, end_segment.start,
                               target_graph)
 
+    def prune_same_edges(self):
+        pass
+
     def gather_edges(self, target_graph: str) -> ({(str, str): int}, {(str, str): int}):
         if target_graph == 'karsim':
             target_dict = self.karsim_dict
@@ -165,23 +170,44 @@ class Graph:
 
         return E_segment, E_transition
 
-    def visualize_graph(self):
-        # create sorted nodes (Endpoints)
-        def custom_sort_node(node_tuple):
-            chr_info = node_tuple[0]
-            pos_info = int(node_tuple[1])
-            chr_index = chr_info[3:]
-            if chr_index == "X":
-                chr_index = 23
-            elif chr_index == "Y":
-                chr_index = 24
-            else:
-                chr_index = int(chr_index)
+    def custom_sort_node(self, node_tuple):
+        chr_info = node_tuple[0]
+        pos_info = int(node_tuple[1])
+        chr_index = chr_info[3:]
+        if chr_index == "X":
+            chr_index = 23
+        elif chr_index == "Y":
+            chr_index = 24
+        else:
+            chr_index = int(chr_index)
 
-            return chr_index, pos_info
+        return chr_index, pos_info
+
+    def get_chr_start_end_nodes(self):
+        """
+        find the two nodes that create a chr-breakpoint (i.e. belong to two diff. chr)
+        :return: list of all chr-breakpoint nodes' name
+        """
+        nodes = self.node_name.keys()
+        sorted_nodes = sorted(nodes, key=self.custom_sort_node)  # sorted by chr, then by positions -> chr always start to end sorted in the list
+        terminal_nodes = [self.node_name[sorted_nodes[0]]]  # first node always the start of a chr
+        node_ind = 1
+        while node_ind <= len(sorted_nodes) - 3:
+            current_node = sorted_nodes[node_ind]
+            next_node = sorted_nodes[node_ind + 1]
+            if current_node[0] != next_node[0]:
+                terminal_nodes.append(self.node_name[current_node])
+                terminal_nodes.append(self.node_name[next_node])
+            node_ind += 2  # because of the $# paired structure, only check the # against the next $
+        terminal_nodes.append(self.node_name[sorted_nodes[-1]])  # last node always the end of a chr
+
+        return terminal_nodes
+
+    def visualize_graph(self, output_prefix):
+        # create sorted nodes (Endpoints)
 
         nodes = self.node_name.keys()
-        sorted_nodes = sorted(nodes, key=custom_sort_node)
+        sorted_nodes = sorted(nodes, key=self.custom_sort_node)
         V = []
         for node in sorted_nodes:
             V.append(self.node_name[node])
@@ -201,34 +227,112 @@ class Graph:
 
         # add all edges
         iterative_add_edge(E_karsim_segment, 'black', G_karsim)
-        iterative_add_edge(E_karsim_transition, 'blue', G_karsim)
+        iterative_add_edge(E_karsim_transition, 'red', G_karsim)
         iterative_add_edge(E_omkar_segment, 'black', G_omkar)
-        iterative_add_edge(E_omkar_transition, 'blue', G_omkar)
+        iterative_add_edge(E_omkar_transition, 'red', G_omkar)
 
-        karsim_color_mapping = nx.get_edge_attributes(G_karsim, 'color')
-        karsim_pos = nx.circular_layout(G_karsim, scale=2)
-        karsim_weight_labels = nx.get_edge_attributes(G_karsim, 'weight')
+        def generate_circular_coordinates(n, radius=0.5, center=(0.5, 0.5)):
+            cx, cy = center
+            coordinates = []
 
-        karsim_colors = []
-        for edge_itr, color_itr in karsim_color_mapping.items():
-            karsim_colors.append(color_itr)
+            for k in range(n):
+                angle = (k / n) * 2 * math.pi
+                x = cx + radius * math.cos(angle)
+                y = cy + radius * math.sin(angle)
+                coordinates.append((x, y))
 
-        # node_sizes = [100 for _ in V]
+            return coordinates
 
-        # pos = {}
-        # y_value = 0
-        # x_value = 0
-        # for node in V:
-        #     pos[node] = [x_value, y_value]
-        #     x_value += 300
+        def generate_linear_coordinates(n, left_boundary=0, right_boundary=5, fixed_y=0.5):
+            coordinates = []
+            for i in range(n):
+                x = 0 + (i / (n - 1)) * (right_boundary - left_boundary)
+                y = fixed_y
+                coordinates.append((x, y))
 
-        # plt.figure(figsize=(100, 100))
-        nx.draw(G_karsim, karsim_pos, edge_color=karsim_colors, with_labels=True)
-        nx.draw_networkx_edge_labels(G_karsim, karsim_pos, edge_labels=karsim_weight_labels)
-        plt.savefig("test_graph.png")
+            return coordinates
+
+        uniform_dist = 5/24
+        graph_width = uniform_dist * len(V)
+
+        def generate_uniform_linear_coordinates(n, fixed_y=0.5, fixed_distance=uniform_dist):
+            coordinates = []
+            for i in range(n):
+                x = 0 + i * fixed_distance
+                y = fixed_y
+                coordinates.append((x, y))
+
+            return coordinates
+
+        ## node parameters: same for the two graphs (nodes are always the same)
+        V_pos = {}
+        # cor = generate_circular_coordinates(len(V))
+        cor = generate_uniform_linear_coordinates(len(V))
+        for node_itr_ind in range(len(V)):
+            V_pos[V[node_itr_ind]] = cor[node_itr_ind]
+
+        V_colors = {}
+        all_nodes = list(self.node_name.values())
+        terminal_nodes = self.get_chr_start_end_nodes()
+        for node_itr in all_nodes:
+            if node_itr in terminal_nodes:
+                V_colors[node_itr] = 'orange'
+            else:
+                V_colors[node_itr] = 'white'
+
+        ## edges parameters: diff. for the two graphs
+        karsim_E_weights = {}
+        karsim_E_colors = nx.get_edge_attributes(G_karsim, 'color')
+        for edge_itr in E_karsim_segment:
+            karsim_E_weights[edge_itr] = E_karsim_segment[edge_itr]
+        for edge_itr in E_karsim_transition:
+            karsim_E_weights[edge_itr] = E_karsim_transition[edge_itr]
+
+        omkar_E_weights = {}
+        omkar_E_colors = nx.get_edge_attributes(G_omkar, 'color')
+        for edge_itr in E_omkar_segment:
+            omkar_E_weights[edge_itr] = E_omkar_segment[edge_itr]
+        for edge_itr in E_omkar_transition:
+            omkar_E_weights[edge_itr] = E_omkar_transition[edge_itr]
+
+        ## plotting
+        plt.figure(figsize=(graph_width * 4, 4))
+        plot_karsim = ng.InteractiveGraph(G_karsim,
+                                          node_color=V_colors,
+                                          node_layout=V_pos,
+                                          node_labels=True,
+                                          edge_color=karsim_E_colors,
+                                          edge_layout='arc',
+                                          edge_labels=karsim_E_weights,
+                                          arrows=True,
+                                          node_size=6,
+                                          node_label_offset=0.001,
+                                          node_label_font_dict=dict(size=10),
+                                          edge_label_fontdict=dict(size=9),
+                                          scale=(graph_width, 1))
+        plt.savefig(output_prefix + '.karsim.graph.png')
+        plt.show()
+
+        plt.figure(figsize=(graph_width * 4, 4))
+        plot_omkar = ng.InteractiveGraph(G_omkar,
+                                         node_color=V_colors,
+                                         node_layout=V_pos,
+                                         node_labels=True,
+                                         edge_color=omkar_E_colors,
+                                         edge_layout='arc',
+                                         edge_labels=omkar_E_weights,
+                                         arrows=True,
+                                         node_size=6,
+                                         node_label_offset=0.001,
+                                         node_label_font_dict=dict(size=10),
+                                         edge_label_fontdict=dict(size=9),
+                                         scale=(graph_width, 1))
+        plt.savefig(output_prefix + '.omkar.graph.png')
 
 
 def draw_graph(cluster_file):
+    file_basename = cluster_file.split('/')[-1].split('.')[0]
+
     index_to_segment, karsim_path_list, omkar_path_list = read_cluster_file(cluster_file)
     graph = Graph()
 
@@ -252,5 +356,4 @@ def draw_graph(cluster_file):
     iterative_add_transition_edge(karsim_path_list, 'karsim')
     iterative_add_transition_edge(omkar_path_list, 'omkar')
 
-    graph.visualize_graph()
-
+    graph.visualize_graph('new_data_files/complete_graphs/' + file_basename)
