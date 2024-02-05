@@ -3,6 +3,7 @@ import networkx as nx
 import netgraph as ng
 import matplotlib.pyplot as plt
 import math
+from collections import Counter
 
 from Structures import *
 from read_cluster_file import *
@@ -137,7 +138,30 @@ class Graph:
                               target_graph)
 
     def prune_same_edges(self):
-        pass
+        dict1 = self.karsim_dict
+        dict2 = self.omkar_dict
+
+        # Find the common keys between the dictionaries
+        common_keys = dict1.keys() & dict2.keys()
+
+        # Iterate over common keys and remove instances
+        for key in common_keys:
+            occurrences_in_dict1 = Counter(dict1[key])
+            occurrences_in_dict2 = Counter(dict2[key])
+
+            for value in occurrences_in_dict1:
+                # Determine the minimum number of occurrences between the two dicts
+                if value in occurrences_in_dict2:
+                    min_occurrences = min(occurrences_in_dict1[value], occurrences_in_dict2[value])
+                    for _ in range(min_occurrences):
+                        dict1[key].remove(value)
+                        dict2[key].remove(value)
+                else:
+                    continue
+
+        # Remove keys that have become empty
+        self.karsim_dict = {k: v for k, v in dict1.items() if v}
+        self.omkar_dict = {k: v for k, v in dict2.items() if v}
 
     def gather_edges(self, target_graph: str) -> ({(str, str): int}, {(str, str): int}):
         if target_graph == 'karsim':
@@ -311,7 +335,6 @@ class Graph:
                                           edge_label_fontdict=dict(size=9),
                                           scale=(graph_width, 1))
         plt.savefig(output_prefix + '.karsim.graph.png')
-        plt.show()
 
         plt.figure(figsize=(graph_width * 4, 4))
         plot_omkar = ng.InteractiveGraph(G_omkar,
@@ -357,3 +380,6 @@ def draw_graph(cluster_file):
     iterative_add_transition_edge(omkar_path_list, 'omkar')
 
     graph.visualize_graph('new_data_files/complete_graphs/' + file_basename)
+
+    graph.prune_same_edges()
+    graph.visualize_graph('new_data_files/complete_graphs/' + file_basename + '.pruned')
