@@ -9,82 +9,17 @@ from Structures import *
 from read_cluster_file import *
 
 
-class End_Point:
-    origin_chr: str
-    position: int
-    name: str
-
-    def __init__(self, origin_chr: str, position: int, segment_name: str):
-        self.origin_chr = origin_chr
-        self.position = position
-        self.name = segment_name
-
-    def __hash__(self):
-        return hash((self.origin_chr, self.position))
-
-    def __str__(self):
-        return "[{},{}:{}]".format(self.name, self.origin_chr, self.position)
-
-    def __eq__(self, other):
-        if (self.origin_chr, self.position) == (other.origin_chr, other.position):
-            return True
-        else:
-            return False
-
-    def __lt__(self, other):
-        self_chr = self.origin_chr[3:]
-        if self_chr == "X":
-            self_chr = 23
-        elif self_chr == "Y":
-            self_chr = 24
-        else:
-            self_chr = int(self_chr)
-
-        other_chr = other.origin_chr[3:]
-        if other_chr == "X":
-            other_chr = 23
-        elif other_chr == "Y":
-            other_chr = 24
-        else:
-            other_chr = int(other_chr)
-
-        if self_chr != other_chr:
-            return self_chr < other_chr
-        else:
-            return self.position < other.position
-
-
-class Edge:
-    endpoint1 = End_Point
-    endpoint2 = End_Point
-    edge_type = str
-
-    def __init__(self, endpoint1: End_Point, endpoint2: End_Point, edge_type: str):
-        self.endpoint1 = endpoint1
-        self.endpoint2 = endpoint2
-        self.edge_type = edge_type
-
-    def __str__(self):
-        return "({},{},{})".format(self.endpoint1, self.endpoint2, self.edge_type)
-
-    def distance(self, other):
-        if (self.endpoint1.origin_chr != other.endpoint1.origin_chr) or (self.endpoint2.origin_chr != other.endpoint2.origin_chr):
-            return float('inf')
-        else:
-            endpoint1_dist = abs(self.endpoint1.position - other.endpoint1.position)
-            endpoint2_dist = abs(self.endpoint2.position - other.endpoint2.position)
-            return float(endpoint1_dist + endpoint2_dist)
-
-
 class Graph:
     node_name: {(str, int): str}  # chr, position: node name
     edge_type: {(str, int, str, int): str}  # chr1, position1, chr2, position2: edge type
+    segment_edge_type: {(str, int, str, int): str}  # documents for comparison forbidden regions
     karsim_dict: {(str, int): (str, int)}
     omkar_dict: {(str, int): (str, int)}
 
     def __init__(self):
         self.node_name = {}
         self.edge_type = {}
+        self.segment_edge_type = {}
         self.karsim_dict = {}
         self.omkar_dict = {}
 
@@ -114,6 +49,8 @@ class Graph:
         # document edge type
         self.edge_type[(input_segment.chr_name, input_segment.start,
                         input_segment.chr_name, input_segment.end)] = 'segment'
+        self.segment_edge_type[(input_segment.chr_name, input_segment.start,
+                                input_segment.chr_name, input_segment.end)] = input_segment.segment_type
 
         # add edge to dict
         self.add_edge_to_dict(input_segment.chr_name, input_segment.start,
@@ -239,9 +176,30 @@ class Graph:
         E_karsim_segment, E_karsim_transition = self.gather_edges('karsim')
         E_omkar_segment, E_omkar_transition = self.gather_edges('omkar')
 
-        def iterative_add_edge(edges_dict: {(str, str): int}, group_color, graph):
+        def translate_segment_edge_type_to_edge_name():
+            new_dict = {}
+            for edge, edge_type in self.segment_edge_type.items():
+                node1_name = self.node_name[(edge[0], edge[1])]
+                node2_name = self.node_name[(edge[2], edge[3])]
+                new_dict[(node1_name, node2_name)] = edge_type
+            return new_dict
+
+        def iterative_add_edge(edges_dict: {(str, str): int}, group_color, graph, forbidden_segment_edge_labels=False):
+            """
+            if forbidden_segment_edge_labels=True, prepare "translated_segment_edge_type"
+            :param edges_dict:
+            :param group_color:
+            :param graph:
+            :param forbidden_segment_edge_labels:
+            :return:
+            """
             for edge, edge_weight in edges_dict.items():
-                graph.add_edge(edge[0], edge[1], color=group_color, weight=edge_weight)
+                edge_color = group_color
+                if forbidden_segment_edge_labels:
+                    this_edge_type = translated_segment_edge_type[(edge[0]), (edge[1])]
+                    if this_edge_type.startswith('telomere') or this_edge_type.startswith('acrocentric'):
+                        edge_color = 'blue'
+                graph.add_edge(edge[0], edge[1], color=edge_color, weight=edge_weight)
 
         G_karsim = nx.DiGraph()
         G_karsim.add_nodes_from(V)
@@ -250,9 +208,10 @@ class Graph:
         G_omkar.add_nodes_from(V)
 
         # add all edges
-        iterative_add_edge(E_karsim_segment, 'black', G_karsim)
+        translated_segment_edge_type = translate_segment_edge_type_to_edge_name()
+        iterative_add_edge(E_karsim_segment, 'black', G_karsim, forbidden_segment_edge_labels=True)
         iterative_add_edge(E_karsim_transition, 'red', G_karsim)
-        iterative_add_edge(E_omkar_segment, 'black', G_omkar)
+        iterative_add_edge(E_omkar_segment, 'black', G_omkar, forbidden_segment_edge_labels=True)
         iterative_add_edge(E_omkar_transition, 'red', G_omkar)
 
         def generate_circular_coordinates(n, radius=0.5, center=(0.5, 0.5)):
@@ -276,7 +235,7 @@ class Graph:
 
             return coordinates
 
-        uniform_dist = 5/24
+        uniform_dist = 5 / 24
         graph_width = uniform_dist * len(V)
 
         def generate_uniform_linear_coordinates(n, fixed_y=0.5, fixed_distance=uniform_dist):

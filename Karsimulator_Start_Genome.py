@@ -1,3 +1,5 @@
+import re
+
 from Structures import *
 
 
@@ -134,10 +136,58 @@ def get_segment_location(input_current_segment: Segment, input_segment_ordinal: 
     return p_arm_exhausted, output_segment_location
 
 
+def get_event_chr(input_file: str):
+    event_chr = set()
+    with open(input_file) as fp_read:
+        section_number = 0
+        for line in fp_read:
+            if line.startswith('-'):
+                section_number += 1
+                if section_number == 2:
+                    break
+        for line in fp_read:
+            if line.startswith('block'):
+                break
+
+        # first block now is reached
+        for line in fp_read:
+            if line.startswith('block'):
+                continue
+
+            line = line.replace('\n', '')
+            if len(line) == 0:
+                # last line reached
+                break
+
+            info = line.split(', ')[1]
+            chrs = re.findall(r'from\s+(.*?)\s+to\s+(.*?)$', info)
+            event_chr.add(chrs[0][0])
+            event_chr.add(chrs[0][1])
+
+    def custom_sort(input_chr):
+        chr_index = input_chr[3:]
+        chr_index = chr_index[:-1]
+        if chr_index == "X":
+            chr_index = 23
+        elif chr_index == "Y":
+            chr_index = 24
+        else:
+            chr_index = int(chr_index)
+
+        return chr_index
+
+    return sorted(list(event_chr), key=custom_sort)
+
+
 def test():
     genome = generate_genome_from_KT('sample_input/23X_Cri_du_Chat_r1.kt.txt')
     genome.output_KT('sample_output/23X_Cri_du_Chat_r1.kt.txt')
 
 
+def test_get_event_chr():
+    x = get_event_chr('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/KarSimulator/23X_1q21_recurrent_microduplication_r1.kt.txt')
+    print(x)
+
+
 if __name__ == "__main__":
-    test()
+    test_get_event_chr()
