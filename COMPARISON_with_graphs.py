@@ -1,8 +1,9 @@
-from typing import Set
 import networkx as nx
 import netgraph as ng
 import matplotlib.pyplot as plt
 import math
+import numpy as np
+from scipy.optimize import linear_sum_assignment
 from collections import Counter
 
 from Structures import *
@@ -174,6 +175,29 @@ class Graph:
                     total_distance += abs(node2[1] - node1[1] + 1)
 
         return total_distance
+
+    def get_missed_transition_edges(self):
+        karsim_transition_edges = []
+        for node1, value in self.karsim_dict.items():
+            for node2 in value:
+                if self.edge_type[(node1[0], node1[1], node2[0], node2[1])] == 'transition':
+                    # skip reference edge
+                    if node1[0] == node2[0] and node1[1] + 1 == node2[1]:
+                        continue
+                    else:
+                        karsim_transition_edges.append((node1[0], node1[1], node2[0], node2[1]))
+
+        omkar_transition_edges = []
+        for node1, value in self.omkar_dict.items():
+            for node2 in value:
+                if self.edge_type[(node1[0], node1[1], node2[0], node2[1])] == 'transition':
+                    # skip reference edge
+                    if node1[0] == node2[0] and node1[1] + 1 == node2[1]:
+                        continue
+                    else:
+                        omkar_transition_edges.append((node1[0], node1[1], node2[0], node2[1]))
+
+        return karsim_transition_edges, omkar_transition_edges
 
     def get_chr_start_end_nodes(self):
         """
@@ -380,3 +404,5 @@ def draw_graph(cluster_file):
     # graph.visualize_graph('new_data_files/complete_graphs/' + file_basename + '.pruned')
 
     print(graph.get_segment_distance())
+
+    graph.get_missed_transition_edge_count()
