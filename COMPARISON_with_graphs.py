@@ -13,8 +13,8 @@ class Graph:
     node_name: {(str, int): str}  # chr, position: node name
     edge_type: {(str, int, str, int): str}  # chr1, position1, chr2, position2: edge type
     segment_edge_type: {(str, int, str, int): str}  # documents for comparison forbidden regions
-    karsim_dict: {(str, int): (str, int)}
-    omkar_dict: {(str, int): (str, int)}
+    karsim_dict: {(str, int): [(str, int)]}
+    omkar_dict: {(str, int): [(str, int)]}
 
     def __init__(self):
         self.node_name = {}
@@ -143,6 +143,37 @@ class Graph:
             chr_index = int(chr_index)
 
         return chr_index, pos_info
+
+    def get_segment_distance(self):
+        # reverse the dict
+        node_name_to_node_position = {}
+        for position, name in self.node_name.items():
+            node_name_to_node_position[name] = position
+
+        total_distance = 0
+        for node1, value in self.karsim_dict.items():
+            for node2 in value:
+                if self.edge_type[(node1[0], node1[1], node2[0], node2[1])] == 'transition':
+                    continue
+                # all segment edge are between the same chromosome nodes
+                edge_type = self.segment_edge_type[(node1[0], node1[1], node2[0], node2[1])]
+                if edge_type.startswith('telomere') or edge_type.startswith('acrocentric'):
+                    continue
+                else:
+                    total_distance += abs(node2[1] - node1[1] + 1)
+
+        for node1, value in self.omkar_dict.items():
+            for node2 in value:
+                if self.edge_type[(node1[0], node1[1], node2[0], node2[1])] == 'transition':
+                    continue
+                # all segment edge are between the same chromosome nodes
+                edge_type = self.segment_edge_type[(node1[0], node1[1], node2[0], node2[1])]
+                if edge_type.startswith('telomere') or edge_type.startswith('acrocentric'):
+                    continue
+                else:
+                    total_distance += abs(node2[1] - node1[1] + 1)
+
+        return total_distance
 
     def get_chr_start_end_nodes(self):
         """
@@ -312,9 +343,7 @@ class Graph:
         plt.savefig(output_prefix + '.omkar.graph.png')
 
 
-def draw_graph(cluster_file):
-    file_basename = cluster_file.split('/')[-1].split('.')[0]
-
+def form_graph_from_cluster(cluster_file):
     index_to_segment, karsim_path_list, omkar_path_list = read_cluster_file(cluster_file)
     graph = Graph()
 
@@ -338,7 +367,16 @@ def draw_graph(cluster_file):
     iterative_add_transition_edge(karsim_path_list, 'karsim')
     iterative_add_transition_edge(omkar_path_list, 'omkar')
 
-    graph.visualize_graph('new_data_files/complete_graphs/' + file_basename)
+    return graph
 
+
+def draw_graph(cluster_file):
+    file_basename = cluster_file.split('/')[-1].split('.')[0]
+    graph = form_graph_from_cluster(cluster_file)
+
+    # graph.visualize_graph('new_data_files/complete_graphs/' + file_basename)
+    print(graph.get_segment_distance())
     graph.prune_same_edges()
-    graph.visualize_graph('new_data_files/complete_graphs/' + file_basename + '.pruned')
+    # graph.visualize_graph('new_data_files/complete_graphs/' + file_basename + '.pruned')
+
+    print(graph.get_segment_distance())
