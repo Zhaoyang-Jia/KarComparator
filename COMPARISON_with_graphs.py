@@ -2,8 +2,6 @@ import networkx as nx
 import netgraph as ng
 import matplotlib.pyplot as plt
 import math
-import numpy as np
-from scipy.optimize import linear_sum_assignment
 from collections import Counter
 
 from Structures import *
@@ -12,19 +10,23 @@ from read_cluster_file import *
 
 class Graph:
     node_name: {(str, int): str}  # chr, position: node name
-    edge_type: {(str, int, str, int): str}  # chr1, position1, chr2, position2: edge type
     segment_edge_type: {(str, int, str, int): str}  # documents for comparison forbidden regions
-    karsim_dict: {(str, int): [(str, int)]}
-    omkar_dict: {(str, int): [(str, int)]}
+    karsim_dict: {(str, int): [(str, int, str)]}  # chr1, pos1: chr2, pos2, edge_type
+    omkar_dict: {(str, int): [(str, int, str)]}  # chr1, pos1: chr2, pos2, edge_type
+    approximated_cnv: int
+    karsim_n_transition_approximated: int
+    omkar_n_transition_approximated: int
 
     def __init__(self):
         self.node_name = {}
-        self.edge_type = {}
         self.segment_edge_type = {}
         self.karsim_dict = {}
         self.omkar_dict = {}
+        self.approximated_cnv = 0
+        karsim_n_transition_approximated = 0
+        omkar_n_transition_approximated = 0
 
-    def add_edge_to_dict(self, chr1, pos1, chr2, pos2, target_dict: str):
+    def add_edge_to_dict(self, chr1, pos1, chr2, pos2, edge_type, target_dict: str):
         if target_dict == 'omkar':
             target_dict = self.omkar_dict
         elif target_dict == 'karsim':
@@ -33,9 +35,9 @@ class Graph:
             raise ValueError()
 
         if (chr1, pos1) in target_dict:
-            target_dict[(chr1, pos1)].append((chr2, pos2))
+            target_dict[(chr1, pos1)].append((chr2, pos2, edge_type))
         else:
-            target_dict[(chr1, pos1)] = [(chr2, pos2)]
+            target_dict[(chr1, pos1)] = [(chr2, pos2, edge_type)]
 
     def add_segment_edge(self, input_segment: Segment, target_graph: str):
         """
@@ -48,15 +50,13 @@ class Graph:
         self.node_name[(input_segment.chr_name, input_segment.end)] = input_segment.kt_index[:-1] + "#"
 
         # document edge type
-        self.edge_type[(input_segment.chr_name, input_segment.start,
-                        input_segment.chr_name, input_segment.end)] = 'segment'
         self.segment_edge_type[(input_segment.chr_name, input_segment.start,
                                 input_segment.chr_name, input_segment.end)] = input_segment.segment_type
 
         # add edge to dict
         self.add_edge_to_dict(input_segment.chr_name, input_segment.start,
                               input_segment.chr_name, input_segment.end,
-                              target_graph)
+                              'segment', target_graph)
 
     def add_transition_edge(self, start_segment: Segment, end_segment: Segment, target_graph: str):
         """
@@ -66,14 +66,10 @@ class Graph:
         :param target_graph: "omkar" or "karsim"
         :return:
         """
-        # document edge type
-        self.edge_type[(start_segment.chr_name, start_segment.end,
-                        end_segment.chr_name, end_segment.start)] = 'transition'
-
         # add edge to dict
         self.add_edge_to_dict(start_segment.chr_name, start_segment.end,
                               end_segment.chr_name, end_segment.start,
-                              target_graph)
+                              'transition', target_graph)
 
     def prune_same_edges(self):
         dict1 = self.karsim_dict
@@ -84,6 +80,7 @@ class Graph:
 
         # Iterate over common keys and remove instances
         for key in common_keys:
+            # TODO: test if this will distinguish between different edge types of the same chr, pos
             occurrences_in_dict1 = Counter(dict1[key])
             occurrences_in_dict2 = Counter(dict2[key])
 
@@ -115,7 +112,7 @@ class Graph:
             for node2 in value:
                 node1_name = self.node_name[(node1[0], node1[1])]
                 node2_name = self.node_name[(node2[0], node2[1])]
-                edge_type = self.edge_type[(node1[0], node1[1], node2[0], node2[1])]
+                edge_type = node2[2]
 
                 if edge_type == 'segment':
                     if (node1_name, node2_name) in E_segment:
@@ -146,6 +143,10 @@ class Graph:
         return chr_index, pos_info
 
     def get_segment_distance(self):
+        """
+        return the total distance of the prunned graphs' remaining segment edges
+        :return:
+        """
         # reverse the dict
         node_name_to_node_position = {}
         for position, name in self.node_name.items():
@@ -154,7 +155,7 @@ class Graph:
         total_distance = 0
         for node1, value in self.karsim_dict.items():
             for node2 in value:
-                if self.edge_type[(node1[0], node1[1], node2[0], node2[1])] == 'transition':
+                if node2[2] == 'transition':
                     continue
                 # all segment edge are between the same chromosome nodes
                 edge_type = self.segment_edge_type[(node1[0], node1[1], node2[0], node2[1])]
@@ -165,7 +166,7 @@ class Graph:
 
         for node1, value in self.omkar_dict.items():
             for node2 in value:
-                if self.edge_type[(node1[0], node1[1], node2[0], node2[1])] == 'transition':
+                if node2[2] == 'transition':
                     continue
                 # all segment edge are between the same chromosome nodes
                 edge_type = self.segment_edge_type[(node1[0], node1[1], node2[0], node2[1])]
@@ -177,10 +178,14 @@ class Graph:
         return total_distance
 
     def get_missed_transition_edges(self):
+        """
+        archived
+        :return:
+        """
         karsim_transition_edges = []
         for node1, value in self.karsim_dict.items():
             for node2 in value:
-                if self.edge_type[(node1[0], node1[1], node2[0], node2[1])] == 'transition':
+                if node2 == 'transition':
                     # skip reference edge
                     if node1[0] == node2[0] and node1[1] + 1 == node2[1]:
                         continue
@@ -190,7 +195,7 @@ class Graph:
         omkar_transition_edges = []
         for node1, value in self.omkar_dict.items():
             for node2 in value:
-                if self.edge_type[(node1[0], node1[1], node2[0], node2[1])] == 'transition':
+                if node2 == 'transition':
                     # skip reference edge
                     if node1[0] == node2[0] and node1[1] + 1 == node2[1]:
                         continue
@@ -218,6 +223,29 @@ class Graph:
         terminal_nodes.append(self.node_name[sorted_nodes[-1]])  # last node always the end of a chr
 
         return terminal_nodes
+
+    def intra_edge_distance(self, chr1, pos1, chr2, pos2):
+        if chr1 != chr2:
+            return -1
+        else:
+            return abs(pos2 - pos1) - 1
+
+    def pop_edge(self, chr1, pos1, chr2, pos2, edge_type, target_graph):
+        if target_graph == 'karsim':
+            target_dict = self.karsim_dict
+        elif target_graph == 'omkar':
+            target_dict = self.omkar_dict
+        else:
+            raise ValueError
+
+        node2_list = target_dict[(chr1, pos1)]
+        if (chr2, pos2, edge_type) not in node2_list:
+            raise ValueError('edge does not exist')
+        else:
+            node2_list.remove((chr2, pos2, edge_type))
+
+    def remove_approximate_transition_edges(self):
+        pass
 
     def visualize_graph(self, output_prefix):
         # create sorted nodes (Endpoints)
@@ -398,11 +426,11 @@ def draw_graph(cluster_file):
     file_basename = cluster_file.split('/')[-1].split('.')[0]
     graph = form_graph_from_cluster(cluster_file)
 
-    # graph.visualize_graph('new_data_files/complete_graphs/' + file_basename)
+    graph.visualize_graph('new_data_files/complete_graphs/' + file_basename + ".test")
     print(graph.get_segment_distance())
     graph.prune_same_edges()
-    # graph.visualize_graph('new_data_files/complete_graphs/' + file_basename + '.pruned')
+    graph.visualize_graph('new_data_files/complete_graphs/' + file_basename  + ".test" + '.pruned')
 
     print(graph.get_segment_distance())
 
-    graph.get_missed_transition_edge_count()
+    # graph.get_missed_transition_edge_count()
