@@ -1,6 +1,4 @@
 x = [1, 2, 3]
-y = {'x': x}
+y = x[:2]
 
-x.pop(0)
-
-print(y)
+print(*y)

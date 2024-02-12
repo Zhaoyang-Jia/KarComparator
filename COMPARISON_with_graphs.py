@@ -8,6 +8,38 @@ from Structures import *
 from read_cluster_file import *
 
 
+d = 50000
+
+
+def intra_edge_distance(chr1, pos1, chr2, pos2):
+    if chr1 != chr2:
+        return -1
+    else:
+        return abs(pos2 - pos1) - 1
+
+
+def custom_sort_node(node_tuple):
+    chr_info = node_tuple[0]
+    pos_info = int(node_tuple[1])
+    chr_index = chr_info[3:]
+    if chr_index == "X":
+        chr_index = 23
+    elif chr_index == "Y":
+        chr_index = 24
+    else:
+        chr_index = int(chr_index)
+
+    return chr_index, pos_info
+
+
+def pop_edge(chr1, pos1, chr2, pos2, edge_type, target_dict):
+    node2_list = target_dict[(chr1, pos1)]
+    if (chr2, pos2, edge_type) not in node2_list:
+        raise ValueError('edge does not exist')
+    else:
+        node2_list.remove((chr2, pos2, edge_type))
+
+
 class Graph:
     node_name: {(str, int): str}  # chr, position: node name
     segment_edge_type: {(str, int, str, int): str}  # documents for comparison forbidden regions
@@ -23,8 +55,8 @@ class Graph:
         self.karsim_dict = {}
         self.omkar_dict = {}
         self.approximated_cnv = 0
-        karsim_n_transition_approximated = 0
-        omkar_n_transition_approximated = 0
+        self.karsim_n_transition_approximated = 0
+        self.omkar_n_transition_approximated = 0
 
     def add_edge_to_dict(self, chr1, pos1, chr2, pos2, edge_type, target_dict: str):
         if target_dict == 'omkar':
@@ -129,19 +161,6 @@ class Graph:
 
         return E_segment, E_transition
 
-    def custom_sort_node(self, node_tuple):
-        chr_info = node_tuple[0]
-        pos_info = int(node_tuple[1])
-        chr_index = chr_info[3:]
-        if chr_index == "X":
-            chr_index = 23
-        elif chr_index == "Y":
-            chr_index = 24
-        else:
-            chr_index = int(chr_index)
-
-        return chr_index, pos_info
-
     def get_segment_distance(self):
         """
         return the total distance of the prunned graphs' remaining segment edges
@@ -210,7 +229,7 @@ class Graph:
         :return: list of all chr-breakpoint nodes' name
         """
         nodes = self.node_name.keys()
-        sorted_nodes = sorted(nodes, key=self.custom_sort_node)  # sorted by chr, then by positions -> chr always start to end sorted in the list
+        sorted_nodes = sorted(nodes, key=custom_sort_node)  # sorted by chr, then by positions -> chr always start to end sorted in the list
         terminal_nodes = [self.node_name[sorted_nodes[0]]]  # first node always the start of a chr
         node_ind = 1
         while node_ind <= len(sorted_nodes) - 3:
@@ -224,34 +243,57 @@ class Graph:
 
         return terminal_nodes
 
-    def intra_edge_distance(self, chr1, pos1, chr2, pos2):
-        if chr1 != chr2:
-            return -1
-        else:
-            return abs(pos2 - pos1) - 1
-
-    def pop_edge(self, chr1, pos1, chr2, pos2, edge_type, target_graph):
-        if target_graph == 'karsim':
-            target_dict = self.karsim_dict
-        elif target_graph == 'omkar':
-            target_dict = self.omkar_dict
-        else:
-            raise ValueError
-
-        node2_list = target_dict[(chr1, pos1)]
-        if (chr2, pos2, edge_type) not in node2_list:
-            raise ValueError('edge does not exist')
-        else:
-            node2_list.remove((chr2, pos2, edge_type))
-
     def remove_approximate_transition_edges(self):
-        pass
+        def mark_approximated_transition_edges(target_graph):
+            if target_graph == 'karsim':
+                target_dict = self.karsim_dict
+            elif target_graph == 'omkar':
+                target_dict = self.omkar_dict
+            else:
+                raise ValueError
+
+            # mark all SMALL edges for removal
+            edges_to_remove = []
+            for node1, value in target_dict.items():
+                for node2 in value:
+                    chr1 = node1[0]
+                    pos1 = node1[1]
+                    chr2 = node2[0]
+                    pos2 = node2[1]
+                    edge_type = node2[2]
+
+                    if edge_type == 'segment':
+                        continue
+
+                    intra_distance = intra_edge_distance(chr1, pos1, chr2, pos2)
+                    if intra_distance == -1:
+                        # -1 encodes +inf
+                        continue
+                    elif intra_distance < d:
+                        edges_to_remove.append((chr1, pos1, chr2, pos2, edge_type))
+            return edges_to_remove
+
+        # removal
+        karsim_edges_to_remove = mark_approximated_transition_edges('karsim')
+        omkar_edges_to_remove = mark_approximated_transition_edges('omkar')
+        for current_edge in karsim_edges_to_remove:
+            distance_param = current_edge[:4]
+            current_distance = intra_edge_distance(*distance_param)
+            self.approximated_cnv += current_distance
+            self.karsim_n_transition_approximated += 1
+            pop_edge(*current_edge, self.karsim_dict)
+        for current_edge in omkar_edges_to_remove:
+            distance_param = current_edge[:4]
+            current_distance = intra_edge_distance(*distance_param)
+            self.approximated_cnv += current_distance
+            self.omkar_n_transition_approximated += 1
+            pop_edge(*current_edge, self.omkar_dict)
 
     def visualize_graph(self, output_prefix):
         # create sorted nodes (Endpoints)
 
         nodes = self.node_name.keys()
-        sorted_nodes = sorted(nodes, key=self.custom_sort_node)
+        sorted_nodes = sorted(nodes, key=custom_sort_node)
         V = []
         for node in sorted_nodes:
             V.append(self.node_name[node])
@@ -427,10 +469,13 @@ def draw_graph(cluster_file):
     graph = form_graph_from_cluster(cluster_file)
 
     graph.visualize_graph('new_data_files/complete_graphs/' + file_basename + ".test")
-    print(graph.get_segment_distance())
+    print('initial segment distance: ' + str(graph.get_segment_distance()))
     graph.prune_same_edges()
-    graph.visualize_graph('new_data_files/complete_graphs/' + file_basename  + ".test" + '.pruned')
-
-    print(graph.get_segment_distance())
+    graph.visualize_graph('new_data_files/complete_graphs/' + file_basename + ".test" + '.pruned')
+    print('pruned segment distance: ' + str(graph.get_segment_distance()))
+    graph.remove_approximate_transition_edges()
+    graph.visualize_graph('new_data_files/complete_graphs/' + file_basename + ".test" + '.approximated')
+    print('approximated segment distance: ' + str(graph.get_segment_distance()))
+    print('approximated_cnv: ' + str(graph.approximated_cnv))
 
     # graph.get_missed_transition_edge_count()
