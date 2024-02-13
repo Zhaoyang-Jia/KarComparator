@@ -539,7 +539,7 @@ class Graph:
         def generate_uniform_linear_coordinates(n, fixed_y=0.5, fixed_distance=uniform_dist):
             coordinates = []
             for i in range(n):
-                x = 0 + i * fixed_distance
+                x = round(0 + i * fixed_distance, 4)
                 y = fixed_y
                 coordinates.append((x, y))
 
