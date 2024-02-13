@@ -84,7 +84,7 @@ def test_form_graph():
 
 
 def test_form_graph_2():
-    draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/23X_1q21_recurrent_microduplication_r1cluster_0.txt')
+    draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/23Y_NF1_microdeletion_r2cluster_1.txt')
 
 
 if __name__ == "__main__":

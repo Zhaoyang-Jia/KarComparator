@@ -3,19 +3,48 @@ import netgraph as ng
 import matplotlib.pyplot as plt
 import math
 from collections import Counter
+from scipy.optimize import linear_sum_assignment
+import numpy as np
 
 from Structures import *
 from read_cluster_file import *
 
+d = 200000
 
-d = 50000
+
+def reverse_dict(input_dict):
+    """
+    requires mapping to be bijective
+    :param input_dict:
+    :return:
+    """
+    output_dict = {}
+    for position, name in input_dict.items():
+        output_dict[name] = position
+    return output_dict
 
 
-def intra_edge_distance(chr1, pos1, chr2, pos2):
+def intra_transition_edge_distance(chr1, pos1, chr2, pos2):
     if chr1 != chr2:
         return -1
     else:
         return abs(pos2 - pos1) - 1
+
+
+def inter_transition_edge_distance(edge1_chr1, edge1_pos1, edge1_chr2, edge1_pos2,
+                                   edge2_chr1, edge2_pos1, edge2_chr2, edge2_pos2):
+    if edge1_chr1 != edge2_chr1 or edge1_chr2 != edge2_chr2:
+        return -1
+    return abs(edge1_pos1 - edge2_pos1) + abs(edge1_pos2 - edge2_pos2)
+
+
+def sign(x):
+    if x < 0:
+        return -1
+    elif x == 0:
+        return 0
+    else:
+        return 1
 
 
 def custom_sort_node(node_tuple):
@@ -48,6 +77,11 @@ class Graph:
     approximated_cnv: int
     karsim_n_transition_approximated: int
     omkar_n_transition_approximated: int
+    # TODO: we assumed Karsim's path is always t-to-t, need to fix this in cluster file indexing
+    karsim_start_node: [(str, int)]
+    karsim_end_node: [(str, int)]
+    omkar_start_node: [(str, int)]  # used for creating the first transition edge
+    omkar_end_node: [(str, int)]
 
     def __init__(self):
         self.node_name = {}
@@ -57,6 +91,10 @@ class Graph:
         self.approximated_cnv = 0
         self.karsim_n_transition_approximated = 0
         self.omkar_n_transition_approximated = 0
+        self.karsim_start_node = []
+        self.karsim_end_node = []
+        self.omkar_start_node = []
+        self.omkar_end_node = []
 
     def add_edge_to_dict(self, chr1, pos1, chr2, pos2, edge_type, target_dict: str):
         if target_dict == 'omkar':
@@ -102,6 +140,48 @@ class Graph:
         self.add_edge_to_dict(start_segment.chr_name, start_segment.end,
                               end_segment.chr_name, end_segment.start,
                               'transition', target_graph)
+
+    def add_start_end_transition_edges(self):
+        terminal_nodes = self.get_chr_start_end_nodes()
+        node_name_to_coordinates = reverse_dict(self.node_name)
+        terminal_node_coordinates = {}
+        for node_name in terminal_nodes:
+            node_coordinate = node_name_to_coordinates[node_name]
+            node_chr = node_coordinate[0]
+            node_index = node_coordinate[1]
+            if node_chr in terminal_node_coordinates:
+                terminal_node_coordinates[node_chr].append(node_index)
+            else:
+                terminal_node_coordinates[node_chr] = [node_index]
+
+        # print('x')
+
+        for start_node in self.omkar_start_node:
+            start_node_chr = start_node[0]
+            if start_node_chr not in terminal_node_coordinates:
+                continue
+            graph_start_node_coordinate = min(terminal_node_coordinates[start_node_chr])  # contains 2 coor, min is the start
+            if start_node == (start_node_chr, graph_start_node_coordinate):
+                continue
+
+            if (start_node_chr, graph_start_node_coordinate) in self.omkar_dict:
+                self.omkar_dict[(start_node_chr, graph_start_node_coordinate)].append((*start_node, 'transition'))
+            else:
+                self.omkar_dict[(start_node_chr, graph_start_node_coordinate)] = [(*start_node, 'transition')]
+
+        for end_node in self.omkar_end_node:
+            end_node_chr = end_node[0]
+            if end_node_chr not in terminal_node_coordinates:
+                # FIXME: why would this even occur?
+                continue
+            graph_end_node_coordinate = max(terminal_node_coordinates[end_node_chr])  # contains 2 coor, max is the end
+            if end_node == (end_node_chr, graph_end_node_coordinate):
+                continue
+
+            if end_node in self.omkar_dict:
+                self.omkar_dict[end_node].append((end_node_chr, graph_end_node_coordinate, 'transition'))
+            else:
+                self.omkar_dict[end_node] = [(end_node_chr, graph_end_node_coordinate, 'transition')]
 
     def prune_same_edges(self):
         dict1 = self.karsim_dict
@@ -167,9 +247,7 @@ class Graph:
         :return:
         """
         # reverse the dict
-        node_name_to_node_position = {}
-        for position, name in self.node_name.items():
-            node_name_to_node_position[name] = position
+        node_name_to_node_position = reverse_dict(self.node_name)
 
         total_distance = 0
         for node1, value in self.karsim_dict.items():
@@ -178,6 +256,7 @@ class Graph:
                     continue
                 # all segment edge are between the same chromosome nodes
                 edge_type = self.segment_edge_type[(node1[0], node1[1], node2[0], node2[1])]
+                # total_distance += abs(node2[1] - node1[1] + 1)
                 if edge_type.startswith('telomere') or edge_type.startswith('acrocentric'):
                     continue
                 else:
@@ -189,6 +268,9 @@ class Graph:
                     continue
                 # all segment edge are between the same chromosome nodes
                 edge_type = self.segment_edge_type[(node1[0], node1[1], node2[0], node2[1])]
+
+                # total_distance += abs(node2[1] - node1[1] + 1)
+                # TODO: recover this
                 if edge_type.startswith('telomere') or edge_type.startswith('acrocentric'):
                     continue
                 else:
@@ -204,7 +286,7 @@ class Graph:
         karsim_transition_edges = []
         for node1, value in self.karsim_dict.items():
             for node2 in value:
-                if node2 == 'transition':
+                if node2[2] == 'transition':
                     # skip reference edge
                     if node1[0] == node2[0] and node1[1] + 1 == node2[1]:
                         continue
@@ -214,7 +296,7 @@ class Graph:
         omkar_transition_edges = []
         for node1, value in self.omkar_dict.items():
             for node2 in value:
-                if node2 == 'transition':
+                if node2[2] == 'transition':
                     # skip reference edge
                     if node1[0] == node2[0] and node1[1] + 1 == node2[1]:
                         continue
@@ -265,7 +347,7 @@ class Graph:
                     if edge_type == 'segment':
                         continue
 
-                    intra_distance = intra_edge_distance(chr1, pos1, chr2, pos2)
+                    intra_distance = intra_transition_edge_distance(chr1, pos1, chr2, pos2)
                     if intra_distance == -1:
                         # -1 encodes +inf
                         continue
@@ -278,16 +360,105 @@ class Graph:
         omkar_edges_to_remove = mark_approximated_transition_edges('omkar')
         for current_edge in karsim_edges_to_remove:
             distance_param = current_edge[:4]
-            current_distance = intra_edge_distance(*distance_param)
+            current_distance = intra_transition_edge_distance(*distance_param)
             self.approximated_cnv += current_distance
-            self.karsim_n_transition_approximated += 1
+            if current_distance > 0:
+                self.karsim_n_transition_approximated += 1
             pop_edge(*current_edge, self.karsim_dict)
         for current_edge in omkar_edges_to_remove:
             distance_param = current_edge[:4]
-            current_distance = intra_edge_distance(*distance_param)
+            current_distance = intra_transition_edge_distance(*distance_param)
             self.approximated_cnv += current_distance
-            self.omkar_n_transition_approximated += 1
+            if current_distance > 0:
+                self.omkar_n_transition_approximated += 1
             pop_edge(*current_edge, self.omkar_dict)
+
+    def match_transition_edges(self):
+        large_value = 1000000
+        node_name_to_coordinate = reverse_dict(self.node_name)
+
+        ## gather all transition edges
+        _, karsim_transition_edge_dict = self.gather_edges('karsim')
+        _, omkar_transition_edge_dict = self.gather_edges('omkar')
+        karsim_transition_edges = []
+        omkar_transition_edges = []
+
+        for edge, multiplicity in karsim_transition_edge_dict.items():
+            node1 = node_name_to_coordinate[edge[0]]
+            node2 = node_name_to_coordinate[edge[1]]
+            chr1 = node1[0]
+            pos1 = node1[1]
+            chr2 = node2[0]
+            pos2 = node2[1]
+            for itr in range(multiplicity):
+                karsim_transition_edges.append((chr1, pos1, chr2, pos2))
+
+        for edge, multiplicity in omkar_transition_edge_dict.items():
+            node1 = node_name_to_coordinate[edge[0]]
+            node2 = node_name_to_coordinate[edge[1]]
+            chr1 = node1[0]
+            pos1 = node1[1]
+            chr2 = node2[0]
+            pos2 = node2[1]
+            for itr in range(multiplicity):
+                omkar_transition_edges.append((chr1, pos1, chr2, pos2))
+
+        if len(karsim_transition_edges) == 0 or len(omkar_transition_edges) == 0:
+            return
+
+        ## add dummies
+        # len_diff = len(karsim_transition_edges) - len(omkar_transition_edges)
+        # if len_diff > 0:
+        #     for itr in range(len_diff):
+        #         omkar_transition_edges.append('dummy')
+        # elif len_diff < 0:
+        #     for itr in range(abs(len_diff)):
+        #         karsim_transition_edges.append('dummy')
+
+        ## populate cost_matrix
+        cost_matrix = [[large_value for col in range(len(omkar_transition_edges))] for row in range(len(karsim_transition_edges))]
+        for row_index in range(len(karsim_transition_edges)):
+            for col_index in range(len(omkar_transition_edges)):
+                karsim_edge = karsim_transition_edges[row_index]
+                omkar_edge = omkar_transition_edges[col_index]
+
+                # if the start/end direction do not match, transition edges are different
+                karsim_node1_sign = self.node_name[(karsim_edge[0], karsim_edge[1])][-1]
+                karsim_node2_sign = self.node_name[(karsim_edge[2], karsim_edge[3])][-1]
+                omkar_node1_sign = self.node_name[(omkar_edge[0], omkar_edge[1])][-1]
+                omkar_node2_sign = self.node_name[(omkar_edge[2], omkar_edge[3])][-1]
+                if karsim_node1_sign != omkar_node1_sign or karsim_node2_sign != omkar_node2_sign:
+                    continue
+
+                distance = inter_transition_edge_distance(*karsim_edge, *omkar_edge)
+                if distance == -1:
+                    # -1 signals no match
+                    continue
+
+                if distance < 2 * d:
+                    # only update cost if within threshold
+                    cost_matrix[row_index][col_index] = distance
+
+        ## bipartite matching
+        np_cost_matrix = np.array(cost_matrix)
+        karsim_assignment, omkar_assignment = linear_sum_assignment(np_cost_matrix)
+
+        ## remove all approximate matching
+        for ind in range(len(karsim_assignment)):
+            karsim_ind = karsim_assignment[ind]
+            omkar_ind = omkar_assignment[ind]
+            current_distance = cost_matrix[karsim_ind][omkar_ind]
+
+            if current_distance < large_value:
+                # an approximate matching is found, pop both edges in the matching
+                print("matched: " + str(current_distance))
+                self.approximated_cnv += current_distance
+                karsim_edge = karsim_transition_edges[karsim_ind]
+                omkar_edge = omkar_transition_edges[omkar_ind]
+                self.karsim_dict[(karsim_edge[0], karsim_edge[1])].remove((karsim_edge[2], karsim_edge[3], 'transition'))
+                self.omkar_dict[(omkar_edge[0], omkar_edge[1])].remove((omkar_edge[2], omkar_edge[3], 'transition'))
+                self.karsim_n_transition_approximated += 1
+                self.omkar_n_transition_approximated += 1
 
     def visualize_graph(self, output_prefix):
         # create sorted nodes (Endpoints)
@@ -451,7 +622,17 @@ def form_graph_from_cluster(cluster_file):
             for segment_ind in range(len(path.linear_path.segments) - 1):
                 current_segment = path.linear_path.segments[segment_ind]
                 next_segment = path.linear_path.segments[segment_ind + 1]
+                if current_segment.end == next_segment.start:
+                    # FIXME: minor bug in the segment indexing exists in .kt file
+                    continue
                 graph.add_transition_edge(current_segment, next_segment, target_graph)
+
+                if segment_ind == 0:
+                    if target_graph == 'omkar':
+                        graph.omkar_start_node.append((current_segment.chr_name, current_segment.start))
+                elif segment_ind == len(path.linear_path.segments) - 2:
+                    if target_graph == 'omkar':
+                        graph.omkar_end_node.append((next_segment.chr_name, next_segment.end))
 
     # segment edge
     iterative_add_segment_edge(karsim_path_list, 'karsim')
@@ -461,21 +642,41 @@ def form_graph_from_cluster(cluster_file):
     iterative_add_transition_edge(karsim_path_list, 'karsim')
     iterative_add_transition_edge(omkar_path_list, 'omkar')
 
+    graph.add_start_end_transition_edges()
     return graph
 
 
 def draw_graph(cluster_file):
+    import os
+    import shutil
+
     file_basename = cluster_file.split('/')[-1].split('.')[0]
+    file_basename_no_cluster = file_basename.split('cluster')[0]
+    folder = 'new_data_files/complete_graphs/' + file_basename + '/'
+    os.makedirs(folder, exist_ok=True)
+    shutil.copyfile('new_data_files/OMKar/' + file_basename_no_cluster + '.1.txt',
+                    folder + file_basename_no_cluster + '.omkar_paths.txt')
+    shutil.copyfile('new_data_files/KarSimulator/' + file_basename_no_cluster + '.kt.txt',
+                    folder + file_basename_no_cluster + '.karsim_paths.txt')
+    shutil.copyfile('new_data_files/alignment_files/' + file_basename + '.alignment.txt',
+                    folder + file_basename + '.alignment.txt')
+    shutil.copyfile('new_data_files/cluster_files/' + file_basename + '.txt',
+                    folder + file_basename + '.cluster.txt')
+
     graph = form_graph_from_cluster(cluster_file)
 
-    graph.visualize_graph('new_data_files/complete_graphs/' + file_basename + ".test")
+    graph.visualize_graph(folder + 'raw')
     print('initial segment distance: ' + str(graph.get_segment_distance()))
     graph.prune_same_edges()
-    graph.visualize_graph('new_data_files/complete_graphs/' + file_basename + ".test" + '.pruned')
+    graph.visualize_graph(folder + 'pruned')
     print('pruned segment distance: ' + str(graph.get_segment_distance()))
     graph.remove_approximate_transition_edges()
-    graph.visualize_graph('new_data_files/complete_graphs/' + file_basename + ".test" + '.approximated')
+    graph.visualize_graph(folder + 'approximated')
     print('approximated segment distance: ' + str(graph.get_segment_distance()))
+    print('approximated_cnv: ' + str(graph.approximated_cnv))
+    graph.match_transition_edges()
+    graph.visualize_graph(folder + 'matched')
+    print('post-matching segment distance: ' + str(graph.get_segment_distance()))
     print('approximated_cnv: ' + str(graph.approximated_cnv))
 
     # graph.get_missed_transition_edge_count()
