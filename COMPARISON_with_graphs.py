@@ -531,8 +531,10 @@ class Graph:
 
             return coordinates
 
-        uniform_dist = 5 / 24
-        graph_width = uniform_dist * len(V)
+        uniform_dist = 1 / 6
+        graph_width = uniform_dist * 100
+        width_multiplier = 2.5
+        height_multiplier = 1
 
         def generate_uniform_linear_coordinates(n, fixed_y=0.5, fixed_distance=uniform_dist):
             coordinates = []
@@ -575,7 +577,7 @@ class Graph:
             omkar_E_weights[edge_itr] = E_omkar_transition[edge_itr]
 
         ## plotting
-        plt.figure(figsize=(graph_width * 4, 4))
+        plt.figure(figsize=(graph_width * width_multiplier, graph_width * height_multiplier))
         plot_karsim = ng.InteractiveGraph(G_karsim,
                                           node_color=V_colors,
                                           node_layout=V_pos,
@@ -591,7 +593,7 @@ class Graph:
                                           scale=(graph_width, 1))
         plt.savefig(output_prefix + '.karsim.graph.png')
 
-        plt.figure(figsize=(graph_width * 4, 4))
+        plt.figure(figsize=(graph_width * width_multiplier, graph_width * height_multiplier))
         plot_omkar = ng.InteractiveGraph(G_omkar,
                                          node_color=V_colors,
                                          node_layout=V_pos,

@@ -84,7 +84,9 @@ def test_form_graph():
 
 
 def test_form_graph_2():
-    draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/23Y_NF1_microdeletion_r2cluster_1.txt')
+    file_name = '23Y_Potocki_Shaffer_r1'
+    cluster_number = '2'
+    draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/' + file_name + 'cluster_' + cluster_number + '.txt')
 
 
 if __name__ == "__main__":
