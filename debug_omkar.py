@@ -60,6 +60,40 @@ def get_edges_post_ILP(log_file):
     return E
 
 
+def get_dummy_edges(log_file):
+    E = []
+    with open(log_file) as fp_read:
+        for line in fp_read:
+            line = line.replace('\n', '').replace('(', '').replace(')', '').replace("'", '').split(', ')
+            if line[3] == 'D':
+                # only include the dummy edges
+                E.append(tuple(line))
+    return E
+
+
+def consolidate_edge_with_dummy_edge(E, dummy_E):
+    for dummy_E_itr in dummy_E:
+        val0 = dummy_E_itr[0]
+        val1 = dummy_E_itr[1]
+
+        same_edge_found = False
+        for E_itr in E:
+            if E_itr[0] == val0 and E_itr[1] == val1:
+                same_edge_found = True
+                break
+
+        if not same_edge_found:
+            E.append(dummy_E_itr)
+        else:
+            # test if the reverse of the dummy edge is also in E
+            for E_itr in E:
+                if E_itr[0] == val1 and E_itr[1] == val0:
+                    raise RuntimeError('reverse of dummy edge also in file, preventing overwrite')
+            reversed_dummy = tuple([dummy_E_itr[1], dummy_E_itr[0], dummy_E_itr[2], dummy_E_itr[3]])
+            E.append(reversed_dummy)
+    return E
+
+
 def filter_nodes(chrs_of_interest, V):
     key_to_pop = []
     for key in V:
@@ -97,6 +131,8 @@ def iterative_add_edge(edges_list: [(str, str, str, str)], graph):
             edge_color = 'blue'
         elif edge_type == 'SV':
             edge_color = 'red'
+        elif edge_type == 'D':
+            edge_color = 'orange'
 
         graph.add_edge(node1, node2, color=edge_color, weight=multiplicity)
 
@@ -230,8 +266,69 @@ def graph_post_ILP(chrs_of_interest, header_name):
     plt.savefig(output_dir + header_name + str(chrs_of_interest) + '.postILP.png')
 
 
+def graph_post_ILP_with_dummies(chrs_of_interest, header_name):
+    node_file = dir_name + header_name + '.1/' + header_name + '.1.preILP_nodes.txt'
+    metadata_file = dir_name + header_name + '.1/postILP_components/' + header_name + '.1.postILP.metadata.txt'
+
+    V = get_vertices_pre_ILP(node_file)
+    filtered_V = filter_nodes(chrs_of_interest, V)
+    # label_centromere_nodes(V, forbidden_region_file)
+
+    ## find the right cluster file
+    cluster_metadata = {}
+    with open(metadata_file) as fp_read:
+        for line in fp_read:
+            line = line.replace('\n', '').split('\t')
+            cluster_number = line[0]
+            cluster_nodes = [str(i) for i in eval(line[1])]
+            cluster_metadata[cluster_number] = cluster_nodes
+    # assumes that only one cluster is in play
+    cluster_to_graph = None
+    for key, value in cluster_metadata.items():
+        if list(filtered_V.keys())[0] in value:
+            cluster_to_graph = key
+            break
+
+    edge_file = dir_name + header_name + '.1/postILP_components/' + header_name + '.1.postILP_component_' + cluster_to_graph + '.txt'
+    dummy_file = dir_name + header_name + '.1/all_edges_with_dummies/' + header_name + '.1.with_dummies_component_' + cluster_to_graph + '.txt'
+    E = get_edges_post_ILP(edge_file)
+    dummy_E = get_dummy_edges(dummy_file)
+
+    # prevent dummy_edge overwritting regular edge by having duplicate (multi-graph not allowed)
+    E = consolidate_edge_with_dummy_edge(E, dummy_E)
+
+    G_postILP = nx.DiGraph()
+    G_postILP.add_nodes_from(filtered_V)
+    iterative_add_edge(E, G_postILP)
+
+    V_pos = {}
+    V_names = list(V.keys())
+    cor = generate_uniform_linear_coordinates(len(V))
+    for node_ind in range(len(V)):
+        V_pos[V_names[node_ind]] = cor[node_ind]
+
+    E_colors = nx.get_edge_attributes(G_postILP, 'color')
+    E_weights = nx.get_edge_attributes(G_postILP, 'weight')
+
+    plt.figure(figsize=(graph_width * width_ratio_multiplier, graph_width * height_ratio_multiplier))
+    plot_karsim = ng.InteractiveGraph(G_postILP,
+                                      node_layout=V_pos,
+                                      node_labels=True,
+                                      edge_color=E_colors,
+                                      edge_layout='arc',
+                                      edge_labels=E_weights,
+                                      arrows=True,
+                                      node_size=6,
+                                      node_label_offset=0.001,
+                                      node_label_font_dict=dict(size=10),
+                                      edge_label_fontdict=dict(size=9),
+                                      scale=(graph_width, 1))
+    plt.savefig(output_dir + header_name + str(chrs_of_interest) + '.with_dummy.png')
+
+
 if __name__ == "__main__":
     chr_of_int = ['4']
     header = '23X_1q21_recurrent_microduplication_r2'
     graph_pre_ILP(chr_of_int, header)
     graph_post_ILP(chr_of_int, header)
+    graph_post_ILP_with_dummies(chr_of_int, header)
