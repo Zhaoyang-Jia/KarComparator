@@ -4,9 +4,9 @@ from Karsimulator_Start_Genome import *
 
 
 def read_KarSimulator_output_to_path(KarSimulator_output_file, forbidden_region_file):
-    path_list = read_KarSimulator_output(KarSimulator_output_file, forbidden_region_file)
+    index_dict, path_list = read_KarSimulator_output(KarSimulator_output_file, forbidden_region_file)
     label_path_with_forbidden_regions(path_list, forbidden_region_file)
-    return path_list
+    return index_dict, path_list
 
 
 def read_KarSimulator_output(KT_file, masking_file):
@@ -58,7 +58,7 @@ def read_KarSimulator_output(KT_file, masking_file):
         segment_list.append(current_t2_segment)
         path_list.append(Path(Arm(segment_list, "KT_path"), chromosome_itr.name, chromosome_itr.name[:-1]))
 
-    return path_list
+    return index_dict, path_list
 
 
 def get_kt_index(input_index_dict, input_segment):

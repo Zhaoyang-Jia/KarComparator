@@ -1,4 +1,5 @@
 from Structures import *
+from forbidden_region_processing import *
 
 
 def genome_wide_mutual_breaking(karsim_path_list, omkar_path_list):
@@ -13,16 +14,51 @@ def genome_wide_mutual_breaking(karsim_path_list, omkar_path_list):
             karsim_path.generate_mutual_breakpoints(omkar_path, mutual=True)
 
 
-def form_dependent_clusters(karsim_path_list, omkar_path_list, output_dir, prefix=''):
-    # check if the two path_list have mutually broken segments, only runs if this is ensured
-    check_all_segments = []
-    for path in karsim_path_list:
-        check_all_segments += path.linear_path.segments
-    for path in omkar_path_list:
-        check_all_segments += path.linear_path.segments
-    check_path = Path(Arm(check_all_segments, 'verifier'))
-    if not check_path.is_disjoint():
-        raise RuntimeError('input is not disjoint')
+def extract_cluster_indexed_segments(all_indexed_segments, cluster_chr):
+    """
+    given a full indexed segment dict, extract only the segments from the list of chr_of_interest
+    :param all_indexed_segments:
+    :param cluster_chr:
+    :return:
+    """
+    cluster_indexed_segments = []
+    for segment in all_indexed_segments:
+        if segment.chr_name in cluster_chr:
+            cluster_indexed_segments.append(segment)
+    return cluster_indexed_segments
+
+
+def form_dependent_clusters(karsim_path_list,
+                            omkar_path_list,
+                            karsim_segment_to_index_dict,
+                            omkar_segment_to_index_dict,
+                            forbidden_file,
+                            output_dir,
+                            prefix=''):
+    ## mutually break segments
+    genome_wide_mutual_breaking(karsim_path_list, omkar_path_list)
+
+    ## mutually break the indexing and mark their forbidden region info
+    karsim_index_segment_path = Path(Arm(list(karsim_segment_to_index_dict.keys()), 'index_segments'))
+    omkar_index_segment_path = Path(Arm(list(omkar_segment_to_index_dict.keys()), 'index_segments'))
+    label_path_with_forbidden_regions([karsim_index_segment_path], forbidden_file)
+    label_path_with_forbidden_regions([omkar_index_segment_path], forbidden_file)
+    karsim_index_segment_path.generate_mutual_breakpoints(omkar_index_segment_path, mutual=True)
+
+    # add forbidden region segments to include the telomeres
+    forbidden_region_segment_arm = read_forbidden_regions(forbidden_file)
+    forbidden_region_segment_path = Path(forbidden_region_segment_arm)
+    karsim_index_segment_path.generate_mutual_breakpoints(forbidden_region_segment_path, mutual=True)
+    omkar_index_segment_path.generate_mutual_breakpoints(forbidden_region_segment_path, mutual=True)
+
+    all_indexed_segments = set()
+    for segment in karsim_index_segment_path.linear_path.segments:
+        all_indexed_segments.add(segment)
+    for segment in omkar_index_segment_path.linear_path.segments:
+        all_indexed_segments.add(segment)
+    for segment in forbidden_region_segment_path.linear_path.segments:
+        all_indexed_segments.add(segment)
+    all_indexed_segments = sorted(list(all_indexed_segments))
 
     karsim_origins = []
     omkar_origins = []
@@ -32,6 +68,7 @@ def form_dependent_clusters(karsim_path_list, omkar_path_list, output_dir, prefi
     for path in omkar_path_list:
         omkar_origins.append(path.get_origins())
 
+    ## form dependent clusters
     dependent_clusters = form_least_disjoint_supergroups(omkar_origins + karsim_origins)
     clustered_origin_chr = {}
     clustered_karsim_path = {}
@@ -54,20 +91,8 @@ def form_dependent_clusters(karsim_path_list, omkar_path_list, output_dir, prefi
         clustered_omkar_path[cluster_ind] = new_omkar_cluster
 
     for cluster_ind in range(len(clustered_origin_chr)):
-        all_segments = set()
-        for path in clustered_karsim_path[cluster_ind]:
-            for segment in path.linear_path.segments:
-                new_segment = segment.duplicate()
-                if not new_segment.direction():
-                    new_segment.invert()
-                all_segments.add(new_segment)
-        for path in clustered_omkar_path[cluster_ind]:
-            for segment in path.linear_path.segments:
-                new_segment = segment.duplicate()
-                if not new_segment.direction():
-                    new_segment.invert()
-                all_segments.add(new_segment)
-        all_segments = sorted(list(all_segments))
+        current_chr = clustered_origin_chr[cluster_ind]
+        current_indexed_segments = extract_cluster_indexed_segments(all_indexed_segments, current_chr)
 
         output_str = ""
         # cluster info + segment indexing
@@ -75,25 +100,25 @@ def form_dependent_clusters(karsim_path_list, omkar_path_list, output_dir, prefi
                                                                                         clustered_origin_chr[cluster_ind],
                                                                                         len(clustered_karsim_path[cluster_ind]),
                                                                                         len(clustered_omkar_path[cluster_ind]))
-        segment_dict = {}  # also form dict for later parsing
-        for segment_ind in range(len(all_segments)):
+        current_segment_to_index_dict = {}  # also form dict for later parsing
+        for segment_ind in range(len(current_indexed_segments)):
             output_str += "{}\t{}\t{}\t{}\t{}\t{}\n".format(segment_ind,
-                                                            all_segments[segment_ind].chr_name,
-                                                            all_segments[segment_ind].start,
-                                                            all_segments[segment_ind].end,
-                                                            all_segments[segment_ind].segment_type,
-                                                            len(all_segments[segment_ind]))
-            segment_dict[all_segments[segment_ind]] = str(segment_ind)
+                                                            current_indexed_segments[segment_ind].chr_name,
+                                                            current_indexed_segments[segment_ind].start,
+                                                            current_indexed_segments[segment_ind].end,
+                                                            current_indexed_segments[segment_ind].segment_type,
+                                                            len(current_indexed_segments[segment_ind]))
+            current_segment_to_index_dict[current_indexed_segments[segment_ind]] = str(segment_ind)
         output_str += "---\n"
 
         # karsim path
         for path in clustered_karsim_path[cluster_ind]:
-            output_str += path.tostring_path_by_index(segment_dict) + '\n'
+            output_str += path.tostring_path_by_index(current_segment_to_index_dict) + '\n'
         output_str += "---\n"
 
         # omkar path
         for path in clustered_omkar_path[cluster_ind]:
-            output_str += path.tostring_path_by_index(segment_dict) + '\n'
+            output_str += path.tostring_path_by_index(current_segment_to_index_dict) + '\n'
         output_str += "---\n"
 
         with open("{}/{}cluster_{}.txt".format(output_dir, prefix, str(cluster_ind)), 'w') as fp_write:

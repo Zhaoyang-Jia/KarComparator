@@ -12,7 +12,7 @@ from COMPARISON_with_graphs import *
 def test_read_KarSimulator_output_to_path():
     karsim_file = 'sample_input/12q14_microdeletion_v2_r2.kt.txt'
     forbidden_region_file = 'Metadata/acrocentric_telo_cen.bed'
-    karsim_path_list = read_KarSimulator_output_to_path(karsim_file, forbidden_region_file)
+    index_dict, karsim_path_list = read_KarSimulator_output_to_path(karsim_file, forbidden_region_file)
     for path in karsim_path_list:
         print(path)
 
@@ -20,7 +20,7 @@ def test_read_KarSimulator_output_to_path():
 def test_read_OMKar_output_to_path():
     omkar_file = 'sample_input/12q14_microdeletion_v2_r2.1.txt'
     forbidden_region_file = 'Metadata/acrocentric_telo_cen.bed'
-    omkar_path_list = read_OMKar_output_to_path(omkar_file, forbidden_region_file)
+    index_dict, omkar_path_list = read_OMKar_output_to_path(omkar_file, forbidden_region_file)
     for path in omkar_path_list:
         print(path)
     report_centromere_anomaly(omkar_path_list)
@@ -32,10 +32,11 @@ def test_form_dependent_clusters():
     forbidden_region_file = 'Metadata/acrocentric_telo_cen.bed'
     output_dir = 'tmp/'
 
-    karsim_path_list = read_KarSimulator_output_to_path(karsim_file, forbidden_region_file)
-    omkar_path_list = read_OMKar_output_to_path(omkar_file, forbidden_region_file)
+    karsim_segment_to_index_dict, karsim_path_list = read_KarSimulator_output_to_path(karsim_file, forbidden_region_file)
+    omkar_index_to_segment_dict, omkar_path_list = read_OMKar_output_to_path(omkar_file, forbidden_region_file)
+    omkar_segment_to_index_dict = reverse_dict(omkar_index_to_segment_dict)
     genome_wide_mutual_breaking(karsim_path_list, omkar_path_list)
-    form_dependent_clusters(karsim_path_list, omkar_path_list, output_dir)
+    form_dependent_clusters(karsim_path_list, omkar_path_list, karsim_segment_to_index_dict, omkar_segment_to_index_dict, forbidden_region_file, output_dir)
 
 
 def test_read_cluster_file():
@@ -90,7 +91,9 @@ def test_form_graph_2():
 
 
 if __name__ == "__main__":
-    # test_form_dependent_clusters()
+    # test_read_KarSimulator_output_to_path()
+    # test_read_OMKar_output_to_path()
+    test_form_dependent_clusters()
     # test_NW_aligner()
     # test_manual_correction()
 
@@ -102,4 +105,4 @@ if __name__ == "__main__":
 
     # test_form_graph()
 
-    test_form_graph_2()
+    # test_form_graph_2()

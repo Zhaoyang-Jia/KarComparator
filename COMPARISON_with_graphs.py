@@ -8,20 +8,9 @@ import numpy as np
 
 from Structures import *
 from read_cluster_file import *
+from utils import *
 
 d = 200000
-
-
-def reverse_dict(input_dict):
-    """
-    requires mapping to be bijective
-    :param input_dict:
-    :return:
-    """
-    output_dict = {}
-    for position, name in input_dict.items():
-        output_dict[name] = position
-    return output_dict
 
 
 def intra_transition_edge_distance(chr1, pos1, chr2, pos2):
@@ -36,15 +25,6 @@ def inter_transition_edge_distance(edge1_chr1, edge1_pos1, edge1_chr2, edge1_pos
     if edge1_chr1 != edge2_chr1 or edge1_chr2 != edge2_chr2:
         return -1
     return abs(edge1_pos1 - edge2_pos1) + abs(edge1_pos2 - edge2_pos2)
-
-
-def sign(x):
-    if x < 0:
-        return -1
-    elif x == 0:
-        return 0
-    else:
-        return 1
 
 
 def custom_sort_node(node_tuple):
@@ -77,7 +57,6 @@ class Graph:
     approximated_cnv: int
     karsim_n_transition_approximated: int
     omkar_n_transition_approximated: int
-    # TODO: we assumed Karsim's path is always t-to-t, need to fix this in cluster file indexing
     karsim_start_node: [(str, int)]
     karsim_end_node: [(str, int)]
     omkar_start_node: [(str, int)]  # used for creating the first transition edge

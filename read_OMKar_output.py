@@ -3,11 +3,11 @@ from forbidden_region_processing import *
 
 
 def read_OMKar_output_to_path(OMKar_output_file, forbidden_region_file):
-    path_list = read_OMKar_output(OMKar_output_file)
+    path_list, index_dict = read_OMKar_output(OMKar_output_file, return_segment_dict=True)
     label_path_with_forbidden_regions(path_list, forbidden_region_file)
     rotate_and_bin_path(path_list, forbidden_region_file)
     report_centromere_anomaly(path_list)
-    return path_list
+    return index_dict, path_list
 
 
 def read_OMKar_output(file, return_segment_dict=False):
