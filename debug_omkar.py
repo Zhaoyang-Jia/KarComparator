@@ -327,8 +327,8 @@ def graph_post_ILP_with_dummies(chrs_of_interest, header_name):
 
 
 if __name__ == "__main__":
-    chr_of_int = ['4']
-    header = '23X_1q21_recurrent_microduplication_r2'
+    chr_of_int = ['16']
+    header = '005'
     graph_pre_ILP(chr_of_int, header)
     graph_post_ILP(chr_of_int, header)
     graph_post_ILP_with_dummies(chr_of_int, header)

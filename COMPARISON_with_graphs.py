@@ -661,3 +661,10 @@ def draw_graph(cluster_file):
     print('approximated_cnv: ' + str(graph.approximated_cnv))
 
     # graph.get_missed_transition_edge_count()
+
+
+if __name__ == "__main__":
+    file_name = '23X_Xp11_22_Microduplication_r2'
+    cluster_number = '8'
+    draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/' + file_name + 'cluster_' + cluster_number + '.txt')
+
