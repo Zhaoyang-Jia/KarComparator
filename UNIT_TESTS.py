@@ -26,6 +26,13 @@ def test_read_OMKar_output_to_path():
     report_centromere_anomaly(omkar_path_list)
 
 
+def test_form_least_disjoint_supergroups():
+    omkar_origins = [{'Chr11'}, {'Chr11', 'Chr20'}, {'Chr11', 'Chr20'}, {'Chr11', 'Chr20'}]
+    karsim_origins = [{'Chr11', 'Chr20'}, {'Chr11'}]
+    x = form_least_disjoint_supergroups(omkar_origins + karsim_origins)
+    print(x)
+
+
 def test_form_dependent_clusters():
     karsim_file = '/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/KarSimulator/23X_Angelman_r1.kt.txt'
     omkar_file = '/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/OMKar/23X_Angelman_r1.1.txt'
@@ -93,7 +100,8 @@ def test_form_graph_2():
 if __name__ == "__main__":
     # test_read_KarSimulator_output_to_path()
     # test_read_OMKar_output_to_path()
-    test_form_dependent_clusters()
+    test_form_least_disjoint_supergroups()
+    # test_form_dependent_clusters()
     # test_NW_aligner()
     # test_manual_correction()
 

@@ -105,7 +105,7 @@ CENY	ChrY	10316945	10544039
 ---
 chromosome	KT	telo1_len	telo2_len
 Chr1a	deleted	0	0
-Chr1b	1+,2+,3+,CEN1+,4+	0	0
+Chr1b	1+,2+,3+,CEN1+,4+	10000	10000
 Chr2a	5+,CEN2+,6+	10000	10000
 Chr2b	5+,CEN2+,6+	10000	10000
 Chr3a	7+,CEN3+	10000	60000

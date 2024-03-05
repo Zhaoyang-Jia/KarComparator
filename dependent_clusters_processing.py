@@ -139,6 +139,9 @@ def form_least_disjoint_supergroups(all_origins):
         def __len__(self):
             return len(self.chr_components)
 
+        def __str__(self):
+            return str(self.chr_components)
+
         def includes_chr(self, input_chr):
             return input_chr in self.chr_components
 
@@ -170,7 +173,7 @@ def form_least_disjoint_supergroups(all_origins):
 
     bin_list = []
     for origin in all_origins:
-        bin_to_construct = Bin(set())
+        bin_to_construct = Bin(origin)
         for origin_chr in origin:
             # if an intersection found in a bin, add all members of the group into that bin
             for bin_itr in bin_list:

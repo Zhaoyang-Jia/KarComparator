@@ -784,6 +784,8 @@ class Path:
             else:
                 current_segment.invert()
                 # if this is no-found error, mistake was made during the dict disjoint process
+                # print(segment_to_index)
+                print(current_segment)
                 segment_indices.append(segment_to_index[current_segment] + '-')
 
         return output + ','.join(segment_indices)

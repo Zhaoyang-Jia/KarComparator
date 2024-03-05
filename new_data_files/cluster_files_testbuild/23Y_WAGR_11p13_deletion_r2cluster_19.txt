@@ -1,0 +1,26 @@
+cluster<19>, origin_chr<['Chr21']>, n_karsim<3>, n_omkar<3>
+0	Chr21	0	5009999	acrocentric-telomere1	5010000
+1	Chr21	5010000	5015859	acrocentric	5860
+2	Chr21	5015860	10864559	acrocentric	5848700
+3	Chr21	10864560	10864560	arm_region	1
+4	Chr21	10864561	12282697	acrocentric-centromere	1418137
+5	Chr21	12282698	12406576	acrocentric-centromere	123879
+6	Chr21	12406577	12915808	acrocentric-centromere	509232
+7	Chr21	12915809	35218786	arm_region	22302978
+8	Chr21	35218787	35241423	arm_region	22637
+9	Chr21	35241424	37218132	arm_region	1976709
+10	Chr21	37218133	37218851	arm_region	719
+11	Chr21	37218852	46429654	arm_region	9210803
+12	Chr21	46429655	46439508	arm_region	9854
+13	Chr21	46439509	46696217	arm_region	256709
+14	Chr21	46696218	46699982	arm_region	3765
+15	Chr21	46699983	46709982	telomere2	10000
+---
+Chr21a	Chr21	0+,1+,2+,3+,4+,5+,6+,7+,8+,9+,10+,11+,12+,13+,14+,15+
+Chr21b	Chr21	0+,1+,2+,3+,4+,5+,6+,7+,8+,9+,10+,11+,12+,13+,14+,15+
+Chr21c	Chr21	0+,1+,2+,3+,4+,5+,6+,7+,8+,9+,10+,11+,12+,13+,14+,15+
+---
+Path41	Chr21-no centromere	2+,3+,4+,6+,7+,9+,11+,13+
+Path42	Chr21-no centromere	13-,11-,9-,7-,6-,4-,3+,2-
+Path43	Chr21-no centromere	2+,3+,4+,6+,7+,9+,11+
+---
