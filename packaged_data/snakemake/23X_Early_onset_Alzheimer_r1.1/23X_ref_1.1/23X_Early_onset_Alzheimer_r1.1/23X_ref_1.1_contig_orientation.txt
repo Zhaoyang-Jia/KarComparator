@@ -1,0 +1,3 @@
+chr	start	end	original_name	original_stain	band_base	Path	strand	chrom	bp	original_start	original_end	Updated_stain	centromere	iscn	sort_chrom	name	gieStain	delta	color
+Path27 : 11	11276201.5	12459321.0	p15.1	gneg	p15	Path27	+	11	True	16900000	22000000	gneg	0	Path27 : 11	11	p15	gneg	21999998	red
+Path7 : 3	76139613.0	76951042.0	p26.1	gpos50	p26	Path7	+	3	True	4000000	8100000	gpos50	0	Path7 : 3	3	p26	gpos75	8082562	red

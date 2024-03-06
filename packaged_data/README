@@ -1,0 +1,8 @@
+Bionano_solve_full: all maps from bionano solve output
+Bionano_solve: all maps from bionano solve output, removed replicate of different reference 23X consolidation (they are all the same)
+KarSimulator_output_diploid: diploid-tized karsim output, for file input as haploid, a WT haploid is added 22+X
+KarSimulator_output_filtered: only Karsim files with the bionano_solve corresponding files (not all karsim got ran)
+KarSimulator_output_not_filtered: all Karsim files
+OMKar_output: all of the OMKar outputs running on Bionano solved data
+OMKar_reconstructed_files: only contain the path files from OMKar output
+snakemake: output of Joey's visualization

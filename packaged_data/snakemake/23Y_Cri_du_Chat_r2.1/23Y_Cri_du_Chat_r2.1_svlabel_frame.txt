@@ -1,0 +1,2 @@
+Segments	smap_id	q_id	ref_c_id1	ref_c_id2	ref_start	ref_end	confidence	sv_type	size	VAF	Paths	start	end	original_name	original_stain	band_base	Path	strand	chrom	bp	original_start	original_end	Updated_stain	centromere	iscn	sort_chrom	name	gieStain	delta	chr	pos	labels
+Segment 5	769	281	3	3	150334995.0	154693331.0	0.99	deletion	4353460.2	0	Path6	149182563	156619034	q25.1	gneg	q25	Path6	-	3	True	149200000	150332422	gneg	0	Path6 : 3	3	q25	gneg	7436471	Path6 : 3	150334995.0	deletion - mapid: 281

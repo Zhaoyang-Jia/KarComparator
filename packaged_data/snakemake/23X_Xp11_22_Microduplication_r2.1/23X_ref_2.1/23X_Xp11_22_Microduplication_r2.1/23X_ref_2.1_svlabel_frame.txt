@@ -1,0 +1,2 @@
+Segments	smap_id	q_id	ref_c_id1	ref_c_id2	ref_start	ref_end	confidence	sv_type	size	VAF	Paths	start	end	original_name	original_stain	band_base	Path	strand	chrom	bp	original_start	original_end	Updated_stain	centromere	iscn	sort_chrom	name	gieStain	delta	chr	pos	labels
+Segment 23	2073	1120	9	9	3538627.0	117484952.0	0.69	translocation_intrachr	-1.0	0	Path2	1	7100001	p36.33	gneg	p36	Path2	-	1	True	0	2300000	gneg	0	Path2 : (1;9)	1	p36.3	gneg	7100000	Path2 : der(1)t(1;9)	3538627.0	translocation_intrachr - mapid: 1120

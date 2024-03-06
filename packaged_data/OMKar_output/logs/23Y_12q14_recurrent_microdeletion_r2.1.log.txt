@@ -1,0 +1,3037 @@
+dashag 1.0029815536843485
+46	22	1	2	42704625.8	42691180.1	14325853.0	42721441.0	0.47	translocation_interchr	6	59	-1	8191	8190	1937	8348	heterozygous	1	2	-1.0	16685.14	10422.78	-1.0	-1.0	0.106	+/+	0.6
+4	202	1	2	11842640.9	11858212.6	14315219.0	42739823.0	0.44	translocation_interchr	3	63	-1	1634	1635	1936	8349	heterozygous	1	2	-1.0	2267.22	11399.7	-1.0	-1.0	0.28800000000000003	+/+	0.82
+46	22	1	2	42704625.8	42691180.1	14325853.0	42721441.0	0.47	translocation_interchr	6	59	-1	8191	8190	1937	8348	heterozygous	1	2	-1.0	16685.14	10422.78	-1.0	-1.0	0.106	+/+	0.6
+7	201	1	2	11787649.1	11803220.8	14315219.0	42739823.0	0.55	translocation_interchr	4	62	-1	1631	1632	1936	8349	heterozygous	1	2	-1.0	2263.71	11402.47	-1.0	-1.0	0.301	+/+	0.82
+4	202	1	2	11842640.9	11858212.6	14315219.0	42739823.0	0.44	translocation_interchr	3	63	-1	1634	1635	1936	8349	heterozygous	1	2	-1.0	2267.22	11399.7	-1.0	-1.0	0.28800000000000003	+/+	0.82
+46	22	1	2	42704625.8	42691180.1	14325853.0	42721441.0	0.47	translocation_interchr	6	59	-1	8191	8190	1937	8348	heterozygous	1	2	-1.0	16685.14	10422.78	-1.0	-1.0	0.106	+/+	0.6
+4	202	1	2	11842640.9	11858212.6	14315219.0	42739823.0	0.44	translocation_interchr	3	63	-1	1634	1635	1936	8349	heterozygous	1	2	-1.0	2267.22	11399.7	-1.0	-1.0	0.28800000000000003	+/+	0.82
+82	21	1	2	42696270.6	42682824.8	14325853.0	42721441.0	0.47	translocation_interchr	7	60	-1	8191	8190	1937	8348	heterozygous	1	2	-1.0	16700.96	10414.19	-1.0	-1.0	0.087	+/+	0.6
+85	1450	1	2	300222.8	310580.9	15558265.0	44296050.0	0.72	translocation_interchr	10	64	-1	43	44	2163	8655	heterozygous	1	18	-1.0	60.39	78.68	-1.0	-1.0	0.243	-/-	0.34
+83	1491	1	2	279904.0	300099.6	15549318.0	44317300.0	0.46	translocation_interchr	8	65	-1	54	55	2162	8656	heterozygous	1	18	-1.0	70.02	60.01	-1.0	-1.0	0.109	+/+	0.29
+85	1450	1	2	300222.8	310580.9	15558265.0	44296050.0	0.72	translocation_interchr	10	64	-1	43	44	2163	8655	heterozygous	1	18	-1.0	60.39	78.68	-1.0	-1.0	0.243	-/-	0.34
+84	1492	1	2	250300.3	270495.9	15549318.0	44317300.0	0.51	translocation_interchr	9	66	-1	47	48	2162	8656	heterozygous	1	18	-1.0	58.69	87.4	-1.0	-1.0	0.108	+/+	0.29
+83	1491	1	2	279904.0	300099.6	15549318.0	44317300.0	0.46	translocation_interchr	8	65	-1	54	55	2162	8656	heterozygous	1	18	-1.0	70.02	60.01	-1.0	-1.0	0.109	+/+	0.29
+85	1450	1	2	300222.8	310580.9	15558265.0	44296050.0	0.72	translocation_interchr	10	64	-1	43	44	2163	8655	heterozygous	1	18	-1.0	60.39	78.68	-1.0	-1.0	0.243	-/-	0.34
+88	1400	1	12	307043.6	316274.8	76361378.0	120077296.0	0.88	translocation_interchr	13	293	-1	69	70	13690	24400	heterozygous	1	19	-1.0	85.88	67.09	-1.0	-1.0	0.293	-/-	0.42
+86	1471	1	12	270126.6	267120.8	76352829.0	120081044.0	0.94	translocation_interchr	11	295	-1	33	32	13689	24401	heterozygous	1	19	-1.0	82.69	45.77	-1.0	-1.0	0.196	-/-	0.45
+88	1400	1	12	307043.6	316274.8	76361378.0	120077296.0	0.88	translocation_interchr	13	293	-1	69	70	13690	24400	heterozygous	1	19	-1.0	85.88	67.09	-1.0	-1.0	0.293	-/-	0.42
+87	1472	1	12	180834.5	177828.8	76352829.0	120081044.0	0.8	translocation_interchr	12	294	-1	23	22	13689	24401	heterozygous	1	19	-1.0	79.54	31.13	-1.0	-1.0	0.131	-/-	0.45
+86	1471	1	12	270126.6	267120.8	76352829.0	120081044.0	0.94	translocation_interchr	11	295	-1	33	32	13689	24401	heterozygous	1	19	-1.0	82.69	45.77	-1.0	-1.0	0.196	-/-	0.45
+88	1400	1	12	307043.6	316274.8	76361378.0	120077296.0	0.88	translocation_interchr	13	293	-1	69	70	13690	24400	heterozygous	1	19	-1.0	85.88	67.09	-1.0	-1.0	0.293	-/-	0.42
+91	1360	1	12	334682.1	329818.9	77373901.0	121291196.0	0.54	translocation_interchr	16	296	-1	58	57	13921	24593	heterozygous	1	20	-1.0	95.44	68.18	-1.0	-1.0	0.261	+/+	0.4
+89	1481	1	12	283919.4	276567.6	77368100.0	121297550.0	0.77	translocation_interchr	14	297	-1	40	39	13920	24594	heterozygous	1	20	-1.0	67.93	53.71	-1.0	-1.0	0.118	-/-	0.44
+91	1360	1	12	334682.1	329818.9	77373901.0	121291196.0	0.54	translocation_interchr	16	296	-1	58	57	13921	24593	heterozygous	1	20	-1.0	95.44	68.18	-1.0	-1.0	0.261	+/+	0.4
+90	1482	1	12	307469.4	300117.6	77368100.0	121297550.0	0.83	translocation_interchr	15	298	-1	47	46	13920	24594	heterozygous	1	20	-1.0	42.8	66.54	-1.0	-1.0	0.21	-/-	0.44
+89	1481	1	12	283919.4	276567.6	77368100.0	121297550.0	0.77	translocation_interchr	14	297	-1	40	39	13920	24594	heterozygous	1	20	-1.0	67.93	53.71	-1.0	-1.0	0.118	-/-	0.44
+91	1360	1	12	334682.1	329818.9	77373901.0	121291196.0	0.54	translocation_interchr	16	296	-1	58	57	13921	24593	heterozygous	1	20	-1.0	95.44	68.18	-1.0	-1.0	0.261	+/+	0.4
+153	941	1	1	807687.8	989337.9	146145397.0	148777894.0	0.01	deletion	38	45	-1	129	165	24131	24635	heterozygous	1	31	0.01	216.41	68.15	-1.0	2450846.9	0.16	NA	0.35
+154	942	1	1	791993.3	973643.3	146145397.0	148777894.0	0.01	deletion	39	46	-1	129	165	24131	24635	heterozygous	1	31	0.01	216.46	74.46	-1.0	2450847.0	0.206	NA	0.35
+247	1321	1	1	-931571.8	1489761.2	163398471.0	164602315.0	-1.0	duplication_split	51	53	-1	0	102	27352	27599	unknown	-1	-1	-1.0	56.98	63.04	-1.0	1203844.0	0.083	NA	0.1
+249	1322	1	1	-909333.2	1512009.4	163398471.0	164602315.0	-1.0	duplication_split	52	54	-1	0	108	27352	27599	unknown	-1	-1	-1.0	67.46	76.52	-1.0	1203844.0	0.121	NA	0.14
+490	41	2	2	69140349.8	69146369.6	173006351.0	173010794.0	1.0	inversion	93	97	491	14044	14045	34543	34544	heterozygous	1	113	-1.0	10986.62	472.66	-1.0	1825408.0	0.182	NA	0.87 173006351.0 174836202.0 right
+491	41	2	-1	67314921.8	-1.0	174836202.0	-1.0	1.0	inversion_partial	97	-1	490	13661	-1	34937	-1	heterozygous	-1	-1	-1.0	-1.0	-1.0	-1.0	1825408.0	0.182	NA	0.87
+515	42	2	2	69081049.7	69087069.5	173006351.0	173010794.0	1.0	inversion	94	98	516	14037	14038	34543	34544	heterozygous	1	113	-1.0	11001.51	473.9	-1.0	1825408.0	0.214	NA	0.87 173006351.0 174836202.0 right
+516	42	2	-1	67255627.0	-1.0	174836202.0	-1.0	1.0	inversion_partial	98	-1	515	13654	-1	34937	-1	heterozygous	-1	-1	-1.0	-1.0	-1.0	-1.0	1825408.0	0.214	NA	0.87
+517	41	2	2	67311428.8	67314921.8	174836202.0	174841203.0	1.0	inversion	97	102	518	13660	13661	34937	34938	heterozygous	1	114	-1.0	472.66	17066.92	-1.0	1825408.0	0.127	NA	0.87 173010794.0 174841203.0 left
+518	41	2	-1	69140349.8	-1.0	173010794.0	-1.0	1.0	inversion_partial	97	-1	517	14044	-1	34544	-1	heterozygous	-1	-1	-1.0	-1.0	-1.0	-1.0	1825408.0	0.127	NA	0.87
+519	42	2	2	67252134.0	67255627.0	174836202.0	174841203.0	1.0	inversion	98	101	520	13653	13654	34937	34938	heterozygous	1	114	-1.0	473.9	17061.46	-1.0	1825408.0	0.168	NA	0.87 173010794.0 174841203.0 left
+520	42	2	-1	69081049.7	-1.0	173010794.0	-1.0	1.0	inversion_partial	98	-1	519	14037	-1	34544	-1	heterozygous	-1	-1	-1.0	-1.0	-1.0	-1.0	1825408.0	0.168	NA	0.87
+833	251	3	14	45788408.3	45777695.0	195522069.0	64119335.0	0.46	translocation_interchr	117	303	-1	9646	9645	40413	9887	heterozygous	1	185	-1.0	553.11	12079.06	-1.0	-1.0	0.246	+/+	0.75
+756	11	3	14	42805667.3	42804261.1	195519296.0	64128656.0	0.34	translocation_interchr	111	311	-1	7911	7910	40412	9888	heterozygous	1	185	-1.0	26663.22	10213.01	-1.0	-1.0	0.141	-/-	0.63
+833	251	3	14	45788408.3	45777695.0	195522069.0	64119335.0	0.46	translocation_interchr	117	303	-1	9646	9645	40413	9887	heterozygous	1	185	-1.0	553.11	12079.06	-1.0	-1.0	0.246	+/+	0.75
+828	12	3	14	42815881.8	42814475.6	195519296.0	64128656.0	0.22	translocation_interchr	112	312	-1	7911	7910	40412	9888	heterozygous	1	185	-1.0	26651.97	10208.67	-1.0	-1.0	0.166	-/-	0.63
+831	1300	3	14	325838.2	312724.6	194516641.0	63334418.0	0.9	translocation_interchr	115	306	-1	76	75	40255	9721	heterozygous	1	186	-1.0	62.61	90.59	-1.0	-1.0	0.278	+/+	0.44
+829	1412	3	14	264377.9	252052.6	194508363.0	63351572.0	0.85	translocation_interchr	113	307	-1	51	50	40254	9722	heterozygous	1	186	-1.0	64.27	60.28	-1.0	-1.0	0.152	-/-	0.49
+831	1300	3	14	325838.2	312724.6	194516641.0	63334418.0	0.9	translocation_interchr	115	306	-1	76	75	40255	9721	heterozygous	1	186	-1.0	62.61	90.59	-1.0	-1.0	0.278	+/+	0.44
+830	1411	3	14	326804.3	314478.9	194508363.0	63351572.0	0.86	translocation_interchr	114	308	-1	61	60	40254	9722	heterozygous	1	186	-1.0	53.09	74.2	-1.0	-1.0	0.18600000000000005	-/-	0.49
+829	1412	3	14	264377.9	252052.6	194508363.0	63351572.0	0.85	translocation_interchr	113	307	-1	51	50	40254	9722	heterozygous	1	186	-1.0	64.27	60.28	-1.0	-1.0	0.152	-/-	0.49
+831	1300	3	14	325838.2	312724.6	194516641.0	63334418.0	0.9	translocation_interchr	115	306	-1	76	75	40255	9721	heterozygous	1	186	-1.0	62.61	90.59	-1.0	-1.0	0.278	+/+	0.44
+756	11	3	14	42805667.3	42804261.1	195519296.0	64128656.0	0.34	translocation_interchr	111	311	-1	7911	7910	40412	9888	heterozygous	1	185	-1.0	26663.22	10213.01	-1.0	-1.0	0.141	-/-	0.63
+833	251	3	14	45788408.3	45777695.0	195522069.0	64119335.0	0.46	translocation_interchr	117	303	-1	9646	9645	40413	9887	heterozygous	1	185	-1.0	553.11	12079.06	-1.0	-1.0	0.246	+/+	0.75
+756	11	3	14	42805667.3	42804261.1	195519296.0	64128656.0	0.34	translocation_interchr	111	311	-1	7911	7910	40412	9888	heterozygous	1	185	-1.0	26663.22	10213.01	-1.0	-1.0	0.141	-/-	0.63
+835	252	3	14	45788075.0	45777361.7	195522069.0	64119335.0	0.71	translocation_interchr	118	304	-1	9653	9652	40413	9887	heterozygous	1	185	-1.0	550.93	12105.0	-1.0	-1.0	0.242	+/+	0.75
+1157	1250	5	5	317754.6	320682.2	23917829.0	24831108.0	1.0	inversion	134	137	1158	71	72	4597	4787	heterozygous	1	-1	-1.0	85.37	88.59	-1.0	337657.0	0.256	NA	0.19 23917829.0 25168765.0 right
+1158	1250	5	-1	658352.3	-1.0	25168765.0	-1.0	1.0	inversion_partial	137	-1	1157	137	-1	4854	-1	heterozygous	-1	-1	-1.0	-1.0	-1.0	-1.0	337657.0	0.256	NA	0.19
+1168	561	5	7	308818.4	300991.2	60182409.0	130353969.0	0.1	translocation_interchr	139	185	-1	55	54	11667	25552	heterozygous	1	269	-1.0	2767.33	73.23	-1.0	-1.0	0.202	-/-	0.54
+1180	562	5	7	139201.5	131374.3	60182409.0	130353969.0	0.56	translocation_interchr	140	184	-1	28	27	11667	25552	heterozygous	1	269	-1.0	2754.82	34.79	-1.0	-1.0	0.105	-/-	0.54
+1191	541	5	7	1764621.0	1764621.0	60185005.0	131830570.0	0.07	translocation_interchr	143	183	-1	317	317	11668	25819	heterozygous	2	269	-1.0	2714.73	410.5	-1.0	-1.0	0.199	+/+	0.53
+1205	542	5	7	1797463.3	1797463.3	60185005.0	131830570.0	0.64	translocation_interchr	144	180	-1	322	322	11668	25819	heterozygous	2	269	-1.0	2711.72	417.92	-1.0	-1.0	0.145	+/+	0.53
+1206	32	5	5	312219.9	568707.8	70107744.0	71363699.0	0.01	deletion	145	152	-1	64	118	13865	14123	heterozygous	1	273	0.01	139.21	28561.94	-1.0	999467.1	0.21	NA	0.48
+1208	31	5	5	302877.3	558797.1	70107744.0	71363699.0	0.01	deletion	146	151	-1	63	116	13865	14123	heterozygous	1	273	0.01	125.69	28580.77	-1.0	1000035.2	0.26	NA	0.48
+1763	411	7	7	305685.9	309377.0	130344879.0	131830570.0	0.99	deletion	181	187	-1	61	62	25551	25819	heterozygous	1	410	79.06	79.06	6530.12	4410.19	1482000.0	0.203	NA	0.5
+1764	412	7	7	305685.9	309377.0	130344879.0	131830570.0	0.99	deletion	182	188	-1	61	62	25551	25819	heterozygous	1	410	79.06	79.06	6534.64	4410.19	1482000.0	0.203	NA	0.5
+2404	1312	11	11	-1557364.9	2194396.4	86890489.0	88762202.0	-1.0	duplication_split	277	280	-1	0	106	15950	16339	unknown	-1	-1	-1.0	60.73	75.46	-1.0	1871713.0	0.112	NA	0.13
+2405	1311	11	11	-1557364.9	2194903.6	86890489.0	88762202.0	-1.0	duplication_split	278	279	-1	0	119	15950	16339	unknown	-1	-1	-1.0	77.63	74.59	-1.0	1871713.0	0.119	NA	0.14
+2563	132	12	12	64984309.4	64984939.7	64678046.0	68252281.0	0.99	deletion	288	291	-1	12787	12788	12664	13502	heterozygous	2	567	79.2	79.2	16103.53	4431.08	3573604.7	0.319	NA	0.51
+2563	132	12	12	64984309.4	64984939.7	64678046.0	68252281.0	0.99	deletion	288	291	-1	12787	12788	12664	13502	heterozygous	2	567	79.2	79.2	16103.53	4431.08	3573604.7	0.319	NA	0.51
+2564	131	12	12	64987024.7	64987655.0	64678046.0	68252281.0	0.99	deletion	289	292	-1	12792	12793	12664	13502	heterozygous	2	567	54.88	54.88	16123.71	4431.08	3573604.7	0.17600000000000002	NA	0.51
+2564	131	12	12	64987024.7	64987655.0	64678046.0	68252281.0	0.99	deletion	289	292	-1	12792	12793	12664	13502	heterozygous	2	567	54.88	54.88	16123.71	4431.08	3573604.7	0.17600000000000002	NA	0.51
+2887	1880	15	15	109529.0	300169.4	19993629.0	21190899.0	0.01	deletion	315	317	-1	19	44	32	218	heterozygous	1	643	0.01	58.41	58.29	-1.0	1006629.6	0.179	NA	0.16
+2991	1641	16	16	201390.9	201390.9	21500434.0	22240599.0	0.87	inversion	335	337	2992	34	34	3551	3683	heterozygous	1	-1	-1.0	75.18	67.15	-1.0	198203.0	0.09	NA	0.08 21500434.0 22438802.0 right
+2992	1641	16	-1	3259.3	-1.0	22438802.0	-1.0	0.87	inversion_partial	337	-1	2991	1	-1	3717	-1	heterozygous	-1	-1	-1.0	-1.0	-1.0	-1.0	198203.0	0.09	NA	0.08
+3243	1271	18	18	274359.9	293118.7	23891731.0	25372984.0	1.0	inversion	365	371	3244	46	47	3715	4031	heterozygous	1	715	-1.0	59.03	83.03	-1.0	297649.0	0.153	NA	0.28 23891731.0 25670633.0 right
+3244	1271	18	-1	590949.1	-1.0	25670633.0	-1.0	1.0	inversion_partial	371	-1	3243	115	-1	4098	-1	heterozygous	-1	-1	-1.0	-1.0	-1.0	-1.0	297649.0	0.153	NA	0.28
+3245	1272	18	18	224646.6	243405.3	23891731.0	25372984.0	1.0	inversion	366	372	3246	41	42	3715	4031	heterozygous	1	715	-1.0	51.59	83.03	-1.0	297649.0	0.118	NA	0.28 23891731.0 25670633.0 right
+3246	1272	18	-1	541235.8	-1.0	25670633.0	-1.0	1.0	inversion_partial	372	-1	3245	110	-1	4098	-1	heterozygous	-1	-1	-1.0	-1.0	-1.0	-1.0	297649.0	0.118	NA	0.28
+3248	971	18	18	4131.8	472769.6	23906323.0	24139315.0	-1.0	duplication_inverted	369	367	-1	1	84	3717	3759	unknown	-1	-1	-1.0	162.96	57.67	-1.0	232992.0	0.207	NA	0.22
+3249	972	18	18	3586.0	550344.8	23906323.0	24178196.0	-1.0	duplication_inverted	370	368	-1	1	101	3717	3768	unknown	-1	-1	-1.0	164.86	67.05	-1.0	271873.0	0.218	NA	0.19
+3417	1421	22	22	239862.3	240570.2	28072949.0	28836400.5	0.99	inversion	421	426	3418	59	60	2232	2412	heterozygous	1	750	-1.0	75.65	72.92	-1.0	238953.5	0.181	NA	0.33 28072949.0 29075354.0 right
+3418	1421	22	-1	1082.3	-1.0	29075354.0	-1.0	0.99	inversion_partial	426	-1	3417	1	-1	2473	-1	heterozygous	-1	-1	-1.0	-1.0	-1.0	-1.0	238953.5	0.181	NA	0.33
+3419	1422	22	22	300908.6	301616.5	28072949.0	28778649.0	0.98	inversion	422	425	3420	75	76	2232	2395	heterozygous	1	750	-1.0	75.65	91.76	-1.0	296705.0	0.204	NA	0.33 28072949.0 29075354.0 right
+3420	1422	22	-1	4245.7	-1.0	29075354.0	-1.0	0.98	inversion_partial	425	-1	3419	1	-1	2473	-1	heterozygous	-1	-1	-1.0	-1.0	-1.0	-1.0	296705.0	0.204	NA	0.33
+3421	1462	22	22	278642.3	278642.3	28304494.0	29075354.0	0.7	inversion	423	428	3422	30	30	2277	2473	heterozygous	2	750	-1.0	56.32	43.78	-1.0	230658.0	0.183	NA	0.33 28073836.0 29075354.0 left
+3422	1462	22	-1	509453.0	-1.0	28073836.0	-1.0	0.7	inversion_partial	423	-1	3421	73	-1	2233	-1	heterozygous	-1	-1	-1.0	-1.0	-1.0	-1.0	230658.0	0.183	NA	0.33
+3668	602	24	24	4557189.5	4766858.1	22719473.0	24773363.0	0.99	deletion	451	460	-1	891	942	4006	4459	heterozygous	1	822	274.39	1110.02	274.39	3573.78	1844221.5	0.279	NA	0.92
+3675	601	24	24	4545839.7	4755622.1	22719473.0	24773363.0	0.99	deletion	452	459	-1	888	940	4006	4459	heterozygous	1	822	274.31	1128.73	274.31	3573.34	1844107.6	0.374	NA	0.92
+0 1 19686.0 2 H [1]
+1 1 14320536.0 2 T [0, 16, 2]
+2 1 14320537.0 2 H [1, 3, 15]
+3 1 15553791.5 2 T [2, 18, 4]
+4 1 15553792.5 2 H [17, 3, 5]
+5 1 76357103.5 2 T [78, 4, 6]
+6 1 76357104.5 2 H [77, 5, 7]
+7 1 77371000.5 2 T [8, 80, 6]
+8 1 77371001.5 2 H [9, 79, 7]
+9 1 163396545.0 2 T [8, 10]
+10 1 163397551.0 3 H [9, 11]
+11 1 164579254.0 3 T [10, 12]
+12 1 164584054 2 H [11, 13]
+13 1 248942320 2 T [12]
+14 2 0.0 2 H [15]
+15 2 42730632.0 2 T [16, 2, 14]
+16 2 42730633.0 2 H [17, 1, 15]
+17 2 44306675.0 2 T [16, 18, 4]
+18 2 44306676.0 2 H [3, 17, 19]
+19 2 173008572.5 2 T [18, 20, 21]
+20 2 173008573.5 2 H [19, 21, 22]
+21 2 174838702.5 2 T [19, 20, 22]
+22 2 174838703.5 2 H [20, 21, 23]
+23 2 242181357.0 2 T [22]
+24 3 17438 2 H [25]
+25 3 84074705 2 T [24, 26]
+26 3 84077166.0 3 H [25, 27]
+27 3 84689839.0 3 T [26, 28]
+28 3 84690726.0 2 H [27, 29]
+29 3 194512502.0 2 T [86, 28, 30]
+30 3 194512503.0 2 H [85, 29, 31]
+31 3 195520682.5 2 T [32, 88, 30]
+32 3 195520683.5 2 H [33, 87, 31]
+33 3 198217553.0 2 T [32]
+34 4 14575 2 H [35]
+35 4 91680815 2 T [34, 36]
+36 4 91681686.0 3 H [35, 37]
+37 4 92358554.0 3 T [36, 38]
+38 4 92361069 2 H [37, 39]
+39 4 190196474 2 T [38]
+40 5 19924.0 2 H [41]
+41 5 23917829.0 2 T [40, 42, 47]
+42 5 23917830.0 2 H [41, 43]
+43 5 23989635.0 2 T [42, 44]
+44 5 23991439.0 3 H [43, 45]
+45 5 24997608.0 3 T [44, 46]
+46 5 25006973.0 2 H [45, 47]
+47 5 25168765.0 2 T [48, 41, 46]
+48 5 25168766.0 2 H [49, 47]
+49 5 60183707.0 2 T [48, 50, 56]
+50 5 60183708.0 2 H [49, 51, 57]
+51 5 181466351.0 2 T [50]
+52 6 0 2 H [53]
+53 6 170739897 2 T [52]
+54 7 0.0 2 H [55]
+55 7 130353969.0 2 T [56, 54]
+56 7 130353970.0 2 H [57, 49, 55]
+57 7 131830570.0 2 T [56, 58, 50]
+58 7 131830571.0 2 H [57, 59]
+59 7 159334984.0 2 T [58]
+60 8 0 2 H [61]
+61 8 145076125 2 T [60]
+62 9 0 2 H [63]
+63 9 138334464 2 T [62]
+64 10 0 2 H [65]
+65 10 133785266 2 T [64]
+66 11 62233 2 H [67]
+67 11 86871141 2 T [66, 68]
+68 11 86881965.0 3 H [67, 69]
+69 11 88665365.0 3 T [68, 70]
+70 11 88677601 2 H [69, 71]
+71 11 135068991 2 T [70]
+72 12 19721 2 H [73]
+73 12 64645361 2 T [72, 74, 76]
+74 12 64655544.0 1 H [73, 75]
+75 12 68282927.0 1 T [74, 76]
+76 12 68292165.0 2 H [73, 75, 77]
+77 12 120079170.0 2 T [76, 78, 6]
+78 12 120079171.0 2 H [5, 77, 79]
+79 12 121294373.0 2 T [80, 8, 78]
+80 12 121294374.0 2 H [81, 7, 79]
+81 12 133258008.0 2 T [80]
+82 13 0 2 H [83]
+83 13 114352102 2 T [82]
+84 14 0.0 2 H [85]
+85 14 63342995.0 2 T [84, 86, 30]
+86 14 63342996.0 2 H [29, 85, 87]
+87 14 64123995.5 2 T [88, 32, 86]
+88 14 64123996.5 2 H [89, 31, 87]
+89 14 106873282.0 2 T [88]
+90 15 0 2 H [91]
+91 15 101976509 2 T [90]
+92 16 0.0 2 H [93]
+93 16 21500434.0 2 T [92, 94, 95]
+94 16 21500435.0 2 H [93, 95]
+95 16 22438802.0 2 T [96, 93, 94]
+96 16 22438803.0 2 H [97, 95]
+97 16 90224751.0 2 T [96]
+98 17 0 2 H [99]
+99 17 83246392 2 T [98]
+100 18 19428.0 2 H [101]
+101 18 23898796.0 2 T [100, 102, 103]
+102 18 23906323.0 3 H [101, 102, 103]
+103 18 25662472.0 3 T [104, 101, 102]
+104 18 25669334.5 2 H [105, 103]
+105 18 80243011.0 2 T [104]
+106 19 0 2 H [107]
+107 19 58605715 2 T [106]
+108 20 0 2 H [109]
+109 20 64333718 2 T [108]
+110 21 0 2 H [111]
+111 21 46697230 2 T [110]
+112 22 0.0 2 H [113]
+113 22 28073392.5 2 T [112, 114, 115]
+114 22 28073393.5 2 H [113, 115, 116]
+115 22 29075354.0 2 T [113, 114, 116]
+116 22 29075355.0 2 H [114, 115, 117]
+117 22 50805587.0 2 T [116]
+118 23 0 1 H [119]
+119 23 156025612 1 T [118]
+120 24 0 1 H [121]
+121 24 57212132 1 T [120]
+Siavash
+[(1, 0, 2, 'S'), (1, 2, 0, 'R'), (3, 2, 2, 'S'), (3, 4, 0, 'R'), (5, 4, 2, 'S'), (5, 6, 0, 'R'), (7, 6, 2, 'S'), (7, 8, 0, 'R'), (8, 9, 2, 'S'), (9, 10, 0, 'R'), (10, 11, 3, 'S'), (11, 12, 0, 'R'), (12, 13, 2, 'S'), (15, 14, 2, 'S'), (15, 16, 0, 'R'), (17, 16, 2, 'S'), (17, 18, 0, 'R'), (19, 18, 2, 'S'), (19, 20, 0, 'R'), (21, 20, 2, 'S'), (21, 22, 0, 'R'), (22, 23, 2, 'S'), (24, 25, 2, 'S'), (25, 26, 0, 'R'), (26, 27, 3, 'S'), (27, 28, 0, 'R'), (29, 28, 2, 'S'), (29, 30, 0, 'R'), (31, 30, 2, 'S'), (31, 32, 0, 'R'), (32, 33, 2, 'S'), (34, 35, 2, 'S'), (35, 36, 0, 'R'), (36, 37, 3, 'S'), (37, 38, 0, 'R'), (38, 39, 2, 'S'), (41, 40, 2, 'S'), (41, 42, 0, 'R'), (42, 43, 2, 'S'), (43, 44, 0, 'R'), (44, 45, 3, 'S'), (45, 46, 0, 'R'), (47, 46, 2, 'S'), (47, 48, 0, 'R'), (49, 48, 2, 'S'), (49, 50, 0, 'R'), (50, 51, 2, 'S'), (52, 53, 2, 'S'), (55, 54, 2, 'S'), (55, 56, 0, 'R'), (57, 56, 2, 'S'), (57, 58, 0, 'R'), (58, 59, 2, 'S'), (60, 61, 2, 'S'), (62, 63, 2, 'S'), (64, 65, 2, 'S'), (66, 67, 2, 'S'), (67, 68, 0, 'R'), (68, 69, 3, 'S'), (69, 70, 0, 'R'), (70, 71, 2, 'S'), (72, 73, 2, 'S'), (73, 74, 0, 'R'), (74, 75, 1, 'S'), (75, 76, 0, 'R'), (77, 76, 2, 'S'), (77, 78, 0, 'R'), (79, 78, 2, 'S'), (79, 80, 0, 'R'), (80, 81, 2, 'S'), (82, 83, 2, 'S'), (85, 84, 2, 'S'), (85, 86, 0, 'R'), (87, 86, 2, 'S'), (87, 88, 0, 'R'), (88, 89, 2, 'S'), (90, 91, 2, 'S'), (93, 92, 2, 'S'), (93, 94, 0, 'R'), (95, 94, 2, 'S'), (95, 96, 0, 'R'), (96, 97, 2, 'S'), (98, 99, 2, 'S'), (100, 101, 2, 'S'), (101, 102, 0, 'R'), (102, 103, 3, 'S'), (103, 104, 0, 'R'), (104, 105, 2, 'S'), (106, 107, 2, 'S'), (108, 109, 2, 'S'), (110, 111, 2, 'S'), (113, 112, 2, 'S'), (113, 114, 0, 'R'), (115, 114, 2, 'S'), (115, 116, 0, 'R'), (116, 117, 2, 'S'), (118, 119, 1, 'S'), (120, 121, 1, 'S'), (1, 16, 0, 'SV'), (2, 15, 0, 'SV'), (3, 18, 0, 'SV'), (4, 17, 0, 'SV'), (5, 78, 0, 'SV'), (6, 77, 0, 'SV'), (7, 80, 0, 'SV'), (8, 79, 0, 'SV'), (10, 11, 0, 'SV'), (19, 21, 0, 'SV'), (20, 22, 0, 'SV'), (31, 88, 0, 'SV'), (32, 87, 0, 'SV'), (29, 86, 0, 'SV'), (30, 85, 0, 'SV'), (41, 47, 0, 'SV'), (49, 56, 0, 'SV'), (50, 57, 0, 'SV'), (68, 69, 0, 'SV'), (73, 76, 0, 'SV'), (93, 95, 0, 'SV'), (101, 103, 0, 'SV'), (102, 102, 0, 'SV'), (113, 115, 0, 'SV'), (114, 116, 0, 'SV')]
+Y0 (1, 0, 2, 'S')
+X1 (1, 16, 0, 'SV')
+X2 (1, 2, 0, 'R')
+Y3 (17, 16, 2, 'S')
+X4 (15, 16, 0, 'R')
+X5 (17, 18, 0, 'R')
+X6 (4, 17, 0, 'SV')
+X7 (3, 18, 0, 'SV')
+Y8 (19, 18, 2, 'S')
+Y9 (3, 2, 2, 'S')
+X10 (3, 4, 0, 'R')
+X11 (2, 15, 0, 'SV')
+Y12 (15, 14, 2, 'S')
+Y13 (5, 4, 2, 'S')
+X14 (5, 78, 0, 'SV')
+X15 (5, 6, 0, 'R')
+X16 (77, 78, 0, 'R')
+Y17 (79, 78, 2, 'S')
+Y18 (77, 76, 2, 'S')
+X19 (6, 77, 0, 'SV')
+X20 (73, 76, 0, 'SV')
+X21 (75, 76, 0, 'R')
+Y22 (72, 73, 2, 'S')
+X23 (73, 74, 0, 'R')
+Y24 (74, 75, 1, 'S')
+Y25 (7, 6, 2, 'S')
+X26 (7, 8, 0, 'R')
+X27 (7, 80, 0, 'SV')
+Y28 (8, 9, 2, 'S')
+X29 (8, 79, 0, 'SV')
+X30 (9, 10, 0, 'R')
+Y31 (10, 11, 3, 'S')
+X32 (10, 11, 0, 'SV')
+X33 (11, 12, 0, 'R')
+Y34 (12, 13, 2, 'S')
+X35 (79, 80, 0, 'R')
+Y36 (80, 81, 2, 'S')
+X37 (19, 20, 0, 'R')
+X38 (19, 21, 0, 'SV')
+Y39 (21, 20, 2, 'S')
+X40 (20, 22, 0, 'SV')
+X41 (21, 22, 0, 'R')
+Y42 (22, 23, 2, 'S')
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/0e5b8d0834154c2c845dbdcffb03530d-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/0e5b8d0834154c2c845dbdcffb03530d-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 134 COLUMNS
+At line 590 RHS
+At line 720 BOUNDS
+At line 793 ENDATA
+Problem MODEL has 129 rows, 72 columns and 239 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is -1452 - 0.00 seconds
+Cgl0003I 0 fixed, 16 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 85 rows, 72 columns (72 integer (29 of which binary)) and 194 elements
+Cutoff increment increased from 1e-05 to 0.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of -1452
+Cbc0038I Cleaned solution of -1452
+Cbc0038I Before mini branch and bound, 72 integers at bound fixed and 0 continuous of which 30 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of -1452 - took 0.00 seconds
+Cbc0012I Integer solution of -1452 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective -1452, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from -1452 to -1452
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                -1452.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Problem:
+MINIMIZE
+-72*T1 + -72*T11 + -72*T14 + -72*T19 + -9*T20 + -72*T27 + -72*T29 + -9*T32 + -9*T38 + -9*T40 + -72*T6 + -72*T7 + -30*X1 + -30*X10 + -30*X11 + -30*X14 + -30*X15 + -30*X16 + -30*X19 + -30*X2 + -30*X20 + -30*X21 + -30*X23 + -30*X26 + -30*X27 + -30*X29 + -30*X30 + -30*X32 + -30*X33 + -30*X35 + -30*X37 + -30*X38 + -30*X4 + -30*X40 + -30*X41 + -30*X5 + -30*X6 + -30*X7 + -15*Y0 + -15*Y12 + -30*Y13 + -30*Y17 + -30*Y18 + -15*Y22 + -30*Y24 + -30*Y25 + -30*Y28 + -30*Y3 + -30*Y31 + -15*Y34 + -15*Y36 + -30*Y39 + -15*Y42 + -30*Y8 + -30*Y9 + 60*Z0 + 180*Z12 + 130*Z13 + 10*Z17 + 110*Z18 + 260*Z22 + 30*Z24 + 10*Z25 + 180*Z28 + 10*Z3 + 30*Z31 + 340*Z34 + 60*Z36 + 10*Z39 + 280*Z42 + 260*Z8 + 10*Z9 + 1020
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+_C4: - 10 T1 + X1 <= 0
+
+_C5: - T1 + X1 >= 0
+
+_C6: X1 >= 0
+
+_C7: X2 >= 1
+
+_C8: Y3 + Z3 >= 0
+
+_C9: - Y3 + Z3 >= 0
+
+_C10: Z3 <= 1
+
+_C11: X4 >= 1
+
+_C12: X5 >= 1
+
+_C13: - 10 T6 + X6 <= 0
+
+_C14: - T6 + X6 >= 0
+
+_C15: X6 >= 0
+
+_C16: - 10 T7 + X7 <= 0
+
+_C17: - T7 + X7 >= 0
+
+_C18: X7 >= 0
+
+_C19: Y8 + Z8 >= 0
+
+_C20: - Y8 + Z8 >= 0
+
+_C21: Z8 <= 1
+
+_C22: Y9 + Z9 >= 0
+
+_C23: - Y9 + Z9 >= 0
+
+_C24: Z9 <= 1
+
+_C25: X10 >= 1
+
+_C26: - 10 T11 + X11 <= 0
+
+_C27: - T11 + X11 >= 0
+
+_C28: X11 >= 0
+
+_C29: Y12 + Z12 >= 0
+
+_C30: - Y12 + Z12 >= 0
+
+_C31: Z12 <= 1
+
+_C32: Y13 + Z13 >= 0
+
+_C33: - Y13 + Z13 >= 0
+
+_C34: Z13 <= 1
+
+_C35: - 10 T14 + X14 <= 0
+
+_C36: - T14 + X14 >= 0
+
+_C37: X14 >= 0
+
+_C38: X15 >= 1
+
+_C39: X16 >= 1
+
+_C40: Y17 + Z17 >= 0
+
+_C41: - Y17 + Z17 >= 0
+
+_C42: Z17 <= 1
+
+_C43: Y18 + Z18 >= 0
+
+_C44: - Y18 + Z18 >= 0
+
+_C45: Z18 <= 1
+
+_C46: - 10 T19 + X19 <= 0
+
+_C47: - T19 + X19 >= 0
+
+_C48: X19 >= 0
+
+_C49: - 10 T20 + X20 <= 0
+
+_C50: - T20 + X20 >= 0
+
+_C51: X20 >= 0
+
+_C52: X21 >= 1
+
+_C53: Y22 + Z22 >= 0
+
+_C54: - Y22 + Z22 >= 0
+
+_C55: Z22 <= 1
+
+_C56: X23 >= 1
+
+_C57: Y24 + Z24 >= 0
+
+_C58: - Y24 + Z24 >= 0
+
+_C59: Z24 <= 1
+
+_C60: Y25 + Z25 >= 0
+
+_C61: - Y25 + Z25 >= 0
+
+_C62: Z25 <= 1
+
+_C63: X26 >= 1
+
+_C64: - 10 T27 + X27 <= 0
+
+_C65: - T27 + X27 >= 0
+
+_C66: X27 >= 0
+
+_C67: Y28 + Z28 >= 0
+
+_C68: - Y28 + Z28 >= 0
+
+_C69: Z28 <= 1
+
+_C70: - 10 T29 + X29 <= 0
+
+_C71: - T29 + X29 >= 0
+
+_C72: X29 >= 0
+
+_C73: X30 >= 1
+
+_C74: Y31 + Z31 >= 0
+
+_C75: - Y31 + Z31 >= 0
+
+_C76: Z31 <= 1
+
+_C77: - 10 T32 + X32 <= 0
+
+_C78: - T32 + X32 >= 0
+
+_C79: X32 >= 0
+
+_C80: X33 >= 1
+
+_C81: Y34 + Z34 >= 0
+
+_C82: - Y34 + Z34 >= 0
+
+_C83: Z34 <= 1
+
+_C84: X35 >= 1
+
+_C85: Y36 + Z36 >= 0
+
+_C86: - Y36 + Z36 >= 0
+
+_C87: Z36 <= 1
+
+_C88: X37 >= 1
+
+_C89: - 10 T38 + X38 <= 0
+
+_C90: - T38 + X38 >= 0
+
+_C91: X38 >= 0
+
+_C92: Y39 + Z39 >= 0
+
+_C93: - Y39 + Z39 >= 0
+
+_C94: Z39 <= 1
+
+_C95: - 10 T40 + X40 <= 0
+
+_C96: - T40 + X40 >= 0
+
+_C97: X40 >= 0
+
+_C98: X41 >= 1
+
+_C99: Y42 + Z42 >= 0
+
+_C100: - Y42 + Z42 >= 0
+
+_C101: Z42 <= 1
+
+_C102: X1 + X2 + Y0 <= 2
+
+_C103: X1 + X4 + Y3 <= 2
+
+_C104: X5 + X6 + Y3 <= 2
+
+_C105: X5 + X7 + Y8 <= 2
+
+_C106: X10 + X7 + Y9 <= 2
+
+_C107: X11 + X2 + Y9 <= 2
+
+_C108: X11 + X4 + Y12 <= 2
+
+_C109: X10 + X6 + Y13 <= 2
+
+_C110: X14 + X15 + Y13 <= 2
+
+_C111: X14 + X16 + Y17 <= 2
+
+_C112: X16 + X19 + Y18 <= 2
+
+_C113: X20 + X21 + Y18 <= 2
+
+_C114: X20 + X23 + Y22 <= 2
+
+_C115: X23 + Y24 <= 1
+
+_C116: X21 + Y24 <= 1
+
+_C117: X15 + X19 + Y25 <= 2
+
+_C118: X26 + X27 + Y25 <= 2
+
+_C119: X26 + X29 + Y28 <= 2
+
+_C120: X30 + Y28 <= 2
+
+_C121: X30 + X32 + Y31 <= 3
+
+_C122: X32 + X33 + Y31 <= 3
+
+_C123: X33 + Y34 <= 2
+
+_C124: X29 + X35 + Y17 <= 2
+
+_C125: X27 + X35 + Y36 <= 2
+
+_C126: X37 + X38 + Y8 <= 2
+
+_C127: X37 + X40 + Y39 <= 2
+
+_C128: X38 + X41 + Y39 <= 2
+
+_C129: X40 + X41 + Y42 <= 2
+
+VARIABLES
+0 <= T1 <= 1 Integer
+0 <= T11 <= 1 Integer
+0 <= T14 <= 1 Integer
+0 <= T19 <= 1 Integer
+0 <= T20 <= 1 Integer
+0 <= T27 <= 1 Integer
+0 <= T29 <= 1 Integer
+0 <= T32 <= 1 Integer
+0 <= T38 <= 1 Integer
+0 <= T40 <= 1 Integer
+0 <= T6 <= 1 Integer
+0 <= T7 <= 1 Integer
+0 <= X1 Integer
+0 <= X10 Integer
+0 <= X11 Integer
+0 <= X14 Integer
+0 <= X15 Integer
+0 <= X16 Integer
+0 <= X19 Integer
+0 <= X2 Integer
+0 <= X20 Integer
+0 <= X21 Integer
+0 <= X23 Integer
+0 <= X26 Integer
+0 <= X27 Integer
+0 <= X29 Integer
+0 <= X30 Integer
+0 <= X32 Integer
+0 <= X33 Integer
+0 <= X35 Integer
+0 <= X37 Integer
+0 <= X38 Integer
+0 <= X4 Integer
+0 <= X40 Integer
+0 <= X41 Integer
+0 <= X5 Integer
+0 <= X6 Integer
+0 <= X7 Integer
+Y0 free Integer
+Y12 free Integer
+Y13 free Integer
+Y17 free Integer
+Y18 free Integer
+Y22 free Integer
+Y24 free Integer
+Y25 free Integer
+Y28 free Integer
+Y3 free Integer
+Y31 free Integer
+Y34 free Integer
+Y36 free Integer
+Y39 free Integer
+Y42 free Integer
+Y8 free Integer
+Y9 free Integer
+Z0 free Integer
+Z12 free Integer
+Z13 free Integer
+Z17 free Integer
+Z18 free Integer
+Z22 free Integer
+Z24 free Integer
+Z25 free Integer
+Z28 free Integer
+Z3 free Integer
+Z31 free Integer
+Z34 free Integer
+Z36 free Integer
+Z39 free Integer
+Z42 free Integer
+Z8 free Integer
+Z9 free Integer
+
+Optimal
+[T1, T11, T14, T19, T20, T27, T29, T32, T38, T40, T6, T7, X1, X10, X11, X14, X15, X16, X19, X2, X20, X21, X23, X26, X27, X29, X30, X32, X33, X35, X37, X38, X4, X40, X41, X5, X6, X7, Y0, Y12, Y13, Y17, Y18, Y22, Y24, Y25, Y28, Y3, Y31, Y34, Y36, Y39, Y42, Y8, Y9, Z0, Z12, Z13, Z17, Z18, Z22, Z24, Z25, Z28, Z3, Z31, Z34, Z36, Z39, Z42, Z8, Z9]
+1 16 1.0 SV
+3 4 1.0 R
+2 15 1.0 SV
+5 78 1.0 SV
+5 6 1.0 R
+77 78 1.0 R
+6 77 1.0 SV
+1 2 1.0 R
+73 76 1.0 SV
+75 76 1.0 R
+73 74 1.0 R
+7 8 1.0 R
+7 80 1.0 SV
+8 79 1.0 SV
+9 10 2.0 R
+10 11 1.0 SV
+11 12 2.0 R
+79 80 1.0 R
+19 20 1.0 R
+19 21 1.0 SV
+15 16 1.0 R
+20 22 1.0 SV
+21 22 1.0 R
+17 18 1.0 R
+4 17 1.0 SV
+3 18 1.0 SV
+T1 = 1.0
+T11 = 1.0
+T14 = 1.0
+T19 = 1.0
+T20 = 1.0
+T27 = 1.0
+T29 = 1.0
+T32 = 1.0
+T38 = 1.0
+T40 = 1.0
+T6 = 1.0
+T7 = 1.0
+X1 = 1.0
+X10 = 1.0
+X11 = 1.0
+X14 = 1.0
+X15 = 1.0
+X16 = 1.0
+X19 = 1.0
+X2 = 1.0
+X20 = 1.0
+X21 = 1.0
+X23 = 1.0
+X26 = 1.0
+X27 = 1.0
+X29 = 1.0
+X30 = 2.0
+X32 = 1.0
+X33 = 2.0
+X35 = 1.0
+X37 = 1.0
+X38 = 1.0
+X4 = 1.0
+X40 = 1.0
+X41 = 1.0
+X5 = 1.0
+X6 = 1.0
+X7 = 1.0
+Y0 = 0.0
+Y12 = 0.0
+Y13 = 0.0
+Y17 = 0.0
+Y18 = 0.0
+Y22 = 0.0
+Y24 = 0.0
+Y25 = 0.0
+Y28 = 0.0
+Y3 = 0.0
+Y31 = 0.0
+Y34 = 0.0
+Y36 = 0.0
+Y39 = 0.0
+Y42 = 0.0
+Y8 = 0.0
+Y9 = 0.0
+Z0 = 0.0
+Z12 = 0.0
+Z13 = 0.0
+Z17 = 0.0
+Z18 = 0.0
+Z22 = 0.0
+Z24 = 0.0
+Z25 = 0.0
+Z28 = 0.0
+Z3 = 0.0
+Z31 = 0.0
+Z34 = 0.0
+Z36 = 0.0
+Z39 = 0.0
+Z42 = 0.0
+Z8 = 0.0
+Z9 = 0.0
+-432.0 Objective Answer
+Y0 (24, 25, 2, 'S')
+X1 (25, 26, 0, 'R')
+Y2 (26, 27, 3, 'S')
+X3 (27, 28, 0, 'R')
+Y4 (29, 28, 2, 'S')
+X5 (29, 86, 0, 'SV')
+X6 (29, 30, 0, 'R')
+X7 (85, 86, 0, 'R')
+Y8 (87, 86, 2, 'S')
+Y9 (85, 84, 2, 'S')
+X10 (30, 85, 0, 'SV')
+Y11 (31, 30, 2, 'S')
+X12 (31, 32, 0, 'R')
+X13 (31, 88, 0, 'SV')
+Y14 (32, 33, 2, 'S')
+X15 (32, 87, 0, 'SV')
+X16 (87, 88, 0, 'R')
+Y17 (88, 89, 2, 'S')
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/00cdf56dc1f94dfcb39eef865a19acc2-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/00cdf56dc1f94dfcb39eef865a19acc2-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 59 COLUMNS
+At line 248 RHS
+At line 303 BOUNDS
+At line 334 ENDATA
+Problem MODEL has 54 rows, 30 columns and 98 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is -648 - 0.00 seconds
+Cgl0003I 0 fixed, 8 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 36 rows, 30 columns (30 integer (12 of which binary)) and 80 elements
+Cutoff increment increased from 1e-05 to 0.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of -648
+Cbc0038I Cleaned solution of -648
+Cbc0038I Before mini branch and bound, 30 integers at bound fixed and 0 continuous of which 14 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of -648 - took 0.00 seconds
+Cbc0012I Integer solution of -648 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective -648, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from -648 to -648
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                -648.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/62db2557a99144a890c47a38c1e91ff9-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/62db2557a99144a890c47a38c1e91ff9-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 20 COLUMNS
+At line 70 RHS
+At line 86 BOUNDS
+At line 95 ENDATA
+Problem MODEL has 15 rows, 8 columns and 25 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is -120 - 0.00 seconds
+Cgl0003I 0 fixed, 3 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 10 rows, 8 columns (8 integer (3 of which binary)) and 20 elements
+Cutoff increment increased from 1e-05 to 4.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of -120
+Cbc0038I Cleaned solution of -120
+Cbc0038I Before mini branch and bound, 8 integers at bound fixed and 0 continuous of which 5 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of -120 - took 0.00 seconds
+Cbc0012I Integer solution of -120 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective -120, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from -120 to -120
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                -120.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/a276e5dbfcbc437891e22eec4e423267-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/a276e5dbfcbc437891e22eec4e423267-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 62 COLUMNS
+At line 257 RHS
+At line 315 BOUNDS
+At line 347 ENDATA
+Problem MODEL has 57 rows, 31 columns and 101 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is -554 - 0.00 seconds
+Cgl0003I 0 fixed, 9 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 38 rows, 31 columns (31 integer (12 of which binary)) and 82 elements
+Cutoff increment increased from 1e-05 to 0.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of -554
+Cbc0038I Cleaned solution of -554
+Cbc0038I Before mini branch and bound, 31 integers at bound fixed and 0 continuous of which 16 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of -554 - took 0.00 seconds
+Cbc0012I Integer solution of -554 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective -554, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from -554 to -554
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                -554.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/7cb5e636e49545aba904cdbea00e51ad-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/7cb5e636e49545aba904cdbea00e51ad-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 8 COLUMNS
+At line 19 RHS
+At line 23 BOUNDS
+At line 26 ENDATA
+Problem MODEL has 3 rows, 2 columns and 5 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 0 - 0.00 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 2 rows, 2 columns (2 integer (1 of which binary)) and 4 elements
+Cutoff increment increased from 1e-05 to 1050
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 0
+Cbc0038I Cleaned solution of 0
+Cbc0038I Before mini branch and bound, 2 integers at bound fixed and 0 continuous of which 1 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 0 - took 0.00 seconds
+Cbc0012I Integer solution of 0 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 0, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 0 to 0
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                0.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/ed0f095d25ec4db4b6dea8ba966b0c47-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/ed0f095d25ec4db4b6dea8ba966b0c47-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 8 COLUMNS
+At line 19 RHS
+At line 23 BOUNDS
+At line 26 ENDATA
+Problem MODEL has 3 rows, 2 columns and 5 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 0 - 0.00 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 2 rows, 2 columns (2 integer (1 of which binary)) and 4 elements
+Cutoff increment increased from 1e-05 to 900
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 0
+Cbc0038I Cleaned solution of 0
+Cbc0038I Before mini branch and bound, 2 integers at bound fixed and 0 continuous of which 1 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 0 - took 0.00 seconds
+Cbc0012I Integer solution of 0 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 0, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 0 to 0
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                0.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/d85992048b8149bb81232dbea9df4cfa-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/d85992048b8149bb81232dbea9df4cfa-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 8 COLUMNS
+At line 19 RHS
+At line 23 BOUNDS
+At line 26 ENDATA
+Problem MODEL has 3 rows, 2 columns and 5 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 0 - 0.00 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 2 rows, 2 columns (2 integer (1 of which binary)) and 4 elements
+Cutoff increment increased from 1e-05 to 840
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 0
+Cbc0038I Cleaned solution of 0
+Cbc0038I Before mini branch and bound, 2 integers at bound fixed and 0 continuous of which 1 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 0 - took 0.00 seconds
+Cbc0012I Integer solution of 0 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 0, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 0 to 0
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                0.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/3d415abe12164e6585daafa693ea42e1-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/3d415abe12164e6585daafa693ea42e1-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 8 COLUMNS
+At line 19 RHS
+At line 23 BOUNDS
+At line 26 ENDATA
+Problem MODEL has 3 rows, 2 columns and 5 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 0 - 0.00 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 2 rows, 2 columns (2 integer (1 of which binary)) and 4 elements
+Cutoff increment increased from 1e-05 to 810
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 0
+Cbc0038I Cleaned solution of 0
+Cbc0038I Before mini branch and bound, 2 integers at bound fixed and 0 continuous of which 1 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 0 - took 0.00 seconds
+Cbc0012I Integer solution of 0 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 0, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 0 to 0
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                0.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/e3a715394142476da314ca7a5542a2c4-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/e3a715394142476da314ca7a5542a2c4-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 23 COLUMNS
+At line 86 RHS
+At line 105 BOUNDS
+At line 116 ENDATA
+Problem MODEL has 18 rows, 10 columns and 32 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is -159 - 0.00 seconds
+Cgl0003I 0 fixed, 3 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 12 rows, 10 columns (10 integer (4 of which binary)) and 26 elements
+Cutoff increment increased from 1e-05 to 0.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 2.22045e-16
+Cbc0038I Solution found of -159
+Cbc0038I Cleaned solution of -159
+Cbc0038I Before mini branch and bound, 10 integers at bound fixed and 0 continuous of which 6 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of -159 - took 0.00 seconds
+Cbc0012I Integer solution of -159 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective -159, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from -159 to -159
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                -159.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Problem:
+MINIMIZE
+-72*T10 + -72*T13 + -72*T15 + -72*T5 + -30*X1 + -30*X10 + -30*X12 + -30*X13 + -30*X15 + -30*X16 + -30*X3 + -30*X5 + -30*X6 + -30*X7 + -15*Y0 + -30*Y11 + -15*Y14 + -15*Y17 + -30*Y2 + -30*Y4 + -30*Y8 + -15*Y9 + 340*Z0 + 10*Z11 + 20*Z14 + 180*Z17 + 30*Z2 + 220*Z4 + 10*Z8 + 260*Z9 + 510
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+_C4: X1 >= 1
+
+_C5: Y2 + Z2 >= 0
+
+_C6: - Y2 + Z2 >= 0
+
+_C7: Z2 <= 1
+
+_C8: X3 >= 1
+
+_C9: Y4 + Z4 >= 0
+
+_C10: - Y4 + Z4 >= 0
+
+_C11: Z4 <= 1
+
+_C12: - 10 T5 + X5 <= 0
+
+_C13: - T5 + X5 >= 0
+
+_C14: X5 >= 0
+
+_C15: X6 >= 1
+
+_C16: X7 >= 1
+
+_C17: Y8 + Z8 >= 0
+
+_C18: - Y8 + Z8 >= 0
+
+_C19: Z8 <= 1
+
+_C20: Y9 + Z9 >= 0
+
+_C21: - Y9 + Z9 >= 0
+
+_C22: Z9 <= 1
+
+_C23: - 10 T10 + X10 <= 0
+
+_C24: - T10 + X10 >= 0
+
+_C25: X10 >= 0
+
+_C26: Y11 + Z11 >= 0
+
+_C27: - Y11 + Z11 >= 0
+
+_C28: Z11 <= 1
+
+_C29: X12 >= 1
+
+_C30: - 10 T13 + X13 <= 0
+
+_C31: - T13 + X13 >= 0
+
+_C32: X13 >= 0
+
+_C33: Y14 + Z14 >= 0
+
+_C34: - Y14 + Z14 >= 0
+
+_C35: Z14 <= 1
+
+_C36: - 10 T15 + X15 <= 0
+
+_C37: - T15 + X15 >= 0
+
+_C38: X15 >= 0
+
+_C39: X16 >= 1
+
+_C40: Y17 + Z17 >= 0
+
+_C41: - Y17 + Z17 >= 0
+
+_C42: Z17 <= 1
+
+_C43: X1 + Y0 <= 2
+
+_C44: X1 + Y2 <= 3
+
+_C45: X3 + Y2 <= 3
+
+_C46: X3 + Y4 <= 2
+
+_C47: X5 + X6 + Y4 <= 2
+
+_C48: X5 + X7 + Y8 <= 2
+
+_C49: X10 + X7 + Y9 <= 2
+
+_C50: X10 + X6 + Y11 <= 2
+
+_C51: X12 + X13 + Y11 <= 2
+
+_C52: X12 + X15 + Y14 <= 2
+
+_C53: X15 + X16 + Y8 <= 2
+
+_C54: X13 + X16 + Y17 <= 2
+
+VARIABLES
+0 <= T10 <= 1 Integer
+0 <= T13 <= 1 Integer
+0 <= T15 <= 1 Integer
+0 <= T5 <= 1 Integer
+0 <= X1 Integer
+0 <= X10 Integer
+0 <= X12 Integer
+0 <= X13 Integer
+0 <= X15 Integer
+0 <= X16 Integer
+0 <= X3 Integer
+0 <= X5 Integer
+0 <= X6 Integer
+0 <= X7 Integer
+Y0 free Integer
+Y11 free Integer
+Y14 free Integer
+Y17 free Integer
+Y2 free Integer
+Y4 free Integer
+Y8 free Integer
+Y9 free Integer
+Z0 free Integer
+Z11 free Integer
+Z14 free Integer
+Z17 free Integer
+Z2 free Integer
+Z4 free Integer
+Z8 free Integer
+Z9 free Integer
+
+Optimal
+[T10, T13, T15, T5, X1, X10, X12, X13, X15, X16, X3, X5, X6, X7, Y0, Y11, Y14, Y17, Y2, Y4, Y8, Y9, Z0, Z11, Z14, Z17, Z2, Z4, Z8, Z9]
+25 26 2.0 R
+30 85 1.0 SV
+31 32 1.0 R
+31 88 1.0 SV
+32 87 1.0 SV
+87 88 1.0 R
+27 28 2.0 R
+29 86 1.0 SV
+29 30 1.0 R
+85 86 1.0 R
+T10 = 1.0
+T13 = 1.0
+T15 = 1.0
+T5 = 1.0
+X1 = 2.0
+X10 = 1.0
+X12 = 1.0
+X13 = 1.0
+X15 = 1.0
+X16 = 1.0
+X3 = 2.0
+X5 = 1.0
+X6 = 1.0
+X7 = 1.0
+Y0 = 0.0
+Y11 = 0.0
+Y14 = 0.0
+Y17 = 0.0
+Y2 = 0.0
+Y4 = 0.0
+Y8 = 0.0
+Y9 = 0.0
+Z0 = 0.0
+Z11 = 0.0
+Z14 = 0.0
+Z17 = 0.0
+Z2 = 0.0
+Z4 = 0.0
+Z8 = 0.0
+Z9 = 0.0
+-138.0 Objective Answer
+Y0 (34, 35, 2, 'S')
+X1 (35, 36, 0, 'R')
+Y2 (36, 37, 3, 'S')
+X3 (37, 38, 0, 'R')
+Y4 (38, 39, 2, 'S')
+Problem:
+MINIMIZE
+-30*X1 + -30*X3 + -15*Y0 + -30*Y2 + -15*Y4 + 380*Z0 + 30*Z2 + 400*Z4 + 210
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+_C4: X1 >= 1
+
+_C5: Y2 + Z2 >= 0
+
+_C6: - Y2 + Z2 >= 0
+
+_C7: Z2 <= 1
+
+_C8: X3 >= 1
+
+_C9: Y4 + Z4 >= 0
+
+_C10: - Y4 + Z4 >= 0
+
+_C11: Z4 <= 1
+
+_C12: X1 + Y0 <= 2
+
+_C13: X1 + Y2 <= 3
+
+_C14: X3 + Y2 <= 3
+
+_C15: X3 + Y4 <= 2
+
+VARIABLES
+0 <= X1 Integer
+0 <= X3 Integer
+Y0 free Integer
+Y2 free Integer
+Y4 free Integer
+Z0 free Integer
+Z2 free Integer
+Z4 free Integer
+
+Optimal
+[X1, X3, Y0, Y2, Y4, Z0, Z2, Z4]
+35 36 2.0 R
+37 38 2.0 R
+X1 = 2.0
+X3 = 2.0
+Y0 = 0.0
+Y2 = 0.0
+Y4 = 0.0
+Z0 = 0.0
+Z2 = 0.0
+Z4 = 0.0
+90.0 Objective Answer
+Y0 (41, 40, 2, 'S')
+X1 (41, 42, 0, 'R')
+X2 (41, 47, 0, 'SV')
+Y3 (42, 43, 2, 'S')
+X4 (43, 44, 0, 'R')
+Y5 (44, 45, 3, 'S')
+X6 (45, 46, 0, 'R')
+Y7 (47, 46, 2, 'S')
+X8 (47, 48, 0, 'R')
+Y9 (49, 48, 2, 'S')
+X10 (49, 50, 0, 'R')
+X11 (49, 56, 0, 'SV')
+Y12 (50, 51, 2, 'S')
+X13 (50, 57, 0, 'SV')
+Y14 (57, 56, 2, 'S')
+X15 (57, 58, 0, 'R')
+X16 (55, 56, 0, 'R')
+Y17 (55, 54, 2, 'S')
+Y18 (58, 59, 2, 'S')
+Problem:
+MINIMIZE
+-72*T11 + -72*T13 + -9*T2 + -30*X1 + -30*X10 + -30*X11 + -30*X13 + -30*X15 + -30*X16 + -30*X2 + -30*X4 + -30*X6 + -30*X8 + -15*Y0 + -15*Y12 + -30*Y14 + -15*Y17 + -15*Y18 + -30*Y3 + -30*Y5 + -30*Y7 + -30*Y9 + 100*Z0 + 500*Z12 + 10*Z14 + 540*Z17 + 120*Z18 + 10*Z3 + 30*Z5 + 10*Z7 + 80*Z9 + 570
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+_C4: X1 >= 1
+
+_C5: - 10 T2 + X2 <= 0
+
+_C6: - T2 + X2 >= 0
+
+_C7: X2 >= 0
+
+_C8: Y3 + Z3 >= 0
+
+_C9: - Y3 + Z3 >= 0
+
+_C10: Z3 <= 1
+
+_C11: X4 >= 1
+
+_C12: Y5 + Z5 >= 0
+
+_C13: - Y5 + Z5 >= 0
+
+_C14: Z5 <= 1
+
+_C15: X6 >= 1
+
+_C16: Y7 + Z7 >= 0
+
+_C17: - Y7 + Z7 >= 0
+
+_C18: Z7 <= 1
+
+_C19: X8 >= 1
+
+_C20: Y9 + Z9 >= 0
+
+_C21: - Y9 + Z9 >= 0
+
+_C22: Z9 <= 1
+
+_C23: X10 >= 1
+
+_C24: - 10 T11 + X11 <= 0
+
+_C25: - T11 + X11 >= 0
+
+_C26: X11 >= 0
+
+_C27: Y12 + Z12 >= 0
+
+_C28: - Y12 + Z12 >= 0
+
+_C29: Z12 <= 1
+
+_C30: - 10 T13 + X13 <= 0
+
+_C31: - T13 + X13 >= 0
+
+_C32: X13 >= 0
+
+_C33: Y14 + Z14 >= 0
+
+_C34: - Y14 + Z14 >= 0
+
+_C35: Z14 <= 1
+
+_C36: X15 >= 1
+
+_C37: X16 >= 1
+
+_C38: Y17 + Z17 >= 0
+
+_C39: - Y17 + Z17 >= 0
+
+_C40: Z17 <= 1
+
+_C41: Y18 + Z18 >= 0
+
+_C42: - Y18 + Z18 >= 0
+
+_C43: Z18 <= 1
+
+_C44: X1 + X2 + Y0 <= 2
+
+_C45: X1 + Y3 <= 2
+
+_C46: X4 + Y3 <= 2
+
+_C47: X4 + Y5 <= 3
+
+_C48: X6 + Y5 <= 3
+
+_C49: X6 + Y7 <= 2
+
+_C50: X2 + X8 + Y7 <= 2
+
+_C51: X8 + Y9 <= 2
+
+_C52: X10 + X11 + Y9 <= 2
+
+_C53: X10 + X13 + Y12 <= 2
+
+_C54: X13 + X15 + Y14 <= 2
+
+_C55: X11 + X16 + Y14 <= 2
+
+_C56: X16 + Y17 <= 2
+
+_C57: X15 + Y18 <= 2
+
+VARIABLES
+0 <= T11 <= 1 Integer
+0 <= T13 <= 1 Integer
+0 <= T2 <= 1 Integer
+0 <= X1 Integer
+0 <= X10 Integer
+0 <= X11 Integer
+0 <= X13 Integer
+0 <= X15 Integer
+0 <= X16 Integer
+0 <= X2 Integer
+0 <= X4 Integer
+0 <= X6 Integer
+0 <= X8 Integer
+Y0 free Integer
+Y12 free Integer
+Y14 free Integer
+Y17 free Integer
+Y18 free Integer
+Y3 free Integer
+Y5 free Integer
+Y7 free Integer
+Y9 free Integer
+Z0 free Integer
+Z12 free Integer
+Z14 free Integer
+Z17 free Integer
+Z18 free Integer
+Z3 free Integer
+Z5 free Integer
+Z7 free Integer
+Z9 free Integer
+
+Optimal
+[T11, T13, T2, X1, X10, X11, X13, X15, X16, X2, X4, X6, X8, Y0, Y12, Y14, Y17, Y18, Y3, Y5, Y7, Y9, Z0, Z12, Z14, Z17, Z18, Z3, Z5, Z7, Z9]
+41 42 2.0 R
+49 50 1.0 R
+49 56 1.0 SV
+50 57 1.0 SV
+57 58 2.0 R
+55 56 2.0 R
+41 47 0.0 SV
+43 44 2.0 R
+45 46 2.0 R
+47 48 2.0 R
+T11 = 1.0
+T13 = 1.0
+T2 = 0.0
+X1 = 2.0
+X10 = 1.0
+X11 = 1.0
+X13 = 1.0
+X15 = 2.0
+X16 = 2.0
+X2 = 0.0
+X4 = 2.0
+X6 = 2.0
+X8 = 2.0
+Y0 = 0.0
+Y12 = 0.0
+Y14 = -1.0
+Y17 = 0.0
+Y18 = 0.0
+Y3 = 0.0
+Y5 = 0.0
+Y7 = 0.0
+Y9 = 0.0
+Z0 = 0.0
+Z12 = 0.0
+Z14 = 1.0
+Z17 = 0.0
+Z18 = 0.0
+Z3 = 0.0
+Z5 = 0.0
+Z7 = 0.0
+Z9 = 0.0
+16.0 Objective Answer
+Y0 (52, 53, 2, 'S')
+Problem:
+MINIMIZE
+1050*Z0 + 60
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+VARIABLES
+Y0 free Integer
+Z0 free Integer
+
+Optimal
+[Y0, Z0]
+Y0 = 0.0
+Z0 = 0.0
+60.0 Objective Answer
+Y0 (60, 61, 2, 'S')
+Problem:
+MINIMIZE
+900*Z0 + 60
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+VARIABLES
+Y0 free Integer
+Z0 free Integer
+
+Optimal
+[Y0, Z0]
+Y0 = 0.0
+Z0 = 0.0
+60.0 Objective Answer
+Y0 (62, 63, 2, 'S')
+Problem:
+MINIMIZE
+840*Z0 + 60
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+VARIABLES
+Y0 free Integer
+Z0 free Integer
+
+Optimal
+[Y0, Z0]
+Y0 = 0.0
+Z0 = 0.0
+60.0 Objective Answer
+Y0 (64, 65, 2, 'S')
+Problem:
+MINIMIZE
+810*Z0 + 60
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+VARIABLES
+Y0 free Integer
+Z0 free Integer
+
+Optimal
+[Y0, Z0]
+Y0 = 0.0
+Z0 = 0.0
+60.0 Objective Answer
+Y0 (66, 67, 2, 'S')
+X1 (67, 68, 0, 'R')
+Y2 (68, 69, 3, 'S')
+X3 (68, 69, 0, 'SV')
+X4 (69, 70, 0, 'R')
+Y5 (70, 71, 2, 'S')
+Problem:
+MINIMIZE
+-9*T3 + -30*X1 + -30*X3 + -30*X4 + -15*Y0 + -30*Y2 + -15*Y5 + 360*Z0 + 30*Z2 + 200*Z5 + 210
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+_C4: X1 >= 1
+
+_C5: Y2 + Z2 >= 0
+
+_C6: - Y2 + Z2 >= 0
+
+_C7: Z2 <= 1
+
+_C8: - 10 T3 + X3 <= 0
+
+_C9: - T3 + X3 >= 0
+
+_C10: X3 >= 0
+
+_C11: X4 >= 1
+
+_C12: Y5 + Z5 >= 0
+
+_C13: - Y5 + Z5 >= 0
+
+_C14: Z5 <= 1
+
+_C15: X1 + Y0 <= 2
+
+_C16: X1 + X3 + Y2 <= 3
+
+_C17: X3 + X4 + Y2 <= 3
+
+_C18: X4 + Y5 <= 2
+
+VARIABLES
+0 <= T3 <= 1 Integer
+0 <= X1 Integer
+0 <= X3 Integer
+0 <= X4 Integer
+Y0 free Integer
+Y2 free Integer
+Y5 free Integer
+Z0 free Integer
+Z2 free Integer
+Z5 free Integer
+
+Optimal
+[T3, X1, X3, X4, Y0, Y2, Y5, Z0, Z2, Z5]
+67 68 2.0 R
+68 69 1.0 SV
+69 70 2.0 R
+T3 = 1.0
+X1 = 2.0
+X3 = 1.0
+X4 = 2.0
+Y0 = 0.0
+Y2 = 0.0
+Y5 = 0.0
+Z0 = 0.0
+Z2 = 0.0
+Z5 = 0.0
+51.0 Objective Answer
+Y0 (82, 83, 2, 'S')
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/6a9be8b8cbca4a1b8065b5ef7e3ec875-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/6a9be8b8cbca4a1b8065b5ef7e3ec875-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 8 COLUMNS
+At line 19 RHS
+At line 23 BOUNDS
+At line 26 ENDATA
+Problem MODEL has 3 rows, 2 columns and 5 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 0 - 0.00 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 2 rows, 2 columns (2 integer (1 of which binary)) and 4 elements
+Cutoff increment increased from 1e-05 to 690
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 0
+Cbc0038I Cleaned solution of 0
+Cbc0038I Before mini branch and bound, 2 integers at bound fixed and 0 continuous of which 1 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 0 - took 0.00 seconds
+Cbc0012I Integer solution of 0 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 0, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 0 to 0
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                0.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/9ff8c328820f421e86d82695e52a0cb8-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/9ff8c328820f421e86d82695e52a0cb8-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 8 COLUMNS
+At line 19 RHS
+At line 23 BOUNDS
+At line 26 ENDATA
+Problem MODEL has 3 rows, 2 columns and 5 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 0 - 0.00 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 2 rows, 2 columns (2 integer (1 of which binary)) and 4 elements
+Cutoff increment increased from 1e-05 to 630
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 0
+Cbc0038I Cleaned solution of 0
+Cbc0038I Before mini branch and bound, 2 integers at bound fixed and 0 continuous of which 1 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 0 - took 0.00 seconds
+Cbc0012I Integer solution of 0 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 0, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 0 to 0
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                0.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/04a5313434804072b238dc3f2625ab2b-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/04a5313434804072b238dc3f2625ab2b-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 23 COLUMNS
+At line 86 RHS
+At line 105 BOUNDS
+At line 116 ENDATA
+Problem MODEL has 18 rows, 10 columns and 32 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is -120 - 0.00 seconds
+Cgl0003I 0 fixed, 3 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 12 rows, 10 columns (10 integer (4 of which binary)) and 26 elements
+Cutoff increment increased from 1e-05 to 0.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of -120
+Cbc0038I Cleaned solution of -120
+Cbc0038I Before mini branch and bound, 10 integers at bound fixed and 0 continuous of which 5 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of -120 - took 0.00 seconds
+Cbc0012I Integer solution of -120 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective -120, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from -120 to -120
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                -120.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/c40af2c737e248c5b0067acf7c9af6a2-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/c40af2c737e248c5b0067acf7c9af6a2-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 8 COLUMNS
+At line 19 RHS
+At line 23 BOUNDS
+At line 26 ENDATA
+Problem MODEL has 3 rows, 2 columns and 5 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 0 - 0.00 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 2 rows, 2 columns (2 integer (1 of which binary)) and 4 elements
+Cutoff increment increased from 1e-05 to 510
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 0
+Cbc0038I Cleaned solution of 0
+Cbc0038I Before mini branch and bound, 2 integers at bound fixed and 0 continuous of which 1 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 0 - took 0.00 seconds
+Cbc0012I Integer solution of 0 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 0, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 0 to 0
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                0.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/c4393326b4ad4886a5ed68429bf58d23-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/c4393326b4ad4886a5ed68429bf58d23-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 26 COLUMNS
+At line 101 RHS
+At line 123 BOUNDS
+At line 136 ENDATA
+Problem MODEL has 21 rows, 12 columns and 38 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is -168 - 0.00 seconds
+Cgl0003I 0 fixed, 3 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 12 rows, 11 columns (11 integer (5 of which binary)) and 27 elements
+Cutoff increment increased from 1e-05 to 0.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of -168
+Cbc0038I Cleaned solution of -168
+Cbc0038I Before mini branch and bound, 11 integers at bound fixed and 0 continuous of which 5 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of -168 - took 0.00 seconds
+Cbc0012I Integer solution of -168 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective -168, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from -168 to -168
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                -168.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/ba9d52583d724b5b9872b85ecd4aba93-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/ba9d52583d724b5b9872b85ecd4aba93-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 8 COLUMNS
+At line 19 RHS
+At line 23 BOUNDS
+At line 26 ENDATA
+Problem MODEL has 3 rows, 2 columns and 5 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 0 - 0.00 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 2 rows, 2 columns (2 integer (1 of which binary)) and 4 elements
+Cutoff increment increased from 1e-05 to 360
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 0
+Cbc0038I Cleaned solution of 0
+Cbc0038I Before mini branch and bound, 2 integers at bound fixed and 0 continuous of which 1 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 0 - took 0.00 seconds
+Cbc0012I Integer solution of 0 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 0, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 0 to 0
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                0.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/942501a6da9e42f998c2c8a48d21f6ab-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/942501a6da9e42f998c2c8a48d21f6ab-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 8 COLUMNS
+At line 19 RHS
+At line 23 BOUNDS
+At line 26 ENDATA
+Problem MODEL has 3 rows, 2 columns and 5 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 0 - 0.00 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 2 rows, 2 columns (2 integer (1 of which binary)) and 4 elements
+Cutoff increment increased from 1e-05 to 390
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 0
+Cbc0038I Cleaned solution of 0
+Cbc0038I Before mini branch and bound, 2 integers at bound fixed and 0 continuous of which 1 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 0 - took 0.00 seconds
+Cbc0012I Integer solution of 0 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 0, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 0 to 0
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                0.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/2871304b651a4bf1b7c761181a86fcee-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/2871304b651a4bf1b7c761181a86fcee-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 8 COLUMNS
+At line 19 RHS
+At line 23 BOUNDS
+At line 26 ENDATA
+Problem MODEL has 3 rows, 2 columns and 5 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 0 - 0.00 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 2 rows, 2 columns (2 integer (1 of which binary)) and 4 elements
+Cutoff increment increased from 1e-05 to 300
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 0
+Cbc0038I Cleaned solution of 0
+Cbc0038I Before mini branch and bound, 2 integers at bound fixed and 0 continuous of which 1 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 0 - took 0.00 seconds
+Cbc0012I Integer solution of 0 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 0, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 0 to 0
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                0.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/af9eb0b7cb3046a8839e6d553b5daf07-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/af9eb0b7cb3046a8839e6d553b5daf07-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 26 COLUMNS
+At line 102 RHS
+At line 124 BOUNDS
+At line 137 ENDATA
+Problem MODEL has 21 rows, 12 columns and 39 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is -138 - 0.00 seconds
+Cgl0003I 0 fixed, 3 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 14 rows, 12 columns (12 integer (5 of which binary)) and 32 elements
+Cutoff increment increased from 1e-05 to 0.9999
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of -138
+Cbc0038I Cleaned solution of -138
+Cbc0038I Before mini branch and bound, 12 integers at bound fixed and 0 continuous of which 5 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of -138 - took 0.00 seconds
+Cbc0012I Integer solution of -138 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective -138, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from -138 to -138
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                -138.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/a675c518c68d4ca89541529faeda4a61-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/a675c518c68d4ca89541529faeda4a61-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 8 COLUMNS
+At line 19 RHS
+At line 23 BOUNDS
+At line 26 ENDATA
+Problem MODEL has 3 rows, 2 columns and 5 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 0 - 0.00 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 2 rows, 2 columns (2 integer (1 of which binary)) and 4 elements
+Cutoff increment increased from 1e-05 to 960
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 0
+Cbc0038I Cleaned solution of 0
+Cbc0038I Before mini branch and bound, 2 integers at bound fixed and 0 continuous of which 1 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 0 - took 0.00 seconds
+Cbc0012I Integer solution of 0 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 0, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 0 to 0
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                0.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/zhaoyang-new/anaconda3/lib/python3.9/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/796ce6070ea14f13bbeb7d2d4eb8a53f-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /tmp/796ce6070ea14f13bbeb7d2d4eb8a53f-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 8 COLUMNS
+At line 19 RHS
+At line 23 BOUNDS
+At line 26 ENDATA
+Problem MODEL has 3 rows, 2 columns and 5 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 0 - 0.00 seconds
+Cgl0003I 0 fixed, 1 tightened bounds, 0 strengthened rows, 0 substitutions
+Cgl0004I processed model has 2 rows, 2 columns (2 integer (1 of which binary)) and 4 elements
+Cutoff increment increased from 1e-05 to 360
+Cbc0038I Initial state - 0 integers unsatisfied sum - 0
+Cbc0038I Solution found of 0
+Cbc0038I Cleaned solution of 0
+Cbc0038I Before mini branch and bound, 2 integers at bound fixed and 0 continuous of which 1 were internal integer and 0 internal continuous
+Cbc0038I Mini branch and bound did not improve solution (0.00 seconds)
+Cbc0038I After 0.00 seconds - Feasibility pump exiting with objective of 0 - took 0.00 seconds
+Cbc0012I Integer solution of 0 found by feasibility pump after 0 iterations and 0 nodes (0.00 seconds)
+Cbc0001I Search completed - best objective 0, took 0 iterations and 0 nodes (0.00 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 0 to 0
+Probing was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 0 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                0.00000000
+Enumerated nodes:               0
+Total iterations:               0
+Time (CPU seconds):             0.00
+Time (Wallclock seconds):       0.00
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.00   (Wallclock seconds):       0.00
+
+Problem:
+MINIMIZE
+690*Z0 + 60
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+VARIABLES
+Y0 free Integer
+Z0 free Integer
+
+Optimal
+[Y0, Z0]
+Y0 = 0.0
+Z0 = 0.0
+60.0 Objective Answer
+Y0 (90, 91, 2, 'S')
+Problem:
+MINIMIZE
+630*Z0 + 60
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+VARIABLES
+Y0 free Integer
+Z0 free Integer
+
+Optimal
+[Y0, Z0]
+Y0 = 0.0
+Z0 = 0.0
+60.0 Objective Answer
+Y0 (93, 92, 2, 'S')
+X1 (93, 94, 0, 'R')
+X2 (93, 95, 0, 'SV')
+Y3 (95, 94, 2, 'S')
+X4 (95, 96, 0, 'R')
+Y5 (96, 97, 2, 'S')
+Problem:
+MINIMIZE
+-9*T2 + -30*X1 + -30*X2 + -30*X4 + -15*Y0 + -30*Y3 + -15*Y5 + 100*Z0 + 10*Z3 + 280*Z5 + 180
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+_C4: X1 >= 1
+
+_C5: - 10 T2 + X2 <= 0
+
+_C6: - T2 + X2 >= 0
+
+_C7: X2 >= 0
+
+_C8: Y3 + Z3 >= 0
+
+_C9: - Y3 + Z3 >= 0
+
+_C10: Z3 <= 1
+
+_C11: X4 >= 1
+
+_C12: Y5 + Z5 >= 0
+
+_C13: - Y5 + Z5 >= 0
+
+_C14: Z5 <= 1
+
+_C15: X1 + X2 + Y0 <= 2
+
+_C16: X1 + Y3 <= 2
+
+_C17: X2 + X4 + Y3 <= 2
+
+_C18: X4 + Y5 <= 2
+
+VARIABLES
+0 <= T2 <= 1 Integer
+0 <= X1 Integer
+0 <= X2 Integer
+0 <= X4 Integer
+Y0 free Integer
+Y3 free Integer
+Y5 free Integer
+Z0 free Integer
+Z3 free Integer
+Z5 free Integer
+
+Optimal
+[T2, X1, X2, X4, Y0, Y3, Y5, Z0, Z3, Z5]
+93 94 2.0 R
+93 95 0.0 SV
+95 96 2.0 R
+T2 = 0.0
+X1 = 2.0
+X2 = 0.0
+X4 = 2.0
+Y0 = 0.0
+Y3 = 0.0
+Y5 = 0.0
+Z0 = 0.0
+Z3 = 0.0
+Z5 = 0.0
+60.0 Objective Answer
+Y0 (98, 99, 2, 'S')
+Problem:
+MINIMIZE
+510*Z0 + 60
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+VARIABLES
+Y0 free Integer
+Z0 free Integer
+
+Optimal
+[Y0, Z0]
+Y0 = 0.0
+Z0 = 0.0
+60.0 Objective Answer
+Y0 (100, 101, 2, 'S')
+X1 (101, 102, 0, 'R')
+X2 (101, 103, 0, 'SV')
+Y3 (102, 103, 3, 'S')
+X4 (103, 104, 0, 'R')
+Y5 (104, 105, 2, 'S')
+X6 (102, 102, 0, 'SV')
+Problem:
+MINIMIZE
+-9*T2 + -9*T6 + -30*X1 + -30*X2 + -30*X4 + -30*X6 + -15*Y0 + -30*Y3 + -15*Y5 + 100*Z0 + 30*Z3 + 220*Z5 + 210
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+_C4: X1 >= 1
+
+_C5: - 10 T2 + X2 <= 0
+
+_C6: - T2 + X2 >= 0
+
+_C7: X2 >= 0
+
+_C8: Y3 + Z3 >= 0
+
+_C9: - Y3 + Z3 >= 0
+
+_C10: Z3 <= 1
+
+_C11: X4 >= 1
+
+_C12: Y5 + Z5 >= 0
+
+_C13: - Y5 + Z5 >= 0
+
+_C14: Z5 <= 1
+
+_C15: - 10 T6 + X6 <= 0
+
+_C16: - T6 + X6 >= 0
+
+_C17: X6 >= 0
+
+_C18: X1 + X2 + Y0 <= 2
+
+_C19: X1 + 2 X6 + Y3 <= 3
+
+_C20: X2 + X4 + Y3 <= 3
+
+_C21: X4 + Y5 <= 2
+
+VARIABLES
+0 <= T2 <= 1 Integer
+0 <= T6 <= 1 Integer
+0 <= X1 Integer
+0 <= X2 Integer
+0 <= X4 Integer
+0 <= X6 Integer
+Y0 free Integer
+Y3 free Integer
+Y5 free Integer
+Z0 free Integer
+Z3 free Integer
+Z5 free Integer
+
+Optimal
+[T2, T6, X1, X2, X4, X6, Y0, Y3, Y5, Z0, Z3, Z5]
+101 102 1.0 R
+101 103 1.0 SV
+103 104 2.0 R
+102 102 1.0 SV
+T2 = 1.0
+T6 = 1.0
+X1 = 1.0
+X2 = 1.0
+X4 = 2.0
+X6 = 1.0
+Y0 = 0.0
+Y3 = 0.0
+Y5 = 0.0
+Z0 = 0.0
+Z3 = 0.0
+Z5 = 0.0
+42.0 Objective Answer
+Y0 (106, 107, 2, 'S')
+Problem:
+MINIMIZE
+360*Z0 + 60
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+VARIABLES
+Y0 free Integer
+Z0 free Integer
+
+Optimal
+[Y0, Z0]
+Y0 = 0.0
+Z0 = 0.0
+60.0 Objective Answer
+Y0 (108, 109, 2, 'S')
+Problem:
+MINIMIZE
+390*Z0 + 60
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+VARIABLES
+Y0 free Integer
+Z0 free Integer
+
+Optimal
+[Y0, Z0]
+Y0 = 0.0
+Z0 = 0.0
+60.0 Objective Answer
+Y0 (110, 111, 2, 'S')
+Problem:
+MINIMIZE
+300*Z0 + 60
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+VARIABLES
+Y0 free Integer
+Z0 free Integer
+
+Optimal
+[Y0, Z0]
+Y0 = 0.0
+Z0 = 0.0
+60.0 Objective Answer
+Y0 (113, 112, 2, 'S')
+X1 (113, 114, 0, 'R')
+X2 (113, 115, 0, 'SV')
+Y3 (115, 114, 2, 'S')
+X4 (114, 116, 0, 'SV')
+X5 (115, 116, 0, 'R')
+Y6 (116, 117, 2, 'S')
+Problem:
+MINIMIZE
+-9*T2 + -9*T4 + -30*X1 + -30*X2 + -30*X4 + -30*X5 + -15*Y0 + -30*Y3 + -15*Y6 + 120*Z0 + 10*Z3 + 100*Z6 + 180
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+_C4: X1 >= 1
+
+_C5: - 10 T2 + X2 <= 0
+
+_C6: - T2 + X2 >= 0
+
+_C7: X2 >= 0
+
+_C8: Y3 + Z3 >= 0
+
+_C9: - Y3 + Z3 >= 0
+
+_C10: Z3 <= 1
+
+_C11: - 10 T4 + X4 <= 0
+
+_C12: - T4 + X4 >= 0
+
+_C13: X4 >= 0
+
+_C14: X5 >= 1
+
+_C15: Y6 + Z6 >= 0
+
+_C16: - Y6 + Z6 >= 0
+
+_C17: Z6 <= 1
+
+_C18: X1 + X2 + Y0 <= 2
+
+_C19: X1 + X4 + Y3 <= 2
+
+_C20: X2 + X5 + Y3 <= 2
+
+_C21: X4 + X5 + Y6 <= 2
+
+VARIABLES
+0 <= T2 <= 1 Integer
+0 <= T4 <= 1 Integer
+0 <= X1 Integer
+0 <= X2 Integer
+0 <= X4 Integer
+0 <= X5 Integer
+Y0 free Integer
+Y3 free Integer
+Y6 free Integer
+Z0 free Integer
+Z3 free Integer
+Z6 free Integer
+
+Optimal
+[T2, T4, X1, X2, X4, X5, Y0, Y3, Y6, Z0, Z3, Z6]
+113 114 1.0 R
+113 115 1.0 SV
+114 116 1.0 SV
+115 116 1.0 R
+T2 = 1.0
+T4 = 1.0
+X1 = 1.0
+X2 = 1.0
+X4 = 1.0
+X5 = 1.0
+Y0 = 0.0
+Y3 = 0.0
+Y6 = 0.0
+Z0 = 0.0
+Z3 = 0.0
+Z6 = 0.0
+42.0 Objective Answer
+Y0 (118, 119, 1, 'S')
+Problem:
+MINIMIZE
+960*Z0 + 30
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+VARIABLES
+Y0 free Integer
+Z0 free Integer
+
+Optimal
+[Y0, Z0]
+Y0 = 0.0
+Z0 = 0.0
+30.0 Objective Answer
+Y0 (120, 121, 1, 'S')
+Problem:
+MINIMIZE
+360*Z0 + 30
+SUBJECT TO
+_C1: Y0 + Z0 >= 0
+
+_C2: - Y0 + Z0 >= 0
+
+_C3: Z0 <= 1
+
+VARIABLES
+Y0 free Integer
+Z0 free Integer
+
+Optimal
+[Y0, Z0]
+Y0 = 0.0
+Z0 = 0.0
+30.0 Objective Answer
+[0, 1, 16, 17, 18, 3, 2, 15, 14, 4, 5, 78, 77, 76, 73, 72, 74, 75, 6, 7, 8, 9, 10, 11, 12, 13, 79, 80, 81, 19, 20, 21, 22, 23]
+[(1, 0, 2, 'S'), (1, 16, 1, 'SV'), (1, 2, 1, 'R'), (17, 16, 2, 'S'), (15, 16, 1, 'R'), (17, 18, 1, 'R'), (4, 17, 1, 'SV'), (3, 18, 1, 'SV'), (19, 18, 2, 'S'), (3, 2, 2, 'S'), (3, 4, 1, 'R'), (2, 15, 1, 'SV'), (15, 14, 2, 'S'), (5, 4, 2, 'S'), (5, 78, 1, 'SV'), (5, 6, 1, 'R'), (77, 78, 1, 'R'), (79, 78, 2, 'S'), (77, 76, 2, 'S'), (6, 77, 1, 'SV'), (73, 76, 1, 'SV'), (75, 76, 1, 'R'), (72, 73, 2, 'S'), (73, 74, 1, 'R'), (74, 75, 1, 'S'), (7, 6, 2, 'S'), (7, 8, 1, 'R'), (7, 80, 1, 'SV'), (8, 9, 2, 'S'), (8, 79, 1, 'SV'), (9, 10, 2, 'R'), (10, 11, 1, 'SV'), (10, 11, 3, 'S'), (11, 12, 2, 'R'), (12, 13, 2, 'S'), (79, 80, 1, 'R'), (80, 81, 2, 'S'), (19, 20, 1, 'R'), (19, 21, 1, 'SV'), (21, 20, 2, 'S'), (20, 22, 1, 'SV'), (21, 22, 1, 'R'), (22, 23, 2, 'S')]
+Component [0, 1, 16, 17, 18, 3, 2, 15, 14, 4, 5, 78, 77, 76, 73, 72, 74, 75, 6, 7, 8, 9, 10, 11, 12, 13, 79, 80, 81, 19, 20, 21, 22, 23]
+Component edges [(1, 0, 2, 'S'), (1, 16, 1, 'SV'), (1, 2, 1, 'R'), (17, 16, 2, 'S'), (15, 16, 1, 'R'), (17, 18, 1, 'R'), (4, 17, 1, 'SV'), (3, 18, 1, 'SV'), (19, 18, 2, 'S'), (3, 2, 2, 'S'), (3, 4, 1, 'R'), (2, 15, 1, 'SV'), (15, 14, 2, 'S'), (5, 4, 2, 'S'), (5, 78, 1, 'SV'), (5, 6, 1, 'R'), (77, 78, 1, 'R'), (79, 78, 2, 'S'), (77, 76, 2, 'S'), (6, 77, 1, 'SV'), (73, 76, 1, 'SV'), (75, 76, 1, 'R'), (72, 73, 2, 'S'), (73, 74, 1, 'R'), (74, 75, 1, 'S'), (7, 6, 2, 'S'), (7, 8, 1, 'R'), (7, 80, 1, 'SV'), (8, 9, 2, 'S'), (8, 79, 1, 'SV'), (9, 10, 2, 'R'), (10, 11, 1, 'SV'), (10, 11, 3, 'S'), (11, 12, 2, 'R'), (12, 13, 2, 'S'), (79, 80, 1, 'R'), (80, 81, 2, 'S'), (19, 20, 1, 'R'), (19, 21, 1, 'SV'), (21, 20, 2, 'S'), (20, 22, 1, 'SV'), (21, 22, 1, 'R'), (22, 23, 2, 'S')]
+ODD vertices []
+TOUR
+[0, 13, 14, 23, 72, 81]
+paths_score 20 [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], [13, 12, 11, 10, 11, 10, 9, 8, 79, 78, 77, 76, 75, 74, 73, 72], [72, 73, 76, 77, 6, 7, 80, 81], [81, 80, 79, 78, 5, 4, 17, 16, 15, 14], [14, 15, 2, 3, 18, 19, 20, 21, 22, 23], [23, 22, 20, 21, 19, 18, 17, 16, 1, 0]]
+paths_score 20 [[13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], [0, 1, 16, 17, 18, 19, 20, 21, 22, 23], [23, 22, 20, 21, 19, 18, 3, 2, 15, 14], [14, 15, 16, 17, 4, 5, 78, 79, 80, 81], [81, 80, 7, 6, 77, 76, 75, 74, 73, 72], [72, 73, 76, 77, 78, 79, 8, 9, 10, 11, 10, 11, 12, 13]]
+paths_score 20 [[14, 15, 16, 17, 18, 19, 20, 21, 22, 23], [23, 22, 20, 21, 19, 18, 3, 2, 1, 0], [0, 1, 16, 17, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], [13, 12, 11, 10, 11, 10, 9, 8, 79, 78, 77, 76, 75, 74, 73, 72], [72, 73, 76, 77, 6, 7, 80, 81], [81, 80, 79, 78, 5, 4, 3, 2, 15, 14]]
+paths_score 20 [[23, 22, 21, 20, 19, 18, 17, 16, 15, 14], [14, 15, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], [13, 12, 11, 10, 11, 10, 9, 8, 79, 78, 77, 76, 75, 74, 73, 72], [72, 73, 76, 77, 6, 7, 80, 81], [81, 80, 79, 78, 5, 4, 17, 16, 1, 0], [0, 1, 2, 3, 18, 19, 21, 20, 22, 23]]
+paths_score 20 [[72, 73, 74, 75, 76, 77, 78, 79, 80, 81], [81, 80, 7, 6, 5, 4, 3, 2, 1, 0], [0, 1, 16, 17, 18, 19, 20, 21, 22, 23], [23, 22, 20, 21, 19, 18, 3, 2, 15, 14], [14, 15, 16, 17, 4, 5, 78, 79, 8, 9, 10, 11, 12, 13], [13, 12, 11, 10, 11, 10, 9, 8, 7, 6, 77, 76, 73, 72]]
+paths_score 20 [[81, 80, 79, 78, 77, 76, 75, 74, 73, 72], [72, 73, 76, 77, 6, 7, 8, 9, 10, 11, 12, 13], [13, 12, 11, 10, 11, 10, 9, 8, 79, 78, 5, 4, 3, 2, 1, 0], [0, 1, 16, 17, 18, 19, 20, 21, 22, 23], [23, 22, 20, 21, 19, 18, 3, 2, 15, 14], [14, 15, 16, 17, 4, 5, 6, 7, 80, 81]]
+all edges with dummy:  [(1, 0, 2, 'S'), (1, 16, 1, 'SV'), (1, 2, 1, 'R'), (17, 16, 2, 'S'), (15, 16, 1, 'R'), (17, 18, 1, 'R'), (4, 17, 1, 'SV'), (3, 18, 1, 'SV'), (19, 18, 2, 'S'), (3, 2, 2, 'S'), (3, 4, 1, 'R'), (2, 15, 1, 'SV'), (15, 14, 2, 'S'), (5, 4, 2, 'S'), (5, 78, 1, 'SV'), (5, 6, 1, 'R'), (77, 78, 1, 'R'), (79, 78, 2, 'S'), (77, 76, 2, 'S'), (6, 77, 1, 'SV'), (73, 76, 1, 'SV'), (75, 76, 1, 'R'), (72, 73, 2, 'S'), (73, 74, 1, 'R'), (74, 75, 1, 'S'), (7, 6, 2, 'S'), (7, 8, 1, 'R'), (7, 80, 1, 'SV'), (8, 9, 2, 'S'), (8, 79, 1, 'SV'), (9, 10, 2, 'R'), (10, 11, 1, 'SV'), (10, 11, 3, 'S'), (11, 12, 2, 'R'), (12, 13, 2, 'S'), (79, 80, 1, 'R'), (80, 81, 2, 'S'), (19, 20, 1, 'R'), (19, 21, 1, 'SV'), (21, 20, 2, 'S'), (20, 22, 1, 'SV'), (21, 22, 1, 'R'), (22, 23, 2, 'S')]
+0 1 19686.0 2 H [1]
+1 1 14320536.0 2 T [0, 16, 2]
+16 2 42730633.0 2 H [17, 1, 15]
+17 2 44306675.0 2 T [16, 18, 4]
+18 2 44306676.0 2 H [3, 17, 19]
+3 1 15553791.5 2 T [2, 18, 4]
+2 1 14320537.0 2 H [1, 3, 15]
+15 2 42730632.0 2 T [16, 2, 14]
+14 2 0.0 2 H [15]
+4 1 15553792.5 2 H [17, 3, 5]
+5 1 76357103.5 2 T [78, 4, 6]
+78 12 120079171.0 2 H [5, 77, 79]
+77 12 120079170.0 2 T [76, 78, 6]
+76 12 68292165.0 2 H [73, 75, 77]
+73 12 64645361 2 T [72, 74, 76]
+72 12 19721 2 H [73]
+74 12 64655544.0 1 H [73, 75]
+75 12 68282927.0 1 T [74, 76]
+6 1 76357104.5 2 H [77, 5, 7]
+7 1 77371000.5 2 T [8, 80, 6]
+8 1 77371001.5 2 H [9, 79, 7]
+9 1 163396545.0 2 T [8, 10]
+10 1 163397551.0 3 H [9, 11]
+11 1 164579254.0 3 T [10, 12]
+12 1 164584054 2 H [11, 13]
+13 1 248942320 2 T [12]
+79 12 121294373.0 2 T [80, 8, 78]
+80 12 121294374.0 2 H [81, 7, 79]
+81 12 133258008.0 2 T [80]
+19 2 173008572.5 2 T [18, 20, 21]
+20 2 173008573.5 2 H [19, 21, 22]
+21 2 174838702.5 2 T [19, 20, 22]
+22 2 174838703.5 2 H [20, 21, 23]
+23 2 242181357.0 2 T [22]
+Answer [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 12, 11, 10, 11, 10, 9, 8, 79, 78, 77, 76, 75, 74, 73, 72, 73, 76, 77, 6, 7, 80, 81, 80, 79, 78, 5, 4, 17, 16, 15, 14, 15, 2, 3, 18, 19, 20, 21, 22, 23, 22, 20, 21, 19, 18, 17, 16, 1, 0]
+[24, 25, 26, 27, 28, 29, 86, 85, 84, 30, 31, 32, 33, 87, 88, 89]
+[(24, 25, 2, 'S'), (25, 26, 2, 'R'), (26, 27, 3, 'S'), (27, 28, 2, 'R'), (29, 28, 2, 'S'), (29, 86, 1, 'SV'), (29, 30, 1, 'R'), (85, 86, 1, 'R'), (87, 86, 2, 'S'), (85, 84, 2, 'S'), (30, 85, 1, 'SV'), (31, 30, 2, 'S'), (31, 32, 1, 'R'), (31, 88, 1, 'SV'), (32, 33, 2, 'S'), (32, 87, 1, 'SV'), (87, 88, 1, 'R'), (88, 89, 2, 'S')]
+Component [24, 25, 26, 27, 28, 29, 86, 85, 84, 30, 31, 32, 33, 87, 88, 89]
+Component edges [(24, 25, 2, 'S'), (25, 26, 2, 'R'), (26, 27, 3, 'S'), (27, 28, 2, 'R'), (29, 28, 2, 'S'), (29, 86, 1, 'SV'), (29, 30, 1, 'R'), (85, 86, 1, 'R'), (87, 86, 2, 'S'), (85, 84, 2, 'S'), (30, 85, 1, 'SV'), (31, 30, 2, 'S'), (31, 32, 1, 'R'), (31, 88, 1, 'SV'), (32, 33, 2, 'S'), (32, 87, 1, 'SV'), (87, 88, 1, 'R'), (88, 89, 2, 'S')]
+ODD vertices [26, 27]
+TOUR
+[24, 33, 84, 89]
+paths_score 0 [[24, 25, 26, 27, 28, 29, 30, 31, 32, 33], [33, 32, 87, 86, 85, 84], [84, 85, 30, 31, 88, 89], [89, 88, 87, 86, 29, 28, 27, 26, 27, 26, 25, 24]]
+paths_score 0 [[33, 32, 31, 30, 29, 28, 27, 26, 25, 24], [24, 25, 26, 27, 26, 27, 28, 29, 86, 87, 88, 89], [89, 88, 31, 30, 85, 84], [84, 85, 86, 87, 32, 33]]
+paths_score 0 [[84, 85, 86, 87, 88, 89], [89, 88, 31, 30, 29, 28, 27, 26, 25, 24], [24, 25, 26, 27, 26, 27, 28, 29, 86, 87, 32, 33], [33, 32, 31, 30, 85, 84]]
+paths_score 0 [[89, 88, 87, 86, 85, 84], [84, 85, 30, 31, 32, 33], [33, 32, 87, 86, 29, 28, 27, 26, 25, 24], [24, 25, 26, 27, 26, 27, 28, 29, 30, 31, 88, 89]]
+all edges with dummy:  [(24, 25, 2, 'S'), (25, 26, 2, 'R'), (26, 27, 3, 'S'), (27, 28, 2, 'R'), (29, 28, 2, 'S'), (29, 86, 1, 'SV'), (29, 30, 1, 'R'), (85, 86, 1, 'R'), (87, 86, 2, 'S'), (85, 84, 2, 'S'), (30, 85, 1, 'SV'), (31, 30, 2, 'S'), (31, 32, 1, 'R'), (31, 88, 1, 'SV'), (32, 33, 2, 'S'), (32, 87, 1, 'SV'), (87, 88, 1, 'R'), (88, 89, 2, 'S'), (26, 27, 1, 'D')]
+24 3 17438 2 H [25]
+25 3 84074705 2 T [24, 26]
+26 3 84077166.0 3 H [25, 27]
+27 3 84689839.0 3 T [26, 28]
+28 3 84690726.0 2 H [27, 29]
+29 3 194512502.0 2 T [86, 28, 30]
+86 14 63342996.0 2 H [29, 85, 87]
+85 14 63342995.0 2 T [84, 86, 30]
+84 14 0.0 2 H [85]
+30 3 194512503.0 2 H [85, 29, 31]
+31 3 195520682.5 2 T [32, 88, 30]
+32 3 195520683.5 2 H [33, 87, 31]
+33 3 198217553.0 2 T [32]
+87 14 64123995.5 2 T [88, 32, 86]
+88 14 64123996.5 2 H [89, 31, 87]
+89 14 106873282.0 2 T [88]
+Answer [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 32, 87, 86, 85, 84, 85, 30, 31, 88, 89, 88, 87, 86, 29, 28, 27, 26, 27, 26, 25, 24]
+[34, 35, 36, 37, 38, 39]
+[(34, 35, 2, 'S'), (35, 36, 2, 'R'), (36, 37, 3, 'S'), (37, 38, 2, 'R'), (38, 39, 2, 'S')]
+Component [34, 35, 36, 37, 38, 39]
+Component edges [(34, 35, 2, 'S'), (35, 36, 2, 'R'), (36, 37, 3, 'S'), (37, 38, 2, 'R'), (38, 39, 2, 'S')]
+ODD vertices [36, 37]
+TOUR
+[34, 39]
+paths_score 0 [[34, 35, 36, 37, 38, 39], [39, 38, 37, 36, 37, 36, 35, 34]]
+paths_score 0 [[39, 38, 37, 36, 35, 34], [34, 35, 36, 37, 36, 37, 38, 39]]
+all edges with dummy:  [(34, 35, 2, 'S'), (35, 36, 2, 'R'), (36, 37, 3, 'S'), (37, 38, 2, 'R'), (38, 39, 2, 'S'), (36, 37, 1, 'D')]
+34 4 14575 2 H [35]
+35 4 91680815 2 T [34, 36]
+36 4 91681686.0 3 H [35, 37]
+37 4 92358554.0 3 T [36, 38]
+38 4 92361069 2 H [37, 39]
+39 4 190196474 2 T [38]
+Answer [34, 35, 36, 37, 38, 39, 38, 37, 36, 37, 36, 35, 34]
+[40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 57, 56, 55, 54, 58, 59]
+[(41, 40, 2, 'S'), (41, 42, 2, 'R'), (42, 43, 2, 'S'), (43, 44, 2, 'R'), (44, 45, 3, 'S'), (45, 46, 2, 'R'), (47, 46, 2, 'S'), (47, 48, 2, 'R'), (49, 48, 2, 'S'), (49, 50, 1, 'R'), (49, 56, 1, 'SV'), (50, 51, 2, 'S'), (50, 57, 1, 'SV'), (57, 56, 3, 'S'), (57, 58, 2, 'R'), (55, 56, 2, 'R'), (55, 54, 2, 'S'), (58, 59, 2, 'S')]
+Component [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 57, 56, 55, 54, 58, 59]
+Component edges [(41, 40, 2, 'S'), (41, 42, 2, 'R'), (42, 43, 2, 'S'), (43, 44, 2, 'R'), (44, 45, 3, 'S'), (45, 46, 2, 'R'), (47, 46, 2, 'S'), (47, 48, 2, 'R'), (49, 48, 2, 'S'), (49, 50, 1, 'R'), (49, 56, 1, 'SV'), (50, 51, 2, 'S'), (50, 57, 1, 'SV'), (57, 56, 3, 'S'), (57, 58, 2, 'R'), (55, 56, 2, 'R'), (55, 54, 2, 'S'), (58, 59, 2, 'S')]
+ODD vertices [44, 45]
+TOUR
+[40, 51, 54, 59]
+paths_score 0 [[40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51], [51, 50, 57, 56, 55, 54], [54, 55, 56, 57, 58, 59], [59, 58, 57, 56, 49, 48, 47, 46, 45, 44, 45, 44, 43, 42, 41, 40]]
+paths_score 0 [[51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40], [40, 41, 42, 43, 44, 45, 44, 45, 46, 47, 48, 49, 56, 57, 58, 59], [59, 58, 57, 56, 55, 54], [54, 55, 56, 57, 50, 51]]
+paths_score 0 [[54, 55, 56, 57, 58, 59], [59, 58, 57, 56, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40], [40, 41, 42, 43, 44, 45, 44, 45, 46, 47, 48, 49, 50, 51], [51, 50, 57, 56, 55, 54]]
+paths_score 0 [[59, 58, 57, 56, 55, 54], [54, 55, 56, 57, 50, 51], [51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40], [40, 41, 42, 43, 44, 45, 44, 45, 46, 47, 48, 49, 56, 57, 58, 59]]
+all edges with dummy:  [(41, 40, 2, 'S'), (41, 42, 2, 'R'), (42, 43, 2, 'S'), (43, 44, 2, 'R'), (44, 45, 3, 'S'), (45, 46, 2, 'R'), (47, 46, 2, 'S'), (47, 48, 2, 'R'), (49, 48, 2, 'S'), (49, 50, 1, 'R'), (49, 56, 1, 'SV'), (50, 51, 2, 'S'), (50, 57, 1, 'SV'), (57, 56, 3, 'S'), (57, 58, 2, 'R'), (55, 56, 2, 'R'), (55, 54, 2, 'S'), (58, 59, 2, 'S'), (44, 45, 1, 'D')]
+40 5 19924.0 2 H [41]
+41 5 23917829.0 2 T [40, 42]
+42 5 23917830.0 2 H [41, 43]
+43 5 23989635.0 2 T [42, 44]
+44 5 23991439.0 3 H [43, 45]
+45 5 24997608.0 3 T [44, 46]
+46 5 25006973.0 2 H [45, 47]
+47 5 25168765.0 2 T [48, 46]
+48 5 25168766.0 2 H [49, 47]
+49 5 60183707.0 2 T [48, 50, 56]
+50 5 60183708.0 2 H [49, 51, 57]
+51 5 181466351.0 2 T [50]
+57 7 131830570.0 2 T [56, 58, 50]
+56 7 130353970.0 2 H [57, 49, 55]
+55 7 130353969.0 2 T [56, 54]
+54 7 0.0 2 H [55]
+58 7 131830571.0 2 H [57, 59]
+59 7 159334984.0 2 T [58]
+Answer [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 50, 57, 56, 55, 54, 55, 56, 57, 58, 59, 58, 57, 56, 49, 48, 47, 46, 45, 44, 45, 44, 43, 42, 41, 40]
+[52, 53]
+[(52, 53, 2, 'S')]
+Component [52, 53]
+Component edges [(52, 53, 2, 'S')]
+ODD vertices []
+TOUR
+[52, 53]
+paths_score 0 [[52, 53], [53, 52]]
+paths_score 0 [[53, 52], [52, 53]]
+all edges with dummy:  [(52, 53, 2, 'S')]
+52 6 0 2 H [53]
+53 6 170739897 2 T [52]
+Answer [52, 53, 52]
+[60, 61]
+[(60, 61, 2, 'S')]
+Component [60, 61]
+Component edges [(60, 61, 2, 'S')]
+ODD vertices []
+TOUR
+[60, 61]
+paths_score 0 [[60, 61], [61, 60]]
+paths_score 0 [[61, 60], [60, 61]]
+all edges with dummy:  [(60, 61, 2, 'S')]
+60 8 0 2 H [61]
+61 8 145076125 2 T [60]
+Answer [60, 61, 60]
+[62, 63]
+[(62, 63, 2, 'S')]
+Component [62, 63]
+Component edges [(62, 63, 2, 'S')]
+ODD vertices []
+TOUR
+[62, 63]
+paths_score 0 [[62, 63], [63, 62]]
+paths_score 0 [[63, 62], [62, 63]]
+all edges with dummy:  [(62, 63, 2, 'S')]
+62 9 0 2 H [63]
+63 9 138334464 2 T [62]
+Answer [62, 63, 62]
+[64, 65]
+[(64, 65, 2, 'S')]
+Component [64, 65]
+Component edges [(64, 65, 2, 'S')]
+ODD vertices []
+TOUR
+[64, 65]
+paths_score 0 [[64, 65], [65, 64]]
+paths_score 0 [[65, 64], [64, 65]]
+all edges with dummy:  [(64, 65, 2, 'S')]
+64 10 0 2 H [65]
+65 10 133785266 2 T [64]
+Answer [64, 65, 64]
+[66, 67, 68, 69, 70, 71]
+[(66, 67, 2, 'S'), (67, 68, 2, 'R'), (68, 69, 1, 'SV'), (68, 69, 3, 'S'), (69, 70, 2, 'R'), (70, 71, 2, 'S')]
+Component [66, 67, 68, 69, 70, 71]
+Component edges [(66, 67, 2, 'S'), (67, 68, 2, 'R'), (68, 69, 1, 'SV'), (68, 69, 3, 'S'), (69, 70, 2, 'R'), (70, 71, 2, 'S')]
+ODD vertices []
+TOUR
+[66, 71]
+paths_score 0 [[66, 67, 68, 69, 70, 71], [71, 70, 69, 68, 69, 68, 67, 66]]
+paths_score 0 [[71, 70, 69, 68, 67, 66], [66, 67, 68, 69, 68, 69, 70, 71]]
+all edges with dummy:  [(66, 67, 2, 'S'), (67, 68, 2, 'R'), (68, 69, 1, 'SV'), (68, 69, 3, 'S'), (69, 70, 2, 'R'), (70, 71, 2, 'S')]
+66 11 62233 2 H [67]
+67 11 86871141 2 T [66, 68]
+68 11 86881965.0 3 H [67, 69]
+69 11 88665365.0 3 T [68, 70]
+70 11 88677601 2 H [69, 71]
+71 11 135068991 2 T [70]
+Answer [66, 67, 68, 69, 70, 71, 70, 69, 68, 69, 68, 67, 66]
+[82, 83]
+[(82, 83, 2, 'S')]
+Component [82, 83]
+Component edges [(82, 83, 2, 'S')]
+ODD vertices []
+TOUR
+[82, 83]
+paths_score 0 [[82, 83], [83, 82]]
+paths_score 0 [[83, 82], [82, 83]]
+all edges with dummy:  [(82, 83, 2, 'S')]
+82 13 0 2 H [83]
+83 13 114352102 2 T [82]
+Answer [82, 83, 82]
+[90, 91]
+[(90, 91, 2, 'S')]
+Component [90, 91]
+Component edges [(90, 91, 2, 'S')]
+ODD vertices []
+TOUR
+[90, 91]
+paths_score 0 [[90, 91], [91, 90]]
+paths_score 0 [[91, 90], [90, 91]]
+all edges with dummy:  [(90, 91, 2, 'S')]
+90 15 0 2 H [91]
+91 15 101976509 2 T [90]
+Answer [90, 91, 90]
+[92, 93, 94, 95, 96, 97]
+[(93, 92, 2, 'S'), (93, 94, 2, 'R'), (95, 94, 2, 'S'), (95, 96, 2, 'R'), (96, 97, 2, 'S')]
+Component [92, 93, 94, 95, 96, 97]
+Component edges [(93, 92, 2, 'S'), (93, 94, 2, 'R'), (95, 94, 2, 'S'), (95, 96, 2, 'R'), (96, 97, 2, 'S')]
+ODD vertices []
+TOUR
+[92, 97]
+paths_score 0 [[92, 93, 94, 95, 96, 97], [97, 96, 95, 94, 93, 92]]
+paths_score 0 [[97, 96, 95, 94, 93, 92], [92, 93, 94, 95, 96, 97]]
+all edges with dummy:  [(93, 92, 2, 'S'), (93, 94, 2, 'R'), (95, 94, 2, 'S'), (95, 96, 2, 'R'), (96, 97, 2, 'S')]
+92 16 0.0 2 H [93]
+93 16 21500434.0 2 T [92, 94]
+94 16 21500435.0 2 H [93, 95]
+95 16 22438802.0 2 T [96, 94]
+96 16 22438803.0 2 H [97, 95]
+97 16 90224751.0 2 T [96]
+Answer [92, 93, 94, 95, 96, 97, 96, 95, 94, 93, 92]
+[98, 99]
+[(98, 99, 2, 'S')]
+Component [98, 99]
+Component edges [(98, 99, 2, 'S')]
+ODD vertices []
+TOUR
+[98, 99]
+paths_score 0 [[98, 99], [99, 98]]
+paths_score 0 [[99, 98], [98, 99]]
+all edges with dummy:  [(98, 99, 2, 'S')]
+98 17 0 2 H [99]
+99 17 83246392 2 T [98]
+Answer [98, 99, 98]
+[100, 101, 102, 103, 104, 105]
+[(100, 101, 2, 'S'), (101, 102, 1, 'R'), (101, 103, 1, 'SV'), (102, 103, 3, 'S'), (103, 104, 2, 'R'), (104, 105, 2, 'S'), (102, 102, 1, 'SV')]
+Component [100, 101, 102, 103, 104, 105]
+Component edges [(100, 101, 2, 'S'), (101, 102, 1, 'R'), (101, 103, 1, 'SV'), (102, 103, 3, 'S'), (103, 104, 2, 'R'), (104, 105, 2, 'S'), (102, 102, 1, 'SV')]
+ODD vertices []
+TOUR
+[100, 105]
+paths_score 0 [[100, 101, 102, 103, 104, 105], [105, 104, 103, 102, 102, 103, 101, 100]]
+paths_score 0 [[105, 104, 103, 102, 101, 100], [100, 101, 103, 102, 102, 103, 104, 105]]
+all edges with dummy:  [(100, 101, 2, 'S'), (101, 102, 1, 'R'), (101, 103, 1, 'SV'), (102, 103, 3, 'S'), (103, 104, 2, 'R'), (104, 105, 2, 'S'), (102, 102, 1, 'SV')]
+100 18 19428.0 2 H [101]
+101 18 23898796.0 2 T [100, 102, 103]
+102 18 23906323.0 3 H [101, 102, 103]
+103 18 25662472.0 3 T [104, 101, 102]
+104 18 25669334.5 2 H [105, 103]
+105 18 80243011.0 2 T [104]
+Answer [100, 101, 102, 103, 104, 105, 104, 103, 102, 102, 103, 101, 100]
+[106, 107]
+[(106, 107, 2, 'S')]
+Component [106, 107]
+Component edges [(106, 107, 2, 'S')]
+ODD vertices []
+TOUR
+[106, 107]
+paths_score 0 [[106, 107], [107, 106]]
+paths_score 0 [[107, 106], [106, 107]]
+all edges with dummy:  [(106, 107, 2, 'S')]
+106 19 0 2 H [107]
+107 19 58605715 2 T [106]
+Answer [106, 107, 106]
+[108, 109]
+[(108, 109, 2, 'S')]
+Component [108, 109]
+Component edges [(108, 109, 2, 'S')]
+ODD vertices []
+TOUR
+[108, 109]
+paths_score 0 [[108, 109], [109, 108]]
+paths_score 0 [[109, 108], [108, 109]]
+all edges with dummy:  [(108, 109, 2, 'S')]
+108 20 0 2 H [109]
+109 20 64333718 2 T [108]
+Answer [108, 109, 108]
+[110, 111]
+[(110, 111, 2, 'S')]
+Component [110, 111]
+Component edges [(110, 111, 2, 'S')]
+ODD vertices []
+TOUR
+[110, 111]
+paths_score 0 [[110, 111], [111, 110]]
+paths_score 0 [[111, 110], [110, 111]]
+all edges with dummy:  [(110, 111, 2, 'S')]
+110 21 0 2 H [111]
+111 21 46697230 2 T [110]
+Answer [110, 111, 110]
+[112, 113, 114, 115, 116, 117]
+[(113, 112, 2, 'S'), (113, 114, 1, 'R'), (113, 115, 1, 'SV'), (115, 114, 2, 'S'), (114, 116, 1, 'SV'), (115, 116, 1, 'R'), (116, 117, 2, 'S')]
+Component [112, 113, 114, 115, 116, 117]
+Component edges [(113, 112, 2, 'S'), (113, 114, 1, 'R'), (113, 115, 1, 'SV'), (115, 114, 2, 'S'), (114, 116, 1, 'SV'), (115, 116, 1, 'R'), (116, 117, 2, 'S')]
+ODD vertices []
+TOUR
+[112, 117]
+paths_score 0 [[112, 113, 114, 115, 116, 117], [117, 116, 114, 115, 113, 112]]
+paths_score 0 [[117, 116, 115, 114, 113, 112], [112, 113, 115, 114, 116, 117]]
+all edges with dummy:  [(113, 112, 2, 'S'), (113, 114, 1, 'R'), (113, 115, 1, 'SV'), (115, 114, 2, 'S'), (114, 116, 1, 'SV'), (115, 116, 1, 'R'), (116, 117, 2, 'S')]
+112 22 0.0 2 H [113]
+113 22 28073392.5 2 T [112, 114, 115]
+114 22 28073393.5 2 H [113, 115, 116]
+115 22 29075354.0 2 T [113, 114, 116]
+116 22 29075355.0 2 H [114, 115, 117]
+117 22 50805587.0 2 T [116]
+Answer [112, 113, 114, 115, 116, 117, 116, 114, 115, 113, 112]
+[118, 119]
+[(118, 119, 1, 'S')]
+Component [118, 119]
+Component edges [(118, 119, 1, 'S')]
+ODD vertices [118, 119]
+TOUR
+[118, 119]
+all edges with dummy:  [(118, 119, 1, 'S')]
+118 23 0 1 H [119]
+119 23 156025612 1 T [118]
+Answer [118, 119]
+[120, 121]
+[(120, 121, 1, 'S')]
+Component [120, 121]
+Component edges [(120, 121, 1, 'S')]
+ODD vertices [120, 121]
+TOUR
+[120, 121]
+all edges with dummy:  [(120, 121, 1, 'S')]
+120 24 0 1 H [121]
+121 24 57212132 1 T [120]
+Answer [120, 121]
