@@ -38,20 +38,26 @@ def generate_parabola(start_x, end_x, peak_x, peak_y, num_points=100):
     return np.array([(round(x_val, 6), round(y_val, 6)) for x_val, y_val in zip(x, y)])
 
 
-def generate_circle(start_x, diameter, num_points=100):
-    # Calculate the radius from the diameter
+def generate_circle(start_x, peak_y, circle_size_multiplier, num_points=100):
+    diameter = abs(peak_y - 0.5) * circle_size_multiplier
     radius = diameter / 2
+    is_upward_direction = (peak_y > 0.5)
 
     # Calculate the center of the circle
-    center_x = start_x + radius
-    center_y = 0.5  # Fixed y-coordinate
-
-    # Generate angles for the circle
-    angles = np.linspace(0, 2 * np.pi, num_points)
+    center_x = start_x
+    if is_upward_direction:
+        center_y = 0.5 + radius  # Fixed y-coordinate
+        # Generate angles for the circle (starting from the bottom and going clockwise)
+        angles = np.linspace(3 * np.pi / 2, -np.pi / 2, num_points)
+    else:
+        center_y = 0.5 - radius
+        # Generate angles for the circle (starting from the top and going counterclockwise)
+        angles = np.linspace(np.pi / 2, -3 * np.pi / 2, num_points)
 
     # Generate x and y coordinates for the circle
     x = center_x + radius * np.cos(angles)
     y = center_y + radius * np.sin(angles)
+
     # Combine x and y coordinates into points
     points = np.array([[round(x_val, 6), round(y_val, 6)] for x_val, y_val in zip(x, y)])
 

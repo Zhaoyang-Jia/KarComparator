@@ -328,7 +328,7 @@ def graph_post_ILP_with_dummies(chrs_of_interest, header_name):
 
 if __name__ == "__main__":
     chr_of_int = ['6']
-    header = '23Y_2p15-16-1_microdeletion_r2'
+    header = '/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/complete_graphs/23Y_Potocki_Shaffer_r1cluster_2'
     graph_pre_ILP(chr_of_int, header)
     graph_post_ILP(chr_of_int, header)
     graph_post_ILP_with_dummies(chr_of_int, header)

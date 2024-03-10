@@ -480,7 +480,6 @@ class Graph:
                 graph.add_edge(edge[0], edge[1], color=edge_color, weight=edge_weight)
 
         def iterative_add_edge_trace(edges_dict: {(str, str): int}, trace_dict: {(str, str): (float, float)}, uniform_peak_height):
-            # TODO: account for self-edge using a circular trace generation instead
             for edge in edges_dict:
                 node1_x = V_pos[edge[0]][0]
                 node2_x = V_pos[edge[1]][0]
@@ -490,7 +489,7 @@ class Graph:
 
                 if edge[0] == edge[1]:
                     # self edge
-                    trace_dict[edge] = generate_circle(node1_x, uniform_peak_height)
+                    trace_dict[edge] = generate_circle(node1_x, uniform_peak_height, 7)
                 else:
                     # regular edge
                     peak_x = round((node1_x + node2_x) / 2, 6)
@@ -707,7 +706,7 @@ def draw_graph(cluster_file, output_dir):
     graph.visualize_graph(folder + 'pruned')
     print('pruned segment distance: ' + str(graph.get_segment_distance()))
     graph.remove_approximate_transition_edges()
-    graph.visualize_graph(folder + 'approximated')
+    graph.visualize_graph(folder + 'approximated', merged=True)
     print('approximated segment distance: ' + str(graph.get_segment_distance()))
     print('approximated_cnv: ' + str(graph.approximated_cnv))
     graph.match_transition_edges()
@@ -719,8 +718,8 @@ def draw_graph(cluster_file, output_dir):
 
 
 if __name__ == "__main__":
-    file_name = '23Y_2p15-16-1_microdeletion_r2'
-    cluster_number = '0'
+    file_name = '23Y_Potocki_Shaffer_r1'
+    cluster_number = '2'
     draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/' + file_name + 'cluster_' + cluster_number + '.txt',
                'new_data_files/complete_graphs/')
 
