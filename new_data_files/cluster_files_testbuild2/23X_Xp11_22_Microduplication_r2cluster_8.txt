@@ -1,0 +1,21 @@
+cluster<8>, origin_chr<['Chr14']>, n_karsim<2>, n_omkar<2>
+0	Chr14	0	15999999	acrocentric-telomere1	16000000
+1	Chr14	16000000	16000000	arm_region	1
+2	Chr14	16000001	16004725	acrocentric-centromere	4725
+3	Chr14	16004726	18173523	acrocentric-centromere	2168798
+4	Chr14	18173524	46822180	arm_region	28648657
+5	Chr14	46822181	46823218	arm_region	1038
+6	Chr14	46823219	46889628	arm_region	66410
+7	Chr14	46889629	48066947	arm_region	1177319
+8	Chr14	48066948	48281802	arm_region	214855
+9	Chr14	48281803	48283964	arm_region	2162
+10	Chr14	48283965	106873281	arm_region	58589317
+11	Chr14	106873282	106883717	arm_region	10436
+12	Chr14	106883718	107043717	telomere2	160000
+---
+Chr14a	Chr14	0+,1+,2+,3+,4+,5+,6+,7+,8+,8-,7-,6-,5-,9+,10+,11+,12+
+Chr14b	Chr14	0+,1+,2+,3+,4+,5+,6+,7+,8+,9+,10+,11+,12+
+---
+Path29	Chr14-no centromere	3+,4+,5+,6+,7+,8+,9+,10+
+Path30	Chr14-no centromere	10-,9-,8-,7-,7-,6-,5-,4-,3-
+---

@@ -439,7 +439,7 @@ class Graph:
                 self.karsim_n_transition_approximated += 1
                 self.omkar_n_transition_approximated += 1
 
-    def visualize_graph(self, output_prefix):
+    def visualize_graph(self, output_prefix, merged=False):
         # create sorted nodes (Endpoints)
 
         nodes = self.node_name.keys()
@@ -474,7 +474,27 @@ class Graph:
                     this_edge_type = translated_segment_edge_type[(edge[0]), (edge[1])]
                     if this_edge_type.startswith('telomere') or this_edge_type.startswith('acrocentric'):
                         edge_color = 'blue'
+
+                if graph.has_edge(edge[0], edge[1]):
+                    raise RuntimeError('edge already exists, multi-graph not supported')
                 graph.add_edge(edge[0], edge[1], color=edge_color, weight=edge_weight)
+
+        def iterative_add_edge_trace(edges_dict: {(str, str): int}, trace_dict: {(str, str): (float, float)}, uniform_peak_height):
+            # TODO: account for self-edge using a circular trace generation instead
+            for edge in edges_dict:
+                node1_x = V_pos[edge[0]][0]
+                node2_x = V_pos[edge[1]][0]
+
+                if edge in trace_dict:
+                    raise RuntimeError('edge already exists, multi-graph not supported')
+
+                if edge[0] == edge[1]:
+                    # self edge
+                    trace_dict[edge] = generate_circle(node1_x, uniform_peak_height)
+                else:
+                    # regular edge
+                    peak_x = round((node1_x + node2_x) / 2, 6)
+                    trace_dict[edge] = generate_parabola(node1_x, node2_x, peak_x, uniform_peak_height)
 
         G_karsim = nx.DiGraph()
         G_karsim.add_nodes_from(V)
@@ -556,37 +576,70 @@ class Graph:
             omkar_E_weights[edge_itr] = E_omkar_transition[edge_itr]
 
         ## plotting
-        plt.figure(figsize=(graph_width * width_multiplier, graph_width * height_multiplier))
-        plot_karsim = ng.InteractiveGraph(G_karsim,
-                                          node_color=V_colors,
-                                          node_layout=V_pos,
-                                          node_labels=True,
-                                          edge_color=karsim_E_colors,
-                                          edge_layout='arc',
-                                          edge_labels=karsim_E_weights,
-                                          arrows=True,
-                                          node_size=6,
-                                          node_label_offset=0.001,
-                                          node_label_font_dict=dict(size=10),
-                                          edge_label_fontdict=dict(size=9),
-                                          scale=(graph_width, 1))
-        plt.savefig(output_prefix + '.karsim.graph.png')
+        if not merged:
+            plt.figure(figsize=(graph_width * width_multiplier, graph_width * height_multiplier))
+            plot_karsim = ng.InteractiveGraph(G_karsim,
+                                              node_color=V_colors,
+                                              node_layout=V_pos,
+                                              node_labels=True,
+                                              edge_color=karsim_E_colors,
+                                              edge_layout='arc',
+                                              edge_labels=karsim_E_weights,
+                                              arrows=True,
+                                              node_size=6,
+                                              node_label_offset=0.001,
+                                              node_label_font_dict=dict(size=10),
+                                              edge_label_fontdict=dict(size=9),
+                                              scale=(graph_width, 1))
+            plt.savefig(output_prefix + '.karsim.graph.png')
 
-        plt.figure(figsize=(graph_width * width_multiplier, graph_width * height_multiplier))
-        plot_omkar = ng.InteractiveGraph(G_omkar,
-                                         node_color=V_colors,
-                                         node_layout=V_pos,
-                                         node_labels=True,
-                                         edge_color=omkar_E_colors,
-                                         edge_layout='arc',
-                                         edge_labels=omkar_E_weights,
-                                         arrows=True,
-                                         node_size=6,
-                                         node_label_offset=0.001,
-                                         node_label_font_dict=dict(size=10),
-                                         edge_label_fontdict=dict(size=9),
-                                         scale=(graph_width, 1))
-        plt.savefig(output_prefix + '.omkar.graph.png')
+            plt.figure(figsize=(graph_width * width_multiplier, graph_width * height_multiplier))
+            plot_omkar = ng.InteractiveGraph(G_omkar,
+                                             node_color=V_colors,
+                                             node_layout=V_pos,
+                                             node_labels=True,
+                                             edge_color=omkar_E_colors,
+                                             edge_layout='arc',
+                                             edge_labels=omkar_E_weights,
+                                             arrows=True,
+                                             node_size=6,
+                                             node_label_offset=0.001,
+                                             node_label_font_dict=dict(size=10),
+                                             edge_label_fontdict=dict(size=9),
+                                             scale=(graph_width, 1))
+            plt.savefig(output_prefix + '.omkar.graph.png')
+        else:
+            G_merged = nx.DiGraph()
+            G_merged.add_nodes_from(V)
+
+            iterative_add_edge(E_karsim_segment, 'black', G_merged, forbidden_segment_edge_labels=True)
+            iterative_add_edge(E_karsim_transition, 'red', G_merged)
+            iterative_add_edge(E_omkar_segment, 'black', G_merged, forbidden_segment_edge_labels=True)
+            iterative_add_edge(E_omkar_transition, 'red', G_merged)
+
+            merged_E_pos = {}
+            iterative_add_edge_trace(E_karsim_segment, merged_E_pos, 0.58)
+            iterative_add_edge_trace(E_omkar_segment, merged_E_pos, 0.42)
+            iterative_add_edge_trace(E_karsim_transition, merged_E_pos, 1)
+            iterative_add_edge_trace(E_omkar_transition, merged_E_pos, 0)
+
+            merged_E_colors = {**karsim_E_colors, **omkar_E_colors}
+            merged_E_weights = {**karsim_E_weights, **omkar_E_weights}
+            plt.figure(figsize=(graph_width * width_multiplier, graph_width * height_multiplier * 2))  # merged graph is going to be twice as high
+            plot_merged = ng.InteractiveGraph(G_merged,
+                                              node_color=V_colors,
+                                              node_layout=V_pos,
+                                              node_labels=True,
+                                              edge_color=merged_E_colors,
+                                              edge_layout=merged_E_pos,
+                                              edge_labels=merged_E_weights,
+                                              arrows=True,
+                                              node_size=6,
+                                              node_label_offset=0.001,
+                                              node_label_font_dict=dict(size=10),
+                                              edge_label_fontdict=dict(size=9),
+                                              scale=(graph_width, 1))
+            plt.savefig(output_prefix + '.merged.graph.png')
 
 
 def form_graph_from_cluster(cluster_file):
@@ -627,14 +680,16 @@ def form_graph_from_cluster(cluster_file):
     return graph
 
 
-def draw_graph(cluster_file):
+def draw_graph(cluster_file, output_dir):
     import os
     import shutil
 
     file_basename = cluster_file.split('/')[-1].split('.')[0]
     file_basename_no_cluster = file_basename.split('cluster')[0]
-    folder = 'new_data_files/complete_graphs/' + file_basename + '/'
+    folder = output_dir + file_basename + '/'
+
     os.makedirs(folder, exist_ok=True)
+
     shutil.copyfile('new_data_files/OMKar/' + file_basename_no_cluster + '.1.txt',
                     folder + file_basename_no_cluster + '.omkar_paths.txt')
     shutil.copyfile('new_data_files/KarSimulator/' + file_basename_no_cluster + '.kt.txt',
@@ -656,7 +711,7 @@ def draw_graph(cluster_file):
     print('approximated segment distance: ' + str(graph.get_segment_distance()))
     print('approximated_cnv: ' + str(graph.approximated_cnv))
     graph.match_transition_edges()
-    graph.visualize_graph(folder + 'matched')
+    graph.visualize_graph(folder + 'matched', merged=True)
     print('post-matching segment distance: ' + str(graph.get_segment_distance()))
     print('approximated_cnv: ' + str(graph.approximated_cnv))
 
@@ -664,7 +719,8 @@ def draw_graph(cluster_file):
 
 
 if __name__ == "__main__":
-    file_name = '23X_Xp11_22_Microduplication_r2'
-    cluster_number = '8'
-    draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/' + file_name + 'cluster_' + cluster_number + '.txt')
+    file_name = '23Y_2p15-16-1_microdeletion_r2'
+    cluster_number = '0'
+    draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/' + file_name + 'cluster_' + cluster_number + '.txt',
+               'new_data_files/complete_graphs/')
 

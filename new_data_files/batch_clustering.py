@@ -9,10 +9,12 @@ from utils import *
 import os
 import sys
 
-karsim_folder = '/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/KarSimulator/'
-omkar_folder = '/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/OMKar_testbuild/'
-forbidden_region_file = '/media/zhaoyang-new/workspace/KarSim/KarComparator/Metadata/acrocentric_telo_cen.bed'
-output_dir = '/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files_testbuild/'
+karsim_folder = 'KarSimulator/'
+omkar_folder = 'OMKar_testbuild2/'
+forbidden_region_file = '../Metadata/acrocentric_telo_cen.bed'
+output_dir = 'cluster_files_testbuild2/'
+
+os.makedirs(output_dir, exist_ok=True)
 
 with open('clustering.log', 'w') as fp_write:
     sys.stdout = fp_write

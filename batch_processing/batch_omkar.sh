@@ -1,11 +1,12 @@
-data_dir=/Users/zhaoyangjia/Library/CloudStorage/OneDrive-UCSanDiego/Bafna_Lab/packaged_data_for_comparison/Bionano_solve/
-output_dir=./omkar_output
-exe_dir=/Users/zhaoyangjia/Library/CloudStorage/OneDrive-UCSanDiego/Bafna_Lab/OMKar/
-centromere_file=/Users/zhaoyangjia/Library/CloudStorage/OneDrive-UCSanDiego/Bafna_Lab/packaged_data_for_comparison/hg38_centro.txt
+data_dir=/media/zhaoyang-new/workspace/KarSim/packaged_data_for_comparison/Bionano_solve/
+output_dir=omkar_output_temp/
+exe_dir=/media/zhaoyang-new/workspace/OMKar/
+centromere_file=${exe_dir}/hg38_centro.txt
 cyto_file=${exe_dir}/cytoBand.txt
 log_dir=${output_dir}/logs/
 
-mkdir -p ${log_dir}
+mkdir -p $output_dir
+mkdir -p $log_dir
 
 for folder in ${data_dir}/*
 do
