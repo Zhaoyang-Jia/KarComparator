@@ -479,7 +479,19 @@ class Graph:
                     raise RuntimeError('edge already exists, multi-graph not supported')
                 graph.add_edge(edge[0], edge[1], color=edge_color, weight=edge_weight)
 
-        def iterative_add_edge_trace(edges_dict: {(str, str): int}, trace_dict: {(str, str): (float, float)}, uniform_peak_height):
+        def iterative_add_edge_trace(edges_dict: {(str, str): int},
+                                     trace_dict: {(str, str): (float, float)},
+                                     peak_height_nonadjacent,
+                                     peak_height_adjacent,
+                                     adjacent_x_dist):
+            """
+            :param edges_dict:
+            :param trace_dict:
+            :param peak_height_nonadjacent: for nodes not right next to each other
+            :param peak_height_adjacent: for nodes right next to each other
+            :param adjacent_x_dist: nodes x-dist if they are adjacent
+            :return:
+            """
             for edge in edges_dict:
                 node1_x = V_pos[edge[0]][0]
                 node2_x = V_pos[edge[1]][0]
@@ -489,11 +501,15 @@ class Graph:
 
                 if edge[0] == edge[1]:
                     # self edge
-                    trace_dict[edge] = generate_circle(node1_x, uniform_peak_height, 7)
+                    trace_dict[edge] = generate_circle(node1_x, peak_height_nonadjacent, 7)
                 else:
                     # regular edge
-                    peak_x = round((node1_x + node2_x) / 2, 6)
-                    trace_dict[edge] = generate_parabola(node1_x, node2_x, peak_x, uniform_peak_height)
+                    if abs(node2_x - node1_x) <= adjacent_x_dist + 0.001:
+                        peak_x = round((node1_x + node2_x) / 2, 6)
+                        trace_dict[edge] = generate_parabola(node1_x, node2_x, peak_x, peak_height_adjacent)
+                    else:
+                        peak_x = round((node1_x + node2_x) / 2, 6)
+                        trace_dict[edge] = generate_parabola(node1_x, node2_x, peak_x, peak_height_nonadjacent)
 
         G_karsim = nx.DiGraph()
         G_karsim.add_nodes_from(V)
@@ -576,13 +592,21 @@ class Graph:
 
         ## plotting
         if not merged:
+            karsim_E_pos = {}
+            iterative_add_edge_trace(E_karsim_segment, karsim_E_pos, 1, 0.58, uniform_dist)
+            iterative_add_edge_trace(E_karsim_transition, karsim_E_pos, 1, 0.58, uniform_dist)
+
+            omkar_E_pos = {}
+            iterative_add_edge_trace(E_omkar_segment, omkar_E_pos, 0, 0.42, uniform_dist)
+            iterative_add_edge_trace(E_omkar_transition, omkar_E_pos, 0, 0.42, uniform_dist)
+
             plt.figure(figsize=(graph_width * width_multiplier, graph_width * height_multiplier))
             plot_karsim = ng.InteractiveGraph(G_karsim,
                                               node_color=V_colors,
                                               node_layout=V_pos,
                                               node_labels=True,
                                               edge_color=karsim_E_colors,
-                                              edge_layout='arc',
+                                              edge_layout=karsim_E_pos,
                                               edge_labels=karsim_E_weights,
                                               arrows=True,
                                               node_size=6,
@@ -598,7 +622,7 @@ class Graph:
                                              node_layout=V_pos,
                                              node_labels=True,
                                              edge_color=omkar_E_colors,
-                                             edge_layout='arc',
+                                             edge_layout=omkar_E_pos,
                                              edge_labels=omkar_E_weights,
                                              arrows=True,
                                              node_size=6,
@@ -617,10 +641,10 @@ class Graph:
             iterative_add_edge(E_omkar_transition, 'red', G_merged)
 
             merged_E_pos = {}
-            iterative_add_edge_trace(E_karsim_segment, merged_E_pos, 0.58)
-            iterative_add_edge_trace(E_omkar_segment, merged_E_pos, 0.42)
-            iterative_add_edge_trace(E_karsim_transition, merged_E_pos, 1)
-            iterative_add_edge_trace(E_omkar_transition, merged_E_pos, 0)
+            iterative_add_edge_trace(E_karsim_segment, merged_E_pos, 1, 0.58, uniform_dist)
+            iterative_add_edge_trace(E_karsim_transition, merged_E_pos, 1, 0.58, uniform_dist)
+            iterative_add_edge_trace(E_omkar_segment, merged_E_pos, 0, 0.42, uniform_dist)
+            iterative_add_edge_trace(E_omkar_transition, merged_E_pos, 0, 0.42, uniform_dist)
 
             merged_E_colors = {**karsim_E_colors, **omkar_E_colors}
             merged_E_weights = {**karsim_E_weights, **omkar_E_weights}
@@ -718,8 +742,8 @@ def draw_graph(cluster_file, output_dir):
 
 
 if __name__ == "__main__":
-    file_name = '23Y_Potocki_Shaffer_r1'
-    cluster_number = '2'
+    file_name = '23X_1q21_recurrent_microduplication_r1'
+    cluster_number = '0'
     draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/' + file_name + 'cluster_' + cluster_number + '.txt',
                'new_data_files/complete_graphs/')
 
