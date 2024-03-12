@@ -7,7 +7,7 @@ from forbidden_region_processing import read_forbidden_regions
 from Structures import *
 
 
-dir_name = '/media/zhaoyang-new/workspace/KarSim/packaged_data_for_comparison/OMKar_output/'
+dir_name = '/media/zhaoyang-new/workspace/KarSim/KarComparator/batch_processing/omkar_output_temp/'
 output_dir = '/media/zhaoyang-new/workspace/KarSim/KarComparator/debug_omkar/'
 forbidden_region_file = '/media/zhaoyang-new/workspace/KarSim/KarComparator/Metadata/acrocentric_telo_cen.bed'
 
@@ -327,8 +327,8 @@ def graph_post_ILP_with_dummies(chrs_of_interest, header_name):
 
 
 if __name__ == "__main__":
-    chr_of_int = ['6']
-    header = '/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/complete_graphs/23Y_Potocki_Shaffer_r1cluster_2'
+    chr_of_int = ['24']
+    header = '/media/zhaoyang-new/workspace/KarSim/KarComparator/batch_processing/omkar_output_temp/23X_Cri_du_Chat_r1'
     graph_pre_ILP(chr_of_int, header)
     graph_post_ILP(chr_of_int, header)
     graph_post_ILP_with_dummies(chr_of_int, header)

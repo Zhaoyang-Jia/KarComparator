@@ -54,3 +54,4 @@ Path19	Chr9-multiple centromere: Chr6 Chr9 	11-,10-,8-,7-,6-,5-,35-,34-,33-,32-,
 Path20	Chr9	29+,30+,31+,32+,33+,34+,3+,4+,36+,37+
 Path21	Chr6-no centromere	37-,36-,35-,2-,1-,0-
 ---
+---

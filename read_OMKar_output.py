@@ -50,7 +50,7 @@ def read_OMKar_output(file, return_segment_dict=False):
                         new_segment.invert()
                         path_segments.append(new_segment)
                     else:
-                        print(direction)
+                        # print(direction)
                         raise ValueError("direction must be + or -")
                 path_list.append(Path(Arm(path_segments, "solved_path"), path_name))
 

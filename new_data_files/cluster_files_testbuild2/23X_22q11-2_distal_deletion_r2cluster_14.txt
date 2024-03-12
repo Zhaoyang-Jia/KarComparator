@@ -21,3 +21,6 @@ Path35	Chr17-no centromere	2+,3+,4+,5+,6+,7+,8+,9+,10+
 Path36	Chr17-no centromere	10-,9-,8-,7-,9-,8-,7-,6-,5-,4-,4-,3-,2-
 Path37	Chr17-no centromere	2+
 ---
+(4s, 4t, 1, D)
+(7s, 9t, 1, D)
+---

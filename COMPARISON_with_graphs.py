@@ -743,7 +743,7 @@ def draw_graph(cluster_file, output_dir):
 
 if __name__ == "__main__":
     file_name = '23X_1q21_recurrent_microduplication_r1'
-    cluster_number = '0'
+    cluster_number = '21'
     draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/' + file_name + 'cluster_' + cluster_number + '.txt',
                'new_data_files/complete_graphs/')
 

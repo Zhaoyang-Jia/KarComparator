@@ -22,3 +22,4 @@ Path41	Chr21-no centromere	2+,3+,4+,5+,6+,8+,10+,11+
 Path42	Chr21-no centromere	11-,10-,8-,6-,5-,4-,3+,2-
 Path43	Chr21-no centromere	2+,3+,4+,5+,6+,8+,10+
 ---
+---

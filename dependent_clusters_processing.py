@@ -1,3 +1,5 @@
+import os
+
 from Structures import *
 from forbidden_region_processing import *
 
@@ -34,7 +36,8 @@ def form_dependent_clusters(karsim_path_list,
                             omkar_segment_to_index_dict,
                             forbidden_file,
                             output_dir,
-                            prefix=''):
+                            prefix='',
+                            omkar_modified_edges=None):
     ## mutually break segments
     genome_wide_mutual_breaking(karsim_path_list, omkar_path_list)
 
@@ -121,6 +124,37 @@ def form_dependent_clusters(karsim_path_list,
             output_str += path.tostring_path_by_index(current_segment_to_index_dict) + '\n'
         output_str += "---\n"
 
+        # include omkar introduced edges
+        if omkar_modified_edges is not None:
+            for edge, multiplicity in omkar_modified_edges.items():
+                node1_chr = edge[0]
+                node1_coor = edge[1]
+                node2_chr = edge[2]
+                node2_coor = edge[3]
+                edge_type = edge[4]
+
+                if (node1_chr in current_chr) != (node2_chr in current_chr):
+                    raise RuntimeError('only one breakpoint of the edge in current dependent component')
+                if node1_chr in current_chr and node2_chr in current_chr:
+                    # edge is in current dependent component, index it to node endpoints
+                    node1_idx = None
+                    node2_idx = None
+                    for segment, segment_idx in current_segment_to_index_dict.items():
+                        if node1_chr == segment.chr_name:
+                            if node1_coor == segment.start:
+                                node1_idx = str(segment_idx) + 's'
+                            elif node1_coor == segment.end:
+                                node1_idx = str(segment_idx) + 't'
+                        if node2_chr == segment.chr_name:
+                            if node2_coor == segment.start:
+                                node2_idx = str(segment_idx) + 's'
+                            elif node2_coor == segment.end:
+                                node2_idx = str(segment_idx) + 't'
+                    if node1_idx is None or node2_idx is None:
+                        raise RuntimeError('edge labeling for OMKar diff edge unsuccessful: ' + str(edge))
+                    output_str += '({}, {}, {}, {})\n'.format(node1_idx, node2_idx, multiplicity, edge_type)
+            output_str += "---\n"
+
         with open("{}/{}cluster_{}.txt".format(output_dir, prefix, str(cluster_ind)), 'w') as fp_write:
             fp_write.write(output_str)
 
@@ -201,6 +235,90 @@ def form_least_disjoint_supergroups(all_origins):
     for bin_itr in bin_list:
         output.append(bin_itr.get_sorted_chr_list())
     return output
+
+
+def omkar_log_get_node(folder_path):
+    """
+    Get node_to_breakpoint dictionary
+    :param folder_path: omkar output's case folder
+    :return:
+    """
+    node_file = folder_path + "/" + folder_path.split('/')[-1] + '.preILP_nodes.txt'
+    index_to_breakpoint_dict = {}
+    with open(node_file) as fp_read:
+        for line in fp_read:
+            info = line.replace('\n', '').split('\t')
+            chr_origin = info[1]
+            if chr_origin == '23':
+                chr_origin = "X"
+            elif chr_origin == '24':
+                chr_origin = "Y"
+            chr_origin = 'Chr' + chr_origin
+            pos = int(info[2].split('.')[0])
+            index_to_breakpoint_dict[info[0]] = (chr_origin, pos)
+    return index_to_breakpoint_dict
+
+
+def omkar_log_get_diff_edges(folder_path):
+    """
+    Get all the dummy edge AND SEG edge that changed value in this whole case
+    :param folder_path: omkar output's case folder
+    :return:
+    """
+    pre_ILP_edges = {}
+    post_ILP_edges = {}
+
+    pre_ILP_edge_file = folder_path + "/" + folder_path.split('/')[-1] + '.preILP_edges.txt'
+    with open(pre_ILP_edge_file) as fp_read:
+        for line in fp_read:
+            info = line.replace('\n', '').replace('(', '').replace(')', '').split(', ')
+            info[3] = info[3].replace("'", '')
+            pre_ILP_edges[(info[0], info[1], info[3])] = int(info[2])
+
+    for dummy_file in os.listdir(folder_path + '/all_edges_with_dummies'):
+        with open(folder_path + '/all_edges_with_dummies/' + dummy_file) as fp_read:
+            for line in fp_read:
+                info = line.replace('\n', '').replace('(', '').replace(')', '').split(', ')
+                info[3] = info[3].replace("'", '')
+                post_ILP_edges[(info[0], info[1], info[3])] = int(info[2])
+
+    ## compute diff: only compare SEG edge and append Dummy edge
+    diff_edges = {}
+    for edge, post_ILP_count in post_ILP_edges.items():
+        if edge[2] == 'S':
+            if edge not in pre_ILP_edges:
+                diff_edges[edge] = post_ILP_count
+            else:
+                pre_ILP_count = pre_ILP_edges[edge]
+                if post_ILP_count - pre_ILP_count != 0:
+                    diff_edges[edge] = post_ILP_count - pre_ILP_count
+                pre_ILP_edges.pop(edge)
+        elif edge[2] == 'D':
+            diff_edges[edge] = post_ILP_count
+    for remain_edge, pre_ILP_count in pre_ILP_edges.items():
+        if remain_edge[2] == 'S':
+            if remain_edge in diff_edges:
+                raise RuntimeError('double add, pop not working properly')
+            if pre_ILP_count != 0:
+                diff_edges[remain_edge] = -1 * pre_ILP_count
+
+    return diff_edges
+
+
+def translate_indexed_edge_to_coordinates(edge_list: {(str, str, str): int},
+                                          index_to_breakpoint_dict: {str: (str, int)}) -> {(str, int, str, int, str): int}:
+    """
+    :param edge_list: {(node1_idx, node2_idx, edge_type): multiplicity}
+    :param index_to_breakpoint_dict: {node_idx: (chr_origin, breakpoint_coordinate)}
+    :return: {(chr1, coor1, chr2, coor2, edge_type): multiplicity}
+    """
+    return_dict = {}
+    for edge, multiplicity in edge_list.items():
+        edge_type = edge[2]
+        node1 = index_to_breakpoint_dict[edge[0]]
+        node2 = index_to_breakpoint_dict[edge[1]]
+        return_dict[(node1[0], node1[1], node2[0], node2[1], edge_type)] = multiplicity
+    return return_dict
 
 
 def test_form_least_disjoint_supergroups():

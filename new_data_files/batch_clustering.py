@@ -11,6 +11,7 @@ import sys
 
 karsim_folder = 'KarSimulator/'
 omkar_folder = 'OMKar_testbuild2/'
+omkar_output_folder = '../batch_processing/omkar_output_temp/'  # to access the dummy edge and change in CNV
 forbidden_region_file = '../Metadata/acrocentric_telo_cen.bed'
 output_dir = 'cluster_files_testbuild2/'
 
@@ -22,8 +23,14 @@ with open('clustering.log', 'w') as fp_write:
         file_name = file.split('.')[0]
         omkar_file_path = omkar_folder + file
         karsim_file_path = karsim_folder + file_name + '.kt.txt'
-
+        omkar_case_folder = omkar_output_folder + '/' + file.split('/')[-1].replace('.txt', '')
         print(file)
+
+        omkar_log_index_to_breakpoint_dict = omkar_log_get_node(omkar_case_folder)
+        omkar_log_diff_edges = omkar_log_get_diff_edges(omkar_case_folder)
+        omkar_log_diff_edges_coordinates = translate_indexed_edge_to_coordinates(omkar_log_diff_edges, omkar_log_index_to_breakpoint_dict)
+        print(omkar_log_diff_edges_coordinates)
+
         karsim_segment_to_index_dict, karsim_path_list = read_KarSimulator_output_to_path(karsim_file_path, forbidden_region_file)
         omkar_index_to_segment_dict, omkar_path_list = read_OMKar_output_to_path(omkar_file_path, forbidden_region_file)
         omkar_segment_to_index_dict = reverse_dict(omkar_index_to_segment_dict)
@@ -35,7 +42,8 @@ with open('clustering.log', 'w') as fp_write:
             omkar_segment_to_index_dict,
             forbidden_region_file,
             output_dir,
-            prefix=file_name
+            prefix=file_name,
+            omkar_modified_edges=omkar_log_diff_edges_coordinates
         )
         print()
 

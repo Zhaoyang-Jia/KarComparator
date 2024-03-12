@@ -20,3 +20,4 @@ Path1	Chr1	2+,4+,6+,7+,8+,9+
 Path2	Chr1	2+,4+,6+,7+,8+,9+
 Path3	Chr1-no centromere	2+,4+,6+
 ---
+---

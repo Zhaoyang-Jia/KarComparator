@@ -35,3 +35,4 @@ Path10	Chr11-multiple centromere: Chr2 Chr11 	12-,11-,10-,9-,10-,9-,8-,7-,6-,5-,
 Path11	Chr11	15+,16+,17+,18+,4+,21+,22+
 Path12	Chr11-no centromere	22-,21-,20-,19-,3-,2-
 ---
+---
