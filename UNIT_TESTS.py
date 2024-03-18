@@ -7,6 +7,9 @@ from NW_aligner import *
 from bipartite_matching import *
 from COMPARISON_with_eulerian_swaps import *
 from COMPARISON_with_graphs import *
+from Analyses_UTILS import *
+
+import pandas as pd
 
 
 def test_read_KarSimulator_output_to_path():
@@ -97,10 +100,41 @@ def test_form_graph_2():
     draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/' + file_name + 'cluster_' + cluster_number + '.txt')
 
 
+def test_analyses():
+    data_folder = '/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files_testbuild2/'
+    files = []
+    for file in os.listdir(data_folder):
+        files.append(file)
+    files.sort()
+
+    ## Extract basic cluster file's info
+    data = []
+
+    for file in files:
+        new_data = {}
+        file_name = file.split('cluster')[0]
+        cluster_number = file.split('cluster_')[1].replace('.txt', '')
+        with open(data_folder + file) as fp_read:
+            line1 = fp_read.readline()
+            matches = re.findall(r'<(.*?)>', line1)
+            origins = eval(matches[1])
+            new_data = {'file_name': file_name,
+                        'cluster': matches[0],
+                        'n_origin_chr': len(origins),
+                        'origin_chr': origins,
+                        'n_path_karsim': int(matches[2]),
+                        'n_path_omkar': int(matches[3])}
+        data.append(new_data)
+
+    df = pd.DataFrame(data)
+    df[['n_dummies', 'n_leftover_dummies']] = df.apply(lambda row: pd.Series(iterative_check_labeled_edges_in_residual_graph(row)), axis=1)
+    print(df)
+
+
 if __name__ == "__main__":
     # test_read_KarSimulator_output_to_path()
     # test_read_OMKar_output_to_path()
-    test_form_least_disjoint_supergroups()
+    # test_form_least_disjoint_supergroups()
     # test_form_dependent_clusters()
     # test_NW_aligner()
     # test_manual_correction()
@@ -114,3 +148,5 @@ if __name__ == "__main__":
     # test_form_graph()
 
     # test_form_graph_2()
+
+    test_analyses()

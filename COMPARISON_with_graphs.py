@@ -61,6 +61,8 @@ class Graph:
     karsim_end_node: [(str, int)]
     omkar_start_node: [(str, int)]  # used for creating the first transition edge
     omkar_end_node: [(str, int)]
+    edges_of_interest: [(str, str, int, str)]  # start_node, end_node, multiplicity, edge_type
+    events: {str: int}  # event_name: multiplicity
 
     def __init__(self):
         self.node_name = {}
@@ -74,6 +76,8 @@ class Graph:
         self.karsim_end_node = []
         self.omkar_start_node = []
         self.omkar_end_node = []
+        self.edges_of_interest = []
+        self.events = {}
 
     def add_edge_to_dict(self, chr1, pos1, chr2, pos2, edge_type, target_dict: str):
         if target_dict == 'omkar':
@@ -95,8 +99,8 @@ class Graph:
         :return:
         """
         # add node
-        self.node_name[(input_segment.chr_name, input_segment.start)] = input_segment.kt_index[:-1] + "$"
-        self.node_name[(input_segment.chr_name, input_segment.end)] = input_segment.kt_index[:-1] + "#"
+        self.node_name[(input_segment.chr_name, input_segment.start)] = input_segment.kt_index[:-1] + "s"
+        self.node_name[(input_segment.chr_name, input_segment.end)] = input_segment.kt_index[:-1] + "t"
 
         # document edge type
         self.segment_edge_type[(input_segment.chr_name, input_segment.start,
@@ -190,6 +194,10 @@ class Graph:
         self.omkar_dict = {k: v for k, v in dict2.items() if v}
 
     def gather_edges(self, target_graph: str) -> ({(str, str): int}, {(str, str): int}):
+        """
+        :param target_graph: 'karsim' or 'omkar'
+        :return:
+        """
         if target_graph == 'karsim':
             target_dict = self.karsim_dict
         elif target_graph == 'omkar':
@@ -299,7 +307,7 @@ class Graph:
             if current_node[0] != next_node[0]:
                 terminal_nodes.append(self.node_name[current_node])
                 terminal_nodes.append(self.node_name[next_node])
-            node_ind += 2  # because of the $# paired structure, only check the # against the next $
+            node_ind += 2  # because of the st paired structure, only check the t against the next s
         terminal_nodes.append(self.node_name[sorted_nodes[-1]])  # last node always the end of a chr
 
         return terminal_nodes
@@ -611,8 +619,8 @@ class Graph:
                                               arrows=True,
                                               node_size=6,
                                               node_label_offset=0.001,
-                                              node_label_font_dict=dict(size=10),
-                                              edge_label_fontdict=dict(size=9),
+                                              node_label_font_dict=dict(size=20),
+                                              edge_label_fontdict=dict(size=15),
                                               scale=(graph_width, 1))
             plt.savefig(output_prefix + '.karsim.graph.png')
 
@@ -627,8 +635,8 @@ class Graph:
                                              arrows=True,
                                              node_size=6,
                                              node_label_offset=0.001,
-                                             node_label_font_dict=dict(size=10),
-                                             edge_label_fontdict=dict(size=9),
+                                             node_label_font_dict=dict(size=20),
+                                             edge_label_fontdict=dict(size=15),
                                              scale=(graph_width, 1))
             plt.savefig(output_prefix + '.omkar.graph.png')
         else:
@@ -659,15 +667,20 @@ class Graph:
                                               arrows=True,
                                               node_size=6,
                                               node_label_offset=0.001,
-                                              node_label_font_dict=dict(size=10),
-                                              edge_label_fontdict=dict(size=9),
+                                              node_label_font_dict=dict(size=20),
+                                              edge_label_fontdict=dict(size=15),
                                               scale=(graph_width, 1))
             plt.savefig(output_prefix + '.merged.graph.png')
 
 
+def artificial_example():
+    pass
+
+
 def form_graph_from_cluster(cluster_file):
-    index_to_segment, karsim_path_list, omkar_path_list = read_cluster_file(cluster_file)
+    index_to_segment, karsim_path_list, omkar_path_list, labeled_edges = read_cluster_file(cluster_file)
     graph = Graph()
+    graph.edges_of_interest = labeled_edges
 
     def iterative_add_segment_edge(path_list, target_graph):
         for path in path_list:
@@ -713,21 +726,21 @@ def draw_graph(cluster_file, output_dir):
 
     os.makedirs(folder, exist_ok=True)
 
-    shutil.copyfile('new_data_files/OMKar/' + file_basename_no_cluster + '.1.txt',
-                    folder + file_basename_no_cluster + '.omkar_paths.txt')
-    shutil.copyfile('new_data_files/KarSimulator/' + file_basename_no_cluster + '.kt.txt',
-                    folder + file_basename_no_cluster + '.karsim_paths.txt')
-    shutil.copyfile('new_data_files/alignment_files/' + file_basename + '.alignment.txt',
-                    folder + file_basename + '.alignment.txt')
-    shutil.copyfile('new_data_files/cluster_files/' + file_basename + '.txt',
-                    folder + file_basename + '.cluster.txt')
+    # shutil.copyfile('new_data_files/OMKar/' + file_basename_no_cluster + '.1.txt',
+    #                 folder + file_basename_no_cluster + '.omkar_paths.txt')
+    # shutil.copyfile('new_data_files/KarSimulator/' + file_basename_no_cluster + '.kt.txt',
+    #                 folder + file_basename_no_cluster + '.karsim_paths.txt')
+    # shutil.copyfile('new_data_files/alignment_files/' + file_basename + '.alignment.txt',
+    #                 folder + file_basename + '.alignment.txt')
+    # shutil.copyfile('new_data_files/cluster_files/' + file_basename + '.txt',
+    #                 folder + file_basename + '.cluster.txt')
 
     graph = form_graph_from_cluster(cluster_file)
 
     graph.visualize_graph(folder + 'raw')
     print('initial segment distance: ' + str(graph.get_segment_distance()))
     graph.prune_same_edges()
-    graph.visualize_graph(folder + 'pruned')
+    graph.visualize_graph(folder + 'pruned', merged=True)
     print('pruned segment distance: ' + str(graph.get_segment_distance()))
     graph.remove_approximate_transition_edges()
     graph.visualize_graph(folder + 'approximated', merged=True)
@@ -742,8 +755,8 @@ def draw_graph(cluster_file, output_dir):
 
 
 if __name__ == "__main__":
-    file_name = '23X_1q21_recurrent_microduplication_r1'
-    cluster_number = '21'
+    file_name = 'artificial_example'
+    cluster_number = '0'
     draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/' + file_name + 'cluster_' + cluster_number + '.txt',
                'new_data_files/complete_graphs/')
 

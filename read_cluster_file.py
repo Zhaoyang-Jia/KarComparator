@@ -36,4 +36,13 @@ def read_cluster_file(file_path):
             new_path = Path(Arm(segment_list, 'path'), path_name=line[0], path_chr=line[1])
             omkar_path_list.append(new_path)
 
-    return index_to_segment, karsim_path_list, omkar_path_list
+        # edges of interest
+        edges_of_interest = []
+        while True:
+            line = fp_read.readline()
+            if line[0] == '-':
+                break
+            info = line.replace('\n', '').replace('(', '').replace(')', '').split(', ')
+            edges_of_interest.append((info[0], info[1], int(info[2]), info[3]))
+
+    return index_to_segment, karsim_path_list, omkar_path_list, edges_of_interest

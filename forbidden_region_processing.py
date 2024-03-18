@@ -17,9 +17,9 @@ def output_forbidden_regions_from_arm(input_arm: Arm, output_file_path):
         fp_write.write('Chr\tStartPos\tEndPos\tType\n')
         for segment_itr in input_arm.segments:
             output_str = "{}\t{}\t{}\t{}\n".format(segment_itr.chr_name,
-                                                       str(segment_itr.start),
-                                                       str(segment_itr.end),
-                                                       segment_itr.segment_type)
+                                                   str(segment_itr.start),
+                                                   str(segment_itr.end),
+                                                   segment_itr.segment_type)
             fp_write.write(output_str)
 
 
