@@ -87,3 +87,15 @@ def iterative_check_labeled_edges_in_residual_graph(df_row):
                 raise RuntimeError('multiplicity == 0 makes no sense')
 
     return total_dummies_introduced, dummies_in_residual, total_seg_introduced, seg_in_residual
+
+
+def iterative_get_initial_n_SV(df_row):
+    graph = form_graph(df_row)
+    graph.remove_approximate_transition_edges()
+    karsim_residual_segments, karsim_residual_transitions = graph.gather_edges('karsim')
+
+    n_transitions = 0
+    for edge, multiplicity in karsim_residual_transitions.items():
+        n_transitions += multiplicity
+
+    return n_transitions

@@ -10,7 +10,7 @@ from Structures import *
 from read_cluster_file import *
 from utils import *
 
-d = 200000
+d = 500000
 
 
 def intra_transition_edge_distance(chr1, pos1, chr2, pos2):
@@ -361,7 +361,7 @@ class Graph:
             pop_edge(*current_edge, self.omkar_dict)
 
     def match_transition_edges(self):
-        large_value = 1000000
+        large_value = 10000000
         node_name_to_coordinate = reverse_dict(self.node_name)
 
         ## gather all transition edges
@@ -554,7 +554,7 @@ class Graph:
             return coordinates
 
         uniform_dist = 1 / 6
-        graph_width = uniform_dist * 100
+        graph_width = uniform_dist * 200
         width_multiplier = 2.5
         height_multiplier = 1
 
@@ -712,7 +712,7 @@ def form_graph_from_cluster(cluster_file):
     iterative_add_transition_edge(karsim_path_list, 'karsim')
     iterative_add_transition_edge(omkar_path_list, 'omkar')
 
-    graph.add_start_end_transition_edges()
+    # graph.add_start_end_transition_edges()
     return graph
 
 
@@ -755,8 +755,8 @@ def draw_graph(cluster_file, output_dir):
 
 
 if __name__ == "__main__":
-    file_name = 'artificial_example'
-    cluster_number = '0'
-    draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files/' + file_name + 'cluster_' + cluster_number + '.txt',
+    file_name = '23X_Cri_du_Chat_r2'
+    cluster_number = '9'
+    draw_graph('/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files_testbuild2/' + file_name + 'cluster_' + cluster_number + '.txt',
                'new_data_files/complete_graphs/')
 
