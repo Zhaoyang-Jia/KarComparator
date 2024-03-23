@@ -42,7 +42,9 @@ def read_cluster_file(file_path):
             line = fp_read.readline()
             if line[0] == '-':
                 break
-            info = line.replace('\n', '').replace('(', '').replace(')', '').split(', ')
-            edges_of_interest.append((info[0], info[1], int(info[2]), info[3]))
+            line = line.replace('\n', '')
+            info = line.split('\t')[0].replace('(', '').replace(')', '').split(', ')
+            edge_distance = int(line.split('\t')[1])
+            edges_of_interest.append((info[0], info[1], int(info[2]), info[3], edge_distance))
 
     return index_to_segment, karsim_path_list, omkar_path_list, edges_of_interest

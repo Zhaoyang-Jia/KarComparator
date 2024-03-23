@@ -152,7 +152,11 @@ def form_dependent_clusters(karsim_path_list,
                                 node2_idx = str(segment_idx) + 't'
                     if node1_idx is None or node2_idx is None:
                         raise RuntimeError('edge labeling for OMKar diff edge unsuccessful: ' + str(edge))
-                    output_str += '({}, {}, {}, {})\n'.format(node1_idx, node2_idx, multiplicity, edge_type)
+                    if node1_chr == node2_chr:
+                        edge_distance = abs(node1_coor - node2_coor)
+                    else:
+                        edge_distance = -1
+                    output_str += '({}, {}, {}, {})\t{}\n'.format(node1_idx, node2_idx, multiplicity, edge_type, edge_distance)
             output_str += "---\n"
 
         with open("{}/{}cluster_{}.txt".format(output_dir, prefix, str(cluster_ind)), 'w') as fp_write:

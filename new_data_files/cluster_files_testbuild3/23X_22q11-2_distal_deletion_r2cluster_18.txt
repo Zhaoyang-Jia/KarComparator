@@ -1,0 +1,33 @@
+cluster<18>, origin_chr<['Chr1', 'Chr21']>, n_karsim<4>, n_omkar<4>
+0	Chr1	0	9999	telomere1	10000
+1	Chr1	10000	93719319	arm_region	93709320
+2	Chr1	93719320	93726953	arm_region	7634
+3	Chr1	93726954	93726954	arm_region	1
+4	Chr1	93726955	122026459	arm_region	28299505
+5	Chr1	122026460	125184587	centromere	3158128
+6	Chr1	125184588	248943333	arm_region	123758746
+7	Chr1	248943334	248946421	arm_region	3088
+8	Chr1	248946422	248956421	telomere2	10000
+9	Chr21	0	5009999	acrocentric-telomere1	5010000
+10	Chr21	5010000	10864559	acrocentric	5854560
+11	Chr21	10864560	10864560	arm_region	1
+12	Chr21	10864561	12915808	acrocentric-centromere	2051248
+13	Chr21	12915809	16536770	arm_region	3620962
+14	Chr21	16536771	16536851	arm_region	81
+15	Chr21	16536852	25290421	arm_region	8753570
+16	Chr21	25290422	25290980	arm_region	559
+17	Chr21	25290981	46697230	arm_region	21406250
+18	Chr21	46697231	46699982	arm_region	2752
+19	Chr21	46699983	46709982	telomere2	10000
+---
+Chr1a	Chr1	0+,1+,2+,15+,3+,4+,5+,6+,7+,8+
+Chr1b	Chr1	0+,1+,2+,3+,4+,5+,6+,7+,8+
+Chr21a	Chr21	9+,10+,11+,12+,13+,14+,16+,17+,18+,19+
+Chr21b	Chr21	9+,10+,11+,12+,13+,14+,15+,16+,17+,18+,19+
+---
+Path1	Chr1	0+,1+,2+,3+,4+,5+,6+
+Path2	Chr21-multiple centromere: Chr1 Chr21 	6-,5-,4-,3+,2-,16-,15-,14-,13-,12-,11+,10-,9-
+Path3	Chr21	9+,10+,11+,12+,13+,17+
+Path4	Chr1-no centromere	17-,16-,15-,14-,1-,0-
+---
+---

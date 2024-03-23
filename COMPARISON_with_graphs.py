@@ -61,7 +61,7 @@ class Graph:
     karsim_end_node: [(str, int)]
     omkar_start_node: [(str, int)]  # used for creating the first transition edge
     omkar_end_node: [(str, int)]
-    edges_of_interest: [(str, str, int, str)]  # start_node, end_node, multiplicity, edge_type
+    edges_of_interest: [(str, str, int, str, int)]  # start_node, end_node, multiplicity, edge_type, edge_distance
     events: {str: int}  # event_name: multiplicity
 
     def __init__(self):

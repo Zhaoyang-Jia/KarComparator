@@ -1,6 +1,6 @@
 from COMPARISON_with_graphs import *
 
-data_folder = '/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/cluster_files_testbuild2/'
+data_folder = 'cluster_files_testbuild3/'
 
 
 def form_graph(input_df_row):
@@ -87,6 +87,21 @@ def iterative_check_labeled_edges_in_residual_graph(df_row):
                 raise RuntimeError('multiplicity == 0 makes no sense')
 
     return total_dummies_introduced, dummies_in_residual, total_seg_introduced, seg_in_residual
+
+
+def iterative_get_dummy_lengths(df_row):
+    """
+    return all lengths (-1 denote of between different chrs)
+    :param df_row:
+    :return:
+    """
+    graph = form_graph(df_row)
+    return_arr = []
+    for edge in graph.edges_of_interest:
+        if edge[3] == 'D':
+            edge_distance = edge[4]
+            return_arr.append(edge_distance)
+    return return_arr
 
 
 def iterative_get_initial_n_SV(df_row):
