@@ -61,6 +61,8 @@ def iterative_check_labeled_edges_in_residual_graph(df_row):
 
     total_dummies_introduced = 0
     dummies_in_residual = 0
+    significant_dummies = 0
+    significant_dummies_in_residual = 0
     total_seg_introduced = 0
     seg_in_residual = 0
     for edge in labeled_edges:
@@ -68,10 +70,15 @@ def iterative_check_labeled_edges_in_residual_graph(df_row):
         end_node = edge[1]
         multiplicity = edge[2]
         edge_type = edge[3]
+        edge_distance = edge[4]
         if edge_type == 'D':
             total_dummies_introduced += multiplicity
+            if edge_distance > 200000 or edge_distance == -1:
+                significant_dummies += 1
             if (start_node, end_node) in omkar_residual_transitions:
                 dummies_in_residual += min(multiplicity, omkar_residual_transitions[(start_node, end_node)])
+                if edge_distance > 200000 or edge_distance == -1:
+                    significant_dummies_in_residual += 1
         elif edge_type == 'S':
             total_seg_introduced += abs(multiplicity)
             if multiplicity > 0:
@@ -86,7 +93,7 @@ def iterative_check_labeled_edges_in_residual_graph(df_row):
             else:
                 raise RuntimeError('multiplicity == 0 makes no sense')
 
-    return total_dummies_introduced, dummies_in_residual, total_seg_introduced, seg_in_residual
+    return total_dummies_introduced, dummies_in_residual, total_seg_introduced, seg_in_residual, significant_dummies, significant_dummies_in_residual
 
 
 def iterative_get_dummy_lengths(df_row):
@@ -114,3 +121,11 @@ def iterative_get_initial_n_SV(df_row):
         n_transitions += multiplicity
 
     return n_transitions
+
+
+def iterative_count_events(df_row):
+    event_dict = df_row['histories']
+    tot = 0
+    for key, value in event_dict.items():
+        tot += value
+    return tot

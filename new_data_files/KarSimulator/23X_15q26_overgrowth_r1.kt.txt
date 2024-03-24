@@ -145,7 +145,7 @@ initialization
 	autosomal copy number: 1
 	sex chromosomes: ['ChrX']
 block 1: 15q26_overgrowth
-	tandem_duplication on segments [53+], from Chr15a to Chr15a
+	tandem duplication on segments [53+], from Chr15a to Chr15a
 block 2: random events
 	deletion on segments [18+], from Chr5a to Chr5a
 	left duplication inversion on segments [25+], from Chr6a to Chr6a

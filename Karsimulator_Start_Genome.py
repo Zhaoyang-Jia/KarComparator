@@ -136,7 +136,44 @@ def get_segment_location(input_current_segment: Segment, input_segment_ordinal: 
     return p_arm_exhausted, output_segment_location
 
 
+def get_history_events(input_file: str, origin_chr: [str]):
+    selected_chr_events = {}
+    with open(input_file) as fp_read:
+        section_number = 0
+        for line in fp_read:
+            if line.startswith('-'):
+                section_number += 1
+                if section_number == 2:
+                    break
+        for line in fp_read:
+            if line.startswith('block'):
+                break
+
+        # first block now is reached
+        for line in fp_read:
+            if line.startswith('block'):
+                continue
+
+            line = line.replace('\n', '')
+            if len(line) == 0:
+                # last line reached
+                break
+
+            event = line.split(', ')[0].split(' on')[0].replace('\t', '')
+            chr_info = line.split(', ')[1]
+            chrs = re.findall(r'from\s+(.*?)\s+to\s+(.*?)$', chr_info)[0]
+            chr_from = chrs[0][:-1]
+            chr_to = chrs[1][:-1]
+            if (chr_from in origin_chr) or (chr_to in origin_chr):
+                if event in selected_chr_events:
+                    selected_chr_events[event] += 1
+                else:
+                    selected_chr_events[event] = 1
+    return selected_chr_events
+
+
 def get_event_chr(input_file: str):
+    # TODO: this function is redundant as we can now directly observe using the history
     event_chr = set()
     with open(input_file) as fp_read:
         section_number = 0
@@ -190,4 +227,4 @@ def test_get_event_chr():
 
 
 if __name__ == "__main__":
-    test_get_event_chr()
+    get_history_events('/Users/zhaoyangjia/PyCharm_Repos/KarComparator/new_data_files/KarSimulator/23X_1q21_recurrent_microduplication_r1.kt.txt', [])

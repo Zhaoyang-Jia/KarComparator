@@ -149,7 +149,7 @@ initialization
 	autosomal copy number: 1
 	sex chromosomes: ['ChrX']
 block 1: 22q11_duplication
-	tandem_duplication on segments [68+], from Chr22a to Chr22a
+	tandem duplication on segments [68+], from Chr22a to Chr22a
 block 2: random events
 	balanced reciprocal translocation on segments [19+], from Chr6a to Chr15a
 	balanced reciprocal translocation on segments [48+], from Chr15a to Chr6a

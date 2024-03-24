@@ -167,7 +167,7 @@ initialization
 	autosomal copy number: 1
 	sex chromosomes: ['ChrY']
 block 1: CMT1A
-	duplication on segments [71+], from Chr17a to Chr17a
+	tandem duplication on segments [71+], from Chr17a to Chr17a
 block 2: random events
 	tandem duplication on segments [31+], from Chr7a to Chr7a
 	deletion on segments [17+], from Chr4a to Chr4a

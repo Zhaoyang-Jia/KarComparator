@@ -162,7 +162,7 @@ initialization
 	autosomal copy number: 1
 	sex chromosomes: ['ChrX']
 block 1: Early_onset_Alzheimer
-	tandem_duplication on segments [81+], from Chr21a to Chr21a
+	tandem duplication on segments [81+], from Chr21a to Chr21a
 block 2: random events
 	deletion on segments [2+], from Chr1a to Chr1a
 	left duplication inversion on segments [35+], from Chr8a to Chr8a
