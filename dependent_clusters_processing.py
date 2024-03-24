@@ -81,15 +81,16 @@ def form_dependent_clusters(karsim_path_list,
 
         new_karsim_cluster = []
         for path in karsim_path_list:
-            path_origin_chr = path.path_chr.split('-')[0]
-            if path_origin_chr in dependent_clusters[cluster_ind]:
+            path_origin_chr = list(path.get_origins())
+            if path_origin_chr[0] in dependent_clusters[cluster_ind]:
+                # FIXME: unordered path_origin_chr should equal to dependent_clusters[cluster_ind]
                 new_karsim_cluster.append(path)
         clustered_karsim_path[cluster_ind] = new_karsim_cluster
 
         new_omkar_cluster = []
         for path in omkar_path_list:
-            path_origin_chr = path.path_chr.split('-')[0]
-            if path_origin_chr in dependent_clusters[cluster_ind]:
+            path_origin_chr = list(path.get_origins())
+            if path_origin_chr[0] in dependent_clusters[cluster_ind]:
                 new_omkar_cluster.append(path)
         clustered_omkar_path[cluster_ind] = new_omkar_cluster
 

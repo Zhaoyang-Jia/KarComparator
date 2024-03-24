@@ -76,6 +76,7 @@ def rotate_and_bin_path(path_list, forbidden_region_file):
 
     # get centromere, rotate if backward, and bin path
     for path in path_list:
+        print(path.path_name)
         path_centromere = []
         path_telomeres = []
         for segment_itr in path.linear_path.segments:
@@ -87,35 +88,31 @@ def rotate_and_bin_path(path_list, forbidden_region_file):
         path_centromere_arm = Arm(path_centromere, 'centromeres')
         path_centromere_arm.merge_breakpoints()
 
-        if len(path_centromere_arm.segments) == 1:
-            path.path_chr = path_centromere_arm.segments[0].chr_name
-            if not path_centromere_arm.segments[0].direction():
-                # flip if centromere is backward
-                # print(path.path_name + " is flipped")
+        if len(path_centromere_arm.segments) >= 1:
+            centromere_set = set()
+            for cen_seg in path_centromere_arm.segments:
+                centromere_set.add(cen_seg.chr_name)
+            if len(centromere_set) > 1:
+                path.path_chr = '-multiple centromeres ({}), highest representation: {}'.format(centromere_set, get_highest_represented_chr(path_centromere))
+            else:
+                path.path_chr = path_centromere_arm.segments[0].chr_name
+            if not highest_represented_direction(path_centromere):
                 rotate_path(path)
-        elif len(path_centromere_arm.segments) == 0:
-            # print(path)
-            chr_bin = get_highest_represented_chr(path_centromere + path_telomeres)
-            if chr_bin is not None:
-                # bin by cen + telo1 + telo2 %content
-                path.path_chr = chr_bin
-            else:
-                # bin by the whole chr %centent
-                path.path_chr = get_highest_represented_chr(path.linear_path.segments)
-            path.path_chr += "-no centromere"
         else:
-            # print(path)
-            chr_bin = get_highest_represented_chr(path_centromere + path_telomeres)
-            if chr_bin is not None:
-                # bin by cen + telo1 + telo2 %content
-                path.path_chr = chr_bin
-            else:
-                # bin by the whole chr %centent
-                path.path_chr = get_highest_represented_chr(path.linear_path.segments)
-            path.path_chr += "-multiple centromere: "
-            for centromere_itr in path_centromere:
-                path.path_chr += centromere_itr.chr_name + " "
+            # no centromere segment detected, assume only q arm remains
+            # take the first and the last segment, rotate chr if last segment index > first AND they are on the same chr
+            path.path_chr = "-no centromere, highest representation: " + get_highest_represented_chr(path.linear_path.segments)
+            first_segment = path.linear_path.segments[0]
+            last_segment = path.linear_path.segments[-1]
+            if first_segment.chr_name != last_segment.chr_name:
+                # search for the last segment that is the same chr origin as the first segment
+                next_idx = 0
+                while path.linear_path.segments[next_idx].chr_name == first_segment.chr_name:
+                    next_idx += 1
+                last_segment = path.linear_path.segments[next_idx]
 
+            if first_segment.start > last_segment.end:
+                rotate_path(path)
 
 def report_centromere_anomaly(path_list):
     for path in path_list:
@@ -138,6 +135,20 @@ def get_highest_represented_chr(segment_list):
             max_count = tally[key]
             max_count_chr = key
     return max_count_chr
+
+
+def highest_represented_direction(segment_list):
+    forward_len = 0
+    backward_len = 0
+    for segment in segment_list:
+        if segment.direction():
+            forward_len += len(segment)
+        else:
+            backward_len += len(segment)
+    if forward_len >= backward_len:
+        return True
+    else:
+        return False
 
 
 def rotate_path(input_path):
