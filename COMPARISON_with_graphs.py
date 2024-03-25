@@ -99,8 +99,12 @@ class Graph:
         :return:
         """
         # add node
-        self.node_name[(input_segment.chr_name, input_segment.start)] = input_segment.kt_index[:-1] + "s"
-        self.node_name[(input_segment.chr_name, input_segment.end)] = input_segment.kt_index[:-1] + "t"
+        if input_segment.direction():
+            self.node_name[(input_segment.chr_name, input_segment.start)] = input_segment.kt_index[:-1] + "s"
+            self.node_name[(input_segment.chr_name, input_segment.end)] = input_segment.kt_index[:-1] + "t"
+        else:
+            self.node_name[(input_segment.chr_name, input_segment.end)] = input_segment.kt_index[:-1] + "s"
+            self.node_name[(input_segment.chr_name, input_segment.start)] = input_segment.kt_index[:-1] + "t"
 
         # document edge type
         self.segment_edge_type[(input_segment.chr_name, input_segment.start,
@@ -685,12 +689,7 @@ def form_graph_from_cluster(cluster_file):
     def iterative_add_segment_edge(path_list, target_graph):
         for path in path_list:
             for segment in path.linear_path.segments:
-                if not segment.direction():
-                    temp_segment = segment.duplicate()
-                    temp_segment.invert()
-                    graph.add_segment_edge(temp_segment, target_graph)
-                else:
-                    graph.add_segment_edge(segment, target_graph)
+                graph.add_segment_edge(segment, target_graph)
 
     def iterative_add_transition_edge(path_list, target_graph):
         for path in path_list:
@@ -760,8 +759,8 @@ def draw_graph(cluster_file, output_dir):
 
 
 if __name__ == "__main__":
-    file_name = '23X_22q11-2_distal_deletion_r1'
-    cluster_number = '5'
-    draw_graph('new_data_files/cluster_files_testbuild4/' + file_name + 'cluster_' + cluster_number + '.txt',
+    file_name = '23X_Angelman_r1'
+    cluster_number = '13'
+    draw_graph('new_data_files/cluster_files_testbuild5/' + file_name + 'cluster_' + cluster_number + '.txt',
                'new_data_files/complete_graphs/')
 

@@ -16,6 +16,61 @@ def genome_wide_mutual_breaking(karsim_path_list, omkar_path_list):
             karsim_path.generate_mutual_breakpoints(omkar_path, mutual=True)
 
 
+def mutually_remove_small_segments(karsim_path_list, omkar_path_list, d=1):
+    """
+    all segments that are <= d will be removed from both path_lists
+    :param karsim_path_list:
+    :param omkar_path_list:
+    :param d:
+    :return:
+    """
+    # TODO: make this merge instead of direct removal, right now for d=1, we do not cause too big of an impact as we remove
+    small_segments = []
+    for path in karsim_path_list:
+        for segment in path.linear_path.segments:
+            if len(segment) <= d:
+                if segment not in small_segments:
+                    small_segments.append(segment)
+    for path in omkar_path_list:
+        for segment in path.linear_path.segments:
+            if len(segment) <= d:
+                if segment not in small_segments:
+                    small_segments.append(segment)
+
+    omkar_remove_idxs = []
+    karsim_remove_idxs = []
+    for path in omkar_path_list:
+        path_removal_list = []
+        for idx, segment in enumerate(path.linear_path.segments):
+            if segment in small_segments:
+                path_removal_list.append(idx)
+        omkar_remove_idxs.append(path_removal_list)
+    for path in karsim_path_list:
+        path_removal_list = []
+        for idx, segment in enumerate(path.linear_path.segments):
+            if segment in small_segments:
+                path_removal_list.append(idx)
+        karsim_remove_idxs.append(path_removal_list)
+
+    for path_idx, path in enumerate(omkar_path_list):
+        current_segments = path.linear_path.segments
+        new_segments = [elem for idx, elem in enumerate(current_segments) if idx not in omkar_remove_idxs[path_idx]]
+        path.linear_path.segments = new_segments
+    for path_idx, path in enumerate(karsim_path_list):
+        current_segments = path.linear_path.segments
+        new_segments = [elem for idx, elem in enumerate(current_segments) if idx not in karsim_remove_idxs[path_idx]]
+        path.linear_path.segments = new_segments
+
+
+def remove_small_segments(segment_list, d=1):
+    remove_idxs = []
+    for idx, segment in enumerate(segment_list):
+        if len(segment) <= d:
+            remove_idxs.append(idx)
+    new_segment_list = [elem for idx, elem in enumerate(segment_list) if idx not in remove_idxs]
+    return new_segment_list
+
+
 def extract_cluster_indexed_segments(all_indexed_segments, cluster_chr):
     """
     given a full indexed segment dict, extract only the segments from the list of chr_of_interest
@@ -40,6 +95,8 @@ def form_dependent_clusters(karsim_path_list,
                             omkar_modified_edges=None):
     ## mutually break segments
     genome_wide_mutual_breaking(karsim_path_list, omkar_path_list)
+    ## remove all segment with length <= 1: prevent bug in downstream graph forming
+    mutually_remove_small_segments(karsim_path_list, omkar_path_list, d=1)
 
     ## mutually break the indexing and mark their forbidden region info
     karsim_index_segment_path = Path(Arm(list(karsim_segment_to_index_dict.keys()), 'index_segments'))
@@ -62,6 +119,10 @@ def form_dependent_clusters(karsim_path_list,
     for segment in forbidden_region_segment_path.linear_path.segments:
         all_indexed_segments.add(segment)
     all_indexed_segments = sorted(list(all_indexed_segments))
+
+    # remove all segments that have len <= 1
+    all_indexed_segments = remove_small_segments(all_indexed_segments, d=1)
+
 
     karsim_origins = []
     omkar_origins = []

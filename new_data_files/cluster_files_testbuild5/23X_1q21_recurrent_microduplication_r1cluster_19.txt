@@ -1,0 +1,21 @@
+cluster<19>, origin_chr<['Chr21']>, n_karsim<2>, n_omkar<2>
+0	Chr21	0	5009999	acrocentric-telomere1	5010000
+1	Chr21	5010000	5010514	acrocentric	515
+2	Chr21	5010515	10864559	acrocentric	5854045
+3	Chr21	10864561	12915808	acrocentric-centromere	2051248
+4	Chr21	12915809	27035970	arm_region	14120162
+5	Chr21	27035971	27040076	arm_region	4106
+6	Chr21	27040077	27528221	arm_region	488145
+7	Chr21	27528222	27681310	arm_region	153089
+8	Chr21	27681311	46697229	arm_region	19015919
+9	Chr21	46697230	46699982	arm_region	2753
+10	Chr21	46699983	46709982	telomere2	10000
+---
+Chr21a	Chr21	0+,1+,2+,3+,4+,5+,6+,7+,7-,6-,5-,8+,9+,10+
+Chr21b	Chr21	0+,1+,2+,3+,4+,5+,6+,7+,8+,9+,10+
+---
+Path41	Chr21	2+,3+,4+,5+,6+,7+,8+
+Path42	Chr21	2+,3+,4+,5+,6+,6+,7+,8+
+---
+(6s, 6t, 1, D)	488144
+---
