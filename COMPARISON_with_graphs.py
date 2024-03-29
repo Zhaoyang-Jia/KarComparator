@@ -9,6 +9,7 @@ import numpy as np
 from Structures import *
 from read_cluster_file import *
 from utils import *
+from forbidden_region_processing import read_forbidden_regions
 
 d = 500000
 
@@ -451,6 +452,10 @@ class Graph:
                 self.karsim_n_transition_approximated += 1
                 self.omkar_n_transition_approximated += 1
 
+    def remove_forbidden_nodes(self, forbidden_region_file):
+        forbidden_segments = read_forbidden_regions(forbidden_region_file)
+        return
+
     def visualize_graph(self, output_prefix, merged=False):
         # create sorted nodes (Endpoints)
 
@@ -681,7 +686,7 @@ def artificial_example():
     pass
 
 
-def form_graph_from_cluster(cluster_file):
+def form_graph_from_cluster(cluster_file, forbidden_region_file='Metadata/acrocentric_telo_cen.bed'):
     index_to_segment, karsim_path_list, omkar_path_list, labeled_edges = read_cluster_file(cluster_file)
     graph = Graph()
     graph.edges_of_interest = labeled_edges
@@ -717,6 +722,8 @@ def form_graph_from_cluster(cluster_file):
     iterative_add_transition_edge(omkar_path_list, 'omkar')
 
     # graph.add_start_end_transition_edges()
+    # graph.remove_forbidden_nodes(forbidden_region_file)
+
     return graph
 
 
@@ -759,8 +766,8 @@ def draw_graph(cluster_file, output_dir):
 
 
 if __name__ == "__main__":
-    file_name = '23X_22q11-2_distal_deletion_r2'
-    cluster_number = '2'
+    file_name = '23X_15q26_overgrowth_r1'
+    cluster_number = '12'
     draw_graph('new_data_files/cluster_files_testbuild5/' + file_name + 'cluster_' + cluster_number + '.txt',
                'new_data_files/complete_graphs/')
 

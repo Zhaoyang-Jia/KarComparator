@@ -294,7 +294,7 @@ def graph_post_ILP_with_dummies(chrs_of_interest, header_name):
     E = get_edges_post_ILP(edge_file)
     dummy_E = get_dummy_edges(dummy_file)
 
-    # prevent dummy_edge overwritting regular edge by having duplicate (multi-graph not allowed)
+    # prevent dummy_edge overwriting regular edge by having duplicate (multi-graph not allowed)
     E = consolidate_edge_with_dummy_edge(E, dummy_E)
 
     G_postILP = nx.DiGraph()
@@ -327,8 +327,8 @@ def graph_post_ILP_with_dummies(chrs_of_interest, header_name):
 
 
 if __name__ == "__main__":
-    chr_of_int = ['24']
-    header = '/media/zhaoyang-new/workspace/KarSim/KarComparator/batch_processing/omkar_output_temp/23X_Cri_du_Chat_r1'
+    chr_of_int = ['13']
+    header = '23X_15q26_overgrowth_r1'
     graph_pre_ILP(chr_of_int, header)
     graph_post_ILP(chr_of_int, header)
     graph_post_ILP_with_dummies(chr_of_int, header)
