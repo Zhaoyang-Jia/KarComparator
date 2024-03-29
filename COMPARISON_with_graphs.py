@@ -759,8 +759,8 @@ def draw_graph(cluster_file, output_dir):
 
 
 if __name__ == "__main__":
-    file_name = '23X_Angelman_r1'
-    cluster_number = '13'
+    file_name = '23X_22q11-2_distal_deletion_r2'
+    cluster_number = '2'
     draw_graph('new_data_files/cluster_files_testbuild5/' + file_name + 'cluster_' + cluster_number + '.txt',
                'new_data_files/complete_graphs/')
 
