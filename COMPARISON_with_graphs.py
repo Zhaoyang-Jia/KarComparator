@@ -58,10 +58,6 @@ class Graph:
     approximated_cnv: int
     karsim_n_transition_approximated: int
     omkar_n_transition_approximated: int
-    karsim_start_node: [(str, int)]
-    karsim_end_node: [(str, int)]
-    omkar_start_node: [(str, int)]  # used for creating the first transition edge
-    omkar_end_node: [(str, int)]
     edges_of_interest: [(str, str, int, str, int)]  # start_node, end_node, multiplicity, edge_type, edge_distance
     events: {str: int}  # event_name: multiplicity
 
@@ -73,10 +69,6 @@ class Graph:
         self.approximated_cnv = 0
         self.karsim_n_transition_approximated = 0
         self.omkar_n_transition_approximated = 0
-        self.karsim_start_node = []
-        self.karsim_end_node = []
-        self.omkar_start_node = []
-        self.omkar_end_node = []
         self.edges_of_interest = []
         self.events = {}
 
@@ -453,8 +445,42 @@ class Graph:
                 self.omkar_n_transition_approximated += 1
 
     def remove_forbidden_nodes(self, forbidden_region_file):
-        forbidden_segments = read_forbidden_regions(forbidden_region_file)
-        return
+        """
+        remove all nodes associated with forbidden regions, and then remove all edges associated with these nodes
+        :param forbidden_region_file:
+        :return:
+        """
+        def remove_node_and_associated_edge(input_node):
+            self.node_name.pop(input_node)
+            # remove out going edges
+            if input_node in self.karsim_dict:
+                self.karsim_dict.pop(input_node)
+            if input_node in self.omkar_dict:
+                self.omkar_dict.pop(input_node)
+            # remove incoming edges
+            for node1, node2_list in self.karsim_dict.items():
+                node2_to_remove = []
+                for idx, node2 in enumerate(node2_list):
+                    if node2[0] == input_node[0] and node2[1] == input_node[1]:
+                        node2_to_remove.append(idx)
+                new_node2_list = [value for i, value in enumerate(node2_list) if i not in node2_to_remove]
+                self.karsim_dict[node1] = new_node2_list
+            for node1, node2_list in self.omkar_dict.items():
+                node2_to_remove = []
+                for idx, node2 in enumerate(node2_list):
+                    if node2[0] == input_node[0] and node2[1] == input_node[1]:
+                        node2_to_remove.append(idx)
+                new_node2_list = [value for i, value in enumerate(node2_list) if i not in node2_to_remove]
+                self.omkar_dict[node1] = new_node2_list
+
+        forbidden_segments = read_forbidden_regions(forbidden_region_file).segments
+        for segment in forbidden_segments:
+            start_node = (segment.chr_name, segment.start)
+            end_node = (segment.chr_name, segment.end)
+            if start_node in self.node_name:
+                remove_node_and_associated_edge(start_node)
+            if end_node in self.node_name:
+                remove_node_and_associated_edge(end_node)
 
     def visualize_graph(self, output_prefix, merged=False):
         # create sorted nodes (Endpoints)
@@ -471,9 +497,10 @@ class Graph:
         def translate_segment_edge_type_to_edge_name():
             new_dict = {}
             for edge, edge_type in self.segment_edge_type.items():
-                node1_name = self.node_name[(edge[0], edge[1])]
-                node2_name = self.node_name[(edge[2], edge[3])]
-                new_dict[(node1_name, node2_name)] = edge_type
+                if (edge[0], edge[1]) in self.node_name and (edge[2], edge[3]) in self.node_name:
+                    node1_name = self.node_name[(edge[0], edge[1])]
+                    node2_name = self.node_name[(edge[2], edge[3])]
+                    new_dict[(node1_name, node2_name)] = edge_type
             return new_dict
 
         def iterative_add_edge(edges_dict: {(str, str): int}, group_color, graph, forbidden_segment_edge_labels=False):
@@ -682,11 +709,7 @@ class Graph:
             plt.savefig(output_prefix + '.merged.graph.png')
 
 
-def artificial_example():
-    pass
-
-
-def form_graph_from_cluster(cluster_file, forbidden_region_file='Metadata/acrocentric_telo_cen.bed'):
+def form_graph_from_cluster(cluster_file, forbidden_region_file='/media/zhaoyang-new/workspace/KarSim/KarComparator/Metadata/acrocentric_telo_cen.bed'):
     index_to_segment, karsim_path_list, omkar_path_list, labeled_edges = read_cluster_file(cluster_file)
     graph = Graph()
     graph.edges_of_interest = labeled_edges
@@ -706,12 +729,12 @@ def form_graph_from_cluster(cluster_file, forbidden_region_file='Metadata/acroce
                     continue
                 graph.add_transition_edge(current_segment, next_segment, target_graph)
 
-                if segment_ind == 0:
-                    if target_graph == 'omkar':
-                        graph.omkar_start_node.append((current_segment.chr_name, current_segment.start))
-                elif segment_ind == len(path.linear_path.segments) - 2:
-                    if target_graph == 'omkar':
-                        graph.omkar_end_node.append((next_segment.chr_name, next_segment.end))
+                # if segment_ind == 0:
+                #     if target_graph == 'omkar':
+                #         graph.omkar_start_node.append((current_segment.chr_name, current_segment.start))
+                # elif segment_ind == len(path.linear_path.segments) - 2:
+                #     if target_graph == 'omkar':
+                #         graph.omkar_end_node.append((next_segment.chr_name, next_segment.end))
 
     # segment edge
     iterative_add_segment_edge(karsim_path_list, 'karsim')
@@ -722,7 +745,6 @@ def form_graph_from_cluster(cluster_file, forbidden_region_file='Metadata/acroce
     iterative_add_transition_edge(omkar_path_list, 'omkar')
 
     # graph.add_start_end_transition_edges()
-    # graph.remove_forbidden_nodes(forbidden_region_file)
 
     return graph
 
@@ -737,14 +759,14 @@ def draw_graph(cluster_file, output_dir):
 
     os.makedirs(folder, exist_ok=True)
 
-    # shutil.copyfile('new_data_files/OMKar/' + file_basename_no_cluster + '.1.txt',
-    #                 folder + file_basename_no_cluster + '.omkar_paths.txt')
-    # shutil.copyfile('new_data_files/KarSimulator/' + file_basename_no_cluster + '.kt.txt',
-    #                 folder + file_basename_no_cluster + '.karsim_paths.txt')
+    shutil.copyfile('new_data_files/OMKar/' + file_basename_no_cluster + '.1.txt',
+                    folder + file_basename_no_cluster + '.omkar_paths.txt')
+    shutil.copyfile('new_data_files/KarSimulator/' + file_basename_no_cluster + '.kt.txt',
+                    folder + file_basename_no_cluster + '.karsim_paths.txt')
     # shutil.copyfile('new_data_files/alignment_files/' + file_basename + '.alignment.txt',
     #                 folder + file_basename + '.alignment.txt')
-    # shutil.copyfile('new_data_files/cluster_files/' + file_basename + '.txt',
-    #                 folder + file_basename + '.cluster.txt')
+    shutil.copyfile('new_data_files/cluster_files/' + file_basename + '.txt',
+                    folder + file_basename + '.cluster.txt')
 
     graph = form_graph_from_cluster(cluster_file)
 
@@ -766,8 +788,8 @@ def draw_graph(cluster_file, output_dir):
 
 
 if __name__ == "__main__":
-    file_name = '23X_15q26_overgrowth_r1'
-    cluster_number = '12'
+    file_name = '23X_22q11-2_distal_deletion_r1'
+    cluster_number = '17'
     draw_graph('new_data_files/cluster_files_testbuild5/' + file_name + 'cluster_' + cluster_number + '.txt',
                'new_data_files/complete_graphs/')
 

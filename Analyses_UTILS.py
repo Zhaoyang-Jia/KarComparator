@@ -19,6 +19,7 @@ def form_graph(input_df_row):
 
 def iterative_get_segment_distance(df_row):
     graph = form_graph(df_row)
+    graph.remove_forbidden_nodes(forbidden_region_file)
 
     return graph.get_segment_distance()
 
@@ -28,9 +29,9 @@ def iterative_remove_approximated_edges(df_row):
     graph.prune_same_edges()
     graph.remove_approximate_transition_edges()
     graph.match_transition_edges()
+    graph.remove_forbidden_nodes(forbidden_region_file)
 
-    n_approximated_edges = graph.karsim_n_transition_approximated \
-                           + graph.omkar_n_transition_approximated
+    n_approximated_edges = graph.karsim_n_transition_approximated + graph.omkar_n_transition_approximated
     approximated_cnv_distance = graph.approximated_cnv
 
     return approximated_cnv_distance, n_approximated_edges
@@ -41,6 +42,7 @@ def iterative_get_missed_transition_edges(df_row):
     graph.prune_same_edges()
     graph.remove_approximate_transition_edges()
     graph.match_transition_edges()
+    graph.remove_forbidden_nodes(forbidden_region_file)
 
     missed_transition_edges = graph.get_missed_transition_edges()
     return missed_transition_edges[0], len(missed_transition_edges[0]), len(missed_transition_edges[1])
@@ -51,6 +53,7 @@ def iterative_get_cnv(df_row):
     graph.prune_same_edges()
     graph.remove_approximate_transition_edges()
     graph.match_transition_edges()
+    graph.remove_forbidden_nodes(forbidden_region_file)
 
     return graph.get_segment_distance()
 
@@ -60,6 +63,7 @@ def iterative_check_labeled_edges_in_residual_graph(df_row):
     graph.prune_same_edges()
     graph.remove_approximate_transition_edges()
     graph.match_transition_edges()
+    graph.remove_forbidden_nodes(forbidden_region_file)
 
     omkar_residual_segments, omkar_residual_transitions = graph.gather_edges('omkar')
     karsim_residual_segments, karsim_residual_transitions = graph.gather_edges('karsim')
@@ -120,6 +124,7 @@ def iterative_get_dummy_lengths(df_row):
 def iterative_get_initial_n_SV(df_row):
     graph = form_graph(df_row)
     graph.remove_approximate_transition_edges()
+    graph.remove_forbidden_nodes(forbidden_region_file)
     karsim_residual_segments, karsim_residual_transitions = graph.gather_edges('karsim')
 
     n_transitions = 0
