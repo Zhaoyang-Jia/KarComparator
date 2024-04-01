@@ -121,47 +121,47 @@ class Graph:
                               end_segment.chr_name, end_segment.start,
                               'transition', target_graph)
 
-    def add_start_end_transition_edges(self):
-        terminal_nodes = self.get_chr_start_end_nodes()
-        node_name_to_coordinates = reverse_dict(self.node_name)
-        terminal_node_coordinates = {}
-        for node_name in terminal_nodes:
-            node_coordinate = node_name_to_coordinates[node_name]
-            node_chr = node_coordinate[0]
-            node_index = node_coordinate[1]
-            if node_chr in terminal_node_coordinates:
-                terminal_node_coordinates[node_chr].append(node_index)
-            else:
-                terminal_node_coordinates[node_chr] = [node_index]
-
-        # print('x')
-
-        for start_node in self.omkar_start_node:
-            start_node_chr = start_node[0]
-            if start_node_chr not in terminal_node_coordinates:
-                continue
-            graph_start_node_coordinate = min(terminal_node_coordinates[start_node_chr])  # contains 2 coor, min is the start
-            if start_node == (start_node_chr, graph_start_node_coordinate):
-                continue
-
-            if (start_node_chr, graph_start_node_coordinate) in self.omkar_dict:
-                self.omkar_dict[(start_node_chr, graph_start_node_coordinate)].append((*start_node, 'transition'))
-            else:
-                self.omkar_dict[(start_node_chr, graph_start_node_coordinate)] = [(*start_node, 'transition')]
-
-        for end_node in self.omkar_end_node:
-            end_node_chr = end_node[0]
-            if end_node_chr not in terminal_node_coordinates:
-                # FIXME: why would this even occur?
-                continue
-            graph_end_node_coordinate = max(terminal_node_coordinates[end_node_chr])  # contains 2 coor, max is the end
-            if end_node == (end_node_chr, graph_end_node_coordinate):
-                continue
-
-            if end_node in self.omkar_dict:
-                self.omkar_dict[end_node].append((end_node_chr, graph_end_node_coordinate, 'transition'))
-            else:
-                self.omkar_dict[end_node] = [(end_node_chr, graph_end_node_coordinate, 'transition')]
+    # def add_start_end_transition_edges(self):
+    #     terminal_nodes = self.get_chr_start_end_nodes()
+    #     node_name_to_coordinates = reverse_dict(self.node_name)
+    #     terminal_node_coordinates = {}
+    #     for node_name in terminal_nodes:
+    #         node_coordinate = node_name_to_coordinates[node_name]
+    #         node_chr = node_coordinate[0]
+    #         node_index = node_coordinate[1]
+    #         if node_chr in terminal_node_coordinates:
+    #             terminal_node_coordinates[node_chr].append(node_index)
+    #         else:
+    #             terminal_node_coordinates[node_chr] = [node_index]
+    #
+    #     # print('x')
+    #
+    #     for start_node in self.omkar_start_node:
+    #         start_node_chr = start_node[0]
+    #         if start_node_chr not in terminal_node_coordinates:
+    #             continue
+    #         graph_start_node_coordinate = min(terminal_node_coordinates[start_node_chr])  # contains 2 coor, min is the start
+    #         if start_node == (start_node_chr, graph_start_node_coordinate):
+    #             continue
+    #
+    #         if (start_node_chr, graph_start_node_coordinate) in self.omkar_dict:
+    #             self.omkar_dict[(start_node_chr, graph_start_node_coordinate)].append((*start_node, 'transition'))
+    #         else:
+    #             self.omkar_dict[(start_node_chr, graph_start_node_coordinate)] = [(*start_node, 'transition')]
+    #
+    #     for end_node in self.omkar_end_node:
+    #         end_node_chr = end_node[0]
+    #         if end_node_chr not in terminal_node_coordinates:
+    #             # FIXME: why would this even occur?
+    #             continue
+    #         graph_end_node_coordinate = max(terminal_node_coordinates[end_node_chr])  # contains 2 coor, max is the end
+    #         if end_node == (end_node_chr, graph_end_node_coordinate):
+    #             continue
+    #
+    #         if end_node in self.omkar_dict:
+    #             self.omkar_dict[end_node].append((end_node_chr, graph_end_node_coordinate, 'transition'))
+    #         else:
+    #             self.omkar_dict[end_node] = [(end_node_chr, graph_end_node_coordinate, 'transition')]
 
     def prune_same_edges(self):
         dict1 = self.karsim_dict
@@ -768,6 +768,16 @@ def draw_graph(cluster_file, output_dir):
     shutil.copyfile('new_data_files/cluster_files/' + file_basename + '.txt',
                     folder + file_basename + '.cluster.txt')
 
+    omkar_output_dir = '/media/zhaoyang-new/workspace/KarSim/KarComparator/batch_processing/omkar_output_temp/'
+    base_file_name = cluster_file.split('/')[-1].split('cluster')[0]
+    node_file = omkar_output_dir + base_file_name + '.1/' + base_file_name + '.1.preILP_nodes.txt'
+    edge_file = omkar_output_dir + base_file_name + '.1/' + base_file_name + '.1.preILP_edges.txt'
+    shutil.copyfile(node_file, folder + file_basename + '.preILP_nodes.txt')
+    shutil.copyfile(edge_file, folder + file_basename + '.preILP_edges.txt')
+    print(node_file)
+    print(folder)
+    print(file_basename)
+
     graph = form_graph_from_cluster(cluster_file)
 
     graph.visualize_graph(folder + 'raw')
@@ -788,8 +798,19 @@ def draw_graph(cluster_file, output_dir):
 
 
 if __name__ == "__main__":
+    import subprocess
     file_name = '23X_22q11-2_distal_deletion_r1'
     cluster_number = '17'
-    draw_graph('new_data_files/cluster_files_testbuild5/' + file_name + 'cluster_' + cluster_number + '.txt',
-               'new_data_files/complete_graphs/')
+
+    input_cluster_file = 'new_data_files/cluster_files_testbuild5/' + file_name + 'cluster_' + cluster_number + '.txt'
+    draw_graph(input_cluster_file, 'new_data_files/complete_graphs/')
+
+    chr_of_int = ['18']  # figure this out by looking at the cluster file first, required for running the debug_omkar
+    debug_omkar_script = './debug_omkar.py'
+    input_file_basename = input_cluster_file.split('/')[-1].split('.')[0]
+    subprocess.run(['python', debug_omkar_script,
+                    '--output_dir', 'new_data_files/complete_graphs/' + input_file_basename + '/',
+                    '--case_file', file_name,
+                    '--chr_of_int', str(chr_of_int)])
+
 

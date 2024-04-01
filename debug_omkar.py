@@ -1,6 +1,8 @@
 import networkx as nx
 import netgraph as ng
 import matplotlib.pyplot as plt
+import argparse
+import ast
 
 
 from forbidden_region_processing import read_forbidden_regions
@@ -8,7 +10,6 @@ from Structures import *
 
 
 dir_name = '/media/zhaoyang-new/workspace/KarSim/KarComparator/batch_processing/omkar_output_temp/'
-output_dir = '/media/zhaoyang-new/workspace/KarSim/KarComparator/debug_omkar/'
 forbidden_region_file = '/media/zhaoyang-new/workspace/KarSim/KarComparator/Metadata/acrocentric_telo_cen.bed'
 
 uniform_dist = 1 / 6
@@ -173,7 +174,7 @@ def label_centromere_nodes(V, forbidden_file):
     print('x')
 
 
-def graph_pre_ILP(chrs_of_interest, header_name):
+def graph_pre_ILP(chrs_of_interest, header_name, output_dir):
     node_file = dir_name + header_name + '.1/' + header_name + '.1.preILP_nodes.txt'
     edge_file = dir_name + header_name + '.1/' + header_name + '.1.preILP_edges.txt'
 
@@ -211,7 +212,7 @@ def graph_pre_ILP(chrs_of_interest, header_name):
     plt.savefig(output_dir + header_name + str(chrs_of_interest) + '.preILP.png')
 
 
-def graph_post_ILP(chrs_of_interest, header_name):
+def graph_post_ILP(chrs_of_interest, header_name, output_dir):
     node_file = dir_name + header_name + '.1/' + header_name + '.1.preILP_nodes.txt'
     metadata_file = dir_name + header_name + '.1/postILP_components/' + header_name + '.1.postILP.metadata.txt'
 
@@ -266,7 +267,7 @@ def graph_post_ILP(chrs_of_interest, header_name):
     plt.savefig(output_dir + header_name + str(chrs_of_interest) + '.postILP.png')
 
 
-def graph_post_ILP_with_dummies(chrs_of_interest, header_name):
+def graph_post_ILP_with_dummies(chrs_of_interest, header_name, output_dir):
     node_file = dir_name + header_name + '.1/' + header_name + '.1.preILP_nodes.txt'
     metadata_file = dir_name + header_name + '.1/postILP_components/' + header_name + '.1.postILP.metadata.txt'
 
@@ -327,8 +328,26 @@ def graph_post_ILP_with_dummies(chrs_of_interest, header_name):
 
 
 if __name__ == "__main__":
-    chr_of_int = ['13']
-    header = '23X_15q26_overgrowth_r1'
-    graph_pre_ILP(chr_of_int, header)
-    graph_post_ILP(chr_of_int, header)
-    graph_post_ILP_with_dummies(chr_of_int, header)
+    def parse_list(s):
+        x = ast.literal_eval(s)
+        new_list = []
+        for item in x:
+            new_list.append(str(item))
+        return new_list
+
+    parser = argparse.ArgumentParser(description='plotting omkar preILP and postILP graphs')
+    parser.add_argument('--output_dir', type=str)
+    parser.add_argument('--case_file', type=str)
+    parser.add_argument('--chr_of_int', type=parse_list)
+
+    args = parser.parse_args()
+    chr_of_int = args.chr_of_int
+    current_output_dir = args.output_dir
+    header = args.case_file
+
+    # chr_of_int = ['13']
+    # current_output_dir = '/media/zhaoyang-new/workspace/KarSim/KarComparator/debug_omkar/'
+    # header = '23X_15q26_overgrowth_r1'
+    graph_pre_ILP(chr_of_int, header, current_output_dir)
+    graph_post_ILP(chr_of_int, header, current_output_dir)
+    graph_post_ILP_with_dummies(chr_of_int, header, current_output_dir)
