@@ -1,0 +1,7 @@
+#h	SmapEntryID	QryContigID	RefcontigID1	RefcontigID2	QryStartPos	QryEndPos	RefStartPos	RefEndPos	Confidence	Type	XmapID1	XmapID2	LinkID	QryStartIdx	QryEndIdx	RefStartIdx	RefEndIdx	Zygosity	Genotype	GenotypeGroup	RawConfidence	RawConfidenceLeft	RawConfidenceRight	RawConfidenceCenter	SVsize	SVfreq	Orientation	VAF
+2160	1500	9	9	18078.1	535081.2	7391156.0	7644055.0	-1.0	duplication_inverted	139	140	-1	1	122	1630	1691	unknown	-1	-1	-1.0	71.17	78.89	-1.0	252899.0	0.157	NA	0.05
+2169	1152	9	9	238669.2	238669.2	40106102.0	42568104.0	0.72	inversion	153	166	2170	40	40	8709	9156	heterozygous	1	-1	-1.0	59.97	135.11	-1.0	230957.0	0.086	NA	0.09
+2719	1441	12	12	-2604232.2	3226427.7	85452946.0	88362781.0	-1.0	duplication_split	239	241	-1	0	130	17342	17981	unknown	-1	-1	-1.0	77.38	76.9	-1.0	2909835.0	0.208	NA	0.25
+2720	1442	12	12	-2624218.1	3206566.7	85452946.0	88362781.0	-1.0	duplication_split	240	242	-1	0	124	17342	17981	unknown	-1	-1	-1.0	70.03	72.8	-1.0	2909835.0	0.14800000000000002	NA	0.18
+2816	742	14	14	277879.9	1608836.4	18430816.0	18890578.0	-1.0	duplication_inverted	246	248	-1	34	226	51	96	unknown	-1	-1	-1.0	223.78	60.72	-1.0	459762.0	0.426	NA	0.51
+2932	111	15	15	69339583.2	70920777.8	30412262.0	30679109.5	-1.0	duplication_inverted	261	263	-1	13743	14009	1915	1965	unknown	-1	-1	-1.0	2672.94	59.17	-1.0	266847.5	0.423	NA	0.48
