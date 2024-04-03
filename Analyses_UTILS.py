@@ -6,7 +6,7 @@ import os
 import pandas as pd
 import re
 
-data_folder = 'cluster_files_testbuild6/'
+data_folder = 'new_data_files/cluster_files_testbuild6/'
 
 
 def form_graph(input_df_row):
@@ -143,7 +143,7 @@ def iterative_count_events(df_row):
 
 
 def iterative_check_missed_SV_in_preILP(input_file_name, missed_SVs, d=200000):
-    omkar_log_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/batch_processing/OMKar_testbuild3/'
+    omkar_log_dir = 'batch_processing/OMKar_testbuild3/'
     node_file = omkar_log_dir + input_file_name + '.1/' + input_file_name + '.1.preILP_nodes.txt'
     edge_file = omkar_log_dir + input_file_name + '.1/' + input_file_name + '.1.preILP_edges.txt'
     V = get_vertices_pre_ILP(node_file)
@@ -219,7 +219,7 @@ def prep_df():
                         'n_path_karsim': int(matches[2]),
                         'n_path_omkar': int(matches[3])}
         alignment_file = file.split('.')[0] + '.alignment.txt'
-        with open('alignment_files/' + alignment_file) as fp_read:
+        with open('new_data_files/alignment_files/' + alignment_file) as fp_read:
             line1 = fp_read.readline()
             line1 = line1.replace('\n', '').split(': ')[1]
             new_data['total_alignment_cost'] = int(line1)
@@ -234,7 +234,7 @@ def prep_df():
     df = pd.DataFrame(data)
 
     ## get event_chr
-    karsim_file_prefix = 'KarSimulator/'
+    karsim_file_prefix = 'new_data_files/KarSimulator/'
     df['event_chr'] = df['file_name'].apply(lambda x: list(get_event_chr(karsim_file_prefix + x + '.kt.txt')))
     df['event_chr'] = df['event_chr'].apply(lambda x: [entry[:-1] for entry in x])
 

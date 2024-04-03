@@ -1,0 +1,17 @@
+Previous:
+23X_22q11-2_distal_deletion_r1cluster_5.txt
+- what happened between path 12 and 13
+23X_22q11-2_distal_deletion_r2cluster_7.txt
+- why did we insert an inversion?
+
+042324:
+23X_1q21_recurrent_microduplication_r2cluster_1.cluster.txt
+- path not split
+23X_Angelman_r1cluster_3.cluster.txt
+- missed dup-inv, need to investigate into multigraph no support error before investigating into this
+23X_Xp11_22_Microduplication_r2cluster_8.cluster.txt
+- same as above
+23X_15q26_overgrowth_r1cluster_14.cluster.txt
+- Why did we introduce an inv, dummy wrong?
+23Y_2p15-16-1_microdeletion_r2cluster_3.cluster.txt
+- extra split, need to find simpler cases to look into debugging

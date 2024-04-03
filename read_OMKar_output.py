@@ -60,7 +60,7 @@ def read_OMKar_output(file, return_segment_dict=False):
         return path_list
 
 
-def rotate_and_bin_path(path_list, forbidden_region_file):
+def rotate_and_bin_path(path_list, forbidden_region_file='Metadata/acrocentric_telo_cen.bed'):
     """
     only works if each path contains exactly one centromere, OW will bin according to t1+t2+centromere percentage,
     if still no, will bin according to overall chr-content percentage
@@ -200,8 +200,8 @@ def bin_path_by_chr_content(input_path):
 
 
 def test():
-    path_list = read_OMKar_output("/media/zhaoyang-new/workspace/KarSim/OMKar_outputs/simulation_final/1q21-1_recurrent_microdeletion_r1.1/1q21-1_recurrent_microdeletion_r1.1.txt")
-    path_list = rotate_and_bin_path(path_list, "../Metadata/merged_forbidden_regions_unique.bed")
+    path_list = read_OMKar_output("/media/zhaoyang-new/workspace/KarSim/KarComparator/new_data_files/OMKar_testbuild3/23X_15q26_overgrowth_r1.1.txt")
+    rotate_and_bin_path(path_list, "Metadata/merged_forbidden_regions_unique.bed")
     # report_centromere_anomaly(path_list)
     for path in path_list:
         print(path)
@@ -218,5 +218,6 @@ def test_read_OMKar_to_path():
     for path in path_list:
         print(path)
 
+
 if __name__ == "__main__":
-    test_read_OMKar_to_path()
+    test()

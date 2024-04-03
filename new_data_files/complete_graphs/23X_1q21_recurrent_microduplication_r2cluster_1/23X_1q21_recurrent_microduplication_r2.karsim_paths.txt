@@ -164,7 +164,7 @@ initialization
 	autosomal copy number: 1
 	sex chromosomes: ['ChrX']
 block 1: 1q21_recurrent_microduplication
-	tandem_duplication on segments [5+], from Chr1a to Chr1a
+	tandem duplication on segments [5+], from Chr1a to Chr1a
 block 2: random events
 	tandem duplication on segments [63+], from Chr13a to Chr13a
 	inversion on segments [2+], from Chr1a to Chr1a

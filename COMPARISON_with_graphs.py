@@ -520,8 +520,6 @@ class Graph:
                         edge_color = 'blue'
 
                 if graph.has_edge(edge[0], edge[1]):
-                    # FIXME: resolve this
-                    continue
                     raise RuntimeError('edge already exists, multi-graph not supported')
                 graph.add_edge(edge[0], edge[1], color=edge_color, weight=edge_weight)
 
@@ -543,8 +541,6 @@ class Graph:
                 node2_x = V_pos[edge[1]][0]
 
                 if edge in trace_dict:
-                    # FIXME
-                    continue
                     raise RuntimeError('edge already exists, multi-graph not supported')
 
                 if edge[0] == edge[1]:
@@ -769,10 +765,9 @@ def draw_graph(cluster_file, output_dir):
                     folder + file_basename_no_cluster + '.karsim_paths.txt')
     # shutil.copyfile('new_data_files/alignment_files/' + file_basename + '.alignment.txt',
     #                 folder + file_basename + '.alignment.txt')
-    shutil.copyfile('new_data_files/cluster_files/' + file_basename + '.txt',
+    shutil.copyfile(cluster_dir + file_basename + '.txt',
                     folder + file_basename + '.cluster.txt')
 
-    omkar_output_dir = 'batch_processing/omkar_output_temp/'
     base_file_name = cluster_file.split('/')[-1].split('cluster')[0]
     node_file = omkar_output_dir + base_file_name + '.1/' + base_file_name + '.1.preILP_nodes.txt'
     edge_file = omkar_output_dir + base_file_name + '.1/' + base_file_name + '.1.preILP_edges.txt'
@@ -806,16 +801,19 @@ def export_graph_vertices(cluster_file):
     return graph.node_name
 
 
+omkar_output_dir = 'batch_processing/omkar_output_temp/'
+cluster_dir = 'new_data_files/cluster_files_testbuild6/'
+
 if __name__ == "__main__":
     import subprocess
-    file_name = '23X_22q11-2_distal_deletion_r1'
-    cluster_number = '10'
+    file_name = '23Y_2p15-16-1_microdeletion_r2'
+    cluster_number = '3'
 
-    input_cluster_file = 'new_data_files/cluster_files_testbuild5/' + file_name + 'cluster_' + cluster_number + '.txt'
+    input_cluster_file = 'new_data_files/cluster_files_testbuild6/' + file_name + 'cluster_' + cluster_number + '.txt'
     draw_graph(input_cluster_file, 'new_data_files/complete_graphs/')
 
     print('debug-omkar')
-    chr_of_int = ['18']  # figure this out by looking at the cluster file first, required for running the debug_omkar
+    chr_of_int = ['6']  # figure this out by looking at the cluster file first, required for running the debug_omkar
     debug_omkar_script = './debug_omkar.py'
     omkar_V_rename_dict = export_graph_vertices(input_cluster_file)
     input_file_basename = input_cluster_file.split('/')[-1].split('.')[0]

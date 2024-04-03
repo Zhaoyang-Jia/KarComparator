@@ -10,7 +10,7 @@ from Structures import *
 
 
 dir_name = 'batch_processing/omkar_output_temp/'
-forbidden_region_file = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/Metadata/acrocentric_telo_cen.bed'
+forbidden_region_file = 'Metadata/acrocentric_telo_cen.bed'
 
 uniform_dist = 1 / 6
 graph_size_width_multiplier = 20
