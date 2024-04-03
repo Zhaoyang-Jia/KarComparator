@@ -1,5 +1,5 @@
-data_dir=omkar_output_temp/
-output_dir=../new_data_files/OMKar_testbuild2/
+data_dir=OMKar_testbuild3/
+output_dir=../new_data_files/OMKar_testbuild3/
 
 for folder in ${data_dir}/*
 do

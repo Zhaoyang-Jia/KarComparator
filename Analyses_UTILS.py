@@ -6,7 +6,7 @@ import os
 import pandas as pd
 import re
 
-data_folder = 'cluster_files_testbuild5/'
+data_folder = 'cluster_files_testbuild6/'
 
 
 def form_graph(input_df_row):
@@ -143,7 +143,7 @@ def iterative_count_events(df_row):
 
 
 def iterative_check_missed_SV_in_preILP(input_file_name, missed_SVs, d=200000):
-    omkar_log_dir = '/media/zhaoyang-new/workspace/KarSim/KarComparator/batch_processing/omkar_output_temp/'
+    omkar_log_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/batch_processing/OMKar_testbuild3/'
     node_file = omkar_log_dir + input_file_name + '.1/' + input_file_name + '.1.preILP_nodes.txt'
     edge_file = omkar_log_dir + input_file_name + '.1/' + input_file_name + '.1.preILP_edges.txt'
     V = get_vertices_pre_ILP(node_file)

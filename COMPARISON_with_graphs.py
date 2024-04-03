@@ -520,6 +520,8 @@ class Graph:
                         edge_color = 'blue'
 
                 if graph.has_edge(edge[0], edge[1]):
+                    # FIXME: resolve this
+                    continue
                     raise RuntimeError('edge already exists, multi-graph not supported')
                 graph.add_edge(edge[0], edge[1], color=edge_color, weight=edge_weight)
 
@@ -541,6 +543,8 @@ class Graph:
                 node2_x = V_pos[edge[1]][0]
 
                 if edge in trace_dict:
+                    # FIXME
+                    continue
                     raise RuntimeError('edge already exists, multi-graph not supported')
 
                 if edge[0] == edge[1]:
@@ -703,8 +707,8 @@ class Graph:
                                               arrows=True,
                                               node_size=6,
                                               node_label_offset=0.001,
-                                              node_label_font_dict=dict(size=20),
-                                              edge_label_fontdict=dict(size=15),
+                                              node_label_font_dict=dict(size=10),
+                                              edge_label_fontdict=dict(size=9),
                                               scale=(graph_width, 1))
             plt.savefig(output_prefix + '.merged.graph.png')
 
@@ -768,7 +772,7 @@ def draw_graph(cluster_file, output_dir):
     shutil.copyfile('new_data_files/cluster_files/' + file_basename + '.txt',
                     folder + file_basename + '.cluster.txt')
 
-    omkar_output_dir = '/media/zhaoyang-new/workspace/KarSim/KarComparator/batch_processing/omkar_output_temp/'
+    omkar_output_dir = 'batch_processing/omkar_output_temp/'
     base_file_name = cluster_file.split('/')[-1].split('cluster')[0]
     node_file = omkar_output_dir + base_file_name + '.1/' + base_file_name + '.1.preILP_nodes.txt'
     edge_file = omkar_output_dir + base_file_name + '.1/' + base_file_name + '.1.preILP_edges.txt'
@@ -797,20 +801,28 @@ def draw_graph(cluster_file, output_dir):
     # graph.get_missed_transition_edge_count()
 
 
+def export_graph_vertices(cluster_file):
+    graph = form_graph_from_cluster(cluster_file)
+    return graph.node_name
+
+
 if __name__ == "__main__":
     import subprocess
     file_name = '23X_22q11-2_distal_deletion_r1'
-    cluster_number = '17'
+    cluster_number = '10'
 
     input_cluster_file = 'new_data_files/cluster_files_testbuild5/' + file_name + 'cluster_' + cluster_number + '.txt'
     draw_graph(input_cluster_file, 'new_data_files/complete_graphs/')
 
+    print('debug-omkar')
     chr_of_int = ['18']  # figure this out by looking at the cluster file first, required for running the debug_omkar
     debug_omkar_script = './debug_omkar.py'
+    omkar_V_rename_dict = export_graph_vertices(input_cluster_file)
     input_file_basename = input_cluster_file.split('/')[-1].split('.')[0]
     subprocess.run(['python', debug_omkar_script,
                     '--output_dir', 'new_data_files/complete_graphs/' + input_file_basename + '/',
                     '--case_file', file_name,
-                    '--chr_of_int', str(chr_of_int)])
+                    '--chr_of_int', str(chr_of_int),
+                    '--rename_dict', str(omkar_V_rename_dict)])
 
 
