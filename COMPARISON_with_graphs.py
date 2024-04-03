@@ -520,8 +520,10 @@ class Graph:
                         edge_color = 'blue'
 
                 if graph.has_edge(edge[0], edge[1]):
-                    raise RuntimeError('edge already exists, multi-graph not supported')
-                graph.add_edge(edge[0], edge[1], color=edge_color, weight=edge_weight)
+                    # FIXME: right now, if different types of the same edge exist, the multiplicity of the latters will be added to the first added type
+                    graph[edge[0]][edge[1]]['weight'] += edge_weight
+                else:
+                    graph.add_edge(edge[0], edge[1], color=edge_color, weight=edge_weight)
 
         def iterative_add_edge_trace(edges_dict: {(str, str): int},
                                      trace_dict: {(str, str): (float, float)},
@@ -541,6 +543,8 @@ class Graph:
                 node2_x = V_pos[edge[1]][0]
 
                 if edge in trace_dict:
+                    # FIXME: look into why this happens
+                    continue
                     raise RuntimeError('edge already exists, multi-graph not supported')
 
                 if edge[0] == edge[1]:
@@ -806,14 +810,14 @@ cluster_dir = 'new_data_files/cluster_files_testbuild6/'
 
 if __name__ == "__main__":
     import subprocess
-    file_name = '23Y_2p15-16-1_microdeletion_r2'
+    file_name = '23X_Angelman_r1'
     cluster_number = '3'
 
     input_cluster_file = 'new_data_files/cluster_files_testbuild6/' + file_name + 'cluster_' + cluster_number + '.txt'
     draw_graph(input_cluster_file, 'new_data_files/complete_graphs/')
 
     print('debug-omkar')
-    chr_of_int = ['6']  # figure this out by looking at the cluster file first, required for running the debug_omkar
+    chr_of_int = ['5']  # figure this out by looking at the cluster file first, required for running the debug_omkar
     debug_omkar_script = './debug_omkar.py'
     omkar_V_rename_dict = export_graph_vertices(input_cluster_file)
     input_file_basename = input_cluster_file.split('/')[-1].split('.')[0]
