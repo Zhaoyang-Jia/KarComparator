@@ -1,0 +1,15 @@
+cluster<2>, origin_chr<['Chr4']>, n_karsim<2>, n_omkar<2>
+0	Chr4	0	9999	telomere1	10000
+1	Chr4	10000	49708100	arm_region	49698101
+2	Chr4	49708101	51743951	centromere	2035851
+3	Chr4	51743952	190202564	arm_region	138458613
+4	Chr4	190202565	190204554	arm_region	1990
+5	Chr4	190204555	190214554	telomere2	10000
+---
+Chr4a	Chr4	0+,1+,2+,3+,4+,5+
+Chr4b	Chr4	0+,1+,2+,3+,4+,5+
+---
+Path9	Chr4	0+,1+,2+,3+
+Path10	Chr4	0+,1+,2+,3+
+---
+---
