@@ -1,4 +1,4 @@
-def haplotype_sv_call(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_size_dict: {str: int}):
+def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_size_dict: {str: int}):
     """
     Input a haplotype and a WT, report SVs; hap from mt list must correspond to hap from wt list
     :param segment_size_dict: {str: int} segment mapped to size of the segment (eg. 11: 12,345)
@@ -16,11 +16,12 @@ def haplotype_sv_call(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_size_d
 
     event_blocks = []  # [[(int, int)]]; [[(a, b)]] where event block are [a, b) of each hap
     block_types = []  # [[str]], a block is either ins/del
-    for hap_idx, mt_hap in enumerate(mt_aligned):
+    for hap_idx1, mt_hap in enumerate(mt_aligned):
         # we know len(wt_hap) == len(mt_hap) as they are alignments
-        wt_hap = wt_aligned[hap_idx]
+        wt_hap = wt_aligned[hap_idx1]
         hap_len = len(mt_hap)
         seg_idx = 0
+        hap_blocks = []
         while seg_idx < hap_len:
             mt_seg = mt_hap[seg_idx]
             wt_seg = wt_hap[seg_idx]
@@ -53,20 +54,28 @@ def haplotype_sv_call(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_size_d
                     block_types.append('del')
                 else:
                     raise ValueError('mismatch not allowed')
-                event_blocks.append((seg_idx, block_end))
+                hap_blocks.append((seg_idx, block_end))
                 seg_idx = block_end
+        event_blocks.append(hap_blocks)
 
-    for hap_idx, current_hap_blocks in enumerate(event_blocks):
-        for block_idx, current_block in enumerate(current_hap_blocks):
-            current_type = block_types[block_idx]
-            block_start = current_block[0]
-            block_end = current_block[1]
+    def genomewide_seed_search(query_section, query_chr_idx, query_type):
+        for hap_idx2, hap_block_list2 in enumerate(event_blocks):
+            if hap_idx2 == hap_idx1:
+                # first get inter-chr event
+                continue
+            for block_idx2, current_block2 in enumerate(hap_block_list2):
+                if block_types[block_idx2] == query_type:
+                    # we only search seed in the opposite type
+                    continue
+
+    for hap_idx1, hap_block_list1 in enumerate(event_blocks):
+        for block_idx1, current_block1 in enumerate(hap_block_list1):
+            current_type = block_types[block_idx1]
+            block_start = current_block1[0]
+            block_end = current_block1[1]
             if current_type == 'ins':
-                cont_section = mt_aligned[block_start: block_end]
-                # ins search for del seeds
-                for wt_hap in wt_aligned:
-                    pass
-
+                cont_section = mt_aligned[hap_idx1][block_start: block_end]
+                # ins search for del seeds in all other haps, then its own hap
 
 
 
@@ -113,6 +122,7 @@ def is_seeded(input_hap, cont_section, size_dict, d=200000):
     :param d:
     :return:
     """
+
     def sublist_idx(list1, list2):
         # list 1 is small, list 2 is large (presumed superlist)
         for i in range(len(list2) - len(list1) + 1):
@@ -140,7 +150,6 @@ def is_seeded(input_hap, cont_section, size_dict, d=200000):
         return sublist_idx(all_sublists[max_size_sublist_idx], input_hap)
     else:
         return 0
-
 
 
 def section_size(input_section, size_dict):
@@ -232,15 +241,21 @@ def lcs(list1, list2, size_dict):
 
 
 if __name__ == "__main__":
-    i_mt_hap = ['1+', '2+', '3-', '4+']
-    i_wt_hap = ['1+', '2+', '3+', '4+', '5+', '6+']
-    i_mt_list = [i_mt_hap]
-    i_wt_list = [i_wt_hap]
+    i_mt_hap1 = ['1+', '2+', '3-', '4+', '9+', '10+']
+    i_mt_hap2 = ['7+', '8+', '5+', '6+']
+    i_wt_hap1 = ['1+', '2+', '3+', '4+', '5+', '6+']
+    i_wt_hap2 = ['7+', '8+', '9+', '10+']
+    i_mt_list = [i_mt_hap1, i_mt_hap2]
+    i_wt_list = [i_wt_hap1, i_wt_hap2]
     i_size_dict = {'1': 1,
-                 '2': 1,
-                 '3': 1,
-                 '4': 1,
-                 '5': 1,
-                 '6': 1}
-    print(lcs(i_mt_hap, i_wt_hap, i_size_dict))
-    print(haplotype_sv_call(i_mt_list, i_wt_list, i_size_dict))
+                   '2': 1,
+                   '3': 1,
+                   '4': 1,
+                   '5': 1,
+                   '6': 1,
+                   '7': 1,
+                   '8': 1,
+                   '9': 1,
+                   '10': 1}
+    # print(lcs(i_mt_hap, i_wt_hap, i_size_dict))
+    print(interpret_haplotypes(i_mt_list, i_wt_list, i_size_dict))
