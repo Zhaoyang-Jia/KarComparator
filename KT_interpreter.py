@@ -67,7 +67,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
                 if block_types[block_idx2] == query_type:
                     # we only search seed in the opposite type
                     continue
-
+    #xxx
     for hap_idx1, hap_block_list1 in enumerate(event_blocks):
         for block_idx1, current_block1 in enumerate(hap_block_list1):
             current_type = block_types[block_idx1]
