@@ -9,7 +9,7 @@ from forbidden_region_processing import read_forbidden_regions
 from Structures import *
 
 
-dir_name = 'batch_processing/omkar_output_temp/'
+dir_name = 'batch_processing/omkar_testbuild3/'
 forbidden_region_file = 'Metadata/acrocentric_telo_cen.bed'
 
 uniform_dist = 1 / 6
@@ -247,6 +247,12 @@ def graph_pre_ILP(chrs_of_interest, header_name, output_dir, V_rename_dict):
                                       edge_label_fontdict=dict(size=9),
                                       scale=(graph_width, 1))
     plt.savefig(output_dir + header_name + str(chrs_of_interest) + '.preILP.png')
+
+    # output rename dict used for renaming the nodes
+    with open(output_dir + header_name + str(chrs_of_interest) + '.rename.txt', 'w') as fp_write:
+        fp_write.write("clustered_name: omkar_name\n")
+        for k, v in E_rename_dict.items():
+            fp_write.write("{}: {}\n".format(v, k))
 
 
 def graph_post_ILP(chrs_of_interest, header_name, output_dir, V_rename_dict):

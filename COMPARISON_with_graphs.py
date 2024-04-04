@@ -810,14 +810,14 @@ cluster_dir = 'new_data_files/cluster_files_testbuild6/'
 
 if __name__ == "__main__":
     import subprocess
-    file_name = '23X_Angelman_r1'
-    cluster_number = '3'
+    file_name = '23Y_1q21_recurrent_microdeletion_r2'
+    cluster_number = '5'
 
     input_cluster_file = 'new_data_files/cluster_files_testbuild6/' + file_name + 'cluster_' + cluster_number + '.txt'
     draw_graph(input_cluster_file, 'new_data_files/complete_graphs/')
 
     print('debug-omkar')
-    chr_of_int = ['5']  # figure this out by looking at the cluster file first, required for running the debug_omkar
+    chr_of_int = ['10']  # figure this out by looking at the cluster file first, required for running the debug_omkar
     debug_omkar_script = './debug_omkar.py'
     omkar_V_rename_dict = export_graph_vertices(input_cluster_file)
     input_file_basename = input_cluster_file.split('/')[-1].split('.')[0]
