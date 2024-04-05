@@ -24,7 +24,7 @@ Chr21a	Chr21	8+,9+,10+,11+,12+,14+,15+,16+,17+
 Chr21b	Chr21	8+,9+,10+,11+,12+,13+,14+,15+,16+,17+
 ---
 Path1	Chr1	0+,1+,2+,3+,4+,5+
-Path2	-multiple centromeres ({'Chr21', 'Chr1'}), highest representation: Chr1	8+,9+,10+,11+,12+,13+,14+,2+,3+,4+,5+
+Path2	-multiple centromeres ({'Chr1', 'Chr21'}), highest representation: Chr1	8+,9+,10+,11+,12+,13+,14+,2+,3+,4+,5+
 Path3	Chr21	8+,9+,10+,11+,15+
 Path4	-no centromere, highest representation: Chr1	0+,1+,12+,13+,14+,15+
 ---

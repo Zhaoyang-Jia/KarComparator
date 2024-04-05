@@ -46,10 +46,10 @@ Chr8b	Chr8	14+,15+,16+,17+,18+,19+,20+,21+,22+,23+,24+,25+
 Chr9a	Chr9	26+,27+,28+,29+,30+,31+,32+,2+,3+,36+,37+,38+
 Chr9b	Chr9	26+,27+,28+,29+,30+,31+,32+,33+,34+,35+,36+,37+,38+
 ---
-Path16	-multiple centromeres ({'Chr8', 'Chr6'}), highest representation: Chr8	0+,1+,2+,3+,4+,5+,6+,7+,8+,9+,17+,18+,19+,20+,21+,22+,23+
+Path16	-multiple centromeres ({'Chr6', 'Chr8'}), highest representation: Chr8	0+,1+,2+,3+,4+,5+,6+,7+,8+,9+,17+,18+,19+,20+,21+,22+,23+
 Path17	Chr8	14+,15+,16+,17+,18+,19+,22-,21-,20-,23+
 Path18	-no centromere, highest representation: Chr6	14+,15+,16+,9+,10+,11+
-Path19	-multiple centromeres ({'Chr9', 'Chr6'}), highest representation: Chr9	28+,29+,30+,31+,32+,33+,34+,5+,6+,7+,8+,10+,11+
+Path19	-multiple centromeres ({'Chr6', 'Chr9'}), highest representation: Chr9	28+,29+,30+,31+,32+,33+,34+,5+,6+,7+,8+,10+,11+
 Path20	Chr9	28+,29+,30+,31+,32+,33+,3+,4+,35+,36+
 Path21	-no centromere, highest representation: Chr6	0+,1+,2+,34+,35+,36+
 ---

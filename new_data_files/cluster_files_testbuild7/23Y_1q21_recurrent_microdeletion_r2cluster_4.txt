@@ -74,8 +74,8 @@ Path3	Chr8	35+,36+,37+,38+,39+,40+,41+,42+,43+,44+
 Path4	-no centromere, highest representation: Chr8	56-,55-,43+,44+
 Path5	-no centromere, highest representation: Chr9	22+,54+,55+,56+
 Path6	Chr3	22+,23+,24+,25+,26+,27+,28+,29+,30+,31+,32+
-Path7	-multiple centromeres ({'Chr9', 'Chr3'}), highest representation: Chr3	47+,48+,49+,50+,51+,52+,53+,54+,23+,24+,25+,26+,27+,28+,29+,29-,30+,31+,32+
-Path8	-multiple centromeres ({'Chr8', 'Chr9', 'Chr1'}), highest representation: Chr1	2+,4+,5+,5-,4-,8+,9+,10+,13+,14+,15+,38+,39+,40+,41+,53-,52-,51-,50-,42-,49-,48-,47-
+Path7	-multiple centromeres ({'Chr3', 'Chr9'}), highest representation: Chr3	47+,48+,49+,50+,51+,52+,53+,54+,23+,24+,25+,26+,27+,28+,29+,29-,30+,31+,32+
+Path8	-multiple centromeres ({'Chr1', 'Chr8', 'Chr9'}), highest representation: Chr1	2+,4+,5+,5-,4-,8+,9+,10+,13+,14+,15+,38+,39+,40+,41+,53-,52-,51-,50-,42-,49-,48-,47-
 ---
 (6s, 7t, 1, D)	161772
 (41t, 53t, 1, D)	-1

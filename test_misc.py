@@ -32,8 +32,8 @@ from utils import *
 #                                   scale=(graph_width, 1))
 # plt.savefig('test_merged_plot.png')
 
-x = 1
+x = ""
 
 if __name__ == "__main__":
-    print(x)
+    print(len(x))
 
