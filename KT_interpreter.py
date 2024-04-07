@@ -312,7 +312,6 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
         aligned_hap.report_SV()
 
 
-
 def continuous_extension(input_hap, idx_ptr):
     """
     start from the idx_ptr location, moving leftward until no longer can form a continuous section
