@@ -1,5 +1,6 @@
 from Structures import *
 from forbidden_region_processing import *
+from utils import *
 
 
 def read_OMKar_output_to_path(OMKar_output_file, forbidden_region_file):
@@ -60,7 +61,52 @@ def read_OMKar_output(file, return_segment_dict=False):
         return path_list
 
 
-def rotate_and_bin_path(path_list, forbidden_region_file='Metadata/acrocentric_telo_cen.bed'):
+def read_OMKar_to_indexed_list(OMKar_output_file, forbidden_region_file):
+    # all_segments = set()
+    # for path in path_list:
+    #     segments = path.linear_path.segments
+    #     for segment in segments:
+    #         if not segment.direction():
+    #             segment_copy = segment.duplicate()
+    #
+    #
+    #         all_segments.add(segment)
+    # all_segments = list(all_segments)
+    # all_segments = sorted(all_segments)
+
+    path_list, index_dict = read_OMKar_output(OMKar_output_file, return_segment_dict=True)
+    # extract which path to rotate and rotate, without splitting segments
+    tmp_path_list = []
+    for path in path_list:
+        tmp_path = path.duplicate()
+        tmp_path_list.append(tmp_path)
+    label_path_with_forbidden_regions(tmp_path_list, forbidden_region_file)
+    rotated_path_idx = rotate_and_bin_path(tmp_path_list, forbidden_region_file, return_rotated_idx=True)
+
+    for path_idx, path in enumerate(path_list):
+        if path_idx in rotated_path_idx:
+            rotate_path(path)
+
+    segment_dict = reverse_dict(index_dict)
+    indexed_lists = []
+    for path in path_list:
+        indexed_list = []
+        segments = path.linear_path.segments
+        for segment in segments:
+            if segment in segment_dict:
+                indexed_list.append(str(segment_dict[segment]) + "+")
+            else:
+                segment_copy = segment.duplicate()
+                segment_copy.invert()
+                if segment_copy not in segment_dict:
+                    raise RuntimeError('segment_dict not complete')
+                else:
+                    indexed_list.append(str(segment_dict[segment_copy]) + "-")
+        indexed_lists.append(indexed_list)
+    return indexed_lists
+
+
+def rotate_and_bin_path(path_list, forbidden_region_file='Metadata/acrocentric_telo_cen.bed', return_rotated_idx=False):
     """
     only works if each path contains exactly one centromere, OW will bin according to t1+t2+centromere percentage,
     if still no, will bin according to overall chr-content percentage
@@ -69,13 +115,14 @@ def rotate_and_bin_path(path_list, forbidden_region_file='Metadata/acrocentric_t
     :param path_list:
     :return: path_list
     """
+    rotated_path_idx = []
     # isolate centromere
     forbidden_region_path = Path(read_forbidden_regions(forbidden_region_file), 'forbidden_regions', 'forbidden_regions')
     for path in path_list:
         path.generate_mutual_breakpoints(other_path=forbidden_region_path, mutual=False)
 
     # get centromere, rotate if backward, and bin path
-    for path in path_list:
+    for path_idx, path in enumerate(path_list):
         print(path.path_name)
         path_centromere = []
         path_telomeres = []
@@ -97,6 +144,7 @@ def rotate_and_bin_path(path_list, forbidden_region_file='Metadata/acrocentric_t
             else:
                 path.path_chr = path_centromere_arm.segments[0].chr_name
             if not highest_represented_direction(path_centromere):
+                rotated_path_idx.append(path_idx)
                 rotate_path(path)
         else:
             # no centromere segment detected, assume only q arm remains
@@ -110,9 +158,12 @@ def rotate_and_bin_path(path_list, forbidden_region_file='Metadata/acrocentric_t
                 while path.linear_path.segments[next_idx].chr_name == first_segment.chr_name:
                     next_idx += 1
                 last_segment = path.linear_path.segments[next_idx]
-
+            # TODO: also add reverse segment search and rotate based on major-representation
             if first_segment.start > last_segment.end:
+                rotated_path_idx.append(path_idx)
                 rotate_path(path)
+    if return_rotated_idx:
+        return rotated_path_idx
 
 def report_centromere_anomaly(path_list):
     for path in path_list:
@@ -208,16 +259,22 @@ def test():
 
 
 def test_read_OMKar_output():
-    path_list = read_OMKar_output("sample_input/23Y_C ri_du_Chat_r1.1.txt")
+    path_list = read_OMKar_output("sample_input/23Y_Cri_du_Chat_r1.1.txt")
     for path in path_list:
         print(path)
 
 
 def test_read_OMKar_to_path():
-    path_list = read_OMKar_output_to_path("sample_input/23Y_Cri_du_Chat_r1.1.txt", "Metadata/acrocentric_telo_cen.bed")
+    idx_dict, path_list = read_OMKar_output_to_path("sample_input/23Y_Cri_du_Chat_r1.1.txt", "Metadata/acrocentric_telo_cen.bed")
     for path in path_list:
         print(path)
 
 
+def test_output_index_list():
+    # idx_dict, path_list = read_OMKar_output_to_path("sample_input/23Y_Cri_du_Chat_r1.1.txt", "Metadata/acrocentric_telo_cen.bed")
+    indexed_lists = read_OMKar_to_indexed_list("sample_input/23Y_Cri_du_Chat_r1.1.txt", "Metadata/acrocentric_telo_cen.bed")
+    for lst in indexed_lists:
+        print(lst)
+
 if __name__ == "__main__":
-    test()
+    test_output_index_list()

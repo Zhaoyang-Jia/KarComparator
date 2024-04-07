@@ -763,7 +763,7 @@ def draw_graph(cluster_file, output_dir):
 
     os.makedirs(folder, exist_ok=True)
 
-    shutil.copyfile('new_data_files/OMKar/' + file_basename_no_cluster + '.1.txt',
+    shutil.copyfile(omkar_paths_dir + file_basename_no_cluster + '.1.txt',
                     folder + file_basename_no_cluster + '.omkar_paths.txt')
     shutil.copyfile('new_data_files/KarSimulator/' + file_basename_no_cluster + '.kt.txt',
                     folder + file_basename_no_cluster + '.karsim_paths.txt')
@@ -805,19 +805,20 @@ def export_graph_vertices(cluster_file):
     return graph.node_name
 
 
-omkar_output_dir = 'batch_processing/omkar_output_temp/'
-cluster_dir = 'new_data_files/cluster_files_testbuild6/'
+omkar_output_dir = 'batch_processing/OMKar_testbuild4/'
+cluster_dir = 'new_data_files/cluster_files_testbuild7/'
+omkar_paths_dir = 'new_data_files/OMKar_testbuild4/'
 
 if __name__ == "__main__":
     import subprocess
-    file_name = '23Y_1q21_recurrent_microdeletion_r2'
-    cluster_number = '5'
+    file_name = '23Y_2p15-16-1_microdeletion_r2'
+    cluster_number = '2'
 
-    input_cluster_file = 'new_data_files/cluster_files_testbuild6/' + file_name + 'cluster_' + cluster_number + '.txt'
+    input_cluster_file = cluster_dir + file_name + 'cluster_' + cluster_number + '.txt'
     draw_graph(input_cluster_file, 'new_data_files/complete_graphs/')
 
     print('debug-omkar')
-    chr_of_int = ['10']  # figure this out by looking at the cluster file first, required for running the debug_omkar
+    chr_of_int = ['4']  # figure this out by looking at the cluster file first, required for running the debug_omkar
     debug_omkar_script = './debug_omkar.py'
     omkar_V_rename_dict = export_graph_vertices(input_cluster_file)
     input_file_basename = input_cluster_file.split('/')[-1].split('.')[0]
