@@ -102,11 +102,12 @@ def generate_wt_from_OMKar_output(segment_to_index_dict):
     c_path = []
     for segment in sorted_segments:
         seg_chr = segment.chr_name
-        seg_index = sorted_segments[segment]
+        seg_index = segment_to_index_dict[segment]
         if seg_chr != c_chr:
             # new chr section entered
             wt_indexed_paths.append(c_path)
             c_path = []
+            c_chr = seg_chr
         c_path.append(str(seg_index) + '+')
     wt_indexed_paths.append(c_path)
 
@@ -171,6 +172,7 @@ def rotate_and_bin_path(path_list, forbidden_region_file='Metadata/acrocentric_t
                 rotate_path(path)
     if return_rotated_idx:
         return rotated_path_idx
+
 
 def report_centromere_anomaly(path_list):
     for path in path_list:
@@ -286,6 +288,7 @@ def test_output_index_list():
     wt_lists = generate_wt_from_OMKar_output(segment_dict)
     for lst in wt_lists:
         print(lst)
+
 
 if __name__ == "__main__":
     test_output_index_list()
