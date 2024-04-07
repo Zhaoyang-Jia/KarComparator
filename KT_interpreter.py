@@ -96,13 +96,28 @@ class Aligned_Haplotype:
     def __str__(self):
         return "ID<{}>".format(self.id)
 
-    def report_SV(self):
+    def report_SV(self, event_blocks, event_types):
         for mt_block, mt_block_idx_list in self.mt_blocks.items():
             for mt_block_idx in mt_block_idx_list:
-                print("mt{}: {}".format(mt_block, self.block_assignment[mt_block_idx]))
+                event_id = int(self.block_assignment[mt_block_idx].split(',')[-1])
+                event_type = self.block_assignment[mt_block_idx].split(',')[0]
+                if event_id in event_blocks:
+                    event_blocks[event_id].append('mt{}'.format(mt_block))
+                    event_types[event_id].append(event_type)
+                else:
+                    event_blocks[event_id] = ['mt{}'.format(mt_block)]
+                    event_types[event_id] = [event_type]
         for wt_block, wt_block_idx_list in self.wt_blocks.items():
             for wt_block_idx in wt_block_idx_list:
-                print("wt{}: {}".format(wt_block, self.block_assignment[wt_block_idx]))
+                event_id = int(self.block_assignment[wt_block_idx].split(',')[-1])
+                event_type = self.block_assignment[wt_block_idx].split(',')[0]
+                if event_id in event_blocks:
+                    event_blocks[event_id].append('wt{}'.format(wt_block))
+                    event_types[event_id].append(event_type)
+                else:
+                    event_blocks[event_id] = ['wt{}'.format(wt_block)]
+                    event_types[event_id] = [event_type]
+        return event_blocks, event_types
 
     def search_seed(self, query_section, seed_type, d=200000, eps=200000):
         """
@@ -215,7 +230,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
                     # next block unavailable
                     continue
                 uninverted_segs = [seg[:-1] + '+' for seg in c_mt_block[::-1]]
-                if list(aligned_hap.wt_blocks_inv[c_mt_block_idx + 1]) == uninverted_segs:
+                if c_mt_block_idx + 1 in aligned_hap.wt_blocks_inv and list(aligned_hap.wt_blocks_inv[c_mt_block_idx + 1]) == uninverted_segs:
                     aligned_hap.block_assignment[c_mt_block_idx] = 'inversion,{}'.format(event_id)
                     aligned_hap.block_assignment[c_mt_block_idx + 1] = 'inversion,{}'.format(event_id)
                     event_id += 1
@@ -228,7 +243,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
                     # next block unavailable
                     continue
                 inverted_segs = [seg[:-1] + '-' for seg in c_wt_block[::-1]]
-                if list(aligned_hap.mt_blocks_inv[c_wt_block_idx + 1]) == inverted_segs:
+                if c_wt_block_idx + 1 in aligned_hap.mt_blocks_inv and list(aligned_hap.mt_blocks_inv[c_wt_block_idx + 1]) == inverted_segs:
                     aligned_hap.block_assignment[c_wt_block_idx] = 'inversion,{}'.format(event_id)
                     aligned_hap.block_assignment[c_wt_block_idx + 1] = 'inversion,{}'.format(event_id)
                     event_id += 1
@@ -308,8 +323,14 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
                     aligned_hap.block_assignment[c_mt_block_idx] = 'unbalanced_translocation,{}'.format(event_id)
                     event_id += 1
 
+    ## congregate events for report
+    event_blocks = {}
+    event_types = {}
     for aligned_hap in aligned_haplotypes:
-        aligned_hap.report_SV()
+        event_blocks, event_types = aligned_hap.report_SV(event_blocks, event_types)
+    sorted_event_id = sorted(list(event_blocks.keys()))
+    for event_id in sorted_event_id:
+        print('event<{}>,type<{}>,blocks<{}>'.format(event_id, event_types[event_id], event_blocks[event_id]))
 
 
 def continuous_extension(input_hap, idx_ptr):

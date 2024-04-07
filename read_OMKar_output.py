@@ -75,29 +75,38 @@ def read_OMKar_to_indexed_list(OMKar_output_file, forbidden_region_file):
         if path_idx in rotated_path_idx:
             rotate_path(path)
 
+    ## extract path's characterized chr
+    path_chrs = []
+    for path in tmp_path_list:
+        path_chrs.append(path.path_chr)
+
     ## match and translate to indexing
+    segment_size_dict = {}
     segment_dict = reverse_dict(index_dict)
     indexed_lists = []
+
     for path in path_list:
         indexed_list = []
         segments = path.linear_path.segments
         for segment in segments:
             if segment in segment_dict:
                 indexed_list.append(str(segment_dict[segment]) + "+")
+                segment_size_dict[str(segment_dict[segment])] = len(segment)
             else:
                 segment_copy = segment.duplicate()
                 segment_copy.invert()
-                if segment_copy not in segment_dict:
-                    raise RuntimeError('segment_dict not complete')
-                else:
+                if segment_copy in segment_dict:
                     indexed_list.append(str(segment_dict[segment_copy]) + "-")
+                    segment_size_dict[str(segment_dict[segment_copy])] = len(segment_copy)
+                else:
+                    raise RuntimeError('segment_dict not complete')
         indexed_lists.append(indexed_list)
-    return indexed_lists, segment_dict
+    return indexed_lists, path_chrs, segment_dict, segment_size_dict
 
 
 def generate_wt_from_OMKar_output(segment_to_index_dict):
     sorted_segments = sorted(list(segment_to_index_dict.keys()))
-    wt_indexed_paths = []
+    wt_indexed_paths = {}
     c_chr = 'Chr1'
     c_path = []
     for segment in sorted_segments:
@@ -105,11 +114,11 @@ def generate_wt_from_OMKar_output(segment_to_index_dict):
         seg_index = segment_to_index_dict[segment]
         if seg_chr != c_chr:
             # new chr section entered
-            wt_indexed_paths.append(c_path)
-            c_path = []
+            wt_indexed_paths[c_chr] = c_path
             c_chr = seg_chr
+            c_path = []
         c_path.append(str(seg_index) + '+')
-    wt_indexed_paths.append(c_path)
+    wt_indexed_paths[c_chr] = c_path
 
     return wt_indexed_paths
 
@@ -131,7 +140,7 @@ def rotate_and_bin_path(path_list, forbidden_region_file='Metadata/acrocentric_t
 
     # get centromere, rotate if backward, and bin path
     for path_idx, path in enumerate(path_list):
-        print(path.path_name)
+        # print(path.path_name)
         path_centromere = []
         path_telomeres = []
         for segment_itr in path.linear_path.segments:
@@ -281,7 +290,7 @@ def test_read_OMKar_to_path():
 
 def test_output_index_list():
     # idx_dict, path_list = read_OMKar_output_to_path("sample_input/23Y_Cri_du_Chat_r1.1.txt", "Metadata/acrocentric_telo_cen.bed")
-    indexed_lists, segment_dict = read_OMKar_to_indexed_list("sample_input/23Y_Cri_du_Chat_r1.1.txt", "Metadata/acrocentric_telo_cen.bed")
+    indexed_lists, segment_dict, _ = read_OMKar_to_indexed_list("sample_input/23Y_Cri_du_Chat_r1.1.txt", "Metadata/acrocentric_telo_cen.bed")
     for lst in indexed_lists:
         print(lst)
     print('wt_list')
