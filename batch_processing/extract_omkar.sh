@@ -1,7 +1,6 @@
-data_dir=OMKar_testbuild5/
-output_dir=../new_data_files/OMKar_testbuild5/
+data_dir=OMKar_testbuild4/
+output_dir=../new_data_files/OMKar_testbuild4/
 
-mkdir -p $output_dir
 for folder in ${data_dir}/*
 do
 	for txt_file in ${folder}/*.1.txt; do

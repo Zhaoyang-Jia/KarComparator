@@ -3,8 +3,7 @@ from KT_interpreter import *
 
 import os
 
-# paul_dremsek_data_dir = '/media/zhaoyang-new/workspace/paul_dremsek/omkar_output/'
-paul_dremsek_data_dir = '/Users/zhaoyangjia/Library/CloudStorage/OneDrive-UCSanDiego/Bafna_Lab/Paul_Dremsek_OMKar_output/'
+paul_dremsek_data_dir = '/media/zhaoyang-new/workspace/paul_dremsek/omkar_output/'
 forbidden_region_file = "Metadata/acrocentric_telo_cen.bed"
 
 
@@ -17,8 +16,6 @@ def batch_interpret(omkar_output_dir):
         print(file)
         mt_indexed_lists, mt_path_chrs, segment_dict, segment_size_dict = read_OMKar_to_indexed_list(file_path, forbidden_region_file)
         mt_path_chrs = [info.split(': ')[-1] for info in mt_path_chrs]
-        diploid_chr_report = interpret_chromosomal_anomalies(mt_path_chrs)
-        print(diploid_chr_report)
         wt_path_dict = generate_wt_from_OMKar_output(segment_dict)
         wt_indexed_lists = populate_wt_indexed_lists(mt_path_chrs, wt_path_dict)
         interpret_haplotypes(mt_indexed_lists, wt_indexed_lists, segment_size_dict)

@@ -9,7 +9,7 @@ from forbidden_region_processing import read_forbidden_regions
 from Structures import *
 
 
-dir_name = 'batch_processing/omkar_testbuild5/'
+dir_name = 'batch_processing/omkar_testbuild3/'
 forbidden_region_file = 'Metadata/acrocentric_telo_cen.bed'
 
 uniform_dist = 1 / 6

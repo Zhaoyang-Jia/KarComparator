@@ -123,7 +123,6 @@ def form_dependent_clusters(karsim_path_list,
     # remove all segments that have len <= 1
     all_indexed_segments = remove_small_segments(all_indexed_segments, d=1)
 
-
     karsim_origins = []
     omkar_origins = []
 

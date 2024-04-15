@@ -15,9 +15,9 @@ def generate_genome_from_KT(input_file: str) -> Genome:
     chromosome_of_interest = set()
     segment_dict = {}
 
-    # read-in segment indexing
     with open(input_file) as fp_read:
         line = fp_read.readline()  # column headers
+        ## read-in segment indexing
         while True:
             line = fp_read.readline()
             if line[0] == '-':
@@ -37,7 +37,7 @@ def generate_genome_from_KT(input_file: str) -> Genome:
         for chromosome in chromosome_of_interest:
             full_KT[chromosome] = []
 
-        # read-in the segments in each chromosome
+        ## read-in the segments in each chromosome
         while True:
             line = fp_read.readline().replace('\n', '')
             if line[0] == '-':
@@ -87,7 +87,34 @@ def generate_genome_from_KT(input_file: str) -> Genome:
             # append chromosome to slot in genome, ignore the last char in chromosome's unique ID
             full_KT[info[0][:-1]].append(new_chromosome)
 
-    return Genome(full_KT, motherboard_segments, centromere_segments)
+        ## read-in histories
+        histories = []
+        for line in fp_read:
+            if line.startswith('block'):
+                # first block now is reached
+                break
+
+        for line in fp_read:
+            if line.startswith('block'):
+                continue
+            line = line.replace('\n', '')
+            if len(line) == 0:
+                # last line reached
+                break
+            event = line.split(', ')[0].split(' on')[0].replace('\t', '')
+            event_segments = line.split('[')[1].split(']')[0].split(',')
+            chr_info = line.split(', ')[1]
+            chrs = re.findall(r'from\s+(.*?)\s+to\s+(.*?)$', chr_info)[0]
+            chr_from = chrs[0]
+            chr_to = chrs[1]
+            current_history = (event, chr_from, chr_to, event_segments)
+            histories.append(current_history)
+
+    genome = Genome(full_KT, motherboard_segments, centromere_segments, histories)
+    genome.sort_histories()
+    genome.translate_histories_from_indexing()
+
+    return genome
 
 
 def get_segment_location(input_current_segment: Segment, input_segment_ordinal: int, input_chr: Chromosome):
@@ -137,6 +164,7 @@ def get_segment_location(input_current_segment: Segment, input_segment_ordinal: 
 
 
 def get_history_events(input_file: str, origin_chr: [str]):
+    # TODO: archive function, start_genome now has this functionality
     selected_chr_events = {}
     with open(input_file) as fp_read:
         section_number = 0
@@ -227,4 +255,5 @@ def test_get_event_chr():
 
 
 if __name__ == "__main__":
-    get_history_events('/Users/zhaoyangjia/PyCharm_Repos/KarComparator/new_data_files/KarSimulator/23X_1q21_recurrent_microduplication_r1.kt.txt', [])
+    # get_history_events('/Users/zhaoyangjia/PyCharm_Repos/KarComparator/new_data_files/KarSimulator/23X_1q21_recurrent_microduplication_r1.kt.txt', [])
+    test()

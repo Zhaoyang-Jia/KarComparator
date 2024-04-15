@@ -333,48 +333,6 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
         print('event<{}>,type<{}>,blocks<{}>'.format(event_id, event_types[event_id], event_blocks[event_id]))
 
 
-def interpret_chromosomal_anomalies(chrs_list):
-    n_chr = len(chrs_list)
-    autosomes = []
-    sex_chrs = []
-    for chrom in chrs_list:
-        chrom_num = chrom[3:]
-        if chrom_num in ['23', 'X']:
-            sex_chrs.append('X')
-        elif chrom_num in ['24', 'Y']:
-            sex_chrs.append('Y')
-        else:
-            autosomes.append(int(chrom_num))
-    autosomes = sorted(autosomes)
-    sex_chrs = sorted(sex_chrs)
-
-    sex_chr_str = ""
-    for chrom in sex_chrs:
-        sex_chr_str += chrom
-
-    diploid_autosomes = {i: 2 for i in range(1, 23)}
-    for chrom in autosomes:
-        diploid_autosomes[chrom] -= 1
-    sorted_diploid_keys = sorted(list(diploid_autosomes.keys()))
-
-    autosome_str = []
-    for k in sorted_diploid_keys:
-        chrom_multiplicity = diploid_autosomes[k]
-        if chrom_multiplicity > 0:
-            for _ in range(chrom_multiplicity):
-                autosome_str.append('-' + str(k))
-        elif chrom_multiplicity < 0:
-            for _ in range(abs(chrom_multiplicity)):
-                autosome_str.append('+' + str(k))
-    autosome_str = ','.join(autosome_str)
-
-    if len(autosome_str) > 0:
-        return "{},{},{}".format(n_chr, sex_chr_str, autosome_str)
-    else:
-        return "{},{}".format(n_chr, sex_chr_str)
-
-
-
 def continuous_extension(input_hap, idx_ptr):
     """
     start from the idx_ptr location, moving leftward until no longer can form a continuous section

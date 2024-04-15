@@ -468,15 +468,52 @@ class Chromosome:
         # TODO: implement
         pass
 
+
 class Genome:
     full_KT: {str: [Chromosome]}  # has as many slots as there are chromosome type, i.e. 24 for a male, 23 for a female
     motherboard: Arm  # using the Arm object to use generate breakpoint method
     centromere_segments = [Segment]
+    histories = []
 
-    def __init__(self, full_KT, motherboard_segments, centromere_segments):
+    def __init__(self, full_KT, motherboard_segments, centromere_segments, histories):
         self.full_KT = full_KT
         self.motherboard = Arm(motherboard_segments, 'motherboard')
         self.centromere_segments = centromere_segments
+        self.histories = histories
+
+    def sort_histories(self):
+        # sort histories by Chr_from's names, but maintain temporal order
+        def sort_key(history_entry):
+            chr_from = history_entry[1]
+            info = chr_from.replace('Chr', '')
+            numeric = int(info[:-1])
+            letter = info[-1]
+            return numeric, letter
+
+        self.histories = sorted(self.histories, key=sort_key)
+
+    def translate_histories_from_indexing(self):
+        def translate_segments_from_indices(indexed_segments):
+            actual_segments = []
+            for indexed_seg in indexed_segments:
+                if indexed_seg.startswith('CEN'):
+                    idx = int(indexed_seg[-2])
+                    direction = "+"
+                    segment = self.centromere_segments[idx - 1].duplicate()
+                else:
+                    idx = int(indexed_seg[:-1])
+                    direction = indexed_seg[-1]
+                    segment = self.motherboard.segments[idx - 1].duplicate()
+                if direction == '-':
+                    segment.invert()
+                actual_segments.append(segment)
+            return actual_segments
+
+        new_histories = []
+        for hist in self.histories:
+            event_segments = translate_segments_from_indices(hist[3])
+            new_histories.append((hist[0], hist[1], hist[2], event_segments))
+        self.histories = new_histories
 
     def duplicate(self):
         new_full_KT = {}
@@ -492,7 +529,8 @@ class Genome:
 
         return Genome(new_full_KT,
                       self.motherboard.duplicate(),
-                      new_centromere_segments)
+                      new_centromere_segments,
+                      self.histories)
 
     def __str__(self):
         return_str = ''
