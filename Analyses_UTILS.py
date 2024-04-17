@@ -74,7 +74,9 @@ def iterative_check_labeled_edges_in_residual_graph(df_row):
     significant_dummies = 0
     significant_dummies_in_residual = 0
     total_seg_introduced = 0
+    significant_seg_introduced = 0
     seg_in_residual = 0
+    significant_seg_in_residual = 0
     for edge in labeled_edges:
         start_node = edge[0]
         end_node = edge[1]
@@ -91,19 +93,32 @@ def iterative_check_labeled_edges_in_residual_graph(df_row):
                     significant_dummies_in_residual += 1
         elif edge_type == 'S':
             total_seg_introduced += abs(multiplicity)
+            if edge_distance > 200000:
+                significant_seg_introduced += abs(multiplicity)
             if multiplicity > 0:
                 # we added SEG during ILP
                 if (start_node, end_node) in omkar_residual_segments:
                     seg_in_residual += min(multiplicity, omkar_residual_segments[(start_node, end_node)])
+                    if edge_distance > 200000:
+                        significant_seg_in_residual += min(multiplicity, omkar_residual_segments[(start_node, end_node)])
             elif multiplicity < 0:
                 # we removed SEG during ILP
                 if (start_node, end_node) in karsim_residual_segments:
                     multiplicity = -1 * multiplicity
                     seg_in_residual += min(multiplicity, karsim_residual_segments[(start_node, end_node)])
+                    if edge_distance > 200000:
+                        significant_seg_in_residual += min(multiplicity, karsim_residual_segments[(start_node, end_node)])
             else:
                 raise RuntimeError('multiplicity == 0 makes no sense')
 
-    return total_dummies_introduced, dummies_in_residual, total_seg_introduced, seg_in_residual, significant_dummies, significant_dummies_in_residual
+    return total_dummies_introduced, \
+        dummies_in_residual, \
+        total_seg_introduced, \
+        seg_in_residual, \
+        significant_dummies, \
+        significant_dummies_in_residual, \
+        significant_seg_introduced, \
+        significant_seg_in_residual
 
 
 def iterative_get_dummy_lengths(df_row):
@@ -257,7 +272,8 @@ def process_comparison(df):
     df['SV_missed'] = df['n_karsim_missed_transition'] + df['n_omkar_missed_transition']
     df['CNV_missed'] = df.apply(lambda row: pd.Series(iterative_get_cnv(row)), axis=1)
     df['log10_CNV_missed'] = np.log10(df['CNV_missed'])
-    df[['n_dummies', 'n_leftover_dummies', 'n_seg_changed', 'n_leftover_segchange', 'n_significant_dummies', 'n_leftover_significant_dummies']] \
+    df[['n_dummies', 'n_leftover_dummies', 'n_seg_changed', 'n_leftover_segchange', 'n_significant_dummies', 'n_leftover_significant_dummies', 'n_significant_seg_change',
+        'n_leftover_significant_seg_change']] \
         = df.apply(lambda row: pd.Series(iterative_check_labeled_edges_in_residual_graph(row)), axis=1)
 
     df['dummy_distance'] = df.apply(lambda row: iterative_get_dummy_lengths(row), axis=1)

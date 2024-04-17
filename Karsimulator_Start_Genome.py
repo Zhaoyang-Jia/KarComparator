@@ -245,7 +245,8 @@ def get_event_chr(input_file: str):
 
 
 def test():
-    genome = generate_genome_from_KT('sample_input/23X_Cri_du_Chat_r1.kt.txt')
+    genome = generate_genome_from_KT('sample_input/1q21-1_recurrent_microdeletion_v2_r2.kt.txt')
+    genome.sort_histories()
     genome.output_KT('sample_output/23X_Cri_du_Chat_r1.kt.txt')
 
 

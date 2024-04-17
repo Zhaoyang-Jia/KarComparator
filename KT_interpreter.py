@@ -97,25 +97,32 @@ class Aligned_Haplotype:
         return "ID<{}>".format(self.id)
 
     def report_SV(self, event_blocks, event_types):
+        """
+        :param event_blocks: cumulative dict, where value is a list of event_block, this helps to group paired-events that were on different chromosomes
+        :param event_types: cumulative dict, where value is a list of event_type, same reason as above
+        :return:
+        """
         for mt_block, mt_block_idx_list in self.mt_blocks.items():
+            mt_block_str = ','.join(list(mt_block))
             for mt_block_idx in mt_block_idx_list:
                 event_id = int(self.block_assignment[mt_block_idx].split(',')[-1])
                 event_type = self.block_assignment[mt_block_idx].split(',')[0]
                 if event_id in event_blocks:
-                    event_blocks[event_id].append('mt{}'.format(mt_block))
+                    event_blocks[event_id].append('{}.mt({})'.format(self.id, mt_block_str))
                     event_types[event_id].append(event_type)
                 else:
-                    event_blocks[event_id] = ['mt{}'.format(mt_block)]
+                    event_blocks[event_id] = ['{}.mt({})'.format(self.id, mt_block_str)]
                     event_types[event_id] = [event_type]
         for wt_block, wt_block_idx_list in self.wt_blocks.items():
+            wt_block_str = ','.join(list(wt_block))
             for wt_block_idx in wt_block_idx_list:
                 event_id = int(self.block_assignment[wt_block_idx].split(',')[-1])
                 event_type = self.block_assignment[wt_block_idx].split(',')[0]
                 if event_id in event_blocks:
-                    event_blocks[event_id].append('wt{}'.format(wt_block))
+                    event_blocks[event_id].append('{}.wt({})'.format(self.id, wt_block_str))
                     event_types[event_id].append(event_type)
                 else:
-                    event_blocks[event_id] = ['wt{}'.format(wt_block)]
+                    event_blocks[event_id] = ['{}.wt({})'.format(self.id, wt_block_str)]
                     event_types[event_id] = [event_type]
         return event_blocks, event_types
 
@@ -153,8 +160,8 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
     :param wt_hap_list:
     :return:
     """
-    event_id = 1  # static variable
-    hap_id = 0
+    event_id = 1  # static variable, keep different events separate, keep paired events together (eg. balanced trans)
+    hap_id = 0  # used for naming haplotypes, preserves the order they come-in in mt_hap/wt_hap lists
     aligned_haplotypes = []
     for idx, mt_hap in enumerate(mt_hap_list):
         wt_hap = wt_hap_list[idx]
@@ -329,8 +336,21 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
     for aligned_hap in aligned_haplotypes:
         event_blocks, event_types = aligned_hap.report_SV(event_blocks, event_types)
     sorted_event_id = sorted(list(event_blocks.keys()))
+
+    # if for the same event ID, we have different event types, we have an issue, otherwise, name the event as the singular name
+    conglomerated_event_types = {}
+    for c_id, event_type_list in event_types.items():
+        c_event_type = event_type_list[0]
+        for event_type in event_type_list:
+            if event_type != c_event_type:
+                raise ValueError('same ID, multiple event types')
+        conglomerated_event_types[c_id] = c_event_type
+
+    output_list = []
     for event_id in sorted_event_id:
-        print('event<{}>,type<{}>,blocks<{}>'.format(event_id, event_types[event_id], event_blocks[event_id]))
+        print('event<{}>,type<{}>,blocks<{}>'.format(event_id, conglomerated_event_types[event_id], event_blocks[event_id]))
+        output_list.append((event_id, conglomerated_event_types[event_id], event_blocks[event_id]))
+    return output_list
 
 
 def continuous_extension(input_hap, idx_ptr):
@@ -517,4 +537,5 @@ if __name__ == "__main__":
     i_wt_list = [i_wt_hap1, i_wt_hap2, i_wt_hap3, i_wt_hap4]
     i_size_dict = {str(i): 1 for i in range(15)}
     # print(lcs(i_mt_hap, i_wt_hap, i_size_dict))
-    interpret_haplotypes(i_mt_list, i_wt_list, i_size_dict)
+    out = interpret_haplotypes(i_mt_list, i_wt_list, i_size_dict)
+    print(out)

@@ -484,11 +484,16 @@ class Genome:
     def sort_histories(self):
         # sort histories by Chr_from's names, but maintain temporal order
         def sort_key(history_entry):
+            event_type = history_entry[0]
             chr_from = history_entry[1]
             info = chr_from.replace('Chr', '')
             numeric = int(info[:-1])
             letter = info[-1]
-            return numeric, letter
+            if event_type == 'balanced reciprocal translocation':
+                # keep balanced translocation together
+                return 0, 'a'
+            else:
+                return numeric, letter
 
         self.histories = sorted(self.histories, key=sort_key)
 
