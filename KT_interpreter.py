@@ -73,7 +73,8 @@ class Aligned_Haplotype:
             c_startpoint = int(discordant_block[0])
             if p_endpoint < c_startpoint:
                 # fill gap with concordant blocks
-                # between two discordant blocks, the region belongs to at most 1 concordant block because the wt is always continuous (i.e. will not split into 2 blocks)
+                # between two discordant blocks, the region belongs to at most 1 concordant block because the wt is always continuous
+                # (i.e. will not split into 2 blocks)
                 self.block_indices[block_id] = (p_endpoint, c_startpoint)
                 self.concordant_blocks[block_id] = wt_aligned[p_endpoint: c_startpoint]
                 block_id += 1
@@ -120,15 +121,14 @@ class Aligned_Haplotype:
     def search_seed(self, query_section, seed_type, d=200000, eps=200000):
         """
         :param query_section:
-        :param seed_type: 'ins' OR 'del'
+        :param seed_type: 'ins' OR 'del', which type of seed to be searched of
         :param d:
         :param eps:
         :return: block_idx if found, -1 if not
         """
-        # search in the opposite type
-        if seed_type == 'ins':
+        if seed_type == 'del':
             query_block = self.wt_blocks
-        elif seed_type == 'del':
+        elif seed_type == 'ins':
             query_block = self.mt_blocks
         else:
             raise ValueError('invalid seed type')
@@ -137,7 +137,8 @@ class Aligned_Haplotype:
                 # already has assignment
                 # TODO: can improve this by bipartite matching, instead of greedy matching
                 continue
-            if is_seeded(c_block, query_section, self.size_dict, d, eps):
+            seed_start, seed_end = is_seeded(c_block, query_section, self.size_dict, d, eps)
+            if seed_start != -1:
                 return c_block_idx
         return -1
 
@@ -199,7 +200,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
                 # already has assignment
                 continue
             aligned_hap.discordant_block_assignment[c_wt_block_idx] = 'under investigation'  # block it from being matched in intra-chr event; maybe not necessary
-            balanced_translocation_found = genomewide_seed_search(c_wt_block, c_wt_block_idx, aligned_hap_idx, 'del')
+            balanced_translocation_found = genomewide_seed_search(c_wt_block, c_wt_block_idx, aligned_hap_idx, 'ins')
             if balanced_translocation_found:
                 event_id += 1
             else:
@@ -210,7 +211,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
                 # already has assignment
                 continue
             aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'under investigation'  # block it from being matched in intra-chr event
-            balanced_translocation_found = genomewide_seed_search(c_mt_block, c_mt_block_idx, aligned_hap_idx, 'ins')
+            balanced_translocation_found = genomewide_seed_search(c_mt_block, c_mt_block_idx, aligned_hap_idx, 'del')
             if balanced_translocation_found:
                 event_id += 1
             else:
@@ -219,7 +220,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
 
     ## inversion: mt{- k-} wt{k+ -} OR mt{k- -} wt{- k+}
     for aligned_hap in aligned_haplotypes:
-        # case: mt{k- -} wt{- k+}
+        # case: mt{k- -} wt{- k+}, ins of inverted-seg + del of uninverted-seg
         for c_mt_block_idx, c_mt_block in aligned_hap.mt_blocks.items():
             if c_mt_block[0][-1] == "+":
                 # not inverted
@@ -232,11 +233,16 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
                 # this is the last block, next block is not a del-block, OR next del-block has assignment
                 continue
             uninverted_segs = [seg[:-1] + '+' for seg in c_mt_block[::-1]]
-            if list(aligned_hap.wt_blocks[c_mt_block_idx + 1]) == uninverted_segs:
+            next_del_block = aligned_hap.wt_blocks[c_mt_block_idx + 1]
+            seed_start, seed_end = is_seeded(next_del_block, uninverted_segs, segment_size_dict)
+            if seed_start == -1:
+                # not found
+                continue
+            else:
                 aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'inversion,{}'.format(event_id)
                 aligned_hap.discordant_block_assignment[c_mt_block_idx + 1] = 'inversion,{}'.format(event_id)
                 event_id += 1
-        # case: mt{- k-} wt{k+ -}
+        # case: mt{- k-} wt{k+ -}, del of uninverted-seg + ins of inverted-seg
         for c_wt_block_idx, c_wt_block in aligned_hap.wt_blocks.items():
             if len(aligned_hap.discordant_block_assignment[c_wt_block_idx]) > 0:
                 continue
@@ -246,7 +252,12 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
                 # this is the last block, next block is not a ins-block, OR next ins-block has assignment
                 continue
             inverted_segs = [seg[:-1] + '-' for seg in c_wt_block[::-1]]
-            if list(aligned_hap.mt_blocks[c_wt_block_idx + 1]) == inverted_segs:
+            next_ins_block = aligned_hap.mt_blocks[c_wt_block_idx + 1]
+            seed_start, seed_end = is_seeded(next_ins_block, inverted_segs, segment_size_dict)
+            if seed_start == -1:
+                # not found
+                continue
+            else:
                 aligned_hap.discordant_block_assignment[c_wt_block_idx] = 'inversion,{}'.format(event_id)
                 aligned_hap.discordant_block_assignment[c_wt_block_idx + 1] = 'inversion,{}'.format(event_id)
                 event_id += 1
@@ -379,15 +390,15 @@ def continuous_extension(input_hap, idx_ptr):
     return final_ptr
 
 
-def is_seeded(supergroup_section, cont_section, size_dict, d=200000, eps=200000.0):
+def is_seeded(supergroup_section, cont_section, size_dict, d=1, eps=1.0):
     """
     whether cont_section is seeded in input_hap, with significant size (>d)
     :param supergroup_section:
     :param cont_section:
     :param size_dict:
     :param d: required seed overlap size
-    :param eps: epsilon, allowed 1/2 indel size
-    :return:
+    :param eps: epsilon, allowed 1/2 indel size (i.e. 2 * eps >= indel size)
+    :return: [start, end) indices in the supergroup
     """
 
     def sublist_idx(list1, list2):
@@ -401,31 +412,39 @@ def is_seeded(supergroup_section, cont_section, size_dict, d=200000, eps=200000.
     sublist_sizes = [section_size(sublist, size_dict) for sublist in all_sublists]
 
     sublists_found = []
+    seed_start_location_in_supergroup = []
     max_size = -1
     max_size_sublist_idx = -1
     for idx, sublist in enumerate(all_sublists):
         current_size = sublist_sizes[idx]
         if current_size < d:
+            seed_start_location_in_supergroup.append(-1)
             continue
-        if sublist_idx(sublist, supergroup_section) is not None:
+        current_start_location = sublist_idx(sublist, supergroup_section)
+        if current_start_location is not None:
             sublists_found.append(sublist)
+            seed_start_location_in_supergroup.append(current_start_location)
             if current_size > max_size:
                 max_size = current_size
                 max_size_sublist_idx = idx
+        else:
+            seed_start_location_in_supergroup.append(-1)
 
     if max_size_sublist_idx == -1:
         # not found
-        return False
+        return -1, -1
 
     max_size_sublist = all_sublists[max_size_sublist_idx]
     del_size = section_size(cont_section, size_dict) - section_size(max_size_sublist, size_dict)
     ins_size = section_size(supergroup_section, size_dict) - section_size(max_size_sublist, size_dict)
 
     if del_size + ins_size <= 2 * eps:
-        return True
+        max_size_sublist_start_location = seed_start_location_in_supergroup[max_size_sublist_idx]
+        max_size_sublist_end_location = seed_start_location_in_supergroup[max_size_sublist_idx] + len(max_size_sublist)
+        return max_size_sublist_start_location, max_size_sublist_end_location
     else:
         # introduced too much indel
-        return False
+        return -1, -1
 
 
 def section_size(input_section, size_dict):
@@ -521,13 +540,15 @@ if __name__ == "__main__":
     i_mt_hap2 = ['7+', '8+', '5+', '6+']
     i_mt_hap3 = ['11+', '11-', '12+']
     i_mt_hap4 = ['13+', '14-', '14+']
+    i_mt_hap5 = ['15+', '16+', '17-', '16-', '18+']
     i_wt_hap1 = ['1+', '2+', '3+', '4+', '5+', '6+']
     i_wt_hap2 = ['7+', '8+', '9+', '10+']
     i_wt_hap3 = ['11+', '12+']
     i_wt_hap4 = ['13+', '14+']
-    i_mt_list = [i_mt_hap1, i_mt_hap2, i_mt_hap3, i_mt_hap4]
-    i_wt_list = [i_wt_hap1, i_wt_hap2, i_wt_hap3, i_wt_hap4]
-    i_size_dict = {str(i): 1 for i in range(15)}
+    i_wt_hap5 = ['15+', '16+', '17+', '18+']
+    i_mt_list = [i_mt_hap1, i_mt_hap2, i_mt_hap3, i_mt_hap4, i_mt_hap5]
+    i_wt_list = [i_wt_hap1, i_wt_hap2, i_wt_hap3, i_wt_hap4, i_wt_hap5]
+    i_size_dict = {str(i): 1 for i in range(19)}
     # print(lcs(i_mt_hap, i_wt_hap, i_size_dict))
     out = interpret_haplotypes(i_mt_list, i_wt_list, i_size_dict)
     print(out)
