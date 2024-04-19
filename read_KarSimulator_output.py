@@ -63,6 +63,31 @@ def read_KarSimulator_output(KT_file, masking_file):
     return index_dict, path_list, genome.histories
 
 
+def typed_segments_to_indexed_segments(typed_segment_list, index_dict):
+    indexed_segment_list = []
+    for seg in typed_segment_list:
+        temp_seg = seg.duplicate()
+        if not temp_seg.direction:
+            temp_seg.invert()
+            direction = '-'
+        else:
+            direction = '+'
+        c_seg_index = str(index_dict[temp_seg]) + direction
+        indexed_segment_list.append(c_seg_index)
+    return indexed_segment_list
+
+
+def indexed_segments_to_typed_segments(indexed_segment_list, index_to_segment_dict):
+    typed_segment_list = []
+    for seg in indexed_segment_list:
+        direction = seg[-1]
+        temp_seg = index_to_segment_dict[seg[:-1]].duplicate()
+        if direction == '-':
+            temp_seg.invert()
+        typed_segment_list.append(temp_seg)
+    return typed_segment_list
+
+
 def form_mt_wt_indexed_paths_for_interpreter(path, index_dict):
     size_dict = {}
     chr_bin = path.path_chr
@@ -149,6 +174,7 @@ def label_event_sv_edge(segment_to_index_dict, path_list, history_list):
         c_path_to_idx = find_path(hist_entry[2])
         if event_type == 'inversion':
             if c_path_from_idx is None:
+                # Chr-deletion
                 sv_edges_list.append(c_sv_edges)
                 continue
             else:
@@ -227,11 +253,24 @@ def label_event_sv_edge(segment_to_index_dict, path_list, history_list):
                 continue
             else:
                 c_path_from = path_list[c_path_from_idx]
+            event_typed_segments = hist_entry[3]
+            event_indexed_segments = typed_segments_to_indexed_segments(event_typed_segments, segment_to_index_dict)
             wt_segments, mt_segments, size_dict = form_mt_wt_indexed_paths_for_interpreter(c_path_from, segment_to_index_dict)
             interpreter_output = interpret_haplotypes([mt_segments], [wt_segments], size_dict)
-            print('---')
-            print(interpreter_output)
-            print('---')
+            current_deletion_info = ''
+            for interpreted_event in interpreter_output:
+                if interpreted_event[1] == 'deletion':
+                    c_event_segments = interpreted_event[2][0].split('.')[1].replace('wt(', '').replace(')', '').split(',')
+                    if c_event_segments == event_indexed_segments:
+                        current_deletion_info = interpreted_event[2][0]
+            if current_deletion_info == '':
+                # no deletion of the same segment found by interpreter
+                continue
+            left_boundary_indexed_seg = current_deletion_info.split('.')[2]
+            right_boundary_indexed_seg = current_deletion_info.split('.')[3]
+            seg1 = indexed_segments_to_typed_segments([left_boundary_indexed_seg], index_to_segment_dict)[0]  # always only 1 seg
+            seg4 = indexed_segments_to_typed_segments([right_boundary_indexed_seg], index_to_segment_dict)[0]
+            c_sv_edges.append((seg1.chr_name, seg1.end, seg4.chr_name, seg4.start))
 
         sv_edges_list.append(c_sv_edges)
     return sv_edges_list
