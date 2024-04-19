@@ -141,7 +141,7 @@ class Aligned_Haplotype:
                 # already has assignment
                 # TODO: can improve this by bipartite matching, instead of greedy matching
                 continue
-            seed_start, seed_end = is_seeded(c_block, query_section, self.size_dict, d, eps)
+            seed_start, seed_end = is_seeded(c_block, query_section, self.size_dict, d=d, eps=eps)
             if seed_start != -1:
                 return c_block_idx
         return -1
@@ -156,7 +156,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
     :return:
     """
     event_id = 1  # static variable, keep different events separate, keep paired events under same id (eg. balanced trans)
-    hap_id = 0  # used for naming haplotypes, preserves the order they come-in in mt_hap/wt_hap lists
+    hap_id = 1  # used for naming haplotypes, preserves the order they come-in in mt_hap/wt_hap lists
     aligned_haplotypes = []
     for idx, mt_hap in enumerate(mt_hap_list):
         wt_hap = wt_hap_list[idx]
@@ -177,8 +177,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
             if aligned_hap_idx1 == query_hap_idx:
                 # first get inter-chr event
                 continue
-            # TODO: reset d,eps from debug mode
-            seeded_block_idx = aligned_hap1.search_seed(query_section, query_type, d=2, eps=1)
+            seeded_block_idx = aligned_hap1.search_seed(query_section, query_type)
             if seeded_block_idx != -1:
                 aligned_hap1.discordant_block_assignment[seeded_block_idx] = 'balanced_translocation,{}'.format(event_id)
                 aligned_haplotypes[query_hap_idx].discordant_block_assignment[query_block_idx] = 'balanced_translocation,{}'.format(event_id)
@@ -186,7 +185,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
                 break
         if not seed_found:
             # at last, check intra-chr event
-            seeded_block_idx = aligned_haplotypes[query_hap_idx].search_seed(query_section, query_type, d=2, eps=1)
+            seeded_block_idx = aligned_haplotypes[query_hap_idx].search_seed(query_section, query_type)
             if seeded_block_idx != -1:
                 aligned_haplotypes[query_hap_idx].discordant_block_assignment[seeded_block_idx] = 'balanced_translocation,{}'.format(event_id)
                 aligned_haplotypes[query_hap_idx].discordant_block_assignment[query_block_idx] = 'balanced_translocation,{}'.format(event_id)
@@ -238,7 +237,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
                 continue
             uninverted_segs = [seg[:-1] + '+' for seg in c_mt_block[::-1]]
             next_del_block = aligned_hap.wt_blocks[c_mt_block_idx + 1]
-            seed_start, seed_end = is_seeded(next_del_block, uninverted_segs, segment_size_dict)
+            seed_start, seed_end = is_seeded(next_del_block, uninverted_segs, segment_size_dict, indel_direction='both')
             if seed_start != -1:
                 aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'inversion,{}'.format(event_id)
                 aligned_hap.discordant_block_assignment[c_mt_block_idx + 1] = 'inversion,{}'.format(event_id)
@@ -254,7 +253,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
                 continue
             inverted_segs = [seg[:-1] + '-' for seg in c_wt_block[::-1]]
             next_ins_block = aligned_hap.mt_blocks[c_wt_block_idx + 1]
-            seed_start, seed_end = is_seeded(next_ins_block, inverted_segs, segment_size_dict)
+            seed_start, seed_end = is_seeded(next_ins_block, inverted_segs, segment_size_dict, indel_direction='both')
             if seed_start != -1:
                 aligned_hap.discordant_block_assignment[c_wt_block_idx] = 'inversion,{}'.format(event_id)
                 aligned_hap.discordant_block_assignment[c_wt_block_idx + 1] = 'inversion,{}'.format(event_id)
@@ -274,7 +273,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
             if c_mt_block_idx + 1 < len(aligned_hap.block_indices) and \
                     (c_mt_block_idx + 1) in aligned_hap.concordant_blocks:
                 next_concordant_block = aligned_hap.concordant_blocks[c_mt_block_idx + 1]
-                seed_start, seed_end = is_seeded(next_concordant_block, uninverted_segs, segment_size_dict)
+                seed_start, seed_end = is_seeded(next_concordant_block, uninverted_segs, segment_size_dict, indel_direction='left')
                 if seed_start != -1:
                     aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'left_duplication_inversion,{}'.format(event_id)
                     event_id += 1
@@ -284,7 +283,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
             if c_mt_block_idx - 1 >= 0 and \
                     (c_mt_block_idx - 1) in aligned_hap.concordant_blocks:
                 previous_concordant_block = aligned_hap.concordant_blocks[c_mt_block_idx - 1]
-                seed_start, seed_end = is_seeded(previous_concordant_block, uninverted_segs, segment_size_dict)
+                seed_start, seed_end = is_seeded(previous_concordant_block, uninverted_segs, segment_size_dict, indel_direction='right')
                 if seed_start != -1:
                     aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'right_duplication_inversion,{}'.format(event_id)
                     event_id += 1
@@ -300,7 +299,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
             if c_mt_block_idx + 1 < len(aligned_hap.block_indices) and \
                     (c_mt_block_idx + 1) in aligned_hap.concordant_blocks:
                 next_concordant_block = aligned_hap.concordant_blocks[c_mt_block_idx + 1]
-                seed_start, seed_end = is_seeded(next_concordant_block, block_segs, segment_size_dict)
+                seed_start, seed_end = is_seeded(next_concordant_block, block_segs, segment_size_dict, indel_direction='left')
                 if seed_start != -1:
                     aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'tandem_duplication,{}'.format(event_id)
                     event_id += 1
@@ -310,7 +309,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], segment_siz
             if c_mt_block_idx - 1 >= 0 and \
                     (c_mt_block_idx - 1) in aligned_hap.concordant_blocks:
                 previous_concordant_block = aligned_hap.concordant_blocks[c_mt_block_idx - 1]
-                seed_start, seed_end = is_seeded(previous_concordant_block, block_segs, segment_size_dict)
+                seed_start, seed_end = is_seeded(previous_concordant_block, block_segs, segment_size_dict, indel_direction='right')
                 if seed_start != -1:
                     aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'tandem_duplication,{}'.format(event_id)
                     event_id += 1
@@ -390,12 +389,13 @@ def continuous_extension(input_hap, idx_ptr):
     return final_ptr
 
 
-def is_seeded(supergroup_section, cont_section, size_dict, d=1, eps=1.0):
+def is_seeded(supergroup_section, cont_section, size_dict, indel_direction='both', d=200000, eps=200000.0):
     """
     whether cont_section is seeded in input_hap, with significant size (>d)
     :param supergroup_section:
     :param cont_section:
     :param size_dict:
+    :param indel_direction: 'both', 'left', OR 'right': which direction to compute indels size on
     :param d: required seed overlap size
     :param eps: epsilon, allowed 1/2 indel size (i.e. 2 * eps >= indel size)
     :return: [start, end) indices in the supergroup
@@ -434,17 +434,30 @@ def is_seeded(supergroup_section, cont_section, size_dict, d=1, eps=1.0):
         return -1, -1
 
     max_size_sublist = all_sublists[max_size_sublist_idx]
-    del_size = section_size(cont_section, size_dict) - section_size(max_size_sublist, size_dict)
-    ins_size = section_size(supergroup_section, size_dict) - section_size(max_size_sublist, size_dict)
+    max_size_sublist_start_location = seed_start_location_in_supergroup[max_size_sublist_idx]
+    max_size_sublist_end_location = seed_start_location_in_supergroup[max_size_sublist_idx] + len(max_size_sublist)
 
-    # TODO: add single direction eps check for inv/dup-inv
-    if del_size + ins_size <= 2 * eps:
-        max_size_sublist_start_location = seed_start_location_in_supergroup[max_size_sublist_idx]
-        max_size_sublist_end_location = seed_start_location_in_supergroup[max_size_sublist_idx] + len(max_size_sublist)
-        return max_size_sublist_start_location, max_size_sublist_end_location
+    del_size = section_size(cont_section, size_dict) - section_size(max_size_sublist, size_dict)
+    left_ins_size = section_size(supergroup_section[:max_size_sublist_start_location], size_dict)
+    right_ins_size = section_size(supergroup_section[max_size_sublist_end_location:], size_dict)
+
+    if indel_direction == 'both':
+        indel_size = del_size + left_ins_size + right_ins_size
+        if indel_size <= 2 * eps:
+            return max_size_sublist_start_location, max_size_sublist_end_location
+    elif indel_direction == 'left':
+        indel_size = del_size + left_ins_size
+        if indel_size <= eps:
+            return max_size_sublist_start_location, max_size_sublist_end_location
+    elif indel_direction == 'right':
+        indel_size = del_size + right_ins_size
+        if indel_size <= eps:
+            return max_size_sublist_start_location, max_size_sublist_end_location
     else:
-        # introduced too much indel
-        return -1, -1
+        raise ValueError('indel_direction parameter input illegal')
+
+    # indel size too large
+    return -1, -1
 
 
 def section_size(input_section, size_dict):

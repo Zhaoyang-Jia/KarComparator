@@ -3,7 +3,8 @@ from KT_interpreter import *
 
 import os
 
-paul_dremsek_data_dir = '/media/zhaoyang-new/workspace/paul_dremsek/omkar_output/'
+# paul_dremsek_data_dir = '/media/zhaoyang-new/workspace/paul_dremsek/omkar_output/'
+paul_dremsek_data_dir = '/Users/zhaoyangjia/Library/CloudStorage/OneDrive-UCSanDiego/Bafna_Lab/Paul_Dremsek_OMKar_output/'
 forbidden_region_file = "Metadata/acrocentric_telo_cen.bed"
 
 
