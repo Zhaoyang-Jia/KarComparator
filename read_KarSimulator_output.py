@@ -260,6 +260,7 @@ def label_event_sv_edge(segment_to_index_dict, path_list, history_list):
             current_deletion_info = ''
             for interpreted_event in interpreter_output:
                 if interpreted_event[1] == 'deletion':
+                    # FIXME: new field added, update this
                     c_event_segments = interpreted_event[2][0].split('.')[1].replace('wt(', '').replace(')', '').split(',')
                     if c_event_segments == event_indexed_segments:
                         current_deletion_info = interpreted_event[2][0]
@@ -274,6 +275,7 @@ def label_event_sv_edge(segment_to_index_dict, path_list, history_list):
 
         sv_edges_list.append(c_sv_edges)
     return sv_edges_list
+
 
 def get_kt_index(input_index_dict, input_segment):
     for key in input_index_dict:

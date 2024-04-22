@@ -1,10 +1,11 @@
 from read_OMKar_output import *
 from KT_interpreter import *
+from utils import *
 
 import os
 
-# paul_dremsek_data_dir = '/media/zhaoyang-new/workspace/paul_dremsek/omkar_output/'
-paul_dremsek_data_dir = '/Users/zhaoyangjia/Library/CloudStorage/OneDrive-UCSanDiego/Bafna_Lab/Paul_Dremsek_OMKar_output/'
+paul_dremsek_data_dir = '/media/zhaoyang-new/workspace/paul_dremsek/omkar_output/'
+# paul_dremsek_data_dir = '/Users/zhaoyangjia/Library/CloudStorage/OneDrive-UCSanDiego/Bafna_Lab/Paul_Dremsek_OMKar_output/'
 forbidden_region_file = "Metadata/acrocentric_telo_cen.bed"
 
 
@@ -19,8 +20,8 @@ def batch_interpret(omkar_output_dir):
         mt_path_chrs = [info.split(': ')[-1] for info in mt_path_chrs]
         wt_path_dict = generate_wt_from_OMKar_output(segment_dict)
         wt_indexed_lists = populate_wt_indexed_lists(mt_path_chrs, wt_path_dict)
-        interpret_haplotypes(mt_indexed_lists, wt_indexed_lists, segment_size_dict)
-        print()
+        events, aligned_haplotypes = interpret_haplotypes(mt_indexed_lists, wt_indexed_lists, mt_path_chrs, segment_size_dict)
+        format_report(events, aligned_haplotypes, reverse_dict(segment_dict))
 
 
 def populate_wt_indexed_lists(mt_path_chrs, wt_path_dict):
