@@ -1,5 +1,7 @@
-data_dir=OMKar_testbuild4/
-output_dir=../new_data_files/OMKar_testbuild4/
+data_dir=OMKar_testbuild7/
+output_dir=../new_data_files/OMKar_testbuild7/
+
+mkdir -p $output_dir
 
 for folder in ${data_dir}/*
 do

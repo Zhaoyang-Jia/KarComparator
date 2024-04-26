@@ -111,8 +111,8 @@ def generate_genome_from_KT(input_file: str) -> Genome:
             histories.append(current_history)
 
     genome = Genome(full_KT, motherboard_segments, centromere_segments, histories)
-    genome.sort_histories()
-    genome.translate_histories_from_indexing()
+    # genome.sort_histories()
+    # genome.translate_histories_from_indexing()
 
     return genome
 

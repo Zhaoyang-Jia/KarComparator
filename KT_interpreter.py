@@ -1,4 +1,9 @@
 from Report_Genes import *
+from reportlab.pdfgen import canvas
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
 
 
 class Aligned_Haplotype:
@@ -470,26 +475,38 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
                 if event_type != 'insertion':
                     bp2 = right_event_seg.start
                     bp3 = left_event_seg.end
+                    bp2_chr = right_event_seg.chr_name
+                    bp3_chr = left_event_seg.chr_name
                 else:
                     bp2 = left_event_seg.end
                     bp3 = right_event_seg.start
+                    bp2_chr = left_event_seg.chr_name
+                    bp3_chr = right_event_seg.chr_name
             else:
                 bp2 = left_event_seg.start
                 bp3 = right_event_seg.end
+                bp2_chr = left_event_seg.chr_name
+                bp3_chr = right_event_seg.chr_name
             if event[2][0].split('.')[3] == 'p-ter':
                 bp1 = None
+                bp1_chr = None
             else:
+                bp1_seg = index_to_segment_dict[int(event[2][0].split('.')[3][:-1])]
+                bp1_chr = bp1_seg.chr_name
                 if event[2][0].split('.')[3][-1] == '+':
-                    bp1 = index_to_segment_dict[int(event[2][0].split('.')[3][:-1])].start
+                    bp1 = bp1_seg.start
                 else:
-                    bp1 = index_to_segment_dict[int(event[2][0].split('.')[3][:-1])].end
+                    bp1 = bp1_seg.end
             if event[2][0].split('.')[4] == 'q-ter':
                 bp4 = None
+                bp4_chr = None
             else:
+                bp4_seg = index_to_segment_dict[int(event[2][0].split('.')[4][:-1])]
+                bp4_chr = bp4_seg.chr_name
                 if event[2][0].split('.')[4][-1] == '+':
-                    bp4 = index_to_segment_dict[int(event[2][0].split('.')[4][:-1])].start
+                    bp4 = bp4_seg.start
                 else:
-                    bp4 = index_to_segment_dict[int(event[2][0].split('.')[4][:-1])].end
+                    bp4 = bp4_seg.end
             if bp1 is not None:
                 bp1_band = get_band_location('chr' + path_chr, bp1)
             else:
@@ -501,24 +518,159 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
             else:
                 bp4_band = 'qter'
 
-            def get_genes_near_breakpoints(breakpoints, proximity):
-                pass
-
             if event_type == 'deletion':
                 if bp2_band != bp3_band:
                     main_str = 'del({})({}{})'.format(path_chr, bp2_band, bp3_band)
                 else:
                     main_str = 'del({})({})'.format(path_chr, bp2_band)
                 sub_str1 = 'deletion on Chr{}: {}({}) - {}({})'.format(path_chr, bp2, bp2_band, bp3, bp3_band)
-                genes_near_bp = get_genes_in_region('chr' + path_chr, )
-                sub_str2 = 'all genes near breakpoints: '
-
+                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
+                sub_str4, sub_str5 = report_cnv_genes_on_region(path_chr, bp2, bp3, '-1 CN')
+                sub_bullets.append((sub_str1, sub_str2, sub_str3, sub_str4, sub_str5))
+            elif event_type == 'inversion':
+                if bp2_band != bp3_band:
+                    main_str = 'inv({})({}{})'.format(path_chr, bp2_band, bp3_band)
+                else:
+                    main_str = 'inv({})({})'.format(path_chr, bp2_band)
+                sub_str1 = 'inversion on Chr{}: {}({}) - {}({})'.format(path_chr, bp2, bp2_band, bp3, bp3_band)
+                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
+                sub_bullets.append((sub_str1, sub_str2, sub_str3))
+            elif event_type == 'tandem_duplication':
+                if bp2_band != bp3_band:
+                    main_str = 'dup({})({}{})'.format(path_chr, bp2_band, bp3_band)
+                else:
+                    main_str = 'dup({})({})'.format(path_chr, bp2_band)
+                sub_str1 = 'tandem duplication on Chr{}: {}({}) - {}({})'.format(path_chr, bp2, bp2_band, bp3, bp3_band)
+                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
+                sub_str4, sub_str5 = report_cnv_genes_on_region(path_chr, bp2, bp3, '+1 CN')
+                sub_bullets.append((sub_str1, sub_str2, sub_str3, sub_str4, sub_str5))
+            elif event_type == 'left_duplication_inversion':
+                if bp2_band != bp3_band:
+                    main_str = 'left-dup-inv({})({}{})'.format(path_chr, bp2_band, bp3_band)
+                else:
+                    main_str = 'left-dup-inv({})({})'.format(path_chr, bp2_band)
+                sub_str1 = 'left duplication inversion on Chr{}: {}({}) - {}({})'.format(path_chr, bp2, bp2_band, bp3, bp3_band)
+                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
+                sub_str4, sub_str5 = report_cnv_genes_on_region(path_chr, bp2, bp3, '+1 CN')
+                sub_bullets.append((sub_str1, sub_str2, sub_str3, sub_str4, sub_str5))
+            elif event_type == 'right_duplication_inversion':
+                if bp2_band != bp3_band:
+                    main_str = 'right-dup-inv({})({}{})'.format(path_chr, bp2_band, bp3_band)
+                else:
+                    main_str = 'right-dup-inv({})({})'.format(path_chr, bp2_band)
+                sub_str1 = 'right duplication inversion on Chr{}: {}({}) - {}({})'.format(path_chr, bp2, bp2_band, bp3, bp3_band)
+                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
+                sub_str4, sub_str5 = report_cnv_genes_on_region(path_chr, bp2, bp3, '+1 CN')
+                sub_bullets.append((sub_str1, sub_str2, sub_str3, sub_str4, sub_str5))
+            elif event_type == 'insertion':
+                # different report format if insertion is from different chr
+                if 'Chr' + path_chr == bp2_chr:
+                    # TODO: check ISCN syntax if bp2_band == bp3_band
+                    main_str = 'ins({})({}{}{})'.format(path_chr, bp1_band, bp2_band, bp3_band)
+                else:
+                    main_str = 'ins({};{})({};{}{})'.format(path_chr, bp2_chr, bp1_band, bp2_band, bp3_band)
+                sub_str1 = 'insertion of Chr{}: {}({}) - {}({}) into Chr{}: {}'.format(bp2_chr[3:], bp2, bp2_band, bp3, bp3_band, path_chr, bp1)
+                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
+                sub_str4, sub_str5 = report_cnv_genes_on_region(bp2_chr[3:], bp2, bp3, '+1 CN')
+                sub_bullets.append((sub_str1, sub_str2, sub_str3, sub_str4, sub_str5))
+            else:
+                # continue
+                raise RuntimeError('event not in allowed list')
             main_bullets.append(main_str)
         else:
             # balanced trans
-            main_bullets.append('balanced trans skipped')
+            main_bullets.append('balanced trans skipped: {}'.format(event))
             sub_bullets.append(('x', 'x', 'x'))
+    return main_bullets, sub_bullets
 
+
+def generate_pdf_report(output_dir, output_file_name, main_bullets, sub_bullets):
+    doc = SimpleDocTemplate(output_dir + '/' + output_file_name, pagesize=letter)
+    story = [Spacer(1, 12)]
+
+    # Define the style for the list
+    styles = getSampleStyleSheet()
+    style_bullet = styles["Bullet"]
+    style_bullet.fontName = "Times-Roman"
+    style_bullet.leading = 18
+    style_bullet.leftIndent = 10
+
+    for bullet_idx, main_bullet in enumerate(main_bullets):
+        event_header = Paragraph("<b>{}</b>".format(main_bullet))
+        story.append(event_header)
+        sub_bullet_tuple = sub_bullets[bullet_idx]
+        for bullet in sub_bullet_tuple:
+            bullet = bullet.replace("\n", "<br/>").replace("\t", "&ensp;")
+            p = Paragraph("- " + bullet, style_bullet)
+            story.append(p)
+        story.append(Spacer(1, 12))
+    doc.build(story)
+
+
+def report_on_genes_based_on_breakpoints(breakpoints):
+    breakpoints = gather_breakpoints(breakpoints)
+    genes_near_bp = get_genes_near_breakpoints(breakpoints)
+    sub_str2 = 'all genes near breakpoints: {}'.format(genes_near_bp)
+    DDG_df = get_DDG_overlapped_genes(genes_near_bp)
+    DDG_gene_list, DDG_disease_list = tostring_gene_disease_omim(DDG_df)
+    sub_str3 = 'genes near breakpoints documented in DDG2P: '
+    for gene_idx, gene in enumerate(DDG_gene_list):
+        sub_str3 += '\n\t{}({}): '.format(gene[0], gene[1])
+        c_disease_tuple = DDG_disease_list[gene_idx]
+        disease_str = []
+        for disease_idx, disease in enumerate(c_disease_tuple[0]):
+            disease_omim = c_disease_tuple[1][disease_idx]
+            disease_str.append('{}({})'.format(disease, disease_omim))
+        if len(disease_str) > 0:
+            sub_str3 += ','.join(disease_str)
+        else:
+            sub_str3 += 'None'
+    if len(DDG_gene_list) == 0:
+        sub_str3 += 'None'
+    return sub_str2, sub_str3
+
+
+def report_cnv_genes_on_region(chrom, start, end, CN_str):
+    genes = get_genes_in_region('chr' + chrom, start, end)
+    sub_str4 = 'all genes with {}: {}'.format(CN_str, genes)
+    DDG_df = get_DDG_overlapped_genes(genes)
+    DDG_gene_list, DDG_disease_list = tostring_gene_disease_omim(DDG_df)
+    sub_str5 = 'genes with {} documented in DDG2P: '.format(CN_str)
+    for gene_idx, gene in enumerate(DDG_gene_list):
+        sub_str5 += '\n\t{}({}): '.format(gene[0], gene[1])
+        c_disease_tuple = DDG_disease_list[gene_idx]
+        disease_str = []
+        for disease_idx, disease in enumerate(c_disease_tuple[0]):
+            disease_omim = c_disease_tuple[1][disease_idx]
+            disease_str.append('{}({})'.format(disease, disease_omim))
+        if len(disease_str) > 0:
+            sub_str5 += ','.join(disease_str)
+        else:
+            sub_str5 += 'None'
+    if len(DDG_gene_list) == 0:
+        sub_str5 += 'None'
+    return sub_str4, sub_str5
+
+
+def gather_breakpoints(breakpoints: []):
+    all_breakpoints = []
+    for c_breakpoint in breakpoints:
+        if c_breakpoint[1] is None:
+            continue
+        all_breakpoints.append((c_breakpoint[0], c_breakpoint[1]))
+    return all_breakpoints
+
+
+def get_genes_near_breakpoints(breakpoints: [(str, int)], proximity=200000):
+    breakpoint_ranges = []
+    for c_breakpoint in breakpoints:
+        breakpoint_ranges.append((c_breakpoint[0],
+                                  c_breakpoint[1] - proximity,
+                                  c_breakpoint[1] + proximity))
+    genes_in_regions = set()
+    for breakpoint_range in breakpoint_ranges:
+        genes_in_regions = genes_in_regions.union(get_genes_in_region(*breakpoint_range))
+    return list(genes_in_regions)
 
 
 def continuous_extension(input_hap, idx_ptr):
