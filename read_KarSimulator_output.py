@@ -5,10 +5,19 @@ from KT_interpreter import *
 from utils import *
 
 
-def read_KarSimulator_output_to_path(KarSimulator_output_file, forbidden_region_file):
+def read_KarSimulator_output_to_path(KarSimulator_output_file, forbidden_region_file, history_intermediate_dir):
     index_dict, path_list, event_histories = read_KarSimulator_output(KarSimulator_output_file, forbidden_region_file)
+    # sv_edge_list = label_event_sv_edge(index_dict, path_list, event_histories)
+    # history_intermediate_file = history_intermediate_dir + '/' + KarSimulator_output_file.split('/')[-1][:-2] + '.history_sv.txt'
+    # generate_history_SV_edge_labels(event_histories, sv_edge_list, history_intermediate_file)
     label_path_with_forbidden_regions(path_list, forbidden_region_file)
     return index_dict, path_list
+
+
+def generate_history_SV_edge_labels(event_histories, sv_edge_list, output_file_path):
+    with open(output_file_path, 'w') as fp_write:
+        for idx, hist in enumerate(event_histories):
+            fp_write.write(str(hist) + ": " + str(sv_edge_list[idx]) + '\n')
 
 
 def read_KarSimulator_output(KT_file, masking_file):
@@ -107,8 +116,9 @@ def form_mt_wt_indexed_paths_for_interpreter(path, index_dict):
         wt_segments.append(seg_index + '+')
 
     for seg in path.linear_path.segments:
+        print(seg)
         temp_seg = seg.duplicate()
-        if not temp_seg.direction:
+        if not temp_seg.direction():
             temp_seg.invert()
             direction = '-'
         else:
@@ -137,7 +147,7 @@ def conglomerate_segments_to_dict(previous_segment_to_index_dict, path_list):
     return new_dict
 
 
-def label_event_sv_edge(segment_to_index_dict, path_list, history_list):
+def label_event_sv_edge(old_segment_to_index_dict, path_list, history_list):
     def find_path(path_name):
         for path_idx, path in enumerate(path_list):
             if path.path_name == path_name:
@@ -147,12 +157,20 @@ def label_event_sv_edge(segment_to_index_dict, path_list, history_list):
     def find_seg_sublist(superlist_segments, sublist_segments):
         superlist_hash = [hash(seg) for seg in superlist_segments]
         sublist_hash = [hash(seg) for seg in sublist_segments]
+        idx_found = -1
         for i in range(len(superlist_hash) - len(sublist_hash) + 1):
             if superlist_hash[i: i+len(sublist_hash)] == sublist_hash:
-                return i
-        return None
+                if idx_found != -1:
+                    # duplicate entry exists
+                    return None
+                else:
+                    idx_found = i
+        if idx_found == -1:
+            return None
+        else:
+            return idx_found
 
-    def invert_segment_list(input_segs):
+    def invert_typed_segment_list(input_segs):
         inverted_segs = []
         for seg in reversed(input_segs):
             new_seg = seg.duplicate()
@@ -160,27 +178,39 @@ def label_event_sv_edge(segment_to_index_dict, path_list, history_list):
             inverted_segs.append(new_seg)
         return inverted_segs
 
-    segment_to_index_dict = conglomerate_segments_to_dict(segment_to_index_dict, path_list)
-    index_to_segment_dict = reverse_dict(segment_to_index_dict)
+    def invert_indexed_segment_list(input_segs):
+        inverted_segs = []
+        for seg in reversed(input_segs):
+            if seg[-1] == '-':
+                new_seg = seg[:-1] + '+'
+            else:
+                new_seg = seg[:-1] + '-'
+            inverted_segs.append(new_seg)
+        return inverted_segs
+
+    old_index_to_segment_dict = reverse_dict(old_segment_to_index_dict)
+    new_segment_to_index_dict = conglomerate_segments_to_dict(old_segment_to_index_dict, path_list)
+    new_index_to_segment_dict = reverse_dict(new_segment_to_index_dict)
 
     sv_edges_list = []
     for hist_entry in history_list:
         event_type = hist_entry[0]
         c_sv_edges = []
         if event_type.startswith('chromosomal'):
-            sv_edges_list.append(c_sv_edges)
+            sv_edges_list.append(['chromosomal events'])
             continue
         c_path_from_idx = find_path(hist_entry[1])
         c_path_to_idx = find_path(hist_entry[2])
         if event_type == 'inversion':
             if c_path_from_idx is None:
                 # Chr-deletion
-                sv_edges_list.append(c_sv_edges)
+                sv_edges_list.append(['chromosome deleted'])
                 continue
             else:
                 c_path_from = path_list[c_path_from_idx]
             event_segments = hist_entry[3]
-            inverted_event_segments = invert_segment_list(event_segments)
+            event_typed_segments = indexed_segments_to_typed_segments(event_segments, old_index_to_segment_dict)
+            inverted_event_segments = invert_typed_segment_list(event_typed_segments)
             sublist_idx = find_seg_sublist(c_path_from.linear_path.segments, inverted_event_segments)
             if sublist_idx is not None:
                 seg1 = c_path_from.linear_path.segments[sublist_idx - 1]
@@ -191,88 +221,147 @@ def label_event_sv_edge(segment_to_index_dict, path_list, history_list):
                 c_sv_edges.append((seg3.chr_name, seg3.end, seg4.chr_name, seg4.start))
         elif event_type == 'tandem duplication':
             if c_path_from_idx is None:
-                sv_edges_list.append(c_sv_edges)
+                sv_edges_list.append(['chromosome deleted'])
                 continue
             else:
                 c_path_from = path_list[c_path_from_idx]
-            event_segments = hist_entry[3] + hist_entry[3]
-            sublist_idx = find_seg_sublist(c_path_from.linear_path.segments, event_segments)
+            indexed_event_segments = hist_entry[3] + hist_entry[3]
+            typed_event_segments = indexed_segments_to_typed_segments(indexed_event_segments, old_index_to_segment_dict)
+            sublist_idx = find_seg_sublist(c_path_from.linear_path.segments, typed_event_segments)
             if sublist_idx is not None:
-                seg1 = c_path_from.linear_path.segments[sublist_idx + len(event_segments) // 2 - 1]
-                seg2 = c_path_from.linear_path.segments[sublist_idx + len(event_segments) // 2]
+                seg1 = c_path_from.linear_path.segments[sublist_idx + len(indexed_event_segments) // 2 - 1]
+                seg2 = c_path_from.linear_path.segments[sublist_idx + len(indexed_event_segments) // 2]
                 c_sv_edges.append((seg1.chr_name, seg1.end, seg2.chr_name, seg2.start))
         elif event_type == 'left duplication inversion':
             if c_path_from_idx is None:
-                sv_edges_list.append(c_sv_edges)
+                sv_edges_list.append(['chromosome deleted'])
                 continue
             else:
                 c_path_from = path_list[c_path_from_idx]
-            event_segments = invert_segment_list(hist_entry[3]) + hist_entry[3]
-            sublist_idx = find_seg_sublist(c_path_from.linear_path.segments, event_segments)
+            indexed_event_segments = invert_indexed_segment_list(hist_entry[3]) + hist_entry[3]
+            typed_event_segments = indexed_segments_to_typed_segments(indexed_event_segments, old_index_to_segment_dict)
+            sublist_idx = find_seg_sublist(c_path_from.linear_path.segments, typed_event_segments)
             if sublist_idx is not None:
                 seg1 = c_path_from.linear_path.segments[sublist_idx - 1]
                 seg2 = c_path_from.linear_path.segments[sublist_idx]
-                seg3 = c_path_from.linear_path.segments[sublist_idx + len(event_segments) // 2 - 1]
-                seg4 = c_path_from.linear_path.segments[sublist_idx + len(event_segments) // 2]
+                seg3 = c_path_from.linear_path.segments[sublist_idx + len(indexed_event_segments) // 2 - 1]
+                seg4 = c_path_from.linear_path.segments[sublist_idx + len(indexed_event_segments) // 2]
                 c_sv_edges.append((seg1.chr_name, seg1.end, seg2.chr_name, seg2.start))
                 c_sv_edges.append((seg3.chr_name, seg3.end, seg4.chr_name, seg4.start))
         elif event_type == 'right duplication inversion':
             if c_path_from_idx is None:
-                sv_edges_list.append(c_sv_edges)
+                sv_edges_list.append(['chromosome deleted'])
                 continue
             else:
                 c_path_from = path_list[c_path_from_idx]
-            event_segments = hist_entry[3] + invert_segment_list(hist_entry[3])
-            sublist_idx = find_seg_sublist(c_path_from.linear_path.segments, event_segments)
+            indexed_event_segments = hist_entry[3] + invert_indexed_segment_list(hist_entry[3])
+            typed_event_segments = indexed_segments_to_typed_segments(indexed_event_segments, old_index_to_segment_dict)
+            sublist_idx = find_seg_sublist(c_path_from.linear_path.segments, typed_event_segments)
             if sublist_idx is not None:
-                seg1 = c_path_from.linear_path.segments[sublist_idx + len(event_segments) // 2 - 1]
-                seg2 = c_path_from.linear_path.segments[sublist_idx + len(event_segments) // 2]
-                seg3 = c_path_from.linear_path.segments[sublist_idx + len(event_segments) - 1]
-                seg4 = c_path_from.linear_path.segments[sublist_idx + len(event_segments)]
+                seg1 = c_path_from.linear_path.segments[sublist_idx + len(indexed_event_segments) // 2 - 1]
+                seg2 = c_path_from.linear_path.segments[sublist_idx + len(indexed_event_segments) // 2]
+                seg3 = c_path_from.linear_path.segments[sublist_idx + len(indexed_event_segments) - 1]
+                seg4 = c_path_from.linear_path.segments[sublist_idx + len(indexed_event_segments)]
                 c_sv_edges.append((seg1.chr_name, seg1.end, seg2.chr_name, seg2.start))
                 c_sv_edges.append((seg3.chr_name, seg3.end, seg4.chr_name, seg4.start))
         elif event_type == 'balanced reciprocal translocation':
             # requirement: balanced reciprocal translocation always appear in pairs
             if c_path_to_idx is None:
-                sv_edges_list.append(c_sv_edges)
+                sv_edges_list.append(['chromosome deleted'])
                 continue
             else:
                 c_path_to = path_list[c_path_to_idx]
-            event_segments = hist_entry[3]
-            sublist_idx = find_seg_sublist(c_path_to.linear_path.segments, event_segments)
+            indexed_event_segments = hist_entry[3]
+            typed_event_segments = indexed_segments_to_typed_segments(indexed_event_segments, old_index_to_segment_dict)
+            sublist_idx = find_seg_sublist(c_path_to.linear_path.segments, typed_event_segments)
             if sublist_idx is not None:
                 seg1 = c_path_to.linear_path.segments[sublist_idx - 1]
                 seg2 = c_path_to.linear_path.segments[sublist_idx]
-                seg3 = c_path_to.linear_path.segments[sublist_idx + len(event_segments) - 1]
-                seg4 = c_path_to.linear_path.segments[sublist_idx + len(event_segments)]
+                seg3 = c_path_to.linear_path.segments[sublist_idx + len(indexed_event_segments) - 1]
+                seg4 = c_path_to.linear_path.segments[sublist_idx + len(indexed_event_segments)]
                 c_sv_edges.append((seg1.chr_name, seg1.end, seg2.chr_name, seg2.start))
                 c_sv_edges.append((seg3.chr_name, seg3.end, seg4.chr_name, seg4.start))
         elif event_type == 'deletion':
             if c_path_from_idx is None:
-                sv_edges_list.append(c_sv_edges)
+                sv_edges_list.append(['chromosome deleted'])
                 continue
             else:
                 c_path_from = path_list[c_path_from_idx]
-            event_typed_segments = hist_entry[3]
-            event_indexed_segments = typed_segments_to_indexed_segments(event_typed_segments, segment_to_index_dict)
-            wt_segments, mt_segments, size_dict = form_mt_wt_indexed_paths_for_interpreter(c_path_from, segment_to_index_dict)
-            interpreter_output = interpret_haplotypes([mt_segments], [wt_segments], size_dict)
+            event_indexed_segments = hist_entry[3]
+            event_typed_segments = indexed_segments_to_typed_segments(event_indexed_segments, old_index_to_segment_dict)
+            wt_segments, mt_segments, size_dict = form_mt_wt_indexed_paths_for_interpreter(c_path_from, new_segment_to_index_dict)
+            interpreter_output, _ = interpret_haplotypes([mt_segments], [wt_segments], [c_path_from.path_chr], size_dict)
             current_deletion_info = ''
             for interpreted_event in interpreter_output:
                 if interpreted_event[1] == 'deletion':
-                    # FIXME: new field added, update this
-                    c_event_segments = interpreted_event[2][0].split('.')[1].replace('wt(', '').replace(')', '').split(',')
-                    if c_event_segments == event_indexed_segments:
+                    c_event_segments = interpreted_event[2][0].split('.')[2].replace('wt(', '').replace(')', '').split(',')
+                    c_event_typed_segments = indexed_segments_to_typed_segments(c_event_segments, new_index_to_segment_dict)
+                    if event_typed_segments == c_event_typed_segments:
                         current_deletion_info = interpreted_event[2][0]
+                        break
             if current_deletion_info == '':
                 # no deletion of the same segment found by interpreter
+                sv_edges_list.append([])
                 continue
-            left_boundary_indexed_seg = current_deletion_info.split('.')[2]
-            right_boundary_indexed_seg = current_deletion_info.split('.')[3]
-            seg1 = indexed_segments_to_typed_segments([left_boundary_indexed_seg], index_to_segment_dict)[0]  # always only 1 seg
-            seg4 = indexed_segments_to_typed_segments([right_boundary_indexed_seg], index_to_segment_dict)[0]
+            left_boundary_indexed_seg = current_deletion_info.split('.')[3]
+            right_boundary_indexed_seg = current_deletion_info.split('.')[4]
+            seg1 = indexed_segments_to_typed_segments([left_boundary_indexed_seg], new_index_to_segment_dict)[0]  # always only 1 seg
+            seg4 = indexed_segments_to_typed_segments([right_boundary_indexed_seg], new_index_to_segment_dict)[0]
             c_sv_edges.append((seg1.chr_name, seg1.end, seg4.chr_name, seg4.start))
+        elif event_type == 'nonreciprocal translocation':
+            if (c_path_to_idx is not None) and (c_path_from_idx is not None):
+                c_path_to = path_list[c_path_to_idx]
+                c_path_from = path_list[c_path_from_idx]
+                indexed_event_segments = hist_entry[3]
+                event_typed_segments = indexed_segments_to_typed_segments(indexed_event_segments, old_index_to_segment_dict)
 
+                # 1) resolve insertion in path_to
+                sublist_idx = find_seg_sublist(c_path_to.linear_path.segments, event_typed_segments)
+                if sublist_idx is not None:
+                    seg1 = c_path_to.linear_path.segments[sublist_idx - 1]
+                    seg2 = c_path_to.linear_path.segments[sublist_idx]
+                    seg3 = c_path_to.linear_path.segments[sublist_idx + len(indexed_event_segments) - 1]
+                    seg4 = c_path_to.linear_path.segments[sublist_idx + len(indexed_event_segments)]
+                    c_sv_edges.append((seg1.chr_name, seg1.end, seg2.chr_name, seg2.start))
+                    c_sv_edges.append((seg3.chr_name, seg3.end, seg4.chr_name, seg4.start))
+                else:
+                    # make sure we don't write only half of the case, so we can manually distinguish the whole thing
+                    sv_edges_list.append(c_sv_edges)
+                    continue
+
+                # 2) resolve deletion in path_from
+                wt_segments, mt_segments, size_dict = form_mt_wt_indexed_paths_for_interpreter(c_path_from, new_segment_to_index_dict)
+                interpreter_output, _ = interpret_haplotypes([mt_segments], [wt_segments], [c_path_from.path_chr], size_dict)
+                current_deletion_info = ''
+                for interpreted_event in interpreter_output:
+                    if interpreted_event[1] == 'deletion':
+                        c_event_segments = interpreted_event[2][0].split('.')[2].replace('wt(', '').replace(')', '').split(',')
+                        c_event_typed_segments = indexed_segments_to_typed_segments(c_event_segments, new_index_to_segment_dict)
+                        if event_typed_segments == c_event_typed_segments:
+                            current_deletion_info = interpreted_event[2][0]
+                            break
+                if current_deletion_info != '':
+                    left_boundary_indexed_seg = current_deletion_info.split('.')[3]
+                    right_boundary_indexed_seg = current_deletion_info.split('.')[4]
+                    seg1 = indexed_segments_to_typed_segments([left_boundary_indexed_seg], new_index_to_segment_dict)[0]  # always only 1 seg
+                    seg4 = indexed_segments_to_typed_segments([right_boundary_indexed_seg], new_index_to_segment_dict)[0]
+                    c_sv_edges.append((seg1.chr_name, seg1.end, seg4.chr_name, seg4.start))
+                else:
+                    # no deletion of the same segment found by interpreter
+                    # make sure we don't write only half of the case, so we can manually distinguish the whole thing
+                    sv_edges_list.append([])
+                    continue
+            else:
+                sv_edges_list.append(c_sv_edges)
+                continue
+        elif event_type == 'arm tandem duplication':
+            sv_edges_list.append(c_sv_edges)
+            continue
+        elif event_type == 'arm deletion':
+            sv_edges_list.append(c_sv_edges)
+            continue
+        else:
+            raise RuntimeError('event type undefined:', event_type)
         sv_edges_list.append(c_sv_edges)
     return sv_edges_list
 
@@ -302,21 +391,46 @@ def segments_are_continuous(segment1: Segment, segment2: Segment):
     return False
 
 
+def edge_conversion(indexed_seg1, indexed_seg2, index_to_segment_dict):
+    typed_seg1 = index_to_segment_dict[indexed_seg1[:-1]]
+    typed_seg2 = index_to_segment_dict[indexed_seg2[:-1]]
+    chr1 = typed_seg1.chr_name
+    chr2 = typed_seg2.chr_name
+    if indexed_seg1[-1] == "-":
+        pos1 = typed_seg1.start
+    else:
+        pos1 = typed_seg1.end
+    if indexed_seg2[-1] == '-':
+        pos2 = typed_seg2.end
+    else:
+        pos2 = typed_seg2.start
+    print('({}, {}, {}, {})'.format(chr1, pos1, chr2, pos2))
+
+
 def test():
     index_dict, return_list = read_KarSimulator_output_to_path("sample_input/23X_Cri_du_Chat_r1.kt.txt",
-                                           "Metadata/acrocentric_telo_cen.bed")
+                                           "Metadata/acrocentric_telo_cen.bed", 'sample_output/')
     for path in return_list:
         print(path)
 
 
 def test_sv_edge_labeling():
-    index_dict, path_list, event_histories = read_KarSimulator_output('sample_input/23X_Cri_du_Chat_r1.kt.txt',
+    i_index_dict, path_list, event_histories = read_KarSimulator_output('sample_input/23X_Cri_du_Chat_r1.kt.txt',
                                                                       "Metadata/acrocentric_telo_cen.bed")
-    sv_edge_lists = label_event_sv_edge(index_dict, path_list, event_histories)
+    sv_edge_lists = label_event_sv_edge(i_index_dict, path_list, event_histories)
     for idx, hist in enumerate(event_histories):
         print(hist)
         print(sv_edge_lists[idx])
 
 
+def manual_edge_conversion():
+    karsim_file = 'sample_input/23X_Cri_du_Chat_r1.kt.txt'
+    seg1 = '24+'
+    seg2 = '25+'
+    i_index_dict, path_list, event_histories = read_KarSimulator_output('sample_input/23X_Cri_du_Chat_r1.kt.txt',
+                                                                        "Metadata/acrocentric_telo_cen.bed")
+    edge_conversion(seg1, seg2, reverse_dict(i_index_dict))
+
+
 if __name__ == "__main__":
-    test_sv_edge_labeling()
+    test()
