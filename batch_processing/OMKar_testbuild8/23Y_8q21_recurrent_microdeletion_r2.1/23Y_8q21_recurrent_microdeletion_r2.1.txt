@@ -1,0 +1,101 @@
+Segment	Number	Chromosome	Start	End	StartNode	EndNode
+Segment	1	1	0	248943333	0	1
+Segment	2	2	15925	81388765.0	2	3
+Segment	3	2	81388766.0	82292270.0	4	5
+Segment	4	2	82292271	125643580.0	6	7
+Segment	5	2	125643581.0	126712460.0	8	9
+Segment	6	2	126712461	192769324.0	10	11
+Segment	7	2	192769325.0	193060962.0	12	13
+Segment	8	2	193060963.0	194124730.0	14	15
+Segment	9	2	194124731.0	194192400.0	16	17
+Segment	10	2	194192401	226620041.0	18	19
+Segment	11	2	226620042.0	228413973.0	20	21
+Segment	12	2	228413974	242181356	22	23
+Segment	13	3	0	198230596	24	25
+Segment	14	4	12986	80842659.0	26	27
+Segment	15	4	80842660.0	82592657.0	28	29
+Segment	16	4	82592658	190202563	30	31
+Segment	17	5	0	181472714	32	33
+Segment	18	6	0.0	73011271.0	34	35
+Segment	19	6	73011272.0	74344628.5	36	37
+Segment	20	6	74344629.5	170739897.0	38	39
+Segment	21	7	0	159334984	40	41
+Segment	22	8	61806	76303135.0	42	43
+Segment	23	8	76304535.5	76857028.0	44	45
+Segment	24	8	76857029.0	77249100.0	46	47
+Segment	25	8	77249101	145076124	48	49
+Segment	26	9	0	138334464	50	51
+Segment	27	10	18515.0	46991592.0	52	53
+Segment	28	10	46991593.0	48060267.0	54	55
+Segment	29	10	48060268.0	58169441.0	56	57
+Segment	30	10	58169442.0	60093195.0	58	59
+Segment	31	10	60093196	133785265	60	61
+Segment	32	11	0	135069565	62	63
+Segment	33	12	14569	25302698.0	64	65
+Segment	34	12	25302699.0	26748693.0	66	67
+Segment	35	12	26748694	31574652.0	68	69
+Segment	36	12	31574653.0	33133457.0	70	71
+Segment	37	12	33133458.0	131616407.0	72	73
+Segment	38	12	131616408.0	133263959.0	74	75
+Segment	39	13	0	114352102	76	77
+Segment	40	14	0.0	45334721.0	78	79
+Segment	41	14	45334722.0	46262182.5	80	81
+Segment	42	14	46262183.5	106873282.0	82	83
+Segment	43	15	0	101976509	84	85
+Segment	44	16	14135.0	71989303.5	86	87
+Segment	45	16	71993632.0	72817384.0	88	89
+Segment	46	16	72828923.0	72933503.0	90	91
+Segment	47	16	72933504.0	90224750.0	92	93
+Segment	48	17	0	83246392	94	95
+Segment	49	18	0	80256374	96	97
+Segment	50	19	0	58605715	98	99
+Segment	51	20	0	64333718	100	101
+Segment	52	21	0	46697230	102	103
+Segment	53	22	0	50805587	104	105
+Segment	54	23	0	156025612	106	107
+Segment	55	24	0	57212132	108	109
+Path1 = 1+	 score = 1
+Path2 = 1-	 score = 1
+Path3 = 2+ 3+ 4+ 5+ 6+ 7+ 8+ 9+ 10+ 11+ 12+	 score = 1
+Path4 = 12- 11- 11- 10- 6- 5- 5- 4- 2-	 score = 1
+Path5 = 13+	 score = 1
+Path6 = 13-	 score = 1
+Path7 = 14+ 15+ 16+	 score = 1
+Path8 = 16- 15- 15+ 14-	 score = 1
+Path9 = 17+	 score = 1
+Path10 = 17-	 score = 1
+Path11 = 18+ 19+ 20+	 score = 1
+Path12 = 20- 41- 40-	 score = 1
+Path13 = 40+ 19+ 42+	 score = 1
+Path14 = 42- 41- 18-	 score = 1
+Path15 = 21+	 score = 1
+Path16 = 21-	 score = 1
+Path17 = 22+ 23+ 24+ 25+	 score = 1
+Path18 = 25- 22-	 score = 1
+Path19 = 26+	 score = 1
+Path20 = 26-	 score = 1
+Path21 = 27+ 28+ 29+ 30+ 31+	 score = 1
+Path22 = 31- 29- 28- 27-	 score = 1
+Path23 = 32+	 score = 1
+Path24 = 32-	 score = 1
+Path25 = 33+ 35+ 37+ 38- 37- 36- 35- 34- 33-	 score = 2
+Path26 = 39+	 score = 1
+Path27 = 39-	 score = 1
+Path28 = 43+	 score = 1
+Path29 = 43-	 score = 1
+Path30 = 44+ 45+ 46+ 47+	 score = 1
+Path31 = 47- 45+ 45- 44-	 score = 1
+Path32 = 48+	 score = 1
+Path33 = 48-	 score = 1
+Path34 = 49+	 score = 1
+Path35 = 49-	 score = 1
+Path36 = 50+	 score = 1
+Path37 = 50-	 score = 1
+Path38 = 51+	 score = 1
+Path39 = 51-	 score = 1
+Path40 = 52+	 score = 1
+Path41 = 52-	 score = 1
+Path42 = 53+	 score = 1
+Path43 = 53-	 score = 1
+Path44 = 54+	 score = 1
+Path45 = 55+	 score = 1

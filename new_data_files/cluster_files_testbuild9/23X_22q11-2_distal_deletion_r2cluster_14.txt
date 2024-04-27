@@ -1,0 +1,26 @@
+cluster<14>, origin_chr<['Chr17']>, n_karsim<3>, n_omkar<3>
+0	Chr17	0	59999	telomere1	60000
+1	Chr17	60000	66652	arm_region	6653
+2	Chr17	66653	21692279	arm_region	21625627
+3	Chr17	21692280	22042417	arm_region	350138
+4	Chr17	22042418	22732567	arm_region	690150
+5	Chr17	22732568	22813679	arm_region	81112
+6	Chr17	22813680	26692352	centromere	3878673
+7	Chr17	26692353	26885980	centromere	193628
+8	Chr17	26885981	38157112	arm_region	11271132
+9	Chr17	38157113	78190794	arm_region	40033682
+10	Chr17	78190795	83246391	arm_region	5055597
+11	Chr17	83246392	83247440	arm_region	1049
+12	Chr17	83247441	83257440	telomere2	10000
+---
+Chr17a	Chr17	0+,1+,2+,3+,4+,5+,6+,7+,8+,9+,10+,11+,12+
+Chr17b	Chr17	0+,1+,2+,3+,4+,5+,6+,7+,8+,9+,10+,11+,12+
+Chr17c	Chr17	0+,1+,2+,3+,4+,5+,6+,7+,8+,9+,10+,11+,12+
+---
+Path36	-no centromere, highest representation: Chr17	2+,3+,4+,5+,6+,7+,8+,9+,10+
+Path37	-no centromere, highest representation: Chr17	2+,3+,4+,5+,6+,7+,8+,9+,10+
+Path38	-no centromere, highest representation: Chr17	2+,3+,4+,5+,6+,7+,8+,9+
+---
+(3s, 3t, 1, S)	350137
+(5s, 6t, 1, S)	3959784
+---

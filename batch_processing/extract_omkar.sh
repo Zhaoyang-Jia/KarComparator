@@ -1,5 +1,5 @@
-data_dir=OMKar_testbuild7/
-output_dir=../new_data_files/OMKar_testbuild7/
+data_dir=OMKar_testbuild8/
+output_dir=../new_data_files/OMKar_testbuild8/
 
 mkdir -p $output_dir
 

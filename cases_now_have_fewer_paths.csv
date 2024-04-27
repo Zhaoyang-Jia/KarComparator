@@ -1,0 +1,6 @@
+,file_name,cluster,origin_chr_df1,n_path_diff_df1,SV_missed_df1,origin_chr_df2,n_path_diff_df2,SV_missed_df2
+189,23X_Cri_du_Chat_r1,6,"['Chr3', 'Chr4', 'Chr9']",-1,5,"['Chr3', 'Chr4', 'Chr9']",-2,9
+277,23X_Xp11_22_Microduplication_r2,11,"['Chr1', 'Chr3', 'Chr4', 'Chr9', 'Chr17']",0,2,"['Chr1', 'Chr3', 'Chr4', 'Chr9', 'Chr17']",-1,4
+326,23Y_1q21_recurrent_microdeletion_r2,4,"['Chr1', 'Chr3', 'Chr8', 'Chr9']",0,0,"['Chr1', 'Chr3', 'Chr8', 'Chr9']",-3,6
+376,23Y_CMT1A_r1,0,['Chr1'],0,0,['Chr1'],-1,0
+564,23Y_WAGR_11p13_deletion_r1,3,['Chr4'],0,0,['Chr4'],-1,0

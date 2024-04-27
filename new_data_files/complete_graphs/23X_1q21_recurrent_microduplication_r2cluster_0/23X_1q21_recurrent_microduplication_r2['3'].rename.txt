@@ -1,0 +1,7 @@
+clustered_name: omkar_name
+2s: 24
+5t: 25
+6s: 26
+8t: 27
+9s: 28
+11t: 29

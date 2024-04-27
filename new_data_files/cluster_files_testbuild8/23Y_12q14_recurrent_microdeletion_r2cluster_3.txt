@@ -1,0 +1,15 @@
+cluster<3>, origin_chr<['Chr8']>, n_karsim<2>, n_omkar<2>
+0	Chr8	0	59999	telomere1	60000
+1	Chr8	60000	44033744	arm_region	43973745
+2	Chr8	44033745	45877265	centromere	1843521
+3	Chr8	45877266	145076125	arm_region	99198860
+4	Chr8	145076126	145078635	arm_region	2510
+5	Chr8	145078636	145138635	telomere2	60000
+---
+Chr8a	Chr8	0+,1+,2+,3+,4+,5+
+Chr8b	Chr8	0+,1+,2+,3+,4+,5+
+---
+Path19	Chr8	0+,1+,2+,3+
+Path20	Chr8	0+,1+,2+,3+
+---
+---
