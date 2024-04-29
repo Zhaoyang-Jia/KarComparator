@@ -3,6 +3,7 @@ from forbidden_region_processing import *
 from Karsimulator_Start_Genome import *
 from KT_interpreter import *
 from utils import *
+import os
 
 
 def read_KarSimulator_output_to_path(KarSimulator_output_file, forbidden_region_file, history_intermediate_dir):
@@ -408,6 +409,51 @@ def read_history_edges_intermediate_file(file_path):
     return event_sv_edges
 
 
+def history_edges_intermediate_file_terminal_event_labeling(input_dir_path, output_dir_path, forbidden_region_file):
+    forbidden_df = pd.read_csv(forbidden_region_file, sep='\t')
+    for file in os.listdir(input_dir_path):
+        output_str = []
+        with open(input_dir_path + file) as fp_read:
+            for line in fp_read:
+                line = line.replace('\n', '').split(': ')
+                history_label = line[0]
+                edges = line[1]
+                edges = eval(edges)
+                history_label = eval(history_label)
+                if type(edges[0]) is str:
+                    # chromosomal events
+                    output_str.append('{}: {}'.format(history_label, edges))
+                else:
+                    event_is_terminal = False
+                    for sv_edge in edges:
+                        if edge_in_forbidden_region(str(sv_edge[0]),
+                                                    int(sv_edge[1]),
+                                                    str(sv_edge[2]),
+                                                    int(sv_edge[3]),
+                                                    forbidden_df):
+                            event_is_terminal = True
+                            break
+                    if event_is_terminal:
+                        new_event_type = history_label[0] + '-terminal'
+                        history_label = (new_event_type, history_label[1], history_label[2], history_label[3])
+                    output_str.append('{}: {}'.format(history_label, edges))
+        output_str = '\n'.join(output_str)
+        with open(output_dir_path + file, 'w') as fp_write:
+            fp_write.write(output_str)
+
+
+def edge_in_forbidden_region(chrom1, pos1, chrom2, pos2, forbidden_df):
+    for index, row in forbidden_df.iterrows():
+        if row['Chr'] == chrom1:
+            if row['StartPos'] - 3 <= pos1 <= row['EndPos'] + 3:
+                # pos1 is in forbidden region
+                return True
+        elif row['Chr'] == chrom2:
+            if row['StartPos'] - 3 <= pos2 <= row['EndPos'] + 3:
+                return True
+    return False
+
+
 def edge_conversion(indexed_seg1, indexed_seg2, index_to_segment_dict):
     typed_seg1 = index_to_segment_dict[indexed_seg1[:-1]]
     typed_seg2 = index_to_segment_dict[indexed_seg2[:-1]]
@@ -456,4 +502,6 @@ def test_read_history_edges_intermediate_file():
 
 
 if __name__ == "__main__":
-    manual_edge_conversion()
+    history_edges_intermediate_file_terminal_event_labeling('packaged_data/Karsimulator_history_intermediate/',
+                                                            'packaged_data/Karsimulator_history_intermediate_terminal_labeled/',
+                                                            'Metadata/acrocentric_telo_cen.bed')
