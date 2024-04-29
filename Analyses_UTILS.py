@@ -9,6 +9,7 @@ import re
 
 data_folder = 'new_data_files/cluster_files_testbuild11/'
 karsim_history_edges_folder = 'packaged_data/Karsimulator_history_intermediate/'
+forbidden_region_file = 'Metadata/acrocentric_telo_cen.bed'
 
 
 def form_graph(input_df_row):
@@ -300,7 +301,7 @@ def iterative_label_missed_SV_edges(df_row):
                 event_found = True
                 break
         if not event_found:
-            labeled_event_type.append('NF')
+            labeled_event_type.append('ENF')
     return labeled_event_type
 
 
@@ -317,6 +318,6 @@ if __name__ == "__main__":
     i_df[['preILP_similar_SV', 'n_preILP_similar_SV']] \
         = i_df.apply(lambda row: pd.Series(iterative_check_missed_SV_in_preILP(row['file_name'], row['karsim_missed_transition'])), axis=1)
     i_df = i_df.sort_values('n_karsim_missed_transition', ascending=False)
-    df = label_missed_SV_edges(i_df)
-    print('x')
+    i_df = label_missed_SV_edges(i_df)
+    i_df.to_csv('missed_sv_edges_labeled.csv')
 
