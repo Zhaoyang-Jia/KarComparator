@@ -1,6 +1,6 @@
 ('deletion', 'Chr15a', 'Chr15a', ['67+']): [('Chr15', 22677344, 'Chr15', 28193121)]
 ('deletion', 'Chr3a', 'Chr3a', ['16+']): [('Chr3', 40027918, 'Chr3', 47409707)]
-('arm deletion', 'Chr16a', 'Chr16a', ['69+']): [('Chr16', 9999, 'Chr16', 36311159)]
+('arm deletion-terminal', 'Chr16a', 'Chr16a', ['69+']): [('Chr16', 9999, 'Chr16', 36311159)]
 ('left duplication inversion', 'Chr8a', 'Chr8a', ['43+']): [('Chr8', 141489948, 'Chr8', 145078635), ('Chr8', 141489949, 'Chr8', 141489949)]
 ('balanced reciprocal translocation', 'Chr5a', 'Chr8a', ['25+']): [('Chr8', 52984898, 'Chr5', 79089145), ('Chr5', 87260056, 'Chr8', 61175807)]
 ('balanced reciprocal translocation', 'Chr8a', 'Chr5a', ['37+']): [('Chr5', 79089144, 'Chr8', 52984899), ('Chr8', 61175806, 'Chr5', 87260057)]

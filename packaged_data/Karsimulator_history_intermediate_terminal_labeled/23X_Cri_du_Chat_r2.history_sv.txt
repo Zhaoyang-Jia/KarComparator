@@ -1,6 +1,6 @@
-('deletion', 'Chr5a', 'Chr5a', ['18+']): [('Chr5', 9999, 'Chr5', 12533193)]
+('deletion-terminal', 'Chr5a', 'Chr5a', ['18+']): [('Chr5', 9999, 'Chr5', 12533193)]
 ('composite-tandem duplication', 'Chr10a', 'Chr10a', ['42+', '43+', '44+', '45+']): [('Chr10', 126213156, 'Chr10', 122161504)]
-('right duplication inversion', 'Chr15a', 'Chr15a', ['61+']): [('Chr15', 101981188, 'Chr15', 101981188), ('Chr15', 92304122, 'Chr15', 101981189)]
+('right duplication inversion-terminal', 'Chr15a', 'Chr15a', ['61+']): [('Chr15', 101981188, 'Chr15', 101981188), ('Chr15', 92304122, 'Chr15', 101981189)]
 ('composite-chromosomal duplication', 'Chr10a', 'Chr10a', ['37+', '38+', '39+', 'CEN10+', '40+', '41+', '42+', '43+', '44+', '45+', '42+', '43+', '44+', '45+', '46+']): ['chromosomal events']
 ('inversion', 'Chr6a', 'Chr6a', ['24+']): [('Chr6', 11696631, 'Chr6', 19737827), ('Chr6', 11696632, 'Chr6', 19737828)]
 ('deletion', 'Chr9a', 'Chr9a', ['34+']): [('Chr9', 26203332, 'Chr9', 35008419)]
