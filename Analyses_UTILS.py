@@ -1,12 +1,14 @@
 from COMPARISON_with_graphs import *
 from Karsimulator_Start_Genome import get_event_chr, get_history_events
 from debug_omkar import *
+from read_KarSimulator_output import *
 
 import os
 import pandas as pd
 import re
 
 data_folder = 'new_data_files/cluster_files_testbuild11/'
+karsim_history_edges_folder = 'packaged_data/Karsimulator_history_intermediate/'
 
 
 def form_graph(input_df_row):
@@ -282,6 +284,39 @@ def process_comparison(df):
     return df
 
 
+def iterative_label_missed_SV_edges(df_row):
+    karsim_filename = df_row['file_name']
+    karsim_history_edges_filepath = karsim_history_edges_folder + karsim_filename + '.history_sv.txt'
+    event_sv_edges = read_history_edges_intermediate_file(karsim_history_edges_filepath)
+    missed_sv_edges = df_row['karsim_missed_transition']
+    labeled_event_type = []
+    for missed_sv_edge in missed_sv_edges:
+        event_found = False
+        for entry in event_sv_edges:
+            event_type = entry[0]
+            event_edges = entry[1]
+            if missed_sv_edge in event_edges:
+                labeled_event_type.append(event_type)
+                event_found = True
+                break
+        if not event_found:
+            labeled_event_type.append('NF')
+    return labeled_event_type
+
+
+def label_missed_SV_edges(df):
+    df['karsim_missed_transition_event_type'] = df.apply(lambda row: iterative_label_missed_SV_edges(row), axis=1)
+    return df
+
+
 if __name__ == "__main__":
-    f = '23X_15q26_overgrowth_r1'
-    iterative_check_missed_SV_in_preILP(f, [])
+    i_df = prep_df()
+    i_df = process_comparison(i_df)
+    SV_missed = i_df['n_karsim_missed_transition'].sum()
+    SV_added = i_df['n_omkar_missed_transition'].sum()
+    i_df[['preILP_similar_SV', 'n_preILP_similar_SV']] \
+        = i_df.apply(lambda row: pd.Series(iterative_check_missed_SV_in_preILP(row['file_name'], row['karsim_missed_transition'])), axis=1)
+    i_df = i_df.sort_values('n_karsim_missed_transition', ascending=False)
+    df = label_missed_SV_edges(i_df)
+    print('x')
+

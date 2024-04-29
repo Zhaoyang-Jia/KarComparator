@@ -391,6 +391,23 @@ def segments_are_continuous(segment1: Segment, segment2: Segment):
     return False
 
 
+def read_history_edges_intermediate_file(file_path):
+    event_sv_edges = []
+    with open(file_path) as fp_read:
+        for line in fp_read:
+            line = line.replace('\n', '').split(': ')
+            history_label = line[0]
+            edges = line[1]
+            if edges.startswith('[\''):
+                # chr_deletion OR chr_wide_event
+                continue
+            edges = eval(edges)
+            history_label = eval(history_label)
+            event_type = history_label[0]
+            event_sv_edges.append((event_type, edges))
+    return event_sv_edges
+
+
 def edge_conversion(indexed_seg1, indexed_seg2, index_to_segment_dict):
     typed_seg1 = index_to_segment_dict[indexed_seg1[:-1]]
     typed_seg2 = index_to_segment_dict[indexed_seg2[:-1]]
@@ -404,7 +421,7 @@ def edge_conversion(indexed_seg1, indexed_seg2, index_to_segment_dict):
         pos2 = typed_seg2.end
     else:
         pos2 = typed_seg2.start
-    print('({}, {}, {}, {})'.format(chr1, pos1, chr2, pos2))
+    print('(\'{}\', {}, \'{}\', {})'.format(chr1, pos1, chr2, pos2))
 
 
 def test():
@@ -424,13 +441,19 @@ def test_sv_edge_labeling():
 
 
 def manual_edge_conversion():
-    karsim_file = 'sample_input/23X_Cri_du_Chat_r1.kt.txt'
-    seg1 = '24+'
-    seg2 = '25+'
-    i_index_dict, path_list, event_histories = read_KarSimulator_output('sample_input/23X_Cri_du_Chat_r1.kt.txt',
+    karsim_file = 'new_data_files/KarSimulator/23Y_Potocki_Shaffer_r2.kt.txt'
+    seg1 = '38+'
+    seg2 = '27+'
+    i_index_dict, path_list, event_histories = read_KarSimulator_output(karsim_file,
                                                                         "Metadata/acrocentric_telo_cen.bed")
     edge_conversion(seg1, seg2, reverse_dict(i_index_dict))
 
 
+def test_read_history_edges_intermediate_file():
+    filepath = '/media/zhaoyang-new/workspace/KarSim/KarComparator/sample_output/23X_Cri_du_Chat_r1.kt.t.history_sv.txt'
+    x = read_history_edges_intermediate_file(filepath)
+    print(x)
+
+
 if __name__ == "__main__":
-    test()
+    manual_edge_conversion()
