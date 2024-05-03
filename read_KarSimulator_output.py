@@ -6,11 +6,8 @@ from utils import *
 import os
 
 
-def read_KarSimulator_output_to_path(KarSimulator_output_file, forbidden_region_file, history_intermediate_dir):
+def read_KarSimulator_output_to_path(KarSimulator_output_file, forbidden_region_file):
     index_dict, path_list, event_histories = read_KarSimulator_output(KarSimulator_output_file, forbidden_region_file)
-    # sv_edge_list = label_event_sv_edge(index_dict, path_list, event_histories)
-    # history_intermediate_file = history_intermediate_dir + '/' + KarSimulator_output_file.split('/')[-1][:-2] + '.history_sv.txt'
-    # generate_history_SV_edge_labels(event_histories, sv_edge_list, history_intermediate_file)
     label_path_with_forbidden_regions(path_list, forbidden_region_file)
     return index_dict, path_list
 

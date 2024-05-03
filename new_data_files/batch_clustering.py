@@ -10,10 +10,10 @@ import os
 import sys
 
 karsim_folder = 'KarSimulator/'
-omkar_folder = 'OMKar_testbuild8/'
-omkar_output_folder = '../batch_processing/OMKar_testbuild8/'  # to access the dummy edge and change in CNV
+omkar_folder = 'OMKar_testbuild9/'
+omkar_output_folder = '../batch_processing/OMKar_testbuild9/'  # to access the dummy edge and change in CNV
 forbidden_region_file = '../Metadata/acrocentric_telo_cen.bed'
-output_dir = 'cluster_files_testbuild11/'
+output_dir = 'cluster_files_testbuild12/'
 
 os.makedirs(output_dir, exist_ok=True)
 
