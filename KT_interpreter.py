@@ -254,7 +254,6 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
 
     ### Order of resolving: balanced-translocation, inv, dup-inv, tandem-dup, del, unbalanced-translocation
     ## resolve all balanced translocations
-    # TODO: categorize into 1/2/3/4 breakpoint balanced translocation
     for aligned_hap_idx, aligned_hap in enumerate(aligned_haplotypes):
         for c_wt_block_idx, c_wt_block in aligned_hap.wt_blocks.items():
             if len(aligned_hap.discordant_block_assignment[c_wt_block_idx]) > 0:
@@ -441,59 +440,69 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
                                                       bp2)]
             event_blocks[event_id] = new_block_list
         elif event_type == 'balanced_translocation':
-            # TODO: current solution only accounts for 2-break balanced translocation
-            origin_path_idx = int(event_block_list[0].split('.')[0])
-            origin_block_idx = int(event_block_list[0].split('.')[1])
+            if conglomerated_event_types[event_id] != 'balanced_translocation':
+                # event already labeled by previous balanced translocation chaining, skip
+                continue
+            # origin_path_idx = int(event_block_list[0].split('.')[0])
+            # origin_block_idx = int(event_block_list[0].split('.')[1])
             c_path_idx = int(event_block_list[1].split('.')[0])
             c_block_idx = int(event_block_list[1].split('.')[1])
+            origin_path_idx = c_path_idx
+            origin_block_idx = c_block_idx
             event_id_visited = [event_id]
             loop_closed = False
             while True:
                 ## find the next paired balanced translocations
                 next_block_idx = -1
+                next_block_event_id = -1
                 # search left
                 left_block_idx = c_block_idx - 1
                 if left_block_idx in aligned_haplotypes[c_path_idx].discordant_block_assignment:
                     # note: if left_block_idx < 0, won't be in discordant block list
-                    left_block_type = aligned_haplotypes[c_path_idx].discordant_block_assignment[left_block_idx]
+                    left_block_type_info = aligned_haplotypes[c_path_idx].discordant_block_assignment[left_block_idx]
+                    left_block_type = left_block_type_info.split(',')[0]
                     if left_block_type == 'balanced_translocation':
                         next_block_idx = left_block_idx
+                        next_block_event_id = int(left_block_type_info.split(',')[1])
                 right_block_idx = c_block_idx + 1
                 if right_block_idx in aligned_haplotypes[c_path_idx].discordant_block_assignment:
                     # note: if left_block_idx >= n_blocks, won't be in discordant block list
-                    right_block_type = aligned_haplotypes[c_path_idx].discordant_block_assignment[right_block_idx]
+                    right_block_type_info = aligned_haplotypes[c_path_idx].discordant_block_assignment[right_block_idx]
+                    right_block_type = right_block_type_info.split(',')[0]
                     if right_block_type == 'balanced_translocation':
                         if next_block_idx != -1:
                             raise RuntimeError('balanced translocation chaining appeared on both sides, require additional implementation for better implementation')
                         next_block_idx = right_block_idx
+                        next_block_event_id = int(right_block_type_info.split(',')[1])
 
                 ## navigate to the other side of the pair
                 if next_block_idx == -1:
                     # all event_id_visited are non-loop closed balanced translocations
                     break
                 # find the located block in event_block pairing
-                block_updated = False
-                for c_event_id, c_event_type_list in event_types.items():
-                    if c_event_type_list[0] != 'balanced_translocation':
-                        continue
-                    c_event_block_list = event_blocks[c_event_id]
-                    path_idx1 = c_event_block_list[0].split('.')[0]
-                    block_idx1 = c_event_block_list[0].split('.')[1]
-                    path_idx2 = c_event_block_list[1].split('.')[0]
-                    block_idx2 = c_event_block_list[1].split('.')[1]
-                    if path_idx1 == c_path_idx and block_idx1 == next_block_idx:
-                        block_updated = True
-                        event_id_visited.append(c_event_id)
-                        c_path_idx = path_idx2
-                        c_block_idx = block_idx2
-                        break
-                    elif path_idx2 == c_path_idx and block_idx2 == next_block_idx:
-                        block_updated = True
-                        event_id_visited.append(c_event_id)
-                        c_path_idx = path_idx1
-                        c_block_idx = block_idx1
-                        break
-                if not block_updated:
+                c_event_block_list = event_blocks[next_block_event_id]
+                # either the first/second is the paired block
+                path_idx1 = int(c_event_block_list[0].split('.')[0])
+                block_idx1 = int(c_event_block_list[0].split('.')[1])
+                path_idx2 = int(c_event_block_list[1].split('.')[0])
+                block_idx2 = int(c_event_block_list[1].split('.')[1])
+                if path_idx1 == c_path_idx and block_idx1 == next_block_idx:
+                    if next_block_event_id in event_id_visited and next_block_event_id != event_id_visited[0]:
+                        raise RuntimeError('duplicate event found, loop closed not with the origin block')
+                    elif next_block_event_id not in event_id_visited:
+                        # thus, when we are back to the first event_id, do not append
+                        event_id_visited.append(next_block_event_id)
+                    c_path_idx = path_idx2
+                    c_block_idx = block_idx2
+                elif path_idx2 == c_path_idx and block_idx2 == next_block_idx:
+                    if next_block_event_id in event_id_visited and next_block_event_id != event_id_visited[0]:
+                        raise RuntimeError('duplicate event found, loop closed not with the origin block')
+                    elif next_block_event_id not in event_id_visited:
+                        # thus, when we are back to the first event_id, do not append
+                        event_id_visited.append(next_block_event_id)
+                    c_path_idx = path_idx1
+                    c_block_idx = block_idx1
+                else:
                     raise RuntimeError('bug in event finding, block pair located was not found')
 
                 ## base-case: returned to the original start, loop closed
@@ -503,18 +512,18 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
 
             if not loop_closed:
                 for event_id_itr in event_id_visited:
-                    if event_types[event_id_itr] != 'balanced_translocation':
+                    if conglomerated_event_types[event_id_itr] != 'balanced_translocation':
                         raise RuntimeError('illegal labeling of balanced translocation')
-                    event_types[event_id_itr] = 'balanced_translocation_unassociated'
+                    conglomerated_event_types[event_id_itr] = 'balanced_translocation_unassociated'
             else:
                 for event_id_idx, event_id_itr in enumerate(event_id_visited):
                     if event_id_idx >= len(event_id_visited) - 1:
                         next_event_id_idx = 0
                     else:
                         next_event_id_idx = event_id_idx + 1
-                    if event_types[event_id_itr] != 'balanced_translocation':
+                    if conglomerated_event_types[event_id_itr] != 'balanced_translocation':
                         raise RuntimeError('illegal labeling of balanced translocation')
-                    event_types[event_id_itr] = 'balanced_translocation_associated' + '<{}>'.format(event_id_visited[next_event_id_idx])
+                    conglomerated_event_types[event_id_itr] = 'balanced_translocation_associated' + '<{}>'.format(event_id_visited[next_event_id_idx])
 
         elif event_type.startswith('balanced_translocation_associated') or \
                 event_type.startswith('balanced_translocation_unassociated'):
@@ -772,13 +781,18 @@ def continuous_extension(input_hap, idx_ptr):
         if next_seg == '-':
             break
         if section_sign == '+':
-            if int(next_seg[:-1]) != int(current_seg[:-1]) + 1:
+            if next_seg[-1] != '+':
+                break
+            elif int(next_seg[:-1]) != int(current_seg[:-1]) + 1:
                 break
         elif section_sign == '-':
-            if int(next_seg[:-1]) != int(current_seg[:-1]) - 1:
+            if next_seg[-1] != '-':
+                break
+            elif int(next_seg[:-1]) != int(current_seg[:-1]) - 1:
                 break
         else:
             raise ValueError('sign error')
+        current_seg = input_hap[final_ptr]
         final_ptr += 1
 
     return final_ptr

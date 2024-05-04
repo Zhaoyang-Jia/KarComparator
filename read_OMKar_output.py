@@ -81,7 +81,6 @@ def read_OMKar_to_indexed_list(OMKar_output_file, forbidden_region_file):
         path_chrs.append(path.path_chr)
 
     ## match and translate to indexing
-    segment_size_dict = {}
     segment_dict = reverse_dict(index_dict)
     indexed_lists = []
 
@@ -91,16 +90,18 @@ def read_OMKar_to_indexed_list(OMKar_output_file, forbidden_region_file):
         for segment in segments:
             if segment in segment_dict:
                 indexed_list.append(str(segment_dict[segment]) + "+")
-                segment_size_dict[str(segment_dict[segment])] = len(segment)
             else:
                 segment_copy = segment.duplicate()
                 segment_copy.invert()
                 if segment_copy in segment_dict:
                     indexed_list.append(str(segment_dict[segment_copy]) + "-")
-                    segment_size_dict[str(segment_dict[segment_copy])] = len(segment_copy)
                 else:
                     raise RuntimeError('segment_dict not complete')
         indexed_lists.append(indexed_list)
+
+    segment_size_dict = {}
+    for typed_seg, index_seg in segment_dict.items():
+        segment_size_dict[str(index_seg)] = len(typed_seg)
     return indexed_lists, path_chrs, segment_dict, segment_size_dict
 
 
