@@ -4,6 +4,10 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
+from datetime import datetime
+import subprocess
+import pdflatex
+import os
 
 
 class Aligned_Haplotype:
@@ -125,6 +129,7 @@ class Aligned_Haplotype:
         :param event_types: cumulative dict, where value is a list of event_type, same reason as above
         :return:
         """
+
         def get_block_boundaries(block_idx):
             if block_idx == 0:
                 # first block
@@ -259,7 +264,8 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
             if len(aligned_hap.discordant_block_assignment[c_wt_block_idx]) > 0:
                 # already has assignment
                 continue
-            aligned_hap.discordant_block_assignment[c_wt_block_idx] = 'under investigation'  # block it from being matched in intra-chr event; maybe not necessary
+            aligned_hap.discordant_block_assignment[
+                c_wt_block_idx] = 'under investigation'  # block it from being matched in intra-chr event; maybe not necessary
             balanced_translocation_found = genomewide_seed_search(c_wt_block, c_wt_block_idx, aligned_hap_idx, 'ins')
             if balanced_translocation_found:
                 event_id += 1
@@ -335,7 +341,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
                     aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'left_duplication_inversion,{}'.format(event_id)
                     event_id += 1
                     continue
-        # right-dup-inv: concordant block w/ uninverted-seg as seed + ins of inverted-seg
+            # right-dup-inv: concordant block w/ uninverted-seg as seed + ins of inverted-seg
             # this is not the first block, AND previous block is concordant
             if c_mt_block_idx - 1 >= 0 and \
                     (c_mt_block_idx - 1) in aligned_hap.concordant_blocks:
@@ -471,7 +477,8 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
                     right_block_type = right_block_type_info.split(',')[0]
                     if right_block_type == 'balanced_translocation':
                         if next_block_idx != -1:
-                            raise RuntimeError('balanced translocation chaining appeared on both sides, require additional implementation for better implementation')
+                            raise RuntimeError(
+                                'balanced translocation chaining appeared on both sides, require additional implementation for better implementation')
                         next_block_idx = right_block_idx
                         next_block_event_id = int(right_block_type_info.split(',')[1])
 
@@ -693,6 +700,66 @@ def generate_pdf_report(output_dir, output_file_name, main_bullets, sub_bullets)
     doc.build(story)
 
 
+def generate_latex_frontpage(title,
+                             sample_names,
+                             genefile_name,
+                             breakpoint_reporting_proximity,
+                             interpretation_insertion_threshold,
+                             interpretation_deletion_threshold):
+    output_str = "\\documentclass[12pt]{article}\n"
+    output_str += "\\usepackage[letterpaper, margin=0.75in]{geometry}\n"
+    output_str += "\\setcounter{secnumdepth}{0}\n"
+    output_str += "\\usepackage{graphicx}\n"
+    output_str += "\\usepackage{setspace}\n"
+    output_str += "\\usepackage{titling}\n"
+    output_str += "\\usepackage{enumitem}\n"
+    output_str += "\\renewcommand\\maketitlehookc{\\vspace{-10ex}}\n"
+    output_str += "\\usepackage{lipsum}\n"
+    output_str += "\\graphicspath{ {./images/} }\n"
+    output_str += "\\begin{document}\n"
+    output_str += "\n"
+    output_str += "\\title{" + title + "}\n"
+    today = datetime.today()
+    formatted_date = today.strftime("%b.%dth, %Y")
+    output_str += "\\date{" + str(formatted_date) + "}\n"
+    output_str += "\\maketitle\n"
+    output_str += "\n"
+    output_str += "\\textbf{{Samples Included: }} "
+    output_str += ', '.join(sample_names) + "\n"
+    output_str += "\n"
+    output_str += "\\hfill\n"
+    output_str += "\n"
+    output_str += "\\textbf{Gene file used: } " + genefile_name + "\n"
+    output_str += "\n"
+    output_str += "\\hfill\n"
+    output_str += "\n"
+    output_str += "\\textbf{Breakpoint Gene Reporting Proximity: } " + str(breakpoint_reporting_proximity) + "kbp\n"
+    output_str += "\n"
+    output_str += "\\textbf{Threashold for event insertion size: } " + str(interpretation_insertion_threshold) + "kbp\n"
+    output_str += "\n"
+    output_str += "\\textbf{Threashold for event deletion size: } " + str(interpretation_deletion_threshold) + "kbp\n"
+    output_str += "\n"
+    output_str += "\\newpage\n"
+    output_str += "\\end{document}\n"
+
+    return output_str
+
+
+def generate_latex_case_str():
+    pass
+
+
+def generate_latex_report(output_filename_prefix, front_page_str):
+    directory_path = os.path.dirname(output_filename_prefix) + '/'
+    latex_path = output_filename_prefix + '.tex'
+    with open(latex_path, 'w') as fp_write:
+        fp_write.write(front_page_str)
+    # with open(latex_path, 'rd') as fp_read:
+    #     pdfl = pdflatex.PDFLaTeX.from_binarystring(fp_read.read(), 'pdfl')
+    # pdf, log, cp = pdfl.create_pdf(keep_pdf_file=True, output_dir)
+    subprocess.run(['pdflatex', '-output-directory=' + directory_path, latex_path])
+
+
 def report_on_genes_based_on_breakpoints(breakpoints):
     breakpoints = gather_breakpoints(breakpoints)
     genes_near_bp = get_genes_near_breakpoints(breakpoints)
@@ -809,6 +876,7 @@ def is_seeded(supergroup_section, cont_section, size_dict, indel_direction, d, e
     :param eps: epsilon, allowed 1/2 indel size (i.e. 2 * eps >= indel size)
     :return: [start, end) indices in the supergroup
     """
+
     def sublist_idx(list1, list2):
         # list 1 is small, list 2 is large (presumed superlist)
         for i in range(len(list2) - len(list1) + 1):
@@ -984,5 +1052,15 @@ def test_interpreter():
 
 
 if __name__ == "__main__":
-    test_interpreter()
+    # test_interpreter()
     # test_segs_union()
+
+    output_path = 'latex_reports/test'
+    front_str = generate_latex_frontpage('Sunnyside Prenatal/Postnatal',
+                                         ['314', '15', '926'],
+                                         'hg38 coding genes',
+                                         50,
+                                         200,
+                                         200)
+    print(front_str)
+    generate_latex_report(output_path, front_str)

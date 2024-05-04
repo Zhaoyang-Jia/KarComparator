@@ -29,6 +29,7 @@ def batch_interpret(omkar_output_dir):
             # generate_pdf_report('report_PDF/', file.split('.')[0] + '.report.pdf', main_bullets, sub_bullets)
             # print()
 
+
 def populate_wt_indexed_lists(mt_path_chrs, wt_path_dict):
     wt_indexed_lists = []
     for path_chr in mt_path_chrs:
