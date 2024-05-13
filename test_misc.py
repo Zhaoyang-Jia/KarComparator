@@ -4,6 +4,7 @@ import networkx as nx
 import netgraph as ng
 import matplotlib.pyplot as plt
 from utils import *
+import os
 
 # uniform_dist = 1 / 6
 # graph_width = uniform_dist * 100
@@ -35,5 +36,10 @@ from utils import *
 x = ""
 
 if __name__ == "__main__":
-    print(len(x))
+    path = 'latex_reports/paul_dremsek_plots/002.pdf'
+    # path = '/media/zhaoyang-new/workspace/KarSim/KarComparator/latex_reports/sunnyside_plots/2.pdf'
+    if os.path.exists(path):
+        print('x')
+    else:
+        print('y')
 

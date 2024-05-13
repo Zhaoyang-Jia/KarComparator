@@ -1,3 +1,10 @@
 .DS_store
 *.iml
 *__pycache__*
+/latex_reports/dremsek_images/
+/latex_reports/dremsek_images_2/
+/latex_reports/keyhole_plots/
+/latex_reports/paul_dremsek_plots/
+/latex_reports/sunnyside_plots/
+/latex_reports/
+/report_PDF/

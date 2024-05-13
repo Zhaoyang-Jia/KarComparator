@@ -1,4 +1,3 @@
-from Structures import *
 from forbidden_region_processing import *
 from utils import *
 
