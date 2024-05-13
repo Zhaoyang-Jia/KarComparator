@@ -1,0 +1,595 @@
+,file_name,cluster,n_origin_chr,origin_chr,n_path_karsim,n_path_omkar,total_alignment_cost,alignment_costs,event_chr,histories,n_events,is_event_cluster,n_path_diff
+0,23X_15q26_overgrowth_r1,0,1,['Chr1'],2,2,64203,"[41160, 23043]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{'deletion': 1},1,True,0
+1,23X_15q26_overgrowth_r1,1,1,['Chr2'],2,2,188445274,"[188232388, 212886]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']","{'nonreciprocal translocation': 1, 'tandem duplication': 1, 'arm deletion': 1}",3,True,0
+2,23X_15q26_overgrowth_r1,10,1,['Chr11'],2,2,22574,"[15518, 7056]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{'inversion': 1},1,True,0
+3,23X_15q26_overgrowth_r1,11,1,['Chr12'],2,2,2696,"[1348, 1348]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+4,23X_15q26_overgrowth_r1,12,1,['Chr13'],2,2,183591686,"[96303080, 87288606]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{'inversion': 1},1,True,0
+5,23X_15q26_overgrowth_r1,13,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+6,23X_15q26_overgrowth_r1,14,1,['Chr15'],2,2,153408633,"[153366646, 41987]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']","{'tandem duplication': 1, 'nonreciprocal translocation': 1}",2,True,0
+7,23X_15q26_overgrowth_r1,15,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+8,23X_15q26_overgrowth_r1,16,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+9,23X_15q26_overgrowth_r1,17,1,['Chr18'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+10,23X_15q26_overgrowth_r1,18,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+11,23X_15q26_overgrowth_r1,19,1,['Chr20'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+12,23X_15q26_overgrowth_r1,2,1,['Chr3'],2,2,16802,"[11840, 4962]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{'inversion': 1},1,True,0
+13,23X_15q26_overgrowth_r1,20,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+14,23X_15q26_overgrowth_r1,21,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+15,23X_15q26_overgrowth_r1,22,1,['ChrX'],2,2,10564,"[5282, 5282]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+16,23X_15q26_overgrowth_r1,3,1,['Chr4'],2,2,3980,"[1990, 1990]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+17,23X_15q26_overgrowth_r1,4,1,['Chr5'],2,2,61524,"[26876, 34648]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{'deletion': 1},1,True,0
+18,23X_15q26_overgrowth_r1,5,1,['Chr6'],2,2,342136757,"[171450778, 170685979]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{'left duplication inversion': 1},1,True,0
+19,23X_15q26_overgrowth_r1,6,1,['Chr7'],2,2,1976,"[988, 988]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+20,23X_15q26_overgrowth_r1,7,1,['Chr8'],2,2,67506,"[47571, 19935]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{'tandem duplication': 1},1,True,0
+21,23X_15q26_overgrowth_r1,8,1,['Chr9'],2,2,504,"[252, 252]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+22,23X_15q26_overgrowth_r1,9,1,['Chr10'],2,2,4310,"[2155, 2155]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr11', 'Chr13', 'Chr15']",{},0,False,0
+23,23X_1q21_recurrent_microduplication_r1,0,1,['Chr1'],2,2,151442,"[132565, 18877]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{'tandem duplication': 1},1,True,0
+24,23X_1q21_recurrent_microduplication_r1,1,1,['Chr2'],2,2,154045,"[103281, 50764]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']","{'deletion': 1, 'tandem duplication': 1}",2,True,0
+25,23X_1q21_recurrent_microduplication_r1,10,1,['Chr12'],2,2,2696,"[1348, 1348]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{},0,False,0
+26,23X_1q21_recurrent_microduplication_r1,11,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{},0,False,0
+27,23X_1q21_recurrent_microduplication_r1,12,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{},0,False,0
+28,23X_1q21_recurrent_microduplication_r1,13,1,['Chr15'],2,2,9358,"[4679, 4679]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{},0,False,0
+29,23X_1q21_recurrent_microduplication_r1,14,1,['Chr16'],2,2,133834,"[97577, 36257]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{'right duplication inversion': 1},1,True,0
+30,23X_1q21_recurrent_microduplication_r1,15,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{},0,False,0
+31,23X_1q21_recurrent_microduplication_r1,16,1,['Chr18'],2,2,242034,"[190727, 51307]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']","{'tandem duplication': 1, 'inversion': 1}",2,True,0
+32,23X_1q21_recurrent_microduplication_r1,17,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{},0,False,0
+33,23X_1q21_recurrent_microduplication_r1,18,1,['Chr20'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{},0,False,0
+34,23X_1q21_recurrent_microduplication_r1,19,1,['Chr21'],2,2,1161787,"[659491, 502296]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{'right duplication inversion': 1},1,True,0
+35,23X_1q21_recurrent_microduplication_r1,2,1,['Chr4'],2,2,6758,"[4768, 1990]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{'inversion': 1},1,True,0
+36,23X_1q21_recurrent_microduplication_r1,20,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{},0,False,0
+37,23X_1q21_recurrent_microduplication_r1,21,1,['ChrX'],2,2,224779,"[194715, 30064]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{'tandem duplication': 1},1,True,0
+38,23X_1q21_recurrent_microduplication_r1,3,1,['Chr5'],2,2,11088,"[5544, 5544]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{},0,False,0
+39,23X_1q21_recurrent_microduplication_r1,4,2,"['Chr3', 'Chr6']",4,4,1646314,"[230840, 92540, 1316853, 6081]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']","{'right duplication inversion': 1, 'left duplication inversion': 1, 'nonreciprocal translocation': 1, 'tandem duplication': 1}",4,True,0
+40,23X_1q21_recurrent_microduplication_r1,5,1,['Chr7'],2,2,1976,"[988, 988]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{},0,False,0
+41,23X_1q21_recurrent_microduplication_r1,6,1,['Chr8'],2,2,808741,"[783720, 25021]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']","{'deletion': 1, 'tandem duplication': 1}",2,True,0
+42,23X_1q21_recurrent_microduplication_r1,7,1,['Chr9'],2,2,504,"[252, 252]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{},0,False,0
+43,23X_1q21_recurrent_microduplication_r1,8,1,['Chr10'],2,2,4310,"[2155, 2155]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{},0,False,0
+44,23X_1q21_recurrent_microduplication_r1,9,1,['Chr11'],2,2,38438,"[31382, 7056]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr11', 'Chr16', 'Chr18', 'Chr21', 'ChrX']",{'inversion': 1},1,True,0
+45,23X_1q21_recurrent_microduplication_r2,0,1,['Chr3'],2,1,1083545,"[1049631, 33914]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']","{'deletion': 1, 'left duplication inversion': 1}",2,True,-1
+46,23X_1q21_recurrent_microduplication_r2,1,1,['Chr4'],2,1,383186730,"[192992175, 190194555]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{'right duplication inversion': 2},2,True,-1
+47,23X_1q21_recurrent_microduplication_r2,10,1,['Chr15'],2,2,9358,"[4679, 4679]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{},0,False,0
+48,23X_1q21_recurrent_microduplication_r2,11,2,"['Chr5', 'Chr16']",4,4,63894339,"[63888795, 5544]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']","{'inversion': 1, 'balanced reciprocal translocation': 2}",3,True,0
+49,23X_1q21_recurrent_microduplication_r2,12,1,['Chr17'],2,2,63929675,"[34374, 63895301]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{},0,False,0
+50,23X_1q21_recurrent_microduplication_r2,13,1,['Chr18'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{},0,False,0
+51,23X_1q21_recurrent_microduplication_r2,14,1,['Chr19'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{},0,False,0
+52,23X_1q21_recurrent_microduplication_r2,15,1,['Chr20'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{},0,False,0
+53,23X_1q21_recurrent_microduplication_r2,16,1,['Chr21'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{},0,False,0
+54,23X_1q21_recurrent_microduplication_r2,17,1,['Chr22'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{},0,False,0
+55,23X_1q21_recurrent_microduplication_r2,18,1,['ChrX'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{},0,False,0
+56,23X_1q21_recurrent_microduplication_r2,2,1,['Chr6'],2,2,18936,"[12855, 6081]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{'inversion': 1},1,True,0
+57,23X_1q21_recurrent_microduplication_r2,3,1,['Chr8'],2,2,5020,"[2510, 2510]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{},0,False,0
+58,23X_1q21_recurrent_microduplication_r2,4,1,['Chr9'],2,2,4632,"[4380, 252]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{'inversion': 1},1,True,0
+59,23X_1q21_recurrent_microduplication_r2,5,1,['Chr10'],2,2,4310,"[2155, 2155]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{},0,False,0
+60,23X_1q21_recurrent_microduplication_r2,6,1,['Chr11'],2,2,14112,"[7056, 7056]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{},0,False,0
+61,23X_1q21_recurrent_microduplication_r2,7,1,['Chr12'],2,2,195062,"[168224, 26838]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{'left duplication inversion': 1},1,True,0
+62,23X_1q21_recurrent_microduplication_r2,8,4,"['Chr1', 'Chr2', 'Chr7', 'Chr13']",8,8,523942369,"[149159022, 16052, 725417, 149753204, 2802073, 23890279, 197578260, 18062]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']","{'tandem duplication': 3, 'inversion': 1, 'balanced reciprocal translocation': 6}",10,True,0
+63,23X_1q21_recurrent_microduplication_r2,9,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr12', 'Chr13', 'Chr16']",{},0,False,0
+64,23X_22q11-2_distal_deletion_r1,0,1,['Chr1'],2,2,176114,"[156576, 19538]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{'left duplication inversion': 1},1,True,0
+65,23X_22q11-2_distal_deletion_r1,1,1,['Chr2'],2,2,16426,"[14255, 2171]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{'balanced reciprocal translocation': 2},2,True,0
+66,23X_22q11-2_distal_deletion_r1,10,1,['Chr11'],2,2,18195164,"[9153157, 9042007]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{'left duplication inversion': 1},1,True,0
+67,23X_22q11-2_distal_deletion_r1,11,1,['Chr12'],2,2,123124,"[76754, 46370]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{'deletion': 1},1,True,0
+68,23X_22q11-2_distal_deletion_r1,12,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+69,23X_22q11-2_distal_deletion_r1,13,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+70,23X_22q11-2_distal_deletion_r1,14,1,['Chr15'],2,2,9358,"[4679, 4679]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+71,23X_22q11-2_distal_deletion_r1,15,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+72,23X_22q11-2_distal_deletion_r1,16,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+73,23X_22q11-2_distal_deletion_r1,17,1,['Chr18'],2,2,25331248,"[12860550, 12470698]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']","{'left duplication inversion': 1, 'tandem duplication': 1}",2,True,0
+74,23X_22q11-2_distal_deletion_r1,18,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+75,23X_22q11-2_distal_deletion_r1,19,1,['Chr20'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+76,23X_22q11-2_distal_deletion_r1,2,1,['Chr3'],2,2,9924,"[4962, 4962]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+77,23X_22q11-2_distal_deletion_r1,20,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+78,23X_22q11-2_distal_deletion_r1,21,1,['Chr22'],2,2,239814,"[220463, 19351]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{'deletion': 1},1,True,0
+79,23X_22q11-2_distal_deletion_r1,22,1,['ChrX'],2,2,10564,"[5282, 5282]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+80,23X_22q11-2_distal_deletion_r1,3,1,['Chr4'],2,2,3980,"[1990, 1990]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+81,23X_22q11-2_distal_deletion_r1,4,1,['Chr5'],2,2,11088,"[5544, 5544]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+82,23X_22q11-2_distal_deletion_r1,5,1,['Chr6'],3,3,343830334,"[2458376, 869085, 340502873]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']","{'chromosomal duplication': 1, 'inversion': 1}",2,True,0
+83,23X_22q11-2_distal_deletion_r1,6,1,['Chr7'],2,2,1976,"[988, 988]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+84,23X_22q11-2_distal_deletion_r1,7,1,['Chr8'],2,2,314174,"[300218, 13956]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{'deletion': 1},1,True,0
+85,23X_22q11-2_distal_deletion_r1,8,1,['Chr9'],2,2,3620570,"[3620318, 252]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{'balanced reciprocal translocation': 2},2,True,0
+86,23X_22q11-2_distal_deletion_r1,9,1,['Chr10'],2,2,4310,"[2155, 2155]","['Chr1', 'Chr2', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr18', 'Chr22']",{},0,False,0
+87,23X_22q11-2_distal_deletion_r2,0,1,['Chr2'],2,2,74345,"[38907, 35438]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{'deletion': 1},1,True,0
+88,23X_22q11-2_distal_deletion_r2,1,1,['Chr3'],2,2,398142855,"[2130374, 396012481]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{'arm deletion': 1},1,True,0
+89,23X_22q11-2_distal_deletion_r2,10,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{},0,False,0
+90,23X_22q11-2_distal_deletion_r2,11,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{},0,False,0
+91,23X_22q11-2_distal_deletion_r2,12,1,['Chr15'],2,2,9358,"[4679, 4679]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{},0,False,0
+92,23X_22q11-2_distal_deletion_r2,13,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{},0,False,0
+93,23X_22q11-2_distal_deletion_r2,14,1,['Chr17'],3,3,174850187,"[3427303, 8475305, 162947579]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{'chromosomal duplication': 1},1,True,0
+94,23X_22q11-2_distal_deletion_r2,15,1,['Chr18'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{},0,False,0
+95,23X_22q11-2_distal_deletion_r2,16,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{},0,False,0
+96,23X_22q11-2_distal_deletion_r2,17,1,['Chr20'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{},0,False,0
+97,23X_22q11-2_distal_deletion_r2,18,2,"['Chr1', 'Chr21']",4,4,28228,"[18996, 3088, 3392, 2752]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{'nonreciprocal translocation': 1},1,True,0
+98,23X_22q11-2_distal_deletion_r2,19,1,['Chr22'],2,2,159926,"[133006, 26920]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{'deletion': 1},1,True,0
+99,23X_22q11-2_distal_deletion_r2,2,1,['Chr4'],2,2,5168471,"[2712024, 2456447]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{'left duplication inversion': 1},1,True,0
+100,23X_22q11-2_distal_deletion_r2,20,1,['ChrX'],2,2,10564,"[5282, 5282]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{},0,False,0
+101,23X_22q11-2_distal_deletion_r2,3,1,['Chr6'],2,2,12162,"[6081, 6081]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{},0,False,0
+102,23X_22q11-2_distal_deletion_r2,4,2,"['Chr5', 'Chr7']",4,4,82325783,"[41165750, 35163, 6503, 41118367]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']","{'nonreciprocal translocation': 1, 'tandem duplication': 1, 'deletion': 1}",3,True,0
+103,23X_22q11-2_distal_deletion_r2,5,1,['Chr8'],2,2,5020,"[2510, 2510]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{},0,False,0
+104,23X_22q11-2_distal_deletion_r2,6,1,['Chr9'],2,2,504,"[252, 252]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{},0,False,0
+105,23X_22q11-2_distal_deletion_r2,7,1,['Chr10'],2,2,2145446,"[2143291, 2155]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{'inversion': 1},1,True,0
+106,23X_22q11-2_distal_deletion_r2,8,1,['Chr11'],2,2,10088977,"[6067305, 4021672]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{'left duplication inversion': 1},1,True,0
+107,23X_22q11-2_distal_deletion_r2,9,1,['Chr12'],2,2,2696,"[1348, 1348]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr7', 'Chr10', 'Chr11', 'Chr17', 'Chr21', 'Chr22']",{},0,False,0
+108,23X_22q11_duplication_r2,0,1,['Chr1'],2,2,42098,"[24776, 17322]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{'deletion': 1},1,True,0
+109,23X_22q11_duplication_r2,1,1,['Chr2'],2,2,4342,"[2171, 2171]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{},0,False,0
+110,23X_22q11_duplication_r2,10,1,['Chr12'],2,2,96491,"[57820, 38671]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{'tandem duplication': 1},1,True,0
+111,23X_22q11_duplication_r2,11,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{},0,False,0
+112,23X_22q11_duplication_r2,12,2,"['Chr6', 'Chr15']",4,4,280387685,"[153166322, 6081, 127215282]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']","{'balanced reciprocal translocation': 2, 'tandem duplication': 1}",3,True,0
+113,23X_22q11_duplication_r2,13,1,['Chr16'],2,2,90676792,"[8420857, 82255935]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{'tandem duplication': 1},1,True,0
+114,23X_22q11_duplication_r2,14,1,['Chr17'],2,2,221834,"[186334, 35500]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{},0,False,0
+115,23X_22q11_duplication_r2,15,1,['Chr18'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{},0,False,0
+116,23X_22q11_duplication_r2,16,1,['Chr19'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{},0,False,0
+117,23X_22q11_duplication_r2,17,1,['Chr20'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{},0,False,0
+118,23X_22q11_duplication_r2,18,1,['Chr21'],2,2,896,"[448, 448]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{},0,False,0
+119,23X_22q11_duplication_r2,19,1,['Chr22'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{'tandem duplication': 1},1,True,0
+120,23X_22q11_duplication_r2,2,1,['Chr3'],2,2,205986,"[138527, 67459]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{'left duplication inversion': 1},1,True,0
+121,23X_22q11_duplication_r2,20,2,"['Chr14', 'ChrX']",4,4,406617,"[399696, 6921]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{'nonreciprocal translocation': 1},1,True,0
+122,23X_22q11_duplication_r2,3,1,['Chr4'],2,2,3980,"[1990, 1990]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{},0,False,0
+123,23X_22q11_duplication_r2,4,1,['Chr5'],2,2,16820,"[11276, 5544]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{'inversion': 1},1,True,0
+124,23X_22q11_duplication_r2,5,1,['Chr7'],2,2,1976,"[988, 988]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{},0,False,0
+125,23X_22q11_duplication_r2,6,1,['Chr8'],2,2,463901,"[446189, 17712]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']","{'right duplication inversion': 1, 'deletion': 1}",2,True,0
+126,23X_22q11_duplication_r2,7,1,['Chr9'],2,2,504,"[252, 252]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{},0,False,0
+127,23X_22q11_duplication_r2,8,1,['Chr10'],2,2,4310,"[2155, 2155]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{},0,False,0
+128,23X_22q11_duplication_r2,9,1,['Chr11'],2,2,14112,"[7056, 7056]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr15', 'Chr16', 'Chr22', 'ChrX']",{},0,False,0
+129,23X_Angelman_r1,0,1,['Chr2'],2,2,161441,"[130902, 30539]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']","{'inversion': 1, 'right duplication inversion': 1}",2,True,0
+130,23X_Angelman_r1,1,1,['Chr3'],2,2,9924,"[4962, 4962]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+131,23X_Angelman_r1,10,1,['Chr12'],2,2,2696,"[1348, 1348]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+132,23X_Angelman_r1,11,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+133,23X_Angelman_r1,12,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+134,23X_Angelman_r1,13,1,['Chr15'],2,2,127646578,"[127560295, 86283]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']","{'deletion': 2, 'left duplication inversion': 1}",3,True,0
+135,23X_Angelman_r1,14,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+136,23X_Angelman_r1,15,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+137,23X_Angelman_r1,16,1,['Chr18'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+138,23X_Angelman_r1,17,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+139,23X_Angelman_r1,18,1,['Chr20'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+140,23X_Angelman_r1,19,1,['Chr21'],2,2,52510,"[43071, 9439]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{'deletion': 1},1,True,0
+141,23X_Angelman_r1,2,1,['Chr4'],2,2,3980,"[1990, 1990]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+142,23X_Angelman_r1,20,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+143,23X_Angelman_r1,21,1,['ChrX'],2,2,10564,"[5282, 5282]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+144,23X_Angelman_r1,3,1,['Chr5'],2,2,18498415,"[18451531, 46884]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']","{'tandem duplication': 1, 'right duplication inversion': 1}",2,True,0
+145,23X_Angelman_r1,4,1,['Chr6'],2,2,12162,"[6081, 6081]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+146,23X_Angelman_r1,5,1,['Chr7'],2,2,116357,"[69091, 47266]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']","{'arm tandem duplication': 1, 'chromosomal deletion': 1, 'deletion': 1, 'tandem duplication': 1}",4,True,0
+147,23X_Angelman_r1,6,1,['Chr8'],2,2,5020,"[2510, 2510]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+148,23X_Angelman_r1,7,2,"['Chr1', 'Chr9']",4,4,270813098,"[8752, 135379546, 135399832, 24968]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{'nonreciprocal translocation': 1},1,True,0
+149,23X_Angelman_r1,8,1,['Chr10'],2,2,4310,"[2155, 2155]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']",{},0,False,0
+150,23X_Angelman_r1,9,1,['Chr11'],2,2,8188655,"[8159499, 29156]","['Chr1', 'Chr2', 'Chr5', 'Chr7', 'Chr7', 'Chr9', 'Chr11', 'Chr15', 'Chr21']","{'balanced reciprocal translocation': 2, 'right duplication inversion': 1, 'tandem duplication': 1}",4,True,0
+151,23X_Angelman_r2,0,1,['Chr2'],2,2,8208162,"[8174353, 33809]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']","{'left duplication inversion': 1, 'balanced reciprocal translocation': 2, 'deletion': 1}",4,True,0
+152,23X_Angelman_r2,1,1,['Chr3'],2,2,155224,"[93745, 61479]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{'deletion': 1},1,True,0
+153,23X_Angelman_r2,10,1,['Chr13'],2,2,14112,"[7056, 7056]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{},0,False,0
+154,23X_Angelman_r2,11,1,['Chr14'],2,1,2696,"[1348, 1348]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{'left duplication inversion': 1},1,True,-1
+155,23X_Angelman_r2,12,1,['Chr15'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{'deletion': 1},1,True,0
+156,23X_Angelman_r2,13,1,['Chr16'],2,2,177407114,"[88696919, 88710195]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{'arm deletion': 1},1,True,0
+157,23X_Angelman_r2,14,1,['Chr17'],2,2,152902735,"[152889637, 13098]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{},0,False,0
+158,23X_Angelman_r2,15,1,['Chr18'],2,2,4150928,"[4082769, 68159]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{},0,False,0
+159,23X_Angelman_r2,16,1,['Chr19'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{},0,False,0
+160,23X_Angelman_r2,17,1,['Chr20'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{},0,False,0
+161,23X_Angelman_r2,18,1,['Chr21'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{},0,False,0
+162,23X_Angelman_r2,19,1,['Chr22'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{},0,False,0
+163,23X_Angelman_r2,2,1,['Chr4'],2,2,110108,"[66133, 43975]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{'deletion': 1},1,True,0
+164,23X_Angelman_r2,20,1,['ChrX'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{},0,False,0
+165,23X_Angelman_r2,3,2,"['Chr1', 'Chr6']",4,4,112010864,"[112007776, 3088]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{'balanced reciprocal translocation': 2},2,True,0
+166,23X_Angelman_r2,4,1,['Chr7'],2,2,112023694,"[15267, 112008427]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{'tandem duplication': 1},1,True,0
+167,23X_Angelman_r2,5,2,"['Chr5', 'Chr8']",4,3,268085,"[255159, 12926]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']","{'left duplication inversion': 1, 'balanced reciprocal translocation': 2, 'inversion': 1}",4,True,-1
+168,23X_Angelman_r2,6,1,['Chr9'],2,2,494051897,"[494046353, 5544]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{},0,False,0
+169,23X_Angelman_r2,7,1,['Chr10'],2,2,326711143,"[148587327, 178123816]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']","{'left duplication inversion': 1, 'tandem duplication': 1, 'deletion': 1}",3,True,0
+170,23X_Angelman_r2,8,1,['Chr11'],2,2,504,"[252, 252]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{},0,False,0
+171,23X_Angelman_r2,9,1,['Chr12'],2,2,2437627,"[2371394, 66233]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr14', 'Chr15', 'Chr16']",{},0,False,0
+172,23X_Cri_du_Chat_r1,0,1,['Chr1'],2,2,2386734,"[2383646, 3088]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{'balanced reciprocal translocation': 2},2,True,0
+173,23X_Cri_du_Chat_r1,1,1,['Chr2'],2,2,18881946,"[9500886, 19160, 9361900]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']","{'right duplication inversion': 1, 'tandem duplication': 1}",2,True,0
+174,23X_Cri_du_Chat_r1,10,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+175,23X_Cri_du_Chat_r1,11,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+176,23X_Cri_du_Chat_r1,12,1,['Chr15'],2,2,9358,"[4679, 4679]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+177,23X_Cri_du_Chat_r1,13,1,['Chr16'],2,2,60007,"[31727, 28280]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{'deletion': 1},1,True,0
+178,23X_Cri_du_Chat_r1,14,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+179,23X_Cri_du_Chat_r1,15,1,['Chr18'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+180,23X_Cri_du_Chat_r1,16,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+181,23X_Cri_du_Chat_r1,17,1,['Chr20'],2,2,252174,"[224453, 27721]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{'tandem duplication': 1},1,True,0
+182,23X_Cri_du_Chat_r1,18,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+183,23X_Cri_du_Chat_r1,19,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+184,23X_Cri_du_Chat_r1,2,1,['Chr5'],1,1,482396,"[89984, 392412]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']","{'deletion': 1, 'chromosomal deletion': 1}",2,True,0
+185,23X_Cri_du_Chat_r1,20,1,['ChrX'],2,2,10564,"[5282, 5282]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+186,23X_Cri_du_Chat_r1,3,1,['Chr6'],2,2,21062,"[14981, 6081]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{'inversion': 1},1,True,0
+187,23X_Cri_du_Chat_r1,4,1,['Chr7'],2,2,51983,"[38372, 13611]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{'tandem duplication': 1},1,True,0
+188,23X_Cri_du_Chat_r1,5,1,['Chr8'],2,2,5020,"[2510, 2510]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+189,23X_Cri_du_Chat_r1,6,3,"['Chr3', 'Chr4', 'Chr9']",6,4,792411093,"[109270767, 265505767, 27364498, 241558829, 139196416, 9514816]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']","{'left duplication inversion': 2, 'right duplication inversion': 2, 'nonreciprocal translocation': 2, 'tandem duplication': 1}",7,True,-2
+190,23X_Cri_du_Chat_r1,7,1,['Chr10'],2,2,4310,"[2155, 2155]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+191,23X_Cri_du_Chat_r1,8,1,['Chr11'],2,2,14112,"[7056, 7056]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+192,23X_Cri_du_Chat_r1,9,1,['Chr12'],2,2,2696,"[1348, 1348]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr16', 'Chr20']",{},0,False,0
+193,23X_Cri_du_Chat_r2,0,1,['Chr1'],2,2,199144,"[177674, 21470]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']","{'inversion': 1, 'deletion': 1}",2,True,0
+194,23X_Cri_du_Chat_r2,1,1,['Chr2'],2,2,4342,"[2171, 2171]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+195,23X_Cri_du_Chat_r2,10,1,['Chr12'],2,2,2696,"[1348, 1348]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+196,23X_Cri_du_Chat_r2,11,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+197,23X_Cri_du_Chat_r2,12,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+198,23X_Cri_du_Chat_r2,13,1,['Chr15'],2,1,163900349,"[163875138, 25211]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{'right duplication inversion': 1},1,True,-1
+199,23X_Cri_du_Chat_r2,14,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+200,23X_Cri_du_Chat_r2,15,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+201,23X_Cri_du_Chat_r2,16,1,['Chr18'],2,2,110227,"[59325, 50902]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{'deletion': 1},1,True,0
+202,23X_Cri_du_Chat_r2,17,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+203,23X_Cri_du_Chat_r2,18,1,['Chr20'],2,2,896,"[448, 448]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+204,23X_Cri_du_Chat_r2,19,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+205,23X_Cri_du_Chat_r2,2,1,['Chr3'],2,2,472595,"[424265, 48330]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']","{'deletion': 1, 'tandem duplication': 1}",2,True,0
+206,23X_Cri_du_Chat_r2,20,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+207,23X_Cri_du_Chat_r2,21,1,['ChrX'],2,2,10564,"[5282, 5282]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+208,23X_Cri_du_Chat_r2,3,1,['Chr4'],2,2,3980,"[1990, 1990]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+209,23X_Cri_du_Chat_r2,4,1,['Chr5'],2,2,859695,"[799983, 59712]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']","{'deletion': 1, 'tandem duplication': 1}",2,True,0
+210,23X_Cri_du_Chat_r2,5,1,['Chr6'],2,2,13076,"[6995, 6081]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{'inversion': 1},1,True,0
+211,23X_Cri_du_Chat_r2,6,1,['Chr7'],2,2,243111,"[223606, 19505]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{'right duplication inversion': 1},1,True,0
+212,23X_Cri_du_Chat_r2,7,1,['Chr8'],2,2,5020,"[2510, 2510]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{},0,False,0
+213,23X_Cri_du_Chat_r2,8,1,['Chr9'],2,2,366012,"[343696, 22316]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']",{'deletion': 1},1,True,0
+214,23X_Cri_du_Chat_r2,9,2,"['Chr10', 'Chr11']",5,4,561934814,"[126999146, 300870288, 1214889, 132843435, 7056]","['Chr1', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr9', 'Chr10', 'Chr10', 'Chr11', 'Chr15', 'Chr18']","{'tandem duplication': 2, 'chromosomal duplication': 1, 'right duplication inversion': 1, 'nonreciprocal translocation': 1}",5,True,-1
+215,23X_Early_onset_Alzheimer_r1,0,1,['Chr1'],2,2,153980,"[117666, 36314]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{'deletion': 1},1,True,0
+216,23X_Early_onset_Alzheimer_r1,1,1,['Chr3'],2,2,152643,"[102299, 50344]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']","{'inversion': 1, 'right duplication inversion': 1}",2,True,0
+217,23X_Early_onset_Alzheimer_r1,10,1,['Chr15'],2,2,9358,"[4679, 4679]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{},0,False,0
+218,23X_Early_onset_Alzheimer_r1,11,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{},0,False,0
+219,23X_Early_onset_Alzheimer_r1,12,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{},0,False,0
+220,23X_Early_onset_Alzheimer_r1,13,3,"['Chr8', 'Chr14', 'Chr18']",6,6,260755637,"[94435800, 17851, 1712290, 129453734, 1684580, 33451382]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']","{'left duplication inversion': 1, 'balanced reciprocal translocation': 2, 'nonreciprocal translocation': 1}",4,True,0
+221,23X_Early_onset_Alzheimer_r1,14,2,"['Chr7', 'Chr19']",4,4,44559992,"[22764118, 988, 21792986, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']","{'inversion': 1, 'nonreciprocal translocation': 1}",2,True,0
+222,23X_Early_onset_Alzheimer_r1,15,1,['Chr20'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{},0,False,0
+223,23X_Early_onset_Alzheimer_r1,16,1,['Chr21'],2,2,296084,"[293332, 2752]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{'tandem duplication': 1},1,True,0
+224,23X_Early_onset_Alzheimer_r1,17,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{},0,False,0
+225,23X_Early_onset_Alzheimer_r1,18,1,['ChrX'],2,2,10564,"[5282, 5282]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{},0,False,0
+226,23X_Early_onset_Alzheimer_r1,2,1,['Chr4'],2,2,3980,"[1990, 1990]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{},0,False,0
+227,23X_Early_onset_Alzheimer_r1,3,1,['Chr5'],2,2,604523,"[598979, 5544]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{'tandem duplication': 1},1,True,0
+228,23X_Early_onset_Alzheimer_r1,4,1,['Chr6'],2,2,12162,"[6081, 6081]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{},0,False,0
+229,23X_Early_onset_Alzheimer_r1,5,1,['Chr9'],2,2,504,"[252, 252]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{},0,False,0
+230,23X_Early_onset_Alzheimer_r1,6,2,"['Chr2', 'Chr10']",4,4,2334273,"[2253042, 2171, 57177, 21883]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']","{'inversion': 1, 'nonreciprocal translocation': 1, 'tandem duplication': 1}",3,True,0
+231,23X_Early_onset_Alzheimer_r1,7,1,['Chr11'],2,2,21224,"[14168, 7056]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{'inversion': 1},1,True,0
+232,23X_Early_onset_Alzheimer_r1,8,1,['Chr12'],2,2,627577,"[590663, 36914]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']","{'tandem duplication': 1, 'deletion': 1}",2,True,0
+233,23X_Early_onset_Alzheimer_r1,9,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr19', 'Chr21']",{},0,False,0
+234,23X_STS_r1,0,1,['Chr4'],2,2,3980,"[1990, 1990]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{},0,False,0
+235,23X_STS_r1,1,1,['Chr5'],2,2,11088,"[5544, 5544]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{},0,False,0
+236,23X_STS_r1,10,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{},0,False,0
+237,23X_STS_r1,11,1,['Chr15'],2,2,179365108,"[7465587, 171899521]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{'tandem duplication': 1},1,True,0
+238,23X_STS_r1,12,1,['Chr16'],2,2,76806137,"[75718367, 1087770]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{'arm deletion': 1},1,True,0
+239,23X_STS_r1,13,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{},0,False,0
+240,23X_STS_r1,14,2,"['Chr3', 'Chr18']",4,4,52982094,"[52954790, 27304]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']","{'deletion': 1, 'balanced reciprocal translocation': 2}",3,True,0
+241,23X_STS_r1,15,1,['Chr19'],2,2,52935090,"[11883, 52923207]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{},0,False,0
+242,23X_STS_r1,16,1,['Chr20'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{},0,False,0
+243,23X_STS_r1,17,1,['Chr21'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{},0,False,0
+244,23X_STS_r1,18,1,['Chr22'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{},0,False,0
+245,23X_STS_r1,19,1,['ChrX'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{'deletion': 1},1,True,0
+246,23X_STS_r1,2,1,['Chr6'],2,2,12162,"[6081, 6081]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{},0,False,0
+247,23X_STS_r1,3,1,['Chr7'],2,2,17457776,"[17409325, 48451]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']","{'arm deletion': 1, 'inversion': 1}",2,True,0
+248,23X_STS_r1,4,1,['Chr8'],2,2,5020,"[2510, 2510]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{},0,False,0
+249,23X_STS_r1,5,1,['Chr9'],2,2,172664,"[145957, 26707]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']","{'left duplication inversion': 1, 'inversion': 1}",2,True,0
+250,23X_STS_r1,6,1,['Chr10'],2,2,4310,"[2155, 2155]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{},0,False,0
+251,23X_STS_r1,7,2,"['Chr2', 'Chr11']",4,4,19245664,"[33705, 29337, 9740925, 9441697]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']","{'nonreciprocal translocation': 1, 'deletion': 2, 'right duplication inversion': 1}",4,True,0
+252,23X_STS_r1,8,2,"['Chr1', 'Chr12']",4,4,17707881,"[7404345, 72926, 10175819, 54791]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']","{'left duplication inversion': 1, 'nonreciprocal translocation': 1, 'tandem duplication': 1}",3,True,0
+253,23X_STS_r1,9,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr2', 'Chr3', 'Chr7', 'Chr9', 'Chr11', 'Chr12', 'Chr15', 'Chr16', 'Chr18', 'ChrX']",{},0,False,0
+254,23X_STS_r2,0,1,['Chr1'],2,2,20238,"[17150, 3088]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{'inversion': 1},1,True,0
+255,23X_STS_r2,1,1,['Chr3'],2,2,32264,"[27302, 4962]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{'balanced reciprocal translocation': 2},2,True,0
+256,23X_STS_r2,10,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{},0,False,0
+257,23X_STS_r2,11,1,['Chr15'],2,2,9358,"[4679, 4679]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{},0,False,0
+258,23X_STS_r2,12,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{},0,False,0
+259,23X_STS_r2,13,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{},0,False,0
+260,23X_STS_r2,14,1,['Chr18'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{},0,False,0
+261,23X_STS_r2,15,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{},0,False,0
+262,23X_STS_r2,16,1,['Chr20'],2,2,293003,"[263857, 29146]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{'tandem duplication': 1},1,True,0
+263,23X_STS_r2,17,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{},0,False,0
+264,23X_STS_r2,18,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{},0,False,0
+265,23X_STS_r2,19,1,['ChrX'],2,2,161963,"[129598, 32365]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{'deletion': 1},1,True,0
+266,23X_STS_r2,2,1,['Chr4'],2,2,3980,"[1990, 1990]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{},0,False,0
+267,23X_STS_r2,3,2,"['Chr2', 'Chr5']",4,4,10337022,"[5185137, 15432, 95405, 45277, 4995771]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']","{'balanced reciprocal translocation': 4, 'tandem duplication': 1, 'right duplication inversion': 1}",6,True,0
+268,23X_STS_r2,4,1,['Chr6'],1,1,864921,[864921],"['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{'chromosomal deletion': 1},1,True,0
+269,23X_STS_r2,5,1,['Chr8'],2,2,16057728,"[9122593, 25359, 6909776]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{'left duplication inversion': 1},1,True,0
+270,23X_STS_r2,6,1,['Chr9'],2,2,190409882,"[190374648, 35234]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{'arm deletion': 1},1,True,0
+271,23X_STS_r2,7,1,['Chr11'],2,2,14112,"[7056, 7056]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{},0,False,0
+272,23X_STS_r2,8,2,"['Chr10', 'Chr12']",4,4,61673848,"[30459649, 22840, 3138974, 28052385]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']","{'nonreciprocal translocation': 2, 'right duplication inversion': 1, 'deletion': 1}",4,True,0
+273,23X_STS_r2,9,2,"['Chr7', 'Chr13']",4,4,177339696,"[88676655, 988, 9437, 88652616]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr12', 'Chr13', 'Chr20', 'ChrX']",{'nonreciprocal translocation': 1},1,True,0
+274,23X_Xp11_22_Microduplication_r2,0,1,['Chr2'],2,2,4342,"[2171, 2171]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{},0,False,0
+275,23X_Xp11_22_Microduplication_r2,1,1,['Chr5'],2,2,11088,"[5544, 5544]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{},0,False,0
+276,23X_Xp11_22_Microduplication_r2,10,1,['Chr16'],2,2,161972318,"[161951914, 20404]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{},0,False,0
+277,23X_Xp11_22_Microduplication_r2,11,5,"['Chr1', 'Chr3', 'Chr4', 'Chr9', 'Chr17']",10,9,7186,"[3593, 3593]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']","{'balanced reciprocal translocation': 6, 'nonreciprocal translocation': 2, 'inversion': 1}",9,True,-1
+278,23X_Xp11_22_Microduplication_r2,12,1,['Chr18'],2,2,759362242,"[76784038, 223558724, 14345, 140467547, 231727618, 1990, 58693556, 252, 19311, 28094861]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{},0,False,0
+279,23X_Xp11_22_Microduplication_r2,13,1,['Chr19'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{},0,False,0
+280,23X_Xp11_22_Microduplication_r2,14,1,['Chr20'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{'inversion': 1},1,True,0
+281,23X_Xp11_22_Microduplication_r2,15,1,['Chr21'],2,2,1127748,"[1127300, 448]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{},0,False,0
+282,23X_Xp11_22_Microduplication_r2,16,1,['Chr22'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{},0,False,0
+283,23X_Xp11_22_Microduplication_r2,17,1,['ChrX'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{'tandem duplication': 1},1,True,0
+284,23X_Xp11_22_Microduplication_r2,2,1,['Chr6'],2,2,12162,"[6081, 6081]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{},0,False,0
+285,23X_Xp11_22_Microduplication_r2,3,1,['Chr7'],2,2,1976,"[988, 988]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{},0,False,0
+286,23X_Xp11_22_Microduplication_r2,4,1,['Chr8'],2,1,288951930,"[145018636, 143933294]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{'inversion': 1},1,True,-1
+287,23X_Xp11_22_Microduplication_r2,5,1,['Chr11'],2,2,20550,"[13494, 7056]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{'inversion': 1},1,True,0
+288,23X_Xp11_22_Microduplication_r2,6,2,"['Chr10', 'Chr12']",4,4,123009511,"[123007356, 2155]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']","{'deletion': 1, 'balanced reciprocal translocation': 2, 'inversion': 1}",4,True,0
+289,23X_Xp11_22_Microduplication_r2,7,1,['Chr13'],2,2,127542074,"[3200664, 124341410]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{'right duplication inversion': 1},1,True,0
+290,23X_Xp11_22_Microduplication_r2,8,1,['Chr14'],2,2,189446269,"[189436406, 9863]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{'right duplication inversion': 1},1,True,0
+291,23X_Xp11_22_Microduplication_r2,9,1,['Chr15'],2,2,177161437,"[177126620, 34817]","['Chr1', 'Chr3', 'Chr4', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr14', 'Chr15', 'Chr17', 'Chr20', 'ChrX']",{'deletion': 1},1,True,0
+292,23Y_12q14_recurrent_microdeletion_r2,0,1,['Chr4'],2,2,62648350,"[59836881, 2811469]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{'left duplication inversion': 1},1,True,0
+293,23Y_12q14_recurrent_microdeletion_r2,1,1,['Chr6'],2,2,1468610,"[775702, 692908]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']","{'right duplication inversion': 1, 'inversion': 1}",2,True,0
+294,23Y_12q14_recurrent_microdeletion_r2,10,1,['Chr15'],2,2,46896654,"[46867865, 28789]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{},0,False,0
+295,23Y_12q14_recurrent_microdeletion_r2,11,1,['Chr16'],2,2,45472043,"[15450, 45456593]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{},0,False,0
+296,23Y_12q14_recurrent_microdeletion_r2,12,1,['Chr17'],2,2,9358,"[4679, 4679]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{},0,False,0
+297,23Y_12q14_recurrent_microdeletion_r2,13,1,['Chr18'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{'left duplication inversion': 1},1,True,0
+298,23Y_12q14_recurrent_microdeletion_r2,14,1,['Chr19'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{},0,False,0
+299,23Y_12q14_recurrent_microdeletion_r2,15,1,['Chr20'],2,2,102786,"[58698, 44088]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{},0,False,0
+300,23Y_12q14_recurrent_microdeletion_r2,16,1,['Chr21'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{},0,False,0
+301,23Y_12q14_recurrent_microdeletion_r2,17,1,['Chr22'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{'inversion': 1},1,True,0
+302,23Y_12q14_recurrent_microdeletion_r2,18,1,['ChrX'],1,1,5504,"[2752, 2752]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{},0,False,0
+303,23Y_12q14_recurrent_microdeletion_r2,19,1,['ChrY'],1,1,7184,"[4304, 2880]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{},0,False,0
+304,23Y_12q14_recurrent_microdeletion_r2,2,2,"['Chr5', 'Chr7']",4,4,882147,"[876066, 6081]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']","{'nonreciprocal translocation': 1, 'left duplication inversion': 1}",2,True,0
+305,23Y_12q14_recurrent_microdeletion_r2,3,1,['Chr8'],2,2,301387370,"[151083356, 32998, 1482970, 148788046]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{},0,False,0
+306,23Y_12q14_recurrent_microdeletion_r2,4,1,['Chr9'],2,2,5020,"[2510, 2510]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{},0,False,0
+307,23Y_12q14_recurrent_microdeletion_r2,5,1,['Chr10'],2,2,504,"[252, 252]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{'inversion': 1},1,True,0
+308,23Y_12q14_recurrent_microdeletion_r2,6,1,['Chr11'],2,2,3696266,"[3694111, 2155]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{'tandem duplication': 1},1,True,0
+309,23Y_12q14_recurrent_microdeletion_r2,7,3,"['Chr1', 'Chr2', 'Chr12']",6,6,173402,"[140481, 32921]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']","{'deletion': 1, 'inversion': 1, 'balanced reciprocal translocation': 4, 'tandem duplication': 1}",7,True,0
+310,23Y_12q14_recurrent_microdeletion_r2,8,1,['Chr13'],2,2,57241317,"[57089264, 19591, 96022, 36440]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']",{},0,False,0
+311,23Y_12q14_recurrent_microdeletion_r2,9,2,"['Chr3', 'Chr14']",4,4,4450,"[2225, 2225]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr11', 'Chr12', 'Chr14', 'Chr18', 'Chr22']","{'balanced reciprocal translocation': 2, 'left duplication inversion': 1}",3,True,0
+312,23Y_1q21_recurrent_microdeletion_r2,0,1,['Chr4'],2,2,81217,"[63396, 17821]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{'deletion': 1},1,True,0
+313,23Y_1q21_recurrent_microdeletion_r2,1,1,['Chr5'],2,2,11088,"[5544, 5544]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{},0,False,0
+314,23Y_1q21_recurrent_microdeletion_r2,10,1,['Chr15'],2,2,19628,"[14949, 4679]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{'inversion': 1},1,True,0
+315,23Y_1q21_recurrent_microdeletion_r2,11,1,['Chr16'],2,2,1585559,"[1581966, 3593]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{'tandem duplication': 1},1,True,0
+316,23Y_1q21_recurrent_microdeletion_r2,12,1,['Chr17'],2,2,185959,"[147571, 38388]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{'tandem duplication': 1},1,True,0
+317,23Y_1q21_recurrent_microdeletion_r2,13,1,['Chr18'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{},0,False,0
+318,23Y_1q21_recurrent_microdeletion_r2,14,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{},0,False,0
+319,23Y_1q21_recurrent_microdeletion_r2,15,1,['Chr20'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{},0,False,0
+320,23Y_1q21_recurrent_microdeletion_r2,16,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{},0,False,0
+321,23Y_1q21_recurrent_microdeletion_r2,17,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{},0,False,0
+322,23Y_1q21_recurrent_microdeletion_r2,18,1,['ChrX'],1,1,5282,[5282],"['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{},0,False,0
+323,23Y_1q21_recurrent_microdeletion_r2,19,1,['ChrY'],1,1,5282,[5282],"['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{},0,False,0
+324,23Y_1q21_recurrent_microdeletion_r2,2,1,['Chr6'],2,2,764134,"[730024, 34110]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']","{'right duplication inversion': 1, 'tandem duplication': 1}",2,True,0
+325,23Y_1q21_recurrent_microdeletion_r2,3,1,['Chr7'],2,2,1976,"[988, 988]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{},0,False,0
+326,23Y_1q21_recurrent_microdeletion_r2,4,4,"['Chr1', 'Chr3', 'Chr8', 'Chr9']",8,6,1461148021,"[721987151, 43740, 2615992, 265434970, 240377288, 2510, 230686118, 252]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']","{'deletion': 1, 'nonreciprocal translocation': 3, 'right duplication inversion': 2}",6,True,-2
+327,23Y_1q21_recurrent_microdeletion_r2,5,1,['Chr10'],2,2,2141660,"[2155, 2139505]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{},0,False,0
+328,23Y_1q21_recurrent_microdeletion_r2,6,2,"['Chr2', 'Chr11']",4,4,192512,"[135165, 38508, 11783, 7056]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']","{'tandem duplication': 1, 'balanced reciprocal translocation': 2}",3,True,0
+329,23Y_1q21_recurrent_microdeletion_r2,7,1,['Chr12'],2,2,6904,"[5556, 1348]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{'inversion': 1},1,True,0
+330,23Y_1q21_recurrent_microdeletion_r2,8,1,['Chr13'],2,2,193635223,"[524030, 193111193]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{'tandem duplication': 1},1,True,0
+331,23Y_1q21_recurrent_microdeletion_r2,9,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr11', 'Chr12', 'Chr13', 'Chr15', 'Chr16', 'Chr17']",{},0,False,0
+332,23Y_2p15-16-1_microdeletion_r2,0,1,['Chr1'],2,2,10930353,"[5458997, 18587, 5452769]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{'tandem duplication': 1},1,True,0
+333,23Y_2p15-16-1_microdeletion_r2,1,1,['Chr3'],2,2,9924,"[4962, 4962]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+334,23Y_2p15-16-1_microdeletion_r2,10,2,"['Chr2', 'Chr14']",4,4,176227354,"[92587, 88066885, 88057447, 10435]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']","{'deletion': 1, 'nonreciprocal translocation': 1}",2,True,0
+335,23Y_2p15-16-1_microdeletion_r2,11,1,['Chr15'],2,2,9358,"[4679, 4679]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+336,23Y_2p15-16-1_microdeletion_r2,12,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+337,23Y_2p15-16-1_microdeletion_r2,13,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+338,23Y_2p15-16-1_microdeletion_r2,14,1,['Chr18'],2,2,108646,"[58728, 49918]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{'deletion': 1},1,True,0
+339,23Y_2p15-16-1_microdeletion_r2,15,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+340,23Y_2p15-16-1_microdeletion_r2,16,1,['Chr20'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+341,23Y_2p15-16-1_microdeletion_r2,17,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+342,23Y_2p15-16-1_microdeletion_r2,18,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+343,23Y_2p15-16-1_microdeletion_r2,19,1,['ChrX'],1,1,5282,[5282],"['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+344,23Y_2p15-16-1_microdeletion_r2,2,1,['Chr4'],2,2,15177308,"[7671227, 8500, 7497581]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{'right duplication inversion': 1},1,True,0
+345,23Y_2p15-16-1_microdeletion_r2,20,1,['ChrY'],1,1,5282,[5282],"['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+346,23Y_2p15-16-1_microdeletion_r2,3,1,['Chr6'],2,2,89981517,"[89915181, 66336]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']","{'tandem duplication': 1, 'left duplication inversion': 1}",2,True,0
+347,23Y_2p15-16-1_microdeletion_r2,4,2,"['Chr5', 'Chr7']",4,4,250865190,"[121731255, 3753404, 37201, 125343330]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']","{'balanced reciprocal translocation': 2, 'nonreciprocal translocation': 1, 'deletion': 1}",4,True,0
+348,23Y_2p15-16-1_microdeletion_r2,5,1,['Chr8'],2,2,5020,"[2510, 2510]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+349,23Y_2p15-16-1_microdeletion_r2,6,1,['Chr9'],2,2,504,"[252, 252]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+350,23Y_2p15-16-1_microdeletion_r2,7,1,['Chr11'],2,2,14112,"[7056, 7056]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+351,23Y_2p15-16-1_microdeletion_r2,8,2,"['Chr10', 'Chr12']",4,4,221066102,"[112251335, 2155, 108811264, 1348]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{'nonreciprocal translocation': 1},1,True,0
+352,23Y_2p15-16-1_microdeletion_r2,9,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr10', 'Chr12', 'Chr14', 'Chr18']",{},0,False,0
+353,23Y_8q21_recurrent_microdeletion_r2,0,1,['Chr1'],2,2,6176,"[3088, 3088]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+354,23Y_8q21_recurrent_microdeletion_r2,1,1,['Chr2'],2,2,2249292,"[2194491, 54801]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']","{'tandem duplication': 4, 'deletion': 2}",6,True,0
+355,23Y_8q21_recurrent_microdeletion_r2,10,1,['Chr12'],2,1,260576319,"[131967411, 128608908]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']","{'deletion': 2, 'left duplication inversion': 1}",3,True,-1
+356,23Y_8q21_recurrent_microdeletion_r2,11,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+357,23Y_8q21_recurrent_microdeletion_r2,12,2,"['Chr6', 'Chr14']",4,4,157028411,"[157022330, 6081]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']","{'inversion': 1, 'balanced reciprocal translocation': 2}",3,True,0
+358,23Y_8q21_recurrent_microdeletion_r2,13,1,['Chr15'],2,2,159023717,"[2006913, 157016804]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+359,23Y_8q21_recurrent_microdeletion_r2,14,1,['Chr16'],2,2,9358,"[4679, 4679]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{'right duplication inversion': 1},1,True,0
+360,23Y_8q21_recurrent_microdeletion_r2,15,1,['Chr17'],2,2,204161,"[167701, 36460]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{'inversion': 1},1,True,0
+361,23Y_8q21_recurrent_microdeletion_r2,16,1,['Chr18'],2,2,1377988,"[1376940, 1048]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+362,23Y_8q21_recurrent_microdeletion_r2,17,1,['Chr19'],2,2,13820,"[6910, 6910]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+363,23Y_8q21_recurrent_microdeletion_r2,18,1,['Chr20'],2,2,3800,"[1900, 1900]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+364,23Y_8q21_recurrent_microdeletion_r2,19,1,['Chr21'],2,2,896,"[448, 448]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+365,23Y_8q21_recurrent_microdeletion_r2,2,1,['Chr3'],2,2,9924,"[4962, 4962]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+366,23Y_8q21_recurrent_microdeletion_r2,20,1,['Chr22'],2,2,5504,"[2752, 2752]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+367,23Y_8q21_recurrent_microdeletion_r2,21,1,['ChrX'],1,1,5760,"[2880, 2880]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+368,23Y_8q21_recurrent_microdeletion_r2,22,1,['ChrY'],1,1,5282,[5282],"['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+369,23Y_8q21_recurrent_microdeletion_r2,3,1,['Chr4'],2,2,3650949,"[1879526, 1771423]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{'left duplication inversion': 1},1,True,0
+370,23Y_8q21_recurrent_microdeletion_r2,4,1,['Chr5'],2,2,11088,"[5544, 5544]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+371,23Y_8q21_recurrent_microdeletion_r2,5,1,['Chr7'],2,2,1976,"[988, 988]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+372,23Y_8q21_recurrent_microdeletion_r2,6,1,['Chr8'],2,2,441706,"[423948, 17758]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{'deletion': 1},1,True,0
+373,23Y_8q21_recurrent_microdeletion_r2,7,1,['Chr9'],2,2,504,"[252, 252]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+374,23Y_8q21_recurrent_microdeletion_r2,8,1,['Chr10'],2,2,149022,"[122501, 26521]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{'deletion': 1},1,True,0
+375,23Y_8q21_recurrent_microdeletion_r2,9,1,['Chr11'],2,2,14112,"[7056, 7056]","['Chr2', 'Chr4', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr14', 'Chr16', 'Chr17']",{},0,False,0
+376,23Y_CMT1A_r1,0,1,['Chr1'],3,3,3878183,"[144124, 3589935, 144124]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{'arm tandem duplication': 1},1,True,0
+377,23Y_CMT1A_r1,1,1,['Chr2'],2,2,143773,"[97171, 46602]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{'tandem duplication': 1},1,True,0
+378,23Y_CMT1A_r1,10,1,['Chr12'],2,2,2696,"[1348, 1348]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{},0,False,0
+379,23Y_CMT1A_r1,11,1,['Chr14'],2,2,174682251,"[174647243, 35008]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{'left duplication inversion': 1},1,True,0
+380,23Y_CMT1A_r1,12,1,['Chr15'],2,2,9358,"[4679, 4679]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{},0,False,0
+381,23Y_CMT1A_r1,13,2,"['Chr13', 'Chr16']",4,4,281587068,"[234361262, 12041, 13304, 47200461]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']","{'nonreciprocal translocation': 1, 'tandem duplication': 1}",2,True,0
+382,23Y_CMT1A_r1,14,1,['Chr17'],2,2,174133,"[138357, 35776]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{'tandem duplication': 1},1,True,0
+383,23Y_CMT1A_r1,15,1,['Chr18'],2,2,174856,"[106725, 68131]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{'tandem duplication': 1},1,True,0
+384,23Y_CMT1A_r1,16,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{},0,False,0
+385,23Y_CMT1A_r1,17,1,['Chr20'],2,2,147186,"[118395, 28791]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{'right duplication inversion': 1},1,True,0
+386,23Y_CMT1A_r1,18,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{},0,False,0
+387,23Y_CMT1A_r1,19,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{},0,False,0
+388,23Y_CMT1A_r1,2,1,['Chr4'],2,2,3980,"[1990, 1990]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{},0,False,0
+389,23Y_CMT1A_r1,20,1,['ChrX'],1,1,5282,[5282],"['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{},0,False,0
+390,23Y_CMT1A_r1,21,1,['ChrY'],1,1,5282,[5282],"['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{},0,False,0
+391,23Y_CMT1A_r1,3,1,['Chr5'],1,1,482396,"[89984, 392412]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{'chromosomal deletion': 1},1,True,0
+392,23Y_CMT1A_r1,4,1,['Chr6'],2,2,343711777,"[173025798, 170685979]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{'left duplication inversion': 1},1,True,0
+393,23Y_CMT1A_r1,5,2,"['Chr3', 'Chr7']",5,4,232634535,"[345896, 41577, 113872151, 110766683, 7608228]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']","{'left duplication inversion': 2, 'nonreciprocal translocation': 1, 'arm tandem duplication': 1, 'tandem duplication': 1}",5,True,-1
+394,23Y_CMT1A_r1,6,1,['Chr8'],2,2,5020,"[2510, 2510]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{},0,False,0
+395,23Y_CMT1A_r1,7,1,['Chr9'],2,2,504,"[252, 252]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{},0,False,0
+396,23Y_CMT1A_r1,8,1,['Chr10'],2,2,7630,"[5475, 2155]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{'inversion': 1},1,True,0
+397,23Y_CMT1A_r1,9,1,['Chr11'],2,2,14112,"[7056, 7056]","['Chr1', 'Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr7', 'Chr10', 'Chr13', 'Chr14', 'Chr16', 'Chr17', 'Chr18', 'Chr20']",{},0,False,0
+398,23Y_CMT1A_r2,0,1,['Chr2'],2,2,4342,"[2171, 2171]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+399,23Y_CMT1A_r2,1,1,['Chr4'],2,2,51764,"[27489, 24275]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{'deletion': 1},1,True,0
+400,23Y_CMT1A_r2,10,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+401,23Y_CMT1A_r2,11,1,['Chr15'],2,2,9358,"[4679, 4679]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+402,23Y_CMT1A_r2,12,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+403,23Y_CMT1A_r2,13,2,"['Chr3', 'Chr17']",4,4,7502329,"[5273470, 41200, 2150575, 37084]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']","{'tandem duplication': 1, 'right duplication inversion': 1, 'nonreciprocal translocation': 1}",3,True,0
+404,23Y_CMT1A_r2,14,1,['Chr18'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+405,23Y_CMT1A_r2,15,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+406,23Y_CMT1A_r2,16,1,['Chr20'],2,2,896,"[448, 448]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+407,23Y_CMT1A_r2,17,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+408,23Y_CMT1A_r2,18,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+409,23Y_CMT1A_r2,19,1,['ChrX'],1,1,5282,[5282],"['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+410,23Y_CMT1A_r2,2,1,['Chr6'],2,2,7796983,"[4010563, 3786420]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{'left duplication inversion': 1},1,True,0
+411,23Y_CMT1A_r2,20,1,['ChrY'],1,1,5282,[5282],"['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+412,23Y_CMT1A_r2,3,1,['Chr7'],2,2,97383,"[67592, 29791]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{'tandem duplication': 1},1,True,0
+413,23Y_CMT1A_r2,4,2,"['Chr5', 'Chr8']",5,4,801598990,"[8062258, 183579005, 529197391, 62583, 80697753]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']","{'balanced reciprocal translocation': 4, 'chromosomal duplication': 1, 'tandem duplication': 2}",7,True,-1
+414,23Y_CMT1A_r2,5,1,['Chr9'],2,2,504,"[252, 252]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+415,23Y_CMT1A_r2,6,1,['Chr10'],2,2,8837629,"[8807740, 29889]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']","{'tandem duplication': 1, 'left duplication inversion': 1}",2,True,0
+416,23Y_CMT1A_r2,7,2,"['Chr1', 'Chr11']",4,4,238473811,"[121607484, 13995, 111763076, 7056, 5082200]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']","{'tandem duplication': 1, 'nonreciprocal translocation': 1}",2,True,0
+417,23Y_CMT1A_r2,8,1,['Chr12'],2,2,2696,"[1348, 1348]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{},0,False,0
+418,23Y_CMT1A_r2,9,1,['Chr13'],2,2,187860462,"[187850771, 9691]","['Chr1', 'Chr3', 'Chr4', 'Chr5', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr13', 'Chr17']",{'deletion': 1},1,True,0
+419,23Y_Cri_du_Chat_r1,0,1,['Chr1'],2,2,19546,"[16458, 3088]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{'inversion': 1},1,True,0
+420,23Y_Cri_du_Chat_r1,1,2,"['Chr2', 'Chr3']",4,4,12469561,"[12425290, 44271]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']","{'balanced reciprocal translocation': 2, 'deletion': 1}",3,True,0
+421,23Y_Cri_du_Chat_r1,10,1,['Chr13'],2,2,73838245,"[73835735, 2510]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']","{'inversion': 1, 'left duplication inversion': 1}",2,True,0
+422,23Y_Cri_du_Chat_r1,11,1,['Chr14'],2,2,73838745,"[5994, 73832751]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+423,23Y_Cri_du_Chat_r1,12,1,['Chr15'],2,2,185824044,"[185790528, 33516]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+424,23Y_Cri_du_Chat_r1,13,1,['Chr16'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+425,23Y_Cri_du_Chat_r1,14,1,['Chr17'],2,2,9358,"[4679, 4679]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+426,23Y_Cri_du_Chat_r1,15,1,['Chr18'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{'balanced reciprocal translocation': 2},2,True,0
+427,23Y_Cri_du_Chat_r1,16,1,['Chr19'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+428,23Y_Cri_du_Chat_r1,17,1,['Chr20'],2,2,22574,"[15664, 6910]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+429,23Y_Cri_du_Chat_r1,18,1,['Chr21'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+430,23Y_Cri_du_Chat_r1,19,1,['Chr22'],2,2,896,"[448, 448]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+431,23Y_Cri_du_Chat_r1,2,1,['Chr4'],2,2,12372814,"[10096, 12362718]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+432,23Y_Cri_du_Chat_r1,20,1,['ChrX'],1,1,5504,"[2752, 2752]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+433,23Y_Cri_du_Chat_r1,21,1,['ChrY'],1,1,5760,"[2880, 2880]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+434,23Y_Cri_du_Chat_r1,3,1,['Chr5'],2,2,3980,"[1990, 1990]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']","{'deletion': 1, 'tandem duplication': 1}",2,True,0
+435,23Y_Cri_du_Chat_r1,4,1,['Chr6'],2,2,400248,"[357707, 42541]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{'tandem duplication': 1},1,True,0
+436,23Y_Cri_du_Chat_r1,5,1,['Chr7'],2,2,376226,"[344565, 31661]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+437,23Y_Cri_du_Chat_r1,6,1,['Chr9'],2,2,1976,"[988, 988]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+438,23Y_Cri_du_Chat_r1,7,1,['Chr10'],2,2,504,"[252, 252]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{'left duplication inversion': 1},1,True,0
+439,23Y_Cri_du_Chat_r1,8,1,['Chr11'],2,2,283487,"[234602, 48885]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{},0,False,0
+440,23Y_Cri_du_Chat_r1,9,2,"['Chr8', 'Chr12']",4,4,14112,"[7056, 7056]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr8', 'Chr10', 'Chr12', 'Chr13', 'Chr18']",{'balanced reciprocal translocation': 2},2,True,0
+441,23Y_Cri_du_Chat_r2,0,1,['Chr1'],2,2,6176,"[3088, 3088]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+442,23Y_Cri_du_Chat_r2,1,1,['Chr2'],2,2,4342,"[2171, 2171]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+443,23Y_Cri_du_Chat_r2,10,1,['Chr13'],2,2,178130065,"[178082777, 47288]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{'left duplication inversion': 1},1,True,0
+444,23Y_Cri_du_Chat_r2,11,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+445,23Y_Cri_du_Chat_r2,12,1,['Chr15'],2,2,9358,"[4679, 4679]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+446,23Y_Cri_du_Chat_r2,13,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+447,23Y_Cri_du_Chat_r2,14,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+448,23Y_Cri_du_Chat_r2,15,1,['Chr18'],2,2,84855,"[50262, 34593]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{'tandem duplication': 1},1,True,0
+449,23Y_Cri_du_Chat_r2,16,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+450,23Y_Cri_du_Chat_r2,17,1,['Chr20'],2,2,896,"[448, 448]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+451,23Y_Cri_du_Chat_r2,18,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+452,23Y_Cri_du_Chat_r2,19,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+453,23Y_Cri_du_Chat_r2,2,1,['Chr3'],2,2,70252,"[39618, 30634]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{'deletion': 1},1,True,0
+454,23Y_Cri_du_Chat_r2,20,1,['ChrX'],1,1,5282,[5282],"['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+455,23Y_Cri_du_Chat_r2,21,1,['ChrY'],1,1,5282,[5282],"['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+456,23Y_Cri_du_Chat_r2,3,1,['Chr4'],2,2,3980,"[1990, 1990]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+457,23Y_Cri_du_Chat_r2,4,1,['Chr5'],4,5,642800391,"[334495169, 134992358, 173169336, 143528]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']","{'deletion': 1, 'arm tandem duplication': 1, 'chromosomal duplication': 1, 'right duplication inversion': 1}",4,True,1
+458,23Y_Cri_du_Chat_r2,5,1,['Chr7'],2,2,1976,"[988, 988]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+459,23Y_Cri_du_Chat_r2,6,3,"['Chr6', 'Chr8', 'Chr9']",6,6,19125166,"[17993, 6081, 9527327, 9499155, 42600, 32010]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']","{'balanced reciprocal translocation': 2, 'inversion': 1, 'nonreciprocal translocation': 1}",4,True,0
+460,23Y_Cri_du_Chat_r2,7,1,['Chr10'],2,2,12520,"[10365, 2155]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{'inversion': 1},1,True,0
+461,23Y_Cri_du_Chat_r2,8,1,['Chr11'],2,2,14112,"[7056, 7056]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+462,23Y_Cri_du_Chat_r2,9,1,['Chr12'],2,2,2696,"[1348, 1348]","['Chr3', 'Chr5', 'Chr5', 'Chr5', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr13', 'Chr18']",{},0,False,0
+463,23Y_NF1_microdeletion_r1,0,1,['Chr1'],2,2,6176,"[3088, 3088]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+464,23Y_NF1_microdeletion_r1,1,1,['Chr3'],2,2,1201863,"[34541, 1167322]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+465,23Y_NF1_microdeletion_r1,10,4,"['Chr2', 'Chr4', 'Chr5', 'Chr14']",8,8,4450,"[2225, 2225]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']","{'balanced reciprocal translocation': 8, 'left duplication inversion': 2, 'tandem duplication': 1, 'nonreciprocal translocation': 1}",12,True,0
+466,23Y_NF1_microdeletion_r1,11,1,['Chr15'],2,2,119139574,"[108474273, 57874, 10605437, 1990]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+467,23Y_NF1_microdeletion_r1,12,1,['Chr16'],2,2,71803747,"[15805, 71787942]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+468,23Y_NF1_microdeletion_r1,13,1,['Chr17'],2,2,9358,"[4679, 4679]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{'deletion': 1},1,True,0
+469,23Y_NF1_microdeletion_r1,14,1,['Chr18'],2,2,7186,"[3593, 3593]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+470,23Y_NF1_microdeletion_r1,15,1,['Chr19'],2,2,92422,"[46630, 45792]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+471,23Y_NF1_microdeletion_r1,16,1,['Chr20'],2,2,13820,"[6910, 6910]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+472,23Y_NF1_microdeletion_r1,17,1,['Chr21'],2,2,3800,"[1900, 1900]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+473,23Y_NF1_microdeletion_r1,18,1,['Chr22'],2,2,896,"[448, 448]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+474,23Y_NF1_microdeletion_r1,19,1,['ChrX'],1,1,5504,"[2752, 2752]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+475,23Y_NF1_microdeletion_r1,2,1,['Chr6'],2,2,58865093,"[22558, 58842535]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']","{'inversion': 1, 'right duplication inversion': 1, 'tandem duplication': 1}",3,True,0
+476,23Y_NF1_microdeletion_r1,20,1,['ChrY'],1,1,5760,"[2880, 2880]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+477,23Y_NF1_microdeletion_r1,3,1,['Chr7'],2,2,527050,"[460705, 66345]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+478,23Y_NF1_microdeletion_r1,4,1,['Chr8'],2,2,1976,"[988, 988]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']","{'inversion': 1, 'right duplication inversion': 1}",2,True,0
+479,23Y_NF1_microdeletion_r1,5,1,['Chr9'],2,2,4791953,"[4744727, 47226]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+480,23Y_NF1_microdeletion_r1,6,1,['Chr10'],2,2,504,"[252, 252]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+481,23Y_NF1_microdeletion_r1,7,1,['Chr11'],2,2,4310,"[2155, 2155]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+482,23Y_NF1_microdeletion_r1,8,1,['Chr12'],2,2,14112,"[7056, 7056]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']","{'left duplication inversion': 1, 'inversion': 1}",2,True,0
+483,23Y_NF1_microdeletion_r1,9,1,['Chr13'],2,2,18082325,"[9101216, 11786, 8969323]","['Chr2', 'Chr4', 'Chr5', 'Chr6', 'Chr8', 'Chr12', 'Chr14', 'Chr17']",{},0,False,0
+484,23Y_NF1_microdeletion_r2,0,1,['Chr2'],2,2,4342,"[2171, 2171]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{},0,False,0
+485,23Y_NF1_microdeletion_r2,1,1,['Chr3'],2,2,398142855,"[2130374, 396012481]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{'arm deletion': 1},1,True,0
+486,23Y_NF1_microdeletion_r2,10,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{},0,False,0
+487,23Y_NF1_microdeletion_r2,11,2,"['Chr9', 'Chr14']",5,4,438190996,"[128564, 231091236, 108694359, 9566642, 88710195]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']","{'chromosomal duplication': 1, 'balanced reciprocal translocation': 2, 'tandem duplication': 1, 'left duplication inversion': 1}",5,True,-1
+488,23Y_NF1_microdeletion_r2,12,1,['Chr15'],2,2,178910146,"[7236334, 171673812]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{'tandem duplication': 1},1,True,0
+489,23Y_NF1_microdeletion_r2,13,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{},0,False,0
+490,23Y_NF1_microdeletion_r2,14,1,['Chr17'],2,2,133635,"[98390, 35245]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{'deletion': 1},1,True,0
+491,23Y_NF1_microdeletion_r2,15,1,['Chr18'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{},0,False,0
+492,23Y_NF1_microdeletion_r2,16,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{},0,False,0
+493,23Y_NF1_microdeletion_r2,17,1,['Chr20'],2,2,293567,"[273167, 20400]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{'deletion': 1},1,True,0
+494,23Y_NF1_microdeletion_r2,18,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{},0,False,0
+495,23Y_NF1_microdeletion_r2,19,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{},0,False,0
+496,23Y_NF1_microdeletion_r2,2,1,['Chr4'],2,2,3980,"[1990, 1990]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{},0,False,0
+497,23Y_NF1_microdeletion_r2,20,1,['ChrX'],1,1,5282,[5282],"['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{},0,False,0
+498,23Y_NF1_microdeletion_r2,21,1,['ChrY'],1,1,5282,[5282],"['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{},0,False,0
+499,23Y_NF1_microdeletion_r2,3,1,['Chr5'],2,2,11088,"[5544, 5544]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{},0,False,0
+500,23Y_NF1_microdeletion_r2,4,1,['Chr6'],2,2,37228,"[31147, 6081]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{'balanced reciprocal translocation': 2},2,True,0
+501,23Y_NF1_microdeletion_r2,5,2,"['Chr1', 'Chr7']",3,4,18563491,"[18282281, 8828, 988, 271394]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']","{'nonreciprocal translocation': 1, 'chromosomal deletion': 1}",2,True,1
+502,23Y_NF1_microdeletion_r2,6,1,['Chr8'],2,2,91929115,"[91132602, 796513]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']","{'deletion': 1, 'arm deletion': 1}",2,True,0
+503,23Y_NF1_microdeletion_r2,7,1,['Chr10'],2,2,162864,"[93431, 69433]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{'deletion': 2},2,True,0
+504,23Y_NF1_microdeletion_r2,8,1,['Chr11'],2,2,14112,"[7056, 7056]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{},0,False,0
+505,23Y_NF1_microdeletion_r2,9,1,['Chr12'],2,2,64362,"[45007, 19355]","['Chr1', 'Chr3', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr9', 'Chr10', 'Chr12', 'Chr14', 'Chr15', 'Chr17', 'Chr20']",{'tandem duplication': 1},1,True,0
+506,23Y_Potocki_Shaffer_r1,0,1,['Chr1'],2,2,6176,"[3088, 3088]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+507,23Y_Potocki_Shaffer_r1,1,1,['Chr2'],2,2,149556,"[122733, 26823]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{'right duplication inversion': 1},1,True,0
+508,23Y_Potocki_Shaffer_r1,10,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+509,23Y_Potocki_Shaffer_r1,11,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+510,23Y_Potocki_Shaffer_r1,12,2,"['Chr11', 'Chr15']",4,4,20185769,"[10144256, 13015, 8592, 10019906]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']","{'deletion': 1, 'nonreciprocal translocation': 1}",2,True,0
+511,23Y_Potocki_Shaffer_r1,13,1,['Chr16'],2,1,177738024,"[90218345, 87519679]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{'inversion': 1},1,True,-1
+512,23Y_Potocki_Shaffer_r1,14,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+513,23Y_Potocki_Shaffer_r1,15,1,['Chr18'],2,2,13820,"[6910, 6910]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+514,23Y_Potocki_Shaffer_r1,16,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+515,23Y_Potocki_Shaffer_r1,17,1,['Chr20'],2,2,106812424,"[72549112, 34263312]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']","{'inversion': 1, 'tandem duplication': 1}",2,True,0
+516,23Y_Potocki_Shaffer_r1,18,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+517,23Y_Potocki_Shaffer_r1,19,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+518,23Y_Potocki_Shaffer_r1,2,1,['Chr3'],1,1,395665859,"[197990545, 197675314]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{'chromosomal deletion': 1},1,True,0
+519,23Y_Potocki_Shaffer_r1,20,1,['ChrX'],1,1,5282,[5282],"['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+520,23Y_Potocki_Shaffer_r1,21,1,['ChrY'],1,1,5282,[5282],"['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+521,23Y_Potocki_Shaffer_r1,3,1,['Chr4'],2,2,143847,"[116705, 27142]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{'deletion': 1},1,True,0
+522,23Y_Potocki_Shaffer_r1,4,1,['Chr5'],2,2,11088,"[5544, 5544]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+523,23Y_Potocki_Shaffer_r1,5,1,['Chr6'],2,2,86926,"[49548, 37378]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{'deletion': 1},1,True,0
+524,23Y_Potocki_Shaffer_r1,6,1,['Chr7'],2,2,1976,"[988, 988]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+525,23Y_Potocki_Shaffer_r1,7,1,['Chr8'],2,2,10665410,"[10648649, 16761]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']","{'inversion': 2, 'deletion': 1}",3,True,0
+526,23Y_Potocki_Shaffer_r1,8,2,"['Chr9', 'Chr10']",4,3,521488253,"[360801857, 27582672, 133068943, 34781]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']","{'left duplication inversion': 2, 'deletion': 1, 'nonreciprocal translocation': 1}",4,True,-1
+527,23Y_Potocki_Shaffer_r1,9,1,['Chr12'],2,2,2696,"[1348, 1348]","['Chr2', 'Chr3', 'Chr4', 'Chr6', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr15', 'Chr16', 'Chr20']",{},0,False,0
+528,23Y_Potocki_Shaffer_r2,0,1,['Chr1'],2,2,55929,"[31963, 23966]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{'deletion': 1},1,True,0
+529,23Y_Potocki_Shaffer_r2,1,1,['Chr2'],2,2,475027076,"[232853547, 242173529]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{'inversion': 1},1,True,0
+530,23Y_Potocki_Shaffer_r2,10,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+531,23Y_Potocki_Shaffer_r2,11,2,"['Chr6', 'Chr15']",4,4,205524674,"[105209400, 36552, 100274043, 4679]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']","{'right duplication inversion': 1, 'nonreciprocal translocation': 1}",2,True,0
+532,23Y_Potocki_Shaffer_r2,12,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+533,23Y_Potocki_Shaffer_r2,13,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+534,23Y_Potocki_Shaffer_r2,14,1,['Chr18'],2,2,13820,"[6910, 6910]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+535,23Y_Potocki_Shaffer_r2,15,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+536,23Y_Potocki_Shaffer_r2,16,1,['Chr20'],2,2,9058304,"[4746234, 4312070]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{'right duplication inversion': 1},1,True,0
+537,23Y_Potocki_Shaffer_r2,17,1,['Chr21'],2,2,5504,"[2752, 2752]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+538,23Y_Potocki_Shaffer_r2,18,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+539,23Y_Potocki_Shaffer_r2,19,1,['ChrX'],1,1,5282,[5282],"['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+540,23Y_Potocki_Shaffer_r2,2,1,['Chr3'],2,2,6031840,"[5965599, 66241]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']","{'tandem duplication': 1, 'deletion': 1, 'inversion': 1}",3,True,0
+541,23Y_Potocki_Shaffer_r2,20,1,['ChrY'],1,1,5282,[5282],"['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+542,23Y_Potocki_Shaffer_r2,3,1,['Chr4'],2,2,3980,"[1990, 1990]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+543,23Y_Potocki_Shaffer_r2,4,3,"['Chr5', 'Chr7', 'Chr8']",6,6,266111571,"[123345863, 23119, 9735163, 9875441, 5383, 123126602]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']","{'inversion': 1, 'balanced reciprocal translocation': 2, 'deletion': 1, 'nonreciprocal translocation': 1, 'right duplication inversion': 2}",7,True,0
+544,23Y_Potocki_Shaffer_r2,5,1,['Chr9'],2,2,504,"[252, 252]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+545,23Y_Potocki_Shaffer_r2,6,1,['Chr10'],2,2,2157958,"[2155803, 2155]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{'inversion': 1},1,True,0
+546,23Y_Potocki_Shaffer_r2,7,1,['Chr11'],2,2,150077,"[131847, 18230]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{'deletion': 1},1,True,0
+547,23Y_Potocki_Shaffer_r2,8,1,['Chr12'],2,2,2696,"[1348, 1348]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+548,23Y_Potocki_Shaffer_r2,9,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr1', 'Chr2', 'Chr3', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr10', 'Chr11', 'Chr15', 'Chr20']",{},0,False,0
+549,23Y_WAGR_11p13_deletion_r1,0,1,['Chr1'],2,2,6176,"[3088, 3088]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+550,23Y_WAGR_11p13_deletion_r1,1,1,['Chr2'],2,2,174426,"[113009, 61417]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']","{'deletion': 2, 'inversion': 1}",3,True,0
+551,23Y_WAGR_11p13_deletion_r1,10,2,"['Chr12', 'Chr13']",4,4,355375041,"[88542784, 1348, 250490125, 16340784]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']","{'right duplication inversion': 1, 'nonreciprocal translocation': 1}",2,True,0
+552,23Y_WAGR_11p13_deletion_r1,11,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+553,23Y_WAGR_11p13_deletion_r1,12,1,['Chr15'],2,2,9358,"[4679, 4679]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+554,23Y_WAGR_11p13_deletion_r1,13,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+555,23Y_WAGR_11p13_deletion_r1,14,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+556,23Y_WAGR_11p13_deletion_r1,15,1,['Chr18'],2,2,13820,"[6910, 6910]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+557,23Y_WAGR_11p13_deletion_r1,16,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+558,23Y_WAGR_11p13_deletion_r1,17,2,"['Chr11', 'Chr20']",4,4,25995121,"[25967428, 27693]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']","{'deletion': 1, 'balanced reciprocal translocation': 2}",3,True,0
+559,23Y_WAGR_11p13_deletion_r1,18,1,['Chr21'],2,2,25841801,"[12290, 25829511]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+560,23Y_WAGR_11p13_deletion_r1,19,1,['Chr22'],2,2,5504,"[2752, 2752]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+561,23Y_WAGR_11p13_deletion_r1,2,1,['Chr3'],2,2,9924,"[4962, 4962]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+562,23Y_WAGR_11p13_deletion_r1,20,1,['ChrX'],1,1,5760,"[2880, 2880]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+563,23Y_WAGR_11p13_deletion_r1,21,1,['ChrY'],1,1,5282,[5282],"['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+564,23Y_WAGR_11p13_deletion_r1,3,1,['Chr4'],2,2,2265934,"[2259369, 6565]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']","{'balanced reciprocal translocation': 2, 'arm deletion': 1}",3,True,0
+565,23Y_WAGR_11p13_deletion_r1,4,1,['Chr5'],2,2,11088,"[5544, 5544]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+566,23Y_WAGR_11p13_deletion_r1,5,1,['Chr6'],2,2,12162,"[6081, 6081]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+567,23Y_WAGR_11p13_deletion_r1,6,1,['Chr7'],2,2,1976,"[988, 988]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+568,23Y_WAGR_11p13_deletion_r1,7,1,['Chr8'],2,2,5020,"[2510, 2510]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{},0,False,0
+569,23Y_WAGR_11p13_deletion_r1,8,1,['Chr9'],3,2,164779193,"[97931, 95098549, 69582713]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{'arm tandem duplication': 1},1,True,-1
+570,23Y_WAGR_11p13_deletion_r1,9,1,['Chr10'],2,2,82516783,"[81379823, 1136960]","['Chr2', 'Chr4', 'Chr9', 'Chr9', 'Chr10', 'Chr11', 'Chr12', 'Chr13', 'Chr20']",{'arm deletion': 1},1,True,0
+571,23Y_WAGR_11p13_deletion_r2,0,1,['Chr1'],2,2,6176,"[3088, 3088]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+572,23Y_WAGR_11p13_deletion_r2,1,1,['Chr2'],2,2,158915,"[90235, 68680]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{'deletion': 1},1,True,0
+573,23Y_WAGR_11p13_deletion_r2,10,1,['Chr12'],2,2,2696,"[1348, 1348]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+574,23Y_WAGR_11p13_deletion_r2,11,1,['Chr13'],2,2,4450,"[2225, 2225]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+575,23Y_WAGR_11p13_deletion_r2,12,1,['Chr14'],2,2,20870,"[10435, 10435]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+576,23Y_WAGR_11p13_deletion_r2,13,1,['Chr15'],2,2,25494,"[20815, 4679]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{'inversion': 1},1,True,0
+577,23Y_WAGR_11p13_deletion_r2,14,1,['Chr16'],2,2,7186,"[3593, 3593]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+578,23Y_WAGR_11p13_deletion_r2,15,1,['Chr17'],2,2,2096,"[1048, 1048]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+579,23Y_WAGR_11p13_deletion_r2,16,1,['Chr18'],2,2,41746,"[34836, 6910]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{'inversion': 2},2,True,0
+580,23Y_WAGR_11p13_deletion_r2,17,1,['Chr19'],2,2,3800,"[1900, 1900]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+581,23Y_WAGR_11p13_deletion_r2,18,1,['Chr20'],2,2,896,"[448, 448]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+582,23Y_WAGR_11p13_deletion_r2,19,1,['Chr21'],3,3,67862032,"[36975, 293684, 67531373]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{'chromosomal duplication': 1},1,True,0
+583,23Y_WAGR_11p13_deletion_r2,2,1,['Chr3'],2,2,289807,"[242818, 46989]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{'left duplication inversion': 1},1,True,0
+584,23Y_WAGR_11p13_deletion_r2,20,1,['Chr22'],2,2,5760,"[2880, 2880]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+585,23Y_WAGR_11p13_deletion_r2,21,1,['ChrX'],1,1,5282,[5282],"['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+586,23Y_WAGR_11p13_deletion_r2,22,1,['ChrY'],1,1,5282,[5282],"['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+587,23Y_WAGR_11p13_deletion_r2,3,1,['Chr5'],2,2,11088,"[5544, 5544]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+588,23Y_WAGR_11p13_deletion_r2,4,1,['Chr6'],2,2,12162,"[6081, 6081]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+589,23Y_WAGR_11p13_deletion_r2,5,1,['Chr7'],2,2,1976,"[988, 988]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+590,23Y_WAGR_11p13_deletion_r2,6,1,['Chr8'],2,2,5020,"[2510, 2510]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+591,23Y_WAGR_11p13_deletion_r2,7,1,['Chr9'],2,2,504,"[252, 252]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']",{},0,False,0
+592,23Y_WAGR_11p13_deletion_r2,8,1,['Chr10'],2,2,104410,"[102255, 2155]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']","{'inversion': 1, 'balanced reciprocal translocation': 4}",5,True,0
+593,23Y_WAGR_11p13_deletion_r2,9,2,"['Chr4', 'Chr11']",4,4,174998,"[18689, 1990, 137902, 16417]","['Chr2', 'Chr3', 'Chr4', 'Chr10', 'Chr11', 'Chr15', 'Chr18', 'Chr21']","{'deletion': 1, 'nonreciprocal translocation': 1}",2,True,0

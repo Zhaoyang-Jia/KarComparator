@@ -42,7 +42,7 @@ def tostring_gene_disease_omim(filtered_DDG_df):
             if first_row:
                 gene_list.append((gene, row['gene mim']))
                 first_row = False
-            disease_names.append(row['disease name'])
+            disease_names.append(row['disease name'].replace('&', '\&'))  # prevent latex errors
             disease_omims.append(row['disease mim'])
         disease_list.append((disease_names, disease_omims))
 
