@@ -175,13 +175,26 @@ def form_dependent_clusters(karsim_path_list,
             current_segment_to_index_dict[current_indexed_segments[segment_ind]] = str(segment_ind)
         output_str += "---\n"
 
+
+
+        # This snippet prevents path still having unbroken seg relative to the dict
+        def break_path_by_dictionary(dictionary_path: Path, input_path: Path):
+            input_path.generate_mutual_breakpoints(dictionary_path, mutual=False)
+
+        c_segment_to_index_dict_seg_list = []
+        for seg in current_segment_to_index_dict:
+            c_segment_to_index_dict_seg_list.append(seg)
+        c_segment_to_index_dict_path = Path(Arm(c_segment_to_index_dict_seg_list, 'dict_segs'))
+
         # karsim path
         for path in clustered_karsim_path[cluster_ind]:
+            break_path_by_dictionary(c_segment_to_index_dict_path, path)
             output_str += path.tostring_path_by_index(current_segment_to_index_dict) + '\n'
         output_str += "---\n"
 
         # omkar path
         for path in clustered_omkar_path[cluster_ind]:
+            break_path_by_dictionary(c_segment_to_index_dict_path, path)
             output_str += path.tostring_path_by_index(current_segment_to_index_dict) + '\n'
         output_str += "---\n"
 

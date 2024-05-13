@@ -1,160 +1,456 @@
 23Y_WAGR_11p13_deletion_r2.1.txt
-{('Chr3', 108382414, 'Chr3', 108548861, 'S'): -1}
-chr_bin: -no centromere, highest representation: Chr21, path_name: Path41, segment_chr: Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 
-chr_bin: -no centromere, highest representation: Chr21, path_name: Path42, segment_chr: Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 
-chr_bin: -no centromere, highest representation: Chr21, path_name: Path43, segment_chr: Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 
+{('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('ChrY', 26574528, 'ChrY', 57212132, 'S'): 1, ('Chr21', 7488430, 'Chr21', 46697230, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr11', 134829522, 'Chr11', 135069565, 'D'): 1, ('Chr3', 108382414, 'Chr3', 108548861, 'D'): 1}
+chr_bin: -multiple centromeres ({'Chr11', 'Chr4'}), highest representation: Chr11, path_name: Path8, segment_chr: Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path17, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path18, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path27, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path37, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr21, path_name: Path39, segment_chr: Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 
+chr_bin: -no centromere, highest representation: Chr21, path_name: Path40, segment_chr: Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path42, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23Y_8q21_recurrent_microdeletion_r2.1.txt
-{('Chr8', 76303135, 'Chr8', 77249101, 'D'): 1, ('Chr2', 192769324, 'Chr2', 194192401, 'D'): 1, ('Chr4', 80842659, 'Chr4', 82592657, 'D'): 1, ('Chr12', 131616408, 'Chr12', 133263959, 'S'): -1, ('Chr16', 72933503, 'Chr16', 72828923, 'S'): -1}
+{('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('ChrY', 26579583, 'ChrY', 57212132, 'S'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr8', 76303135, 'Chr8', 77249101, 'D'): 1, ('Chr2', 192769324, 'Chr2', 194192401, 'D'): 1, ('Chr4', 80842659, 'Chr4', 82592657, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr12', 131616408, 'Chr12', 131680867, 'D'): 1, ('Chr13', 114148963, 'Chr13', 114352102, 'S'): 1, ('Chr16', 72828923, 'Chr16', 72933503, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path9, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr6, path_name: Path12, segment_chr: Chr14 Chr14 Chr14 Chr6 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path13, segment_chr: Chr14 Chr14 Chr6 Chr14 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path19, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path20, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path27, segment_chr: Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path28, segment_chr: Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path30, segment_chr: Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path39, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path40, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path43, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path44, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_15q26_overgrowth_r1.1.txt
-{('Chr2', 94052822, 'Chr2', 241869134, 'D'): 1, ('Chr8', 128287040, 'Chr8', 128351261, 'S'): 1, ('Chr6', 163785222, 'Chr6', 163876868, 'S'): -1}
-chr_bin: -no centromere, highest representation: Chr2, path_name: Path3, segment_chr: Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 
-chr_bin: -no centromere, highest representation: Chr2, path_name: Path4, segment_chr: Chr2 Chr2 Chr2 Chr2 Chr2 
-chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
-chr_bin: -no centromere, highest representation: Chr15, path_name: Path30, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+{('Chr21', 46472077, 'Chr21', 46697230, 'D'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr2', 241879153, 'Chr2', 242181357, 'S'): 1, ('Chr2', 94052822, 'Chr2', 242181357, 'D'): 1, ('Chr8', 128287039, 'Chr8', 128351262, 'D'): 1, ('Chr6', 163785222, 'Chr6', 163876868, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr10', 133530187, 'Chr10', 133785266, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr2, path_name: Path3, segment_chr: Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path16, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path17, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path25, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path26, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path27, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path37, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path40, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23Y_Potocki_Shaffer_r2.1.txt
-{('Chr5', 124558736, 'Chr5', 124661010, 'S'): 1, ('Chr5', 125666047, 'Chr5', 125561961, 'S'): 1, ('Chr7', 17942844, 'Chr7', 18242594, 'S'): 1, ('Chr7', 48718524, 'Chr7', 48619966, 'S'): -1, ('Chr6', 148707709, 'Chr6', 154277481, 'D'): 1, ('Chr20', 38937748, 'Chr20', 43201256, 'D'): 1, ('Chr1', 180424360, 'Chr1', 188401632, 'D'): 1}
+{('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr5', 124558735, 'Chr5', 124661011, 'D'): 1, ('Chr5', 125561960, 'Chr7', 46823767, 'D'): 1, ('Chr7', 48619966, 'Chr7', 48718524, 'D'): 1, ('Chr7', 17942843, 'Chr7', 18242595, 'D'): 1, ('Chr6', 148707709, 'Chr6', 154277481, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr20', 38937748, 'Chr20', 43201256, 'D'): 1, ('Chr1', 180424360, 'Chr1', 188401632, 'D'): 1, ('Chr21', 46472077, 'Chr21', 46697230, 'D'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr7 Chr7 Chr5 Chr5 Chr5 Chr7 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path11, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr8 Chr8 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path15, segment_chr: Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr6, path_name: Path16, segment_chr: Chr15 Chr15 Chr6 Chr6 Chr6 Chr6 Chr6 Chr6 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path19, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path20, segment_chr: Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path27, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path28, segment_chr: Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path29, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path30, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path39, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path40, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path42, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path43, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23Y_WAGR_11p13_deletion_r1.1.txt
-{('Chr2', 173292839, 'Chr2', 179703877, 'D'): 1, ('Chr13', 80928406, 'Chr13', 72877469, 'D'): 1, ('Chr9', 64186127, 'Chr9', 66255740, 'S'): 1, ('Chr9', 63490126, 'Chr9', 133042532, 'D'): 1, ('Chr10', 40723427, 'Chr10', 133567589, 'D'): 1}
-chr_bin: -no centromere, highest representation: Chr4, path_name: Path8, segment_chr: Chr4 
-chr_bin: -no centromere, highest representation: Chr10, path_name: Path19, segment_chr: Chr10 Chr10 Chr10 Chr10 Chr10 
-chr_bin: -no centromere, highest representation: Chr10, path_name: Path20, segment_chr: Chr10 Chr10 Chr10 
-chr_bin: -no centromere, highest representation: Chr13, path_name: Path26, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr12 
-chr_bin: -no centromere, highest representation: Chr13, path_name: Path27, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 
+{('Chr2', 241938560, 'Chr2', 242181357, 'S'): 1, ('Chr2', 173292839, 'Chr2', 179703877, 'D'): 1, ('Chr2', 241938559, 'Chr2', 242181357, 'D'): 1, ('Chr21', 46492185, 'Chr21', 46697230, 'D'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr13', 80928406, 'Chr13', 72877469, 'D'): 1, ('Chr20', 28637428, 'Chr20', 28431823, 'D'): 1, ('Chr9', 43289105, 'Chr9', 62144828, 'D'): 1, ('Chr9', 63014728, 'Chr9', 64134668, 'D'): 1, ('Chr9', 66255741, 'Chr9', 133042532, 'D'): 1, ('Chr10', 133571442, 'Chr10', 133785266, 'S'): 1, ('Chr10', 40723427, 'Chr10', 133785266, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr4, path_name: Path7, segment_chr: Chr4 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path8, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path9, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path16, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path17, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path18, segment_chr: Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr10, path_name: Path19, segment_chr: Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path22, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr11 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path23, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr11 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path26, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path27, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr12 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path28, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path29, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path30, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path31, segment_chr: Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path42, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23Y_2p15-16-1_microdeletion_r2.1.txt
-{('Chr5', 177581476, 'Chr5', 181301992, 'D'): 1, ('Chr6', 84572489, 'Chr6', 88150560, 'D'): 1}
+{('Chr12', 133060657, 'Chr12', 133263960, 'D'): 1, ('Chr21', 46472077, 'Chr21', 46697230, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr4', 182704984, 'Chr4', 190202564, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr5', 177581476, 'Chr5', 181301992, 'D'): 1, ('Chr6', 84572489, 'Chr6', 88150560, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path4, segment_chr: Chr14 Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr2, path_name: Path5, segment_chr: Chr14 Chr14 Chr2 Chr2 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr7 Chr7 Chr7 Chr7 Chr7 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path11, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path18, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path19, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -multiple centromeres ({'Chr12', 'Chr10'}), highest representation: Chr12, path_name: Path22, segment_chr: Chr12 Chr12 Chr12 Chr12 Chr12 Chr12 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path25, segment_chr: Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path26, segment_chr: Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path27, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path37, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path40, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23Y_Potocki_Shaffer_r1.1.txt
-{('Chr16', 87526086, 'Chr16', 90224751, 'S'): -1, ('Chr9', 70143406, 'Chr9', 70250298, 'S'): -1, ('Chr9', 134413530, 'Chr9', 138334463, 'S'): -1, ('Chr10', 17718692, 'Chr10', 23321583, 'D'): 1, ('Chr8', 99994388, 'Chr8', 107257169, 'D'): 1, ('Chr3', 90544142, 'Chr3', 91946511, 'S'): -1, ('Chr2', 188949975, 'Chr2', 188862380, 'S'): -1}
-chr_bin: -no centromere, highest representation: Chr3, path_name: Path5, segment_chr: Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 
-chr_bin: -multiple centromeres ({'Chr10', 'Chr9'}), highest representation: Chr9, path_name: Path18, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 
+{('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr11', 134836208, 'Chr11', 135069565, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr9', 70143406, 'Chr9', 70250298, 'D'): 1, ('Chr9', 134413530, 'Chr9', 137195955, 'D'): 1, ('Chr9', 137938539, 'Chr9', 138334463, 'D'): 1, ('Chr10', 287317, 'Chr10', 18514, 'D'): 1, ('Chr10', 17718692, 'Chr10', 23321583, 'D'): 1, ('Chr8', 99994388, 'Chr8', 107257169, 'D'): 1, ('Chr3', 12920, 'Chr3', 252452, 'S'): 1, ('Chr3', 91946511, 'Chr3', 198230596, 'D'): 1, ('Chr2', 241964367, 'Chr2', 242181357, 'S'): 1, ('Chr2', 188949975, 'Chr2', 188862380, 'D'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr21', 46472077, 'Chr21', 46697230, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr3, path_name: Path5, segment_chr: Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path19, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path23, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path24, segment_chr: Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path35, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path36, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path38, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path39, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23Y_1q21_recurrent_microdeletion_r2.1.txt
-{('Chr1', 41936520, 'Chr1', 41774748, 'S'): -1, ('Chr1', 185127594, 'Chr8', 32875965, 'D'): 1, ('Chr3', 122825620, 'Chr3', 124474913, 'D'): 1, ('Chr6', 74143806, 'Chr6', 74063874, 'S'): -1}
-chr_bin: -multiple centromeres ({'Chr3', 'Chr8', 'Chr9', 'Chr1'}), highest representation: Chr1, path_name: Path5, segment_chr: Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr8 Chr8 Chr8 Chr8 Chr9 Chr9 Chr9 Chr9 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 
-chr_bin: -no centromere, highest representation: Chr8, path_name: Path6, segment_chr: Chr9 Chr9 Chr8 Chr8 
-chr_bin: -no centromere, highest representation: Chr13, path_name: Path23, segment_chr: Chr13 Chr13 Chr13 Chr13 
-chr_bin: -no centromere, highest representation: Chr13, path_name: Path24, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 
+{('Chr16', 887823, 'Chr16', 1194332, 'D'): 1, ('Chr1', 41774748, 'Chr1', 41936520, 'D'): 1, ('Chr1', 185127594, 'Chr1', 248670926, 'D'): 1, ('Chr9', 264302, 'Chr9', 14566, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr3', 324822, 'Chr3', 12920, 'D'): 1, ('Chr3', 122825620, 'Chr3', 124474913, 'D'): 1, ('Chr21', 46472077, 'Chr21', 46697230, 'D'): 1, ('Chr6', 74063874, 'Chr6', 74143806, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1}
+chr_bin: -multiple centromeres ({'Chr3', 'Chr1', 'Chr8'}), highest representation: Chr1, path_name: Path4, segment_chr: Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr8 Chr8 Chr8 Chr8 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path5, segment_chr: Chr8 Chr8 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path12, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path13, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path22, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path23, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path24, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path25, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path26, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path27, segment_chr: Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path36, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path37, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path39, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path40, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_1q21_recurrent_microduplication_r1.1.txt
-{('Chr21', 27682460, 'Chr21', 27528222, 'S'): -1, ('Chr16', 58241755, 'Chr16', 58334172, 'S'): 1, ('Chr3', 58401101, 'Chr3', 58453602, 'S'): -1}
+{('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr21', 27528222, 'Chr21', 27682460, 'D'): 1, ('Chr21', 46402887, 'Chr21', 46697230, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr5', 46421475, 'Chr5', 46808369, 'D'): 1, ('Chr16', 58241754, 'Chr16', 58334173, 'D'): 1, ('Chr2', 241965712, 'Chr2', 242181357, 'S'): 1, ('Chr2', 241965711, 'Chr2', 242181357, 'D'): 1, ('Chr3', 58401101, 'Chr3', 58453602, 'D'): 1, ('Chr4', 12985, 'Chr4', 216882, 'S'): 1}
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path11, segment_chr: Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path16, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path17, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path26, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path27, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path39, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path42, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_Xp11_22_Microduplication_r2.1.txt
-{('Chr14', 46889629, 'Chr14', 48066948, 'D'): 1, ('Chr13', 23600094, 'Chr13', 23434406, 'S'): -1, ('Chr8', 143990784, 'Chr8', 145076125, 'S'): -1, ('ChrX', 48520504, 'ChrX', 52380136, 'D'): 1}
-chr_bin: -multiple centromeres ({'Chr4', 'Chr1'}), highest representation: Chr1, path_name: Path9, segment_chr: Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr1 Chr1 Chr1 Chr1 Chr1 Chr9 Chr9 
+{('Chr14', 46889629, 'Chr14', 48066948, 'D'): 1, ('Chr13', 23434406, 'Chr13', 23600094, 'D'): 1, ('Chr4', 336037, 'Chr4', 12985, 'D'): 1, ('Chr1', 248656584, 'Chr1', 248943333, 'D'): 1, ('Chr9', 248887, 'Chr9', 14566, 'D'): 1, ('Chr9', 60867229, 'Chr9', 43289105, 'D'): 1, ('ChrX', 48520504, 'ChrX', 52380136, 'D'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1}
+chr_bin: -multiple centromeres ({'Chr3', 'Chr1', 'Chr4'}), highest representation: Chr4, path_name: Path5, segment_chr: Chr3 Chr3 Chr3 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr1 Chr1 Chr1 Chr1 Chr1 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr1, path_name: Path6, segment_chr: Chr1 Chr1 Chr4 Chr3 Chr4 
+chr_bin: -no centromere, highest representation: Chr3, path_name: Path7, segment_chr: Chr3 Chr4 Chr4 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path11, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path24, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 
 chr_bin: -no centromere, highest representation: Chr13, path_name: Path25, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 
-chr_bin: -no centromere, highest representation: Chr13, path_name: Path26, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 
-chr_bin: -no centromere, highest representation: Chr14, path_name: Path27, segment_chr: Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 
-chr_bin: -no centromere, highest representation: Chr14, path_name: Path28, segment_chr: Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 
-chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 
-chr_bin: -no centromere, highest representation: Chr15, path_name: Path30, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path26, segment_chr: Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path27, segment_chr: Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path36, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path37, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path40, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_Angelman_r2.1.txt
-{('Chr8', 141481373, 'Chr8', 145076125, 'S'): -1, ('Chr10', 60428643, 'Chr10', 60366956, 'S'): 1, ('Chr3', 39980278, 'Chr3', 47472639, 'D'): 1, ('Chr4', 36131700, 'Chr4', 43326020, 'D'): 1, ('Chr2', 6892095, 'Chr2', 10548906, 'D'): 1, ('Chr14', 104645780, 'Chr14', 106873282, 'S'): -1, ('Chr16', 887823, 'Chr16', 33083587, 'D'): 1, ('Chr15', 22114847, 'Chr15', 28208207, 'D'): 1}
-chr_bin: -multiple centromeres ({'Chr8', 'Chr5'}), highest representation: Chr5, path_name: Path13, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr8 Chr8 Chr8 Chr8 Chr8 Chr8 Chr8 Chr8 Chr8 Chr8 Chr8 Chr8 
-chr_bin: -no centromere, highest representation: Chr15, path_name: Path27, segment_chr: Chr15 Chr15 Chr15 Chr15 
-chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 Chr15 
+{('Chr10', 60366955, 'Chr10', 60428644, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr3', 39980278, 'Chr3', 47472639, 'D'): 1, ('Chr4', 36131700, 'Chr4', 43326020, 'D'): 1, ('Chr2', 6892095, 'Chr2', 10548906, 'D'): 1, ('Chr21', 46472077, 'Chr21', 46697230, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr16', 14134, 'Chr16', 438040, 'S'): 1, ('Chr16', 887823, 'Chr16', 33083587, 'D'): 1, ('Chr16', 34343021, 'Chr16', 36224643, 'D'): 1, ('Chr15', 22114847, 'Chr15', 28208207, 'D'): 1, ('Chr11', 134829523, 'Chr11', 135069565, 'S'): 1}
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path17, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path18, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path25, segment_chr: Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path26, segment_chr: Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path27, segment_chr: Chr14 Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path28, segment_chr: Chr14 Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path30, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path39, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path40, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path42, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path43, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_22q11-2_distal_deletion_r2.1.txt
-{('Chr2', 175590434, 'Chr2', 183984820, 'D'): 1, ('Chr4', 73192018, 'Chr4', 75615907, 'D'): 1, ('Chr17', 21692280, 'Chr17', 22042417, 'S'): 1, ('Chr17', 22732568, 'Chr17', 26692352, 'S'): 1, ('Chr5', 72640050, 'Chr5', 77860222, 'D'): 1}
-chr_bin: -no centromere, highest representation: Chr3, path_name: Path7, segment_chr: Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 
-chr_bin: -no centromere, highest representation: Chr3, path_name: Path8, segment_chr: Chr3 Chr3 
-chr_bin: -no centromere, highest representation: Chr17, path_name: Path35, segment_chr: Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 
-chr_bin: -no centromere, highest representation: Chr17, path_name: Path36, segment_chr: Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 
-chr_bin: -no centromere, highest representation: Chr17, path_name: Path37, segment_chr: Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 
+{('Chr21', 46410484, 'Chr21', 46697230, 'D'): 1, ('Chr21', 9376464, 'Chr21', 9154085, 'D'): 1, ('Chr21', 5445038, 'Chr21', 5010514, 'D'): 1, ('Chr2', 175590434, 'Chr2', 183984820, 'D'): 1, ('Chr4', 73192018, 'Chr4', 75615907, 'D'): 1, ('Chr3', 91946511, 'Chr3', 198230596, 'D'): 1, ('Chr17', 22042418, 'Chr17', 22732567, 'D'): 1, ('Chr17', 26692353, 'Chr17', 78190794, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr5', 72640050, 'Chr5', 77860222, 'D'): 1, ('Chr11', 134858218, 'Chr11', 135069565, 'D'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1}
+chr_bin: -multiple centromeres ({'Chr1', 'Chr21'}), highest representation: Chr21, path_name: Path2, segment_chr: Chr1 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr21 Chr1 Chr1 Chr1 
+chr_bin: -no centromere, highest representation: Chr3, path_name: Path5, segment_chr: Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path9, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr7 Chr7 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path16, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path17, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path25, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path26, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path27, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr17, path_name: Path31, segment_chr: Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 
+chr_bin: -no centromere, highest representation: Chr17, path_name: Path32, segment_chr: Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 Chr17 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path37, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path39, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path40, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_STS_r2.1.txt
-{('Chr9', 264300, 'Chr9', 43279153, 'D'): 1}
+{('Chr9', 14566, 'Chr9', 258909, 'S'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path4, segment_chr: Chr5 Chr2 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path5, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
 chr_bin: -no centromere, highest representation: Chr6, path_name: Path11, segment_chr: Chr6 Chr6 Chr6 Chr6 Chr6 
-chr_bin: -no centromere, highest representation: Chr9, path_name: Path18, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
-chr_bin: -no centromere, highest representation: Chr9, path_name: Path19, segment_chr: Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path18, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path19, segment_chr: Chr9 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path26, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path27, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path39, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path42, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path43, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23Y_CMT1A_r2.1.txt
-{('Chr5', 46400790, 'Chr5', 49709238, 'S'): 1, ('Chr5', 70223364, 'Chr5', 71035564, 'S'): 1, ('Chr5', 288115, 'Chr5', 135592864, 'D'): 1, ('Chr5', 135951613, 'Chr5', 181301991, 'D'): 1, ('Chr6', 5729123, 'Chr6', 9480104, 'D'): 1, ('Chr7', 52904794, 'Chr7', 52831828, 'S'): 1, ('Chr3', 82350953, 'Chr3', 84799610, 'D'): 1, ('Chr4', 21200985, 'Chr4', 31034116, 'D'): 1, ('Chr10', 2991118, 'Chr10', 6332955, 'D'): 1}
-chr_bin: -no centromere, highest representation: Chr5, path_name: Path13, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
-chr_bin: -no centromere, highest representation: Chr5, path_name: Path16, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr8 Chr8 
-chr_bin: -no centromere, highest representation: Chr13, path_name: Path27, segment_chr: Chr13 Chr13 Chr13 Chr13 
-chr_bin: -no centromere, highest representation: Chr13, path_name: Path28, segment_chr: Chr13 Chr13 Chr13 
+{('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr5', 288115, 'Chr5', 70223363, 'D'): 1, ('Chr5', 71035565, 'Chr5', 135592864, 'D'): 1, ('Chr5', 135951613, 'Chr5', 181301991, 'D'): 1, ('Chr6', 5729123, 'Chr6', 9480104, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr7', 52831827, 'Chr7', 52904795, 'D'): 1, ('Chr3', 82350953, 'Chr3', 84799610, 'D'): 1, ('Chr4', 21200985, 'Chr4', 31034116, 'D'): 1, ('Chr2', 241965712, 'Chr2', 242181357, 'S'): 1, ('Chr2', 241965711, 'Chr2', 242181357, 'D'): 1, ('Chr10', 2991118, 'Chr10', 6332955, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr21', 46472077, 'Chr21', 46697230, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path12, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path15, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr8 Chr8 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path20, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path21, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path26, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path27, segment_chr: Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path28, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path29, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path30, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path31, segment_chr: Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path39, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path42, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23Y_Cri_du_Chat_r1.1.txt
-{('Chr10', 114962497, 'Chr10', 123824125, 'D'): 1, ('Chr5', 254718, 'Chr5', 12605822, 'D'): 1, ('Chr13', 110510479, 'Chr13', 113516616, 'D'): 1}
+{('Chr10', 114962497, 'Chr10', 123824125, 'D'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr21', 46412382, 'Chr21', 46697230, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr5', 254718, 'Chr5', 12605822, 'D'): 1, ('Chr13', 110510479, 'Chr13', 113516616, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path9, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path19, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path20, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 
 chr_bin: -no centromere, highest representation: Chr13, path_name: Path25, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 
 chr_bin: -no centromere, highest representation: Chr13, path_name: Path26, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path27, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path28, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path30, segment_chr: Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path39, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path40, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path42, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path43, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_Cri_du_Chat_r2.1.txt
-{('Chr3', 9230785, 'Chr3', 15651362, 'D'): 1, ('Chr5', 254718, 'Chr5', 12638531, 'D'): 1, ('Chr7', 139782949, 'Chr7', 139597453, 'S'): -1, ('Chr18', 70998464, 'Chr18', 77328659, 'D'): 1, ('Chr15', 92594001, 'Chr15', 101609126, 'D'): 1, ('Chr9', 25994479, 'Chr9', 35120946, 'D'): 1, ('Chr10', 38404810, 'Chr10', 40723427, 'S'): 1, ('Chr10', 301374, 'Chr10', 125829448, 'D'): 1, ('Chr10', 126177481, 'Chr10', 132148913, 'D'): 1}
-chr_bin: -no centromere, highest representation: Chr10, path_name: Path19, segment_chr: Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 
-chr_bin: -no centromere, highest representation: Chr10, path_name: Path20, segment_chr: Chr11 Chr11 Chr11 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 
+{('Chr3', 9230785, 'Chr3', 15651362, 'D'): 1, ('Chr5', 254718, 'Chr5', 12638531, 'D'): 1, ('Chr7', 139597453, 'Chr7', 139782949, 'D'): 1, ('Chr18', 70998464, 'Chr18', 77328659, 'D'): 1, ('Chr15', 92594001, 'Chr15', 101609126, 'D'): 1, ('Chr13', 114148963, 'Chr13', 114352102, 'S'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr21', 9190518, 'Chr21', 9540662, 'D'): 1, ('Chr21', 46412382, 'Chr21', 46697230, 'D'): 1, ('Chr9', 25994479, 'Chr9', 35120946, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr10', 40723428, 'Chr10', 132148913, 'D'): 1, ('Chr10', 122177955, 'Chr11', 134829522, 'D'): 1, ('Chr11', 135069565, 'Chr10', 125829448, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path17, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path18, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr10, path_name: Path19, segment_chr: Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 
+chr_bin: -no centromere, highest representation: Chr10, path_name: Path22, segment_chr: Chr10 Chr10 Chr10 Chr10 Chr10 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path25, segment_chr: Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path26, segment_chr: Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path27, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path28, segment_chr: Chr14 Chr14 
 chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path39, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path42, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23Y_NF1_microdeletion_r2.1.txt
-{('Chr1', 98953857, 'Chr1', 98898999, 'S'): 1, ('Chr1', 143278151, 'Chr1', 248668258, 'D'): 1, ('Chr8', 129860224, 'Chr8', 130322523, 'S'): -1, ('Chr8', 45972482, 'Chr8', 144888116, 'D'): 1, ('Chr14', 64505796, 'Chr14', 64769399, 'S'): 1, ('Chr9', 64186127, 'Chr9', 66749835, 'S'): 1, ('Chr9', 302048, 'Chr9', 8049325, 'D'): 1, ('Chr9', 7464905, 'Chr9', 7385150, 'D'): 1, ('Chr9', 8127844, 'Chr9', 40439253, 'D'): 1, ('Chr9', 63490126, 'Chr9', 135192382, 'D'): 1, ('Chr15', 93293578, 'Chr15', 93212816, 'S'): 1, ('Chr20', 296843, 'Chr20', 2176265, 'D'): 1}
-chr_bin: -no centromere, highest representation: Chr3, path_name: Path7, segment_chr: Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 
-chr_bin: -no centromere, highest representation: Chr3, path_name: Path8, segment_chr: Chr3 Chr3 
-chr_bin: -no centromere, highest representation: Chr14, path_name: Path18, segment_chr: Chr14 Chr14 Chr9 Chr14 Chr14 Chr14 Chr14 
-chr_bin: -no centromere, highest representation: Chr14, path_name: Path19, segment_chr: Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 
-chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
-chr_bin: -no centromere, highest representation: Chr15, path_name: Path30, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+{('Chr21', 46415696, 'Chr21', 46697230, 'D'): 1, ('Chr1', 248670927, 'Chr1', 248943333, 'S'): 1, ('Chr7', 159103087, 'Chr7', 159334984, 'D'): 1, ('Chr1', 98898998, 'Chr1', 121608074, 'D'): 1, ('Chr1', 143278151, 'Chr1', 248943333, 'D'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr8', 45972482, 'Chr8', 129860224, 'D'): 1, ('Chr8', 130322523, 'Chr8', 144888116, 'D'): 1, ('Chr9', 302048, 'Chr9', 7385150, 'D'): 1, ('Chr9', 7464905, 'Chr9', 8049325, 'D'): 1, ('Chr9', 40730500, 'Chr9', 60888426, 'D'): 1, ('Chr9', 62144828, 'Chr9', 63014728, 'D'): 1, ('Chr9', 64134668, 'Chr9', 65066131, 'D'): 1, ('Chr9', 65321101, 'Chr9', 66749836, 'D'): 1, ('Chr9', 135192382, 'Chr9', 137620969, 'D'): 1, ('Chr14', 64769400, 'Chr9', 8127844, 'D'): 1, ('Chr15', 93212815, 'Chr15', 93293579, 'D'): 1, ('Chr10', 133530187, 'Chr10', 133785266, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1}
+chr_bin: -multiple centromeres ({'Chr1', 'Chr7'}), highest representation: Chr1, path_name: Path2, segment_chr: Chr7 Chr7 Chr7 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 
+chr_bin: -no centromere, highest representation: Chr3, path_name: Path5, segment_chr: Chr3 Chr3 Chr3 Chr3 Chr3 Chr3 
+chr_bin: -no centromere, highest representation: Chr3, path_name: Path6, segment_chr: Chr3 Chr3 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path9, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path15, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path16, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 Chr14 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path17, segment_chr: Chr14 Chr14 Chr14 Chr9 Chr9 Chr9 Chr9 Chr9 Chr14 Chr14 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path18, segment_chr: Chr14 Chr14 Chr9 Chr14 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path24, segment_chr: Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path25, segment_chr: Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path26, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path27, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path36, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path37, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path39, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path40, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_1q21_recurrent_microduplication_r2.1.txt
-{('Chr4', 1818080, 'Chr4', 12986, 'S'): -1, ('Chr4', 108121114, 'Chr4', 109394610, 'D'): 1, ('Chr12', 57624186, 'Chr12', 58512892, 'D'): 1}
-chr_bin: -no centromere, highest representation: Chr13, path_name: Path5, segment_chr: Chr13 Chr13 Chr2 Chr13 Chr13 Chr13 Chr13 
-chr_bin: -no centromere, highest representation: Chr13, path_name: Path7, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 
+{('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr4', 1390097, 'Chr4', 1818080, 'D'): 1, ('Chr4', 108121114, 'Chr4', 109394610, 'D'): 1, ('Chr2', 241952763, 'Chr2', 242181357, 'S'): 1, ('Chr2', 276539, 'Chr2', 15924, 'D'): 1, ('Chr2', 241952762, 'Chr2', 242181357, 'D'): 1, ('Chr1', 248668256, 'Chr1', 248943333, 'D'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr21', 46429653, 'Chr21', 46697230, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr12', 57624186, 'Chr12', 58512892, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path2, segment_chr: Chr13 Chr13 Chr2 Chr13 Chr13 Chr13 Chr13 
+chr_bin: -multiple centromeres ({'Chr1', 'Chr7'}), highest representation: Chr1, path_name: Path3, segment_chr: Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr7 Chr1 Chr1 Chr1 Chr1 Chr7 Chr7 Chr7 
+chr_bin: -multiple centromeres ({'Chr1', 'Chr2'}), highest representation: Chr1, path_name: Path4, segment_chr: Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr7 Chr2 Chr2 Chr2 Chr2 Chr7 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path9, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path12, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr16 Chr16 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path17, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path18, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path27, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path35, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path36, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path38, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path39, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_22q11-2_distal_deletion_r1.1.txt
-{('Chr18', 27121235, 'Chr18', 35901748, 'D'): 1, ('Chr11', 36310302, 'Chr11', 45304391, 'D'): 1, ('Chr12', 108079511, 'Chr12', 114345293, 'D'): 1, ('Chr1', 27950097, 'Chr1', 28069082, 'S'): -1, ('Chr6', 58445658, 'Chr6', 60290030, 'S'): 1, ('Chr6', 81144424, 'Chr6', 169949785, 'D'): 1, ('Chr8', 137777408, 'Chr8', 144888116, 'D'): 1}
+{('Chr18', 27121235, 'Chr18', 35901748, 'D'): 1, ('Chr11', 36310302, 'Chr11', 45304391, 'D'): 1, ('Chr12', 108079511, 'Chr12', 114345293, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr1', 27950097, 'Chr1', 28069082, 'D'): 1, ('Chr6', 60290031, 'Chr6', 80353187, 'D'): 1, ('Chr6', 81144424, 'Chr6', 169949785, 'D'): 1, ('Chr8', 137777408, 'Chr8', 144888116, 'D'): 1, ('Chr21', 9177158, 'Chr21', 9557230, 'D'): 1, ('Chr21', 46472077, 'Chr21', 46697230, 'D'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr6, path_name: Path13, segment_chr: Chr6 Chr6 Chr6 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path18, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path19, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path28, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path29, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path30, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path31, segment_chr: Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path40, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path41, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path43, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path44, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_Early_onset_Alzheimer_r1.1.txt
-{('Chr12', 73783861, 'Chr12', 75275464, 'D'): 1, ('Chr8', 128454877, 'Chr8', 128513507, 'S'): -1}
+{('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr21', 46410484, 'Chr21', 46697230, 'D'): 1, ('Chr12', 73783861, 'Chr12', 75275464, 'D'): 1, ('Chr10', 314276, 'Chr10', 18514, 'D'): 1, ('Chr8', 128513507, 'Chr8', 128454877, 'D'): 1, ('Chr18', 495171, 'Chr18', 18868, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr10, path_name: Path4, segment_chr: Chr2 Chr2 Chr2 Chr10 Chr10 Chr10 
+chr_bin: -multiple centromeres ({'Chr2', 'Chr10'}), highest representation: Chr10, path_name: Path5, segment_chr: Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr10 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path11, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path20, segment_chr: Chr14 Chr14 Chr8 Chr14 Chr18 Chr18 
+chr_bin: -no centromere, highest representation: Chr8, path_name: Path21, segment_chr: Chr14 Chr14 Chr14 Chr8 Chr8 Chr8 Chr8 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path23, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path24, segment_chr: Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path31, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path32, segment_chr: Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path37, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path40, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_Angelman_r1.1.txt
-{('Chr21', 15046744, 'Chr21', 20949615, 'D'): 1, ('Chr11', 11973235, 'Chr11', 15880729, 'D'): 1, ('Chr15', 22114847, 'Chr15', 28215387, 'D'): 1, ('Chr15', 36267981, 'Chr15', 45876375, 'D'): 1, ('Chr5', 80543566, 'Chr5', 89331806, 'D'): 1, ('Chr2', 188939570, 'Chr2', 188861310, 'S'): -1}
-chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+{('Chr21', 15046744, 'Chr21', 20949615, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr11', 15880729, 'Chr11', 11973235, 'D'): 1, ('Chr15', 22114847, 'Chr15', 28215387, 'D'): 1, ('Chr15', 36267981, 'Chr15', 45876375, 'D'): 1, ('Chr5', 80543566, 'Chr5', 89331806, 'D'): 1, ('Chr9', 60867229, 'Chr9', 43289105, 'D'): 1, ('Chr2', 188861310, 'Chr2', 188939570, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path1, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr1, path_name: Path4, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr1 Chr1 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
 chr_bin: -no centromere, highest representation: Chr15, path_name: Path30, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path39, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path40, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path43, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path44, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23Y_12q14_recurrent_microdeletion_r2.1.txt
-{('Chr3', 84077165, 'Chr3', 84689839, 'D'): 1, ('Chr4', 91595736, 'Chr4', 91681685, 'S'): -1, ('Chr5', 23991438, 'Chr5', 24997608, 'D'): 1}
+{('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr3', 84077165, 'Chr3', 84689839, 'D'): 1, ('Chr1', 248670926, 'Chr1', 248943333, 'D'): 1, ('Chr4', 91595736, 'Chr4', 91681685, 'D'): 1, ('Chr5', 23991438, 'Chr5', 24997608, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr21', 7225220, 'Chr21', 7488430, 'D'): 1, ('Chr21', 46472077, 'Chr21', 46697230, 'D'): 1}
+chr_bin: -multiple centromeres ({'Chr1', 'Chr12'}), highest representation: Chr1, path_name: Path4, segment_chr: Chr12 Chr12 Chr12 Chr12 Chr12 Chr12 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr1 Chr2 Chr1 
+chr_bin: -no centromere, highest representation: Chr1, path_name: Path5, segment_chr: Chr2 Chr1 Chr1 Chr12 Chr12 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path20, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path21, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path26, segment_chr: Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path27, segment_chr: Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path39, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path42, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23Y_Cri_du_Chat_r2.1.txt
-{('Chr5', 254718, 'Chr5', 46400789, 'D'): 1, ('Chr5', 88027017, 'Chr5', 87914548, 'D'): 1, ('Chr5', 149747354, 'Chr5', 150636247, 'D'): 1}
-chr_bin: -no centromere, highest representation: Chr5, path_name: Path9, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
-chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 
-chr_bin: -no centromere, highest representation: Chr5, path_name: Path11, segment_chr: Chr5 Chr5 
-chr_bin: -no centromere, highest representation: Chr5, path_name: Path12, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
-chr_bin: -no centromere, highest representation: Chr5, path_name: Path13, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
-chr_bin: -no centromere, highest representation: Chr13, path_name: Path28, segment_chr: Chr13 Chr13 Chr13 Chr13 
+{('Chr5', 254718, 'Chr5', 46400789, 'D'): 1, ('Chr5', 47137620, 'Chr5', 47739231, 'D'): 1, ('Chr5', 149747354, 'Chr5', 150636247, 'D'): 1, ('Chr5', 88027017, 'Chr5', 87914548, 'D'): 1, ('Chr9', 60867229, 'Chr9', 43289105, 'D'): 1, ('Chr22', 11428932, 'Chr22', 11717595, 'D'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr21', 46415696, 'Chr21', 46697230, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path9, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path11, segment_chr: Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path12, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path13, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path14, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path15, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path28, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 
 chr_bin: -no centromere, highest representation: Chr13, path_name: Path29, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path30, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path31, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path32, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path33, segment_chr: Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path42, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path43, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path45, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path46, segment_chr: Chr22 Chr22 Chr22 Chr22 
 
 23Y_CMT1A_r1.1.txt
-{('Chr20', 20647796, 'Chr20', 20558668, 'S'): -1, ('Chr5', 46400790, 'Chr5', 49709238, 'S'): -1, ('Chr5', 254718, 'Chr5', 181301992, 'D'): 1, ('Chr13', 21626566, 'Chr13', 28772181, 'D'): 1, ('Chr14', 101442898, 'Chr14', 104169671, 'D'): 1, ('Chr3', 77970099, 'Chr3', 78023973, 'S'): -1, ('Chr7', 63008786, 'Chr7', 109091421, 'D'): 1, ('Chr7', 111189749, 'Chr7', 157625834, 'D'): 1}
-chr_bin: -no centromere, highest representation: Chr1, path_name: Path3, segment_chr: Chr1 Chr1 Chr1 
-chr_bin: -no centromere, highest representation: Chr5, path_name: Path12, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
-chr_bin: -no centromere, highest representation: Chr13, path_name: Path25, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 
-chr_bin: -no centromere, highest representation: Chr13, path_name: Path28, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr16 Chr16 
-chr_bin: -no centromere, highest representation: Chr14, path_name: Path29, segment_chr: Chr14 Chr14 Chr14 Chr14 
-chr_bin: -no centromere, highest representation: Chr14, path_name: Path30, segment_chr: Chr14 Chr14 Chr14 Chr14 Chr14 
+{('ChrY', 26574528, 'ChrY', 57212132, 'S'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr21', 46472077, 'Chr21', 46697230, 'D'): 1, ('Chr20', 20558668, 'Chr20', 20647796, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr5', 254718, 'Chr5', 181301992, 'D'): 1, ('Chr1', 248670926, 'Chr1', 248943333, 'D'): 1, ('Chr13', 21626566, 'Chr13', 28772181, 'D'): 1, ('Chr14', 101442898, 'Chr14', 104169671, 'D'): 1, ('Chr3', 77970099, 'Chr3', 78023973, 'D'): 1, ('Chr7', 60735965, 'Chr7', 61843596, 'D'): 1, ('Chr7', 63008786, 'Chr7', 109091421, 'D'): 1, ('Chr7', 111189749, 'Chr7', 158687270, 'D'): 1, ('Chr7', 159103087, 'Chr7', 159334984, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr1, path_name: Path2, segment_chr: Chr1 Chr1 Chr1 
+chr_bin: -no centromere, highest representation: Chr3, path_name: Path6, segment_chr: Chr7 Chr7 Chr3 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path15, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path16, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path23, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path26, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr13 Chr16 Chr16 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path27, segment_chr: Chr14 Chr14 Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path28, segment_chr: Chr14 Chr14 Chr14 Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path30, segment_chr: Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path37, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path40, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_STS_r1.1.txt
-{('Chr9', 1898217, 'Chr9', 2003281, 'S'): -1, ('Chr15', 62928238, 'Chr15', 70072224, 'D'): 1, ('Chr16', 38277016, 'Chr16', 89959908, 'D'): 1, ('Chr3', 113247228, 'Chr3', 119672700, 'D'): 1, ('Chr1', 31333690, 'Chr1', 31394480, 'S'): 1, ('Chr12', 75176691, 'Chr12', 75184605, 'S'): 1, ('Chr1', 32907733, 'Chr1', 32839190, 'S'): -1, ('Chr1', 31333689, 'Chr12', 68077475, 'D'): 1, ('Chr11', 47079022, 'Chr11', 46909239, 'S'): -1, ('Chr7', 61875655, 'Chr7', 159096120, 'D'): 1}
-chr_bin: -no centromere, highest representation: Chr15, path_name: Path31, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
-chr_bin: -no centromere, highest representation: Chr15, path_name: Path32, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
-chr_bin: -no centromere, highest representation: Chr16, path_name: Path33, segment_chr: Chr16 Chr16 Chr16 Chr16 Chr16 
-chr_bin: -no centromere, highest representation: Chr16, path_name: Path34, segment_chr: Chr16 Chr16 Chr16 
+{('Chr21', 46408701, 'Chr21', 46697230, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr9', 1898217, 'Chr9', 2003281, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr15', 62928238, 'Chr15', 70072224, 'D'): 1, ('Chr3', 113247228, 'Chr3', 119672700, 'D'): 1, ('Chr18', 222354, 'Chr18', 18868, 'D'): 1, ('Chr12', 75176691, 'Chr12', 75184605, 'S'): 1, ('Chr1', 31333689, 'Chr12', 76599957, 'D'): 1, ('Chr1', 31394481, 'Chr1', 32839190, 'D'): 1, ('Chr1', 32907733, 'Chr12', 68077475, 'D'): 1, ('Chr2', 241970519, 'Chr2', 242181357, 'S'): 1, ('Chr2', 241970518, 'Chr2', 242181357, 'D'): 1, ('Chr11', 46909239, 'Chr11', 47079022, 'D'): 1, ('Chr11', 134838710, 'Chr11', 135069565, 'D'): 1, ('Chr7', 159103088, 'Chr7', 159334984, 'S'): 1}
+chr_bin: -multiple centromeres ({'Chr2', 'Chr11'}), highest representation: Chr11, path_name: Path6, segment_chr: Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 Chr11 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path20, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path21, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path24, segment_chr: Chr13 Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path25, segment_chr: Chr13 Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path26, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path27, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path29, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr16, path_name: Path30, segment_chr: Chr16 Chr16 Chr16 Chr16 Chr16 
+chr_bin: -no centromere, highest representation: Chr16, path_name: Path31, segment_chr: Chr16 Chr16 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path36, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path37, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path39, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path40, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23Y_NF1_microdeletion_r1.1.txt
-{('Chr2', 175637755, 'Chr2', 175561066, 'S'): 1, ('Chr2', 160224560, 'Chr2', 160314259, 'S'): -1, ('Chr2', 207352190, 'Chr2', 207425734, 'S'): -1, ('Chr3', 63956940, 'Chr3', 65089720, 'D'): 1, ('Chr6', 135491218, 'Chr6', 135425965, 'S'): -1, ('Chr8', 103831826, 'Chr8', 103780962, 'S'): -1}
+{('ChrY', 57004468, 'ChrY', 57212132, 'S'): 1, ('Chr22', 50568090, 'Chr22', 50805587, 'S'): 1, ('Chr21', 7225220, 'Chr21', 7488430, 'D'): 1, ('Chr21', 46415696, 'Chr21', 46697230, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr2', 241970519, 'Chr2', 242181357, 'S'): 1, ('Chr4', 282728, 'Chr4', 12985, 'D'): 1, ('Chr2', 160224560, 'Chr2', 160314259, 'D'): 1, ('Chr2', 175637756, 'Chr2', 175561065, 'D'): 1, ('Chr2', 207352190, 'Chr2', 207425734, 'D'): 1, ('Chr2', 241970518, 'Chr2', 242181357, 'D'): 1, ('Chr3', 63956940, 'Chr3', 65089720, 'D'): 1, ('Chr6', 135491218, 'Chr6', 135425965, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1, ('Chr8', 103780962, 'Chr8', 103831826, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path3, segment_chr: Chr14 Chr14 Chr2 Chr14 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path4, segment_chr: Chr14 Chr14 Chr2 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path5, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr2 Chr2 Chr2 Chr2 Chr2 Chr5 
+chr_bin: -no centromere, highest representation: Chr4, path_name: Path7, segment_chr: Chr2 Chr2 Chr2 Chr2 Chr2 Chr4 
+chr_bin: -multiple centromeres ({'Chr2', 'Chr4'}), highest representation: Chr4, path_name: Path8, segment_chr: Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr2 Chr14 Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path17, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path18, segment_chr: Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path25, segment_chr: Chr13 Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr13, path_name: Path26, segment_chr: Chr13 Chr13 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path27, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path37, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path40, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
 23X_Cri_du_Chat_r1.1.txt
-{('Chr16', 73630446, 'Chr16', 80880327, 'D'): 1, ('Chr5', 46400790, 'Chr5', 49709238, 'S'): -1, ('Chr5', 254718, 'Chr5', 181301992, 'D'): 1, ('Chr3', 190029109, 'Chr3', 190151917, 'S'): -1, ('Chr4', 87200298, 'Chr4', 77986654, 'D'): 1, ('Chr9', 111309306, 'Chr9', 101872666, 'D'): 1, ('Chr9', 20106974, 'Chr9', 16349658, 'D'): 1, ('Chr9', 6074294, 'Chr9', 356406, 'D'): 1, ('Chr7', 81851429, 'Chr7', 88398274, 'D'): 1}
-chr_bin: -multiple centromeres ({'Chr9', 'Chr4'}), highest representation: Chr9, path_name: Path8, segment_chr: Chr4 Chr4 Chr4 Chr4 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 Chr4 
-chr_bin: -no centromere, highest representation: Chr5, path_name: Path9, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+{('Chr16', 73630446, 'Chr16', 80880327, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr5', 254718, 'Chr5', 181301992, 'D'): 1, ('Chr21', 9179317, 'Chr21', 9563740, 'D'): 1, ('Chr21', 46402887, 'Chr21', 46697230, 'D'): 1, ('Chr22', 50594574, 'Chr22', 50805587, 'S'): 1, ('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr3', 190029109, 'Chr3', 190151917, 'D'): 1, ('Chr4', 87200298, 'Chr4', 77986654, 'D'): 1, ('Chr9', 101872666, 'Chr9', 60867229, 'D'): 1, ('Chr9', 43289105, 'Chr9', 20106974, 'D'): 1, ('Chr9', 16349658, 'Chr9', 6074294, 'D'): 1, ('Chr9', 356406, 'Chr9', 111309306, 'D'): 1, ('Chr7', 81851429, 'Chr7', 88398274, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path8, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 Chr4 Chr4 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr5, path_name: Path10, segment_chr: Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 Chr5 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path25, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path26, segment_chr: Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path27, segment_chr: Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path28, segment_chr: Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path37, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path38, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path40, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path41, segment_chr: Chr22 Chr22 Chr22 
 
 23X_22q11_duplication_r2.1.txt
-{('Chr22', 19135729, 'Chr22', 20818831, 'D'): 1, ('Chr1', 174250945, 'Chr1', 183983332, 'D'): 1, ('Chr3', 101965411, 'Chr3', 102019482, 'S'): -1, ('Chr8', 99216203, 'Chr8', 99127749, 'S'): -1, ('Chr8', 136753953, 'Chr8', 144888116, 'D'): 1}
-chr_bin: -no centromere, highest representation: Chr6, path_name: Path12, segment_chr: Chr15 Chr15 Chr15 Chr6 
-chr_bin: -no centromere, highest representation: Chr15, path_name: Path13, segment_chr: Chr15 Chr15 Chr6 Chr15 Chr15 Chr15 
+{('Chr22', 12695957, 'Chr22', 14545088, 'D'): 1, ('Chr22', 19135729, 'Chr22', 20818831, 'D'): 1, ('Chr1', 174250945, 'Chr1', 183983332, 'D'): 1, ('Chr3', 101965411, 'Chr3', 102019482, 'D'): 1, ('Chr8', 99127749, 'Chr8', 99216203, 'D'): 1, ('Chr8', 136753953, 'Chr8', 144888116, 'D'): 1, ('Chr20', 28431823, 'Chr20', 28637428, 'D'): 1, ('Chr21', 7225220, 'Chr21', 8149934, 'D'): 1, ('Chr21', 46412382, 'Chr21', 46697230, 'D'): 1, ('Chr9', 43289105, 'Chr9', 60867229, 'D'): 1}
+chr_bin: -no centromere, highest representation: Chr15, path_name: Path11, segment_chr: Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 Chr15 
+chr_bin: -no centromere, highest representation: Chr6, path_name: Path12, segment_chr: Chr15 Chr15 Chr6 Chr6 
+chr_bin: -no centromere, highest representation: Chr7, path_name: Path15, segment_chr: Chr7 Chr7 Chr7 Chr7 Chr7 Chr7 
+chr_bin: -no centromere, highest representation: Chr7, path_name: Path16, segment_chr: Chr7 Chr7 Chr7 Chr7 Chr7 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path19, segment_chr: Chr9 Chr9 Chr9 Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: Chr9, path_name: Path20, segment_chr: Chr9 Chr9 Chr9 
+chr_bin: -no centromere, highest representation: ChrX, path_name: Path29, segment_chr: Chr14 Chr14 Chr14 ChrX 
+chr_bin: -no centromere, highest representation: Chr14, path_name: Path32, segment_chr: Chr14 Chr14 Chr14 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path41, segment_chr: Chr20 Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr20, path_name: Path42, segment_chr: Chr20 Chr20 Chr20 Chr20 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path44, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
+chr_bin: -no centromere, highest representation: Chr22, path_name: Path45, segment_chr: Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 Chr22 
 
