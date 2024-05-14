@@ -1,0 +1,13 @@
+file_name,cluster,origin_chr_df1,origin_chr_df2,n_path_diff_df1,n_path_diff_df2,SV_missed_df1,SV_missed_df2,SV_missed_delta
+23X_22q11-2_distal_deletion_r2,14,['Chr17'],['Chr17'],0,-1,0,2,2
+23X_22q11-2_distal_deletion_r2,8,['Chr11'],['Chr11'],0,-1,0,1,1
+23X_Cri_du_Chat_r1,2,['Chr5'],['Chr5'],0,1,1,2,1
+23Y_CMT1A_r1,3,['Chr5'],['Chr5'],0,1,1,2,1
+23Y_Potocki_Shaffer_r1,2,['Chr3'],['Chr3'],0,1,0,1,1
+23X_1q21_recurrent_microduplication_r2,1,['Chr4'],['Chr4'],-1,0,4,0,-4
+23Y_Potocki_Shaffer_r1,8,"['Chr9', 'Chr10']","['Chr9', 'Chr10']",-1,0,2,0,-2
+23X_Angelman_r2,11,['Chr14'],['Chr14'],-1,0,0,0,0
+23X_Angelman_r2,5,"['Chr5', 'Chr8']","['Chr5', 'Chr8']",-1,0,0,0,0
+23X_Xp11_22_Microduplication_r2,4,['Chr8'],['Chr8'],-1,0,0,0,0
+23Y_8q21_recurrent_microdeletion_r2,10,['Chr12'],['Chr12'],-1,0,0,0,0
+23Y_Potocki_Shaffer_r1,13,['Chr16'],['Chr16'],-1,0,0,0,0

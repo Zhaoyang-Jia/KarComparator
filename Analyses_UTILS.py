@@ -7,7 +7,10 @@ import os
 import pandas as pd
 import re
 
+### Can be overwritten during IMPORT
 data_folder = 'new_data_files/cluster_files_testbuild14/'
+omkar_log_dir = 'batch_processing/OMKar_testbuild9/'
+karsim_file_prefix = 'new_data_files/KarSimulator/'
 karsim_history_edges_folder = 'packaged_data/Karsimulator_history_intermediate_terminal_labeled/'
 forbidden_region_file = 'Metadata/acrocentric_telo_cen.bed'
 
@@ -161,7 +164,6 @@ def iterative_count_events(df_row):
 
 
 def iterative_check_missed_SV_in_preILP(input_file_name, missed_SVs, d=200000):
-    omkar_log_dir = 'batch_processing/OMKar_testbuild3/'
     node_file = omkar_log_dir + input_file_name + '.1/' + input_file_name + '.1.preILP_nodes.txt'
     edge_file = omkar_log_dir + input_file_name + '.1/' + input_file_name + '.1.preILP_edges.txt'
     V = get_vertices_pre_ILP(node_file)
@@ -223,7 +225,6 @@ def prep_df():
     ## Extract basic cluster file's info
     data = []
     for file in files:
-        new_data = {}
         file_name = file.split('cluster')[0]
         cluster_number = file.split('cluster_')[1].replace('.txt', '')
         with open(data_folder + file) as fp_read:
@@ -236,23 +237,22 @@ def prep_df():
                         'origin_chr': origins,
                         'n_path_karsim': int(matches[2]),
                         'n_path_omkar': int(matches[3])}
-        alignment_file = file.split('.')[0] + '.alignment.txt'
-        with open('new_data_files/alignment_files/' + alignment_file) as fp_read:
-            line1 = fp_read.readline()
-            line1 = line1.replace('\n', '').split(': ')[1]
-            new_data['total_alignment_cost'] = int(line1)
-            alignment_costs = []
-            for line in fp_read:
-                if line.startswith('alignment'):
-                    line = line.replace('\n', '').split('cost: ')[1]
-                    alignment_costs.append(int(line))
-            new_data['alignment_costs'] = alignment_costs
+        # alignment_file = file.split('.')[0] + '.alignment.txt'
+        # with open(alignment_file_prefix + alignment_file) as fp_read:
+        #     line1 = fp_read.readline()
+        #     line1 = line1.replace('\n', '').split(': ')[1]
+        #     new_data['total_alignment_cost'] = int(line1)
+        #     alignment_costs = []
+        #     for line in fp_read:
+        #         if line.startswith('alignment'):
+        #             line = line.replace('\n', '').split('cost: ')[1]
+        #             alignment_costs.append(int(line))
+        #     new_data['alignment_costs'] = alignment_costs
         data.append(new_data)
 
     df = pd.DataFrame(data)
 
     ## get event_chr
-    karsim_file_prefix = 'new_data_files/KarSimulator/'
     df['event_chr'] = df['file_name'].apply(lambda x: list(get_event_chr(karsim_file_prefix + x + '.kt.txt')))
     df['event_chr'] = df['event_chr'].apply(lambda x: [entry[:-1] for entry in x])
 

@@ -435,7 +435,7 @@ class Graph:
 
             if current_distance < large_value:
                 # an approximate matching is found, pop both edges in the matching
-                print("matched: " + str(current_distance))
+                # print("matched: " + str(current_distance))
                 self.approximated_cnv += current_distance
                 karsim_edge = karsim_transition_edges[karsim_ind]
                 omkar_edge = omkar_transition_edges[omkar_ind]
