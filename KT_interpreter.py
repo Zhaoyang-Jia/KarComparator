@@ -964,15 +964,16 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
             # image_path = "{}/{}".format(image_dir, str(filename) + image_suffix)
             if os.path.exists('latex_reports/' + image_path):
                 # make sure the image file exists
-                final_str += "\\section{{Case: {}}}\n".format(filename)
-                final_str += "\\includegraphics[width=\\textwidth]{{{}}}\n".format(image_path)
-                final_str += "\\newpage\n"
-                final_str += "\n"
+                final_str += "\\section{{Sample Id: {}}}\n".format(filename)
+                final_str += "\\begin{figure}[h!]\n"
+                final_str += "\\centering\n"
+                final_str += "\\includegraphics[width=3in]{{{}}}\n".format(image_path)
+                final_str += "\\caption{{\\footnotesize Chromosomes with aberrant karyotypes}}\n"
+                final_str += "\\label{{fig:karyotype_id{}}}\n".format(filename)
+                final_str += "\\end{figure}\n"
                 print('latex_reports/' + image_path, 'found')
             else:
-                final_str += "\\section{{Case: {}}}\n".format(filename)
-                final_str += "\n"
-                final_str += "\\newpage\n"
+                final_str += "\\section{{Sample Id: {}}}\n".format(filename)
                 final_str += "\n"
                 print('latex_reports/' + image_path, 'not found')
             for bullet_idx, main_bullet in enumerate(main_bullets):

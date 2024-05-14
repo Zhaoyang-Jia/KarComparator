@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def get_genes_in_region(chrom, start, end, gene_file='Metadata/genes.bed'):
+def get_genes_in_region(chrom, start, end, gene_file='Metadata/genes_siavash_filtered.bed'):
     """
     report all genes with intersection with the region (inclusive)
     :param chrom: chr{1-22, X, Y}
