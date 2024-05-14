@@ -10,10 +10,16 @@ output_dir=${output_dir_prefix}/builds/${build_version}/
 centromere_file=${exe_dir}/hg38_centro.txt
 cyto_file=${exe_dir}/cytoBand.txt
 log_dir=${output_dir}/logs/
+version_register=${output_dir_prefix}/omkar_versions.txt
 
 export PYTHONPATH=../:$PYTHONPATH
 mkdir -p ${output_dir}/omkar_output/
 mkdir -p $log_dir
+
+cd $exe_dir
+commit_code=$(git log -1 --format=%h)
+cd "$output_dir_prefix"
+echo "${build_version}    ${commit_code}" >> ${version_register}
 
 ### Run OMKar
 echo "---------------RUNNING OMKAR-------------------"

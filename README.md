@@ -19,13 +19,14 @@ For example, `bash run_and_analyze_omkar.sh b14`.
 
 ### Outputs
 Each run's output will be in `KarComparator/omkar_analyses_pipeline/builds/<version>`
-1. Intermediate Files
+1. A commit version recording in `omkar_versions.txt`, associating the build name with the current OMKar commit code 
+2. Intermediate Files
    1. OMKar's total output, including debug logs
    2. Dependent Cluster files
-2. Summary statistics: `analyses_summary/summary_statistics.txt`
-3. CSV file of all cases with different number of paths: `analyses_summary/cases_with_path_diff.csv`
-4. CSV file of all cases with missed SVs: `analyses_summary/cases_with_missed_SV.csv`
-5. CSV file of all statistics: `analyses_summary/whole_analyses_table.csv`
+3. Summary statistics: `analyses_summary/summary_statistics.txt`
+4. CSV file of all cases with different number of paths: `analyses_summary/cases_with_path_diff.csv`
+5. CSV file of all cases with missed SVs: `analyses_summary/cases_with_missed_SV.csv`
+6. CSV file of all statistics: `analyses_summary/whole_analyses_table.csv`
 
 | column name                                          | explanation                                                   |
 |------------------------------------------------------|---------------------------------------------------------------|
