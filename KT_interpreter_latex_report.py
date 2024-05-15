@@ -1,14 +1,22 @@
 from KT_interpreter import *
+import re
+
 
 def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict):
-    main_bullets = []
-    sub_bullets = []
+    iscn_events = []
+    gene_reports = []
     associated_event_already_reported = []
     for event in interpreted_events:
+        main_str = ''
+        iscn_interpretation = ''
+
         event_id = event[0]
         event_type = event[1]
         if event_id in associated_event_already_reported:
             continue
+        cn_signature = 0
+        cn_changed_genes = []
+        cn_changed_genes_highlight = []
         if not event_type.startswith('balanced_translocation'):
             # then only 1 block for each event
             if len(event[2]) != 1:
@@ -77,49 +85,48 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
                 else:
                     main_str = 'del({})({})'.format(path_chr, bp2_band)
                 chr_range = chr_range_tostr(bp2, bp3, bp2_band, bp3_band)
-                sub_str1 = 'deletion on Chr{}: {}'.format(path_chr, chr_range)
-                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
-                sub_str4, sub_str5 = report_cnv_genes_on_region(path_chr, bp2, bp3, '-1 CN')
-                sub_bullets.append((sub_str1, sub_str2, sub_str3, sub_str4, sub_str5))
+                iscn_interpretation = 'deletion on Chr{}: {}'.format(path_chr, chr_range)
+                bp_genes, bp_genes_highlight = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
+                cn_signature = -1
+                cn_changed_genes, cn_changed_genes_highlight = report_cnv_genes_on_region(path_chr, bp2, bp3)
             elif event_type == 'inversion':
                 if bp2_band != bp3_band:
                     main_str = 'inv({})({}{})'.format(path_chr, bp2_band, bp3_band)
                 else:
                     main_str = 'inv({})({})'.format(path_chr, bp2_band)
                 chr_range = chr_range_tostr(bp2, bp3, bp2_band, bp3_band)
-                sub_str1 = 'inversion on Chr{}: {}'.format(path_chr, chr_range)
-                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
-                sub_bullets.append((sub_str1, sub_str2, sub_str3))
+                iscn_interpretation = 'inversion on Chr{}: {}'.format(path_chr, chr_range)
+                bp_genes, bp_genes_highlight = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
             elif event_type == 'tandem_duplication':
                 if bp2_band != bp3_band:
                     main_str = 'dup({})({}{})'.format(path_chr, bp2_band, bp3_band)
                 else:
                     main_str = 'dup({})({})'.format(path_chr, bp2_band)
                 chr_range = chr_range_tostr(bp2, bp3, bp2_band, bp3_band)
-                sub_str1 = 'tandem duplication on Chr{}: {}'.format(path_chr, chr_range)
-                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
-                sub_str4, sub_str5 = report_cnv_genes_on_region(path_chr, bp2, bp3, '+1 CN')
-                sub_bullets.append((sub_str1, sub_str2, sub_str3, sub_str4, sub_str5))
+                iscn_interpretation = 'tandem duplication on Chr{}: {}'.format(path_chr, chr_range)
+                bp_genes, bp_genes_highlight = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
+                cn_signature = 1
+                cn_changed_genes, cn_changed_genes_highlight = report_cnv_genes_on_region(path_chr, bp2, bp3)
             elif event_type == 'left_duplication_inversion':
                 if bp2_band != bp3_band:
                     main_str = 'left-dup-inv({})({}{})'.format(path_chr, bp2_band, bp3_band)
                 else:
                     main_str = 'left-dup-inv({})({})'.format(path_chr, bp2_band)
                 chr_range = chr_range_tostr(bp2, bp3, bp2_band, bp3_band)
-                sub_str1 = 'left duplication inversion on Chr{}: {}'.format(path_chr, chr_range)
-                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
-                sub_str4, sub_str5 = report_cnv_genes_on_region(path_chr, bp2, bp3, '+1 CN')
-                sub_bullets.append((sub_str1, sub_str2, sub_str3, sub_str4, sub_str5))
+                iscn_interpretation = 'left duplication inversion on Chr{}: {}'.format(path_chr, chr_range)
+                bp_genes, bp_genes_highlight = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
+                cn_signature = 1
+                cn_changed_genes, cn_changed_genes_highlight = report_cnv_genes_on_region(path_chr, bp2, bp3)
             elif event_type == 'right_duplication_inversion':
                 if bp2_band != bp3_band:
                     main_str = 'right-dup-inv({})({}{})'.format(path_chr, bp2_band, bp3_band)
                 else:
                     main_str = 'right-dup-inv({})({})'.format(path_chr, bp2_band)
                 chr_range = chr_range_tostr(bp2, bp3, bp2_band, bp3_band)
-                sub_str1 = 'right duplication inversion on Chr{}: {}'.format(path_chr, chr_range)
-                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
-                sub_str4, sub_str5 = report_cnv_genes_on_region(path_chr, bp2, bp3, '+1 CN')
-                sub_bullets.append((sub_str1, sub_str2, sub_str3, sub_str4, sub_str5))
+                iscn_interpretation = 'right duplication inversion on Chr{}: {}'.format(path_chr, chr_range)
+                bp_genes, bp_genes_highlight = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
+                cn_signature = 1
+                cn_changed_genes, cn_changed_genes_highlight = report_cnv_genes_on_region(path_chr, bp2, bp3)
             elif event_type == 'insertion':
                 # different report format if insertion is from different chr
                 if 'Chr' + path_chr == bp2_chr:
@@ -128,14 +135,13 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
                 else:
                     main_str = 'ins({};{})({};{}{})'.format(path_chr, bp2_chr, bp1_band, bp2_band, bp3_band)
                 chr_range = chr_range_tostr(bp2, bp3, bp2_band, bp3_band)
-                sub_str1 = 'duplicated-insertion of Chr{}: {} into Chr{}: {}({})'.format(bp2_chr[3:], chr_range, path_chr, bp1, bp1_band)
-                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
-                sub_str4, sub_str5 = report_cnv_genes_on_region(bp2_chr[3:], bp2, bp3, '+1 CN')
-                sub_bullets.append((sub_str1, sub_str2, sub_str3, sub_str4, sub_str5))
+                iscn_interpretation = 'duplicated-insertion of Chr{}: {} into Chr{}: {}({})'.format(bp2_chr[3:], chr_range, path_chr, bp1, bp1_band)
+                bp_genes, bp_genes_highlight = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
+                cn_signature = 1
+                cn_changed_genes, cn_changed_genes_highlight = report_cnv_genes_on_region(bp2_chr[3:], bp2, bp3)
             else:
                 # continue
                 raise RuntimeError('event not in allowed list')
-            main_bullets.append(main_str)
         elif event_type.startswith("balanced_translocation_associated"):
             # TODO: only works with 2-break reciprocal balanced translocation
             o_event_id = int(event_type.split('<')[1].split('>')[0])
@@ -216,28 +222,27 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
             elif chr1.lower() not in ['x', 'y'] and int(chr1) > int(chr2):
                 flip_order = True
             if not flip_order:
-                main_bullets.append('t({};{})({};{})'.format(chr1, chr2, bp1_band, bp2_band))
+                main_str = 't({};{})({};{})'.format(chr1, chr2, bp1_band, bp2_band)
                 chr_range1 = chr_range_tostr(seg1_left_bp, seg1_right_bp, seg1_left_band, seg1_right_band)
                 chr_range2 = chr_range_tostr(seg2_left_bp, seg2_right_bp, seg2_left_band, seg2_right_band)
-                sub_str1 = 'balanced translocation between Chr{} and Chr{}, ' \
-                           'between segments Chr{}: {} and Chr{}: {}'. \
+                iscn_interpretation = 'balanced translocation between Chr{} and Chr{}, ' \
+                                      'between segments Chr{}: {} and Chr{}: {}'. \
                     format(chr1, chr2,
                            chr1, chr_range1,
                            chr2, chr_range2)
-                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(chr1, seg1_left_bp), (chr1, seg1_right_bp),
-                                                                           (chr2, seg2_left_bp), (chr2, seg2_right_bp)])
+                bp_genes, bp_genes_highlight = report_on_genes_based_on_breakpoints([(chr1, seg1_left_bp), (chr1, seg1_right_bp),
+                                                                                     (chr2, seg2_left_bp), (chr2, seg2_right_bp)])
             else:
-                main_bullets.append('t({};{})({};{})'.format(chr2, chr1, bp2_band, bp1_band))
+                main_str = 't({};{})({};{})'.format(chr2, chr1, bp2_band, bp1_band)
                 chr_range1 = chr_range_tostr(seg2_left_bp, seg2_right_bp, seg2_left_band, seg2_right_band)
                 chr_range2 = chr_range_tostr(seg1_left_bp, seg1_right_bp, seg1_left_band, seg1_right_band)
-                sub_str1 = 'balanced translocation between Chr{} and Chr{}, ' \
-                           'between segments Chr{}: {} and Chr{}: {}'. \
+                iscn_interpretation = 'balanced translocation between Chr{} and Chr{}, ' \
+                                      'between segments Chr{}: {} and Chr{}: {}'. \
                     format(chr2, chr1,
                            chr2, chr_range1,
                            chr1, chr_range2)
-                sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(chr2, seg2_left_bp), (chr2, seg2_right_bp),
-                                                                           (chr1, seg1_left_bp), (chr1, seg1_right_bp)])
-            sub_bullets.append((sub_str1, sub_str2, sub_str3))
+                bp_genes, bp_genes_highlight = report_on_genes_based_on_breakpoints([(chr2, seg2_left_bp), (chr2, seg2_right_bp),
+                                                                                     (chr1, seg1_left_bp), (chr1, seg1_right_bp)])
             associated_event_already_reported.append(o_event_id)
         elif event_type.startswith("balanced_translocation_unassociated"):
             event_info = event[2]
@@ -268,19 +273,26 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
             else:
                 ins_site_left_bp = index_to_segment_dict[int(ins_site_left_seg[:-1])].start
                 ins_site_left_band = get_band_location('chr' + ins_chr, ins_site_left_bp)
-            main_bullets.append('ins-t({};{})({};{}{})'.format(ins_chr, event_seg_chr,
-                                                               ins_site_left_band, event_seg_left_band, event_seg_right_band))
+            main_str = 'ins-t({};{})({};{}{})'.format(ins_chr, event_seg_chr, ins_site_left_band, event_seg_left_band, event_seg_right_band)
             chr_range = chr_range_tostr(event_seg_left_bp, event_seg_right_bp, event_seg_left_band, event_seg_right_band)
-            sub_str1 = 'balanced non-reciprocal translocation of Chr{}: {} into Chr{}: {}({})'.\
-                format(event_seg_chr, chr_range,
-                       ins_chr, ins_site_left_bp, ins_site_left_band)
-            sub_str2, sub_str3 = report_on_genes_based_on_breakpoints([(event_seg_chr, event_seg_left_bp),
-                                                                       (event_seg_chr, event_seg_left_bp),
-                                                                       (ins_chr, ins_site_left_bp)])
-            sub_bullets.append((sub_str1, sub_str2, sub_str3))
+            iscn_interpretation = 'balanced non-reciprocal translocation of Chr{}: {} into Chr{}: {}({})' \
+                .format(event_seg_chr, chr_range, ins_chr, ins_site_left_bp, ins_site_left_band)
+            bp_genes, bp_genes_highlight = report_on_genes_based_on_breakpoints([(event_seg_chr, event_seg_left_bp),
+                                                                                 (event_seg_chr, event_seg_left_bp),
+                                                                                 (ins_chr, ins_site_left_bp)])
         else:
             raise RuntimeError('illegal type assigned')
-    return main_bullets, sub_bullets
+        if len(main_str) == 0 or len(iscn_interpretation) == 0:
+            raise RuntimeError('missed interpretation')
+        iscn_events.append([main_str, iscn_interpretation])
+        gene_reports.append({'bp_genes': bp_genes,
+                             'bp_genes_highlight': bp_genes_highlight,
+                             'cnv': cn_signature,
+                             'cnv_genes': cn_changed_genes,
+                             'cnv_genes_highlight': cn_changed_genes_highlight})
+    if len(iscn_events) != len(gene_reports):
+        raise RuntimeError('unmatched reports')
+    return iscn_events, gene_reports
 
 
 def generate_latex_frontpage(title,
@@ -291,6 +303,7 @@ def generate_latex_frontpage(title,
                              interpretation_deletion_threshold):
     output_str = "\\documentclass[12pt]{article}\n"
     output_str += "\\usepackage[letterpaper, margin=0.75in]{geometry}\n"
+    output_str += "\\input{macros}\n"
     output_str += "\\setcounter{secnumdepth}{0}\n"
     output_str += "\\usepackage{graphicx}\n"
     output_str += "\\usepackage{setspace}\n"
@@ -341,6 +354,7 @@ def generate_latex_frontpage(title,
 
     return output_str
 
+
 def batch_generate_latex_case_str(omkar_output_dir, image_dir):
     """
     :param omkar_output_dir: assume files are named as (int).txt
@@ -371,14 +385,17 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
             wt_path_dict = generate_wt_from_OMKar_output(segment_dict)
             wt_indexed_lists = populate_wt_indexed_lists(mt_path_chrs, wt_path_dict)
             events, aligned_haplotypes = interpret_haplotypes(mt_indexed_lists, wt_indexed_lists, mt_path_chrs, segment_size_dict)
-            main_bullets, sub_bullets = format_report(events, aligned_haplotypes, reverse_dict(segment_dict))
+            iscn_events, genes_report = format_report(events, aligned_haplotypes, reverse_dict(segment_dict))
 
-            if len(main_bullets) == 0:
+            if len(iscn_events) == 0:
+                # no event in this case
                 continue
             else:
                 cases_with_events.append(filename)
             image_path = "{}/{}".format(image_dir, str(filename).zfill(3) + image_suffix)
             # image_path = "{}/{}".format(image_dir, str(filename) + image_suffix)
+
+            ## insert image
             if os.path.exists('latex_reports/' + image_path):
                 # make sure the image file exists
                 final_str += "\\section{{Sample Id: {}}}\n".format(filename)
@@ -393,30 +410,33 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
                 final_str += "\\section{{Sample Id: {}}}\n".format(filename)
                 final_str += "\n"
                 print('latex_reports/' + image_path, 'not found')
-            final_str += "\\subsection{Events}\n"
 
             ## Iterate through all events
+            final_str += "\\paragraph{Events}\n"
+            final_str += "\\begin{packed_enum}\n"
             c_event_id = 1  # 1-indexed
+            for bullet_idx, (main_str, iscn_interpretation) in enumerate(iscn_events):
+                final_str += "\\item {{\\bf {}}}. {}\n".format(main_str, iscn_interpretation)
+            final_str += "\\end{packed_enum}\n"
 
-
-
-            for bullet_idx, main_bullet in enumerate(main_bullets):
-                sub_bullet_list = sub_bullets[bullet_idx]
-                final_str += "\\textbf{{Event {}: {}}}\n".format(bullet_idx, main_bullet)
-                final_str += "\\begin{itemize}[leftmargin=3.5em,labelsep=0.5em]\n"
-                for sub_bullet in sub_bullet_list:
-                    if 'DDG2P' in sub_bullet and len(sub_bullet.split('\n\t')) > 1:
-                        final_str += "\\begin{itemize}\n"
-                        for ddg2p_str in sub_bullet.split('\n\t')[1:]:
-                            final_str += "\\item {}\n".format(ddg2p_str)
-                        final_str += "\\end{itemize}\n"
-                    else:
-                        final_str += "\\item {}\n".format(sub_bullet)
-                final_str += "\\end{itemize}\n"
-                final_str += "\n"
-                final_str += "\\hfill"
-                final_str += "\n"
-                final_str += "\n"
+            #
+            # for bullet_idx, main_bullet in enumerate(main_bullets):
+            #     sub_bullet_list = sub_bullets[bullet_idx]
+            #     final_str += "\\textbf{{Event {}: {}}}\n".format(bullet_idx, main_bullet)
+            #     final_str += "\\begin{itemize}[leftmargin=3.5em,labelsep=0.5em]\n"
+            #     for sub_bullet in sub_bullet_list:
+            #         if 'DDG2P' in sub_bullet and len(sub_bullet.split('\n\t')) > 1:
+            #             final_str += "\\begin{itemize}\n"
+            #             for ddg2p_str in sub_bullet.split('\n\t')[1:]:
+            #                 final_str += "\\item {}\n".format(ddg2p_str)
+            #             final_str += "\\end{itemize}\n"
+            #         else:
+            #             final_str += "\\item {}\n".format(sub_bullet)
+            #     final_str += "\\end{itemize}\n"
+            #     final_str += "\n"
+            #     final_str += "\\hfill"
+            #     final_str += "\n"
+            #     final_str += "\n"
 
             final_str += "\n"
             final_str += "\\newpage\n"
@@ -442,6 +462,10 @@ def int_file_keys(f):
     return int(f.split('.')[0])
 
 
+def latex_hyperlink_coordinates(input_str):
+    pattern = r"Chr(\d+): (\d+)-(\d+) ((\d+)-(\d+))"
+
+
 def test_latex(output_name):
     output_path = 'latex_reports/{}'.format(output_name)
     batch_case_str, cases_in_report = batch_generate_latex_case_str(data_dir, image_dir)
@@ -459,8 +483,8 @@ if __name__ == "__main__":
     # test_segs_union()
     # test_reciprocal_trans()
     c_output_name = 'Dremsek'
-    data_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/latex_reports/paul_dremsek_omkar/'
-    # data_dir = '/media/zhaoyang-new/workspace/paul_dremsek/omkar_output/'
+    # data_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/latex_reports/paul_dremsek_omkar/'
+    data_dir = '/media/zhaoyang-new/workspace/paul_dremsek/omkar_output/'
     # data_dir = '/media/zhaoyang-new/workspace/sunnyside/OMKar_output_paths/'
     # data_dir = '/media/zhaoyang-new/workspace/keyhole/OMKar_output_paths/'
     forbidden_region_file = "Metadata/acrocentric_telo_cen.bed"

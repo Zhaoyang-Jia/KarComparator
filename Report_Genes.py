@@ -30,21 +30,21 @@ def get_DDG_overlapped_genes(input_gene_list, DDG_file='Metadata/DDG2P_14_11_202
 def tostring_gene_disease_omim(filtered_DDG_df):
     # for the same gene (under same gene OMIM), we can have multiple diseases (different disease OMIM)
     gene_list = []  # [(str, int)]; (gene, OMIM)
-    disease_list = []  # [([str,], [int])]; ([disease name], [corresponding OMIM])
+    disease_list = []  # [[(str, int)]]; [(disease name, corresponding OMIM)]
 
     genes = filtered_DDG_df['gene symbol'].unique()
     for gene in genes:
         gene_df = filtered_DDG_df[filtered_DDG_df['gene symbol'] == gene]
-        disease_names = []
-        disease_omims = []
+        diseases = []
         first_row = True
         for index, row in gene_df.iterrows():
             if first_row:
                 gene_list.append((gene, row['gene mim']))
                 first_row = False
-            disease_names.append(row['disease name'].replace('&', '\&'))  # prevent latex errors
-            disease_omims.append(row['disease mim'])
-        disease_list.append((disease_names, disease_omims))
+            disease_name = row['disease name'].replace('&', '\&')  # prevent latex errors
+            disease_mim = row['disease mim']
+            diseases.append((disease_name, disease_mim))
+        disease_list.append(diseases)
 
     return gene_list, disease_list
 
