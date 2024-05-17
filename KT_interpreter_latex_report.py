@@ -1,5 +1,6 @@
 from KT_interpreter import *
 from forbidden_region_processing import *
+import pandas as pd
 import re
 
 
@@ -372,8 +373,8 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
     files = sorted(files, key=int_file_keys)
 
     for file in files:
-        if file == '3.txt':
-        # if True:
+        # if file == '3.txt':
+        if True:
             # if file in ['45.txt']:
             #     continue
             # if file in ['145.txt', '450.txt']:
@@ -389,7 +390,6 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
             wt_indexed_lists = populate_wt_indexed_lists(mt_path_chrs, wt_path_dict)
             events, aligned_haplotypes = interpret_haplotypes(mt_indexed_lists, wt_indexed_lists, mt_path_chrs, segment_size_dict)
             iscn_events, genes_report = format_report(events, aligned_haplotypes, reverse_dict(segment_dict))
-
             if len(iscn_events) == 0:
                 # no event in this case
                 continue
@@ -423,8 +423,8 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
             final_str += "\\end{packed_enum}\n"
 
             final_str += "\n"
-            final_str += "\\paragraph{Impacted genes in DDG2P.}$\\;$\\\\\\\\"
-            # final_str +=
+            final_str += "\\paragraph{Impacted genes in DDG2P}$\\;$\\\\\\\\\n"
+            final_str += latex_gene_table(genes_report)
 
             final_str += "\n"
             final_str += "\\newpage\n"
@@ -448,6 +448,69 @@ def chr_range_tostr(bpa, bpb, bpa_band, bpb_band):
 
 def int_file_keys(f):
     return int(f.split('.')[0])
+
+
+def latex_gene_table(genes_report):
+    ## format genes to report
+    genes_to_report = []
+    for event_idx, report_dict in enumerate(genes_report):
+        one_based_idx = event_idx + 1
+        for entry in report_dict['bp_genes_highlight']:
+            gene_entry = entry[0]
+            disease_entry = entry[1]
+            gene_name = gene_entry[0]
+            gene_omim = gene_entry[1]
+            disease_names = []
+            disease_omim = []
+            for disease in disease_entry:
+                disease_names.append(disease[0])
+                disease_omim.append(disease[1])
+            genes_to_report.append({'SV': one_based_idx,
+                                    'rationale': 'breakpoint proximal',
+                                    'gene name': gene_name,
+                                    'gene omim': gene_omim,
+                                    'diseases': disease_names,
+                                    'disease omims': disease_omim})
+        for entry in report_dict['cnv_genes_highlight']:
+            gene_entry = entry[0]
+            disease_entry = entry[1]
+            gene_name = gene_entry[0]
+            gene_omim = gene_entry[1]
+            disease_names = []
+            disease_omim = []
+            for disease in disease_entry:
+                disease_names.append(disease[0])
+                disease_omim.append(disease[1])
+            if report_dict['cnv'] > 0:
+                cnv_str = "+" + str(report_dict['cnv'])
+            else:
+                cnv_str = str(report_dict['cnv'])
+            genes_to_report.append({'SV': one_based_idx,
+                                    'rationale': 'CN' + cnv_str,
+                                    'gene name': gene_name,
+                                    'gene omim': gene_omim,
+                                    'diseases': disease_names,
+                                    'disease omims': disease_omim})
+
+    ## form latex table
+    if len(genes_to_report) == 0:
+        return 'None\n\n'
+    return_str = "{\\scriptsize\n"
+    return_str += "\\begin{tabular}{|llll|}\\hline\n"
+    return_str += "SV & Rationale & Gene Name & Gene Omim  \\\\\\hline\n"
+    for entry_idx, entry in enumerate(genes_to_report):
+        new_line = '{SV} & {Rationale} & {Gene_Name} & {Gene_Omim} \\\\'.\
+            format(SV=entry['SV'],
+                   Rationale=entry['rationale'],
+                   Gene_Name=entry['gene name'],
+                   Gene_Omim=entry['gene omim'])
+        if entry_idx == len(genes_to_report) - 1:
+            return_str += new_line + "\\hline\n"
+        else:
+            return_str += new_line + "\n"
+    return_str += "\\end{tabular}\n"
+    return_str += "}\n"
+    return return_str
 
 
 def latex_hyperlink_coordinates(input_str, proximity=50000):
