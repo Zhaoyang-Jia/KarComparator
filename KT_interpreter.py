@@ -774,23 +774,8 @@ def get_genes_near_breakpoints(breakpoints: [(str, int)], proximity=50000):
 def report_on_genes_based_on_breakpoints(breakpoints):
     breakpoints = gather_breakpoints(breakpoints)
     genes_near_bp = get_genes_near_breakpoints(breakpoints)
-    # sub_str2 = 'all genes near breakpoints: {}'.format(', '.join(genes_near_bp))
     DDG_df = get_DDG_overlapped_genes(genes_near_bp)
     DDG_gene_list, DDG_disease_list = tostring_gene_disease_omim(DDG_df)
-    # sub_str3 = 'genes near breakpoints documented in DDG2P: '
-    # for gene_idx, gene in enumerate(DDG_gene_list):
-    #     sub_str3 += '\n\t{}({}): '.format(gene[0], gene[1])
-    #     c_disease_tuple = DDG_disease_list[gene_idx]
-    #     disease_str = []
-    #     for disease_idx, disease in enumerate(c_disease_tuple[0]):
-    #         disease_omim = c_disease_tuple[1][disease_idx]
-    #         disease_str.append('{}({})'.format(disease, disease_omim))
-    #     if len(disease_str) > 0:
-    #         sub_str3 += ','.join(disease_str)
-    #     else:
-    #         sub_str3 += 'None'
-    # if len(DDG_gene_list) == 0:
-    #     sub_str3 += 'None'
     return genes_near_bp, list(zip(DDG_gene_list, DDG_disease_list))
 
 
@@ -798,26 +783,8 @@ def report_cnv_genes_on_region(chrom, start, end, proximity=50000):
     start = max(0, start - proximity)
     end = end + proximity
     genes = get_genes_in_region('chr' + chrom, start, end)
-    # if len(genes) == 0:
-    #     sub_str4 = 'all genes with {}: None'.format(CN_str)
-    # else:
-    #     sub_str4 = 'all genes with {}: {}'.format(CN_str, ', '.join(genes))
     DDG_df = get_DDG_overlapped_genes(genes)
     DDG_gene_list, DDG_disease_list = tostring_gene_disease_omim(DDG_df)
-    # sub_str5 = 'genes with {} documented in DDG2P: '.format(CN_str)
-    # for gene_idx, gene in enumerate(DDG_gene_list):
-    #     sub_str5 += '\n\t{}({}): '.format(gene[0], gene[1])
-    #     c_disease_tuple = DDG_disease_list[gene_idx]
-    #     disease_str = []
-    #     for disease_idx, disease in enumerate(c_disease_tuple[0]):
-    #         disease_omim = c_disease_tuple[1][disease_idx]
-    #         disease_str.append('{}({})'.format(disease, disease_omim))
-    #     if len(disease_str) > 0:
-    #         sub_str5 += ','.join(disease_str)
-    #     else:
-    #         sub_str5 += 'None'
-    # if len(DDG_gene_list) == 0:
-    #     sub_str5 += 'None'
     return genes, list(zip(DDG_gene_list, DDG_disease_list))
 
 

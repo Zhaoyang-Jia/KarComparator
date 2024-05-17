@@ -1,9 +1,9 @@
 from Structures import Arm, Segment, Path
 
 
-def read_forbidden_regions(masking_file) -> Arm:
+def read_forbidden_regions(forbidden_region_file) -> Arm:
     segment_list = []
-    with open(masking_file) as fp_read:
+    with open(forbidden_region_file) as fp_read:
         fp_read.readline()  # skip index line
         for line in fp_read:
             line = line.replace('\n', '').split('\t')
@@ -23,8 +23,8 @@ def output_forbidden_regions_from_arm(input_arm: Arm, output_file_path):
             fp_write.write(output_str)
 
 
-def label_path_with_forbidden_regions(input_path_list: [Path], masking_file):
-    forbidden_regions_path = Path(read_forbidden_regions(masking_file), 'forbidden_regions', 'forbidden_regions')
+def label_path_with_forbidden_regions(input_path_list: [Path], forbidden_region_file):
+    forbidden_regions_path = Path(read_forbidden_regions(forbidden_region_file), 'forbidden_regions', 'forbidden_regions')
     for path_itr in input_path_list:
         # breakup into disjoint segments
         path_itr.generate_mutual_breakpoints(forbidden_regions_path, mutual=False)
@@ -38,6 +38,22 @@ def label_path_with_forbidden_regions(input_path_list: [Path], masking_file):
                     labeled = True
             if not labeled:
                 path_segment_itr.segment_type = 'arm_region'
+
+
+def get_chr_length(input_chr_name, forbidden_region_file='Metadata/acrocentric_telo_cen.bed'):
+    with open(forbidden_region_file) as fp_read:
+        fp_read.readline()  # skip index line
+        for line in fp_read:
+            line = line.replace('\n', '').split('\t')
+            chrom = line[0]
+            start_pos = int(line[1])
+            end_pos = int(line[2])
+            seg_type = line[3]
+            if chrom.lower() == input_chr_name.lower():
+                if seg_type == 'telomere2':
+                    return end_pos
+    return None
+
 
 
 def test():

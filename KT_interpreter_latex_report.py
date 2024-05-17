@@ -1,4 +1,5 @@
 from KT_interpreter import *
+from forbidden_region_processing import *
 import re
 
 
@@ -135,7 +136,7 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
                 else:
                     main_str = 'ins({};{})({};{}{})'.format(path_chr, bp2_chr, bp1_band, bp2_band, bp3_band)
                 chr_range = chr_range_tostr(bp2, bp3, bp2_band, bp3_band)
-                iscn_interpretation = 'duplicated-insertion of Chr{}: {} into Chr{}: {}({})'.format(bp2_chr[3:], chr_range, path_chr, bp1, bp1_band)
+                iscn_interpretation = 'duplicated-insertion of Chr{}: {} into Chr{}: {} ({})'.format(bp2_chr[3:], chr_range, path_chr, bp1, bp1_band)
                 bp_genes, bp_genes_highlight = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
                 cn_signature = 1
                 cn_changed_genes, cn_changed_genes_highlight = report_cnv_genes_on_region(bp2_chr[3:], bp2, bp3)
@@ -296,12 +297,18 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
 
 
 def generate_latex_frontpage(title,
-                             sample_names,
                              genefile_name,
                              breakpoint_reporting_proximity,
                              interpretation_insertion_threshold,
-                             interpretation_deletion_threshold):
-    output_str = "\\documentclass[12pt]{article}\n"
+                             interpretation_deletion_threshold,
+                             omkar_version='xxx'):
+    output_str = ''
+
+    def append_action(input_str, o):
+        o = o + input_str + "\n"
+        return o
+
+    output_str += "\\documentclass[12pt]{article}\n"
     output_str += "\\usepackage[letterpaper, margin=0.75in]{geometry}\n"
     output_str += "\\input{macros}\n"
     output_str += "\\setcounter{secnumdepth}{0}\n"
@@ -322,35 +329,31 @@ def generate_latex_frontpage(title,
     output_str += "\\date{" + str(formatted_date) + "}\n"
     output_str += "\\maketitle\n"
     output_str += "\n"
-    output_str += "\\textbf{{Samples Included: }} "
-    output_str += ', '.join(sample_names) + "\n"
+    # output_str += "\\textbf{{Samples Included: }} "
+    # output_str += ', '.join(sample_names) + "\n"
     output_str += "\n"
-    output_str += "\\hfill\n"
-    output_str += "\n"
-    output_str += "\\textbf{Gene file used: } " + genefile_name + "\n"
-    output_str += "\n"
-    output_str += "\\hfill\n"
-    output_str += "\n"
-    output_str += "\\textbf{Breakpoint Gene Reporting Proximity: } " + str(breakpoint_reporting_proximity) + "kbp\n"
-    output_str += "\n"
-    output_str += "\\textbf{Threashold for event insertion size: } " + str(interpretation_insertion_threshold) + "kbp\n"
-    output_str += "\n"
-    output_str += "\\textbf{Threashold for event deletion size: } " + str(interpretation_deletion_threshold) + "kbp\n"
-    output_str += "\n"
-    output_str += "\\textbf{Supported SV types for interpretation: } \n"
-    output_str += "\\begin{itemize}[leftmargin=3.5em,labelsep=0.5em]\n"
-    output_str += "\\itemsep0em\n"
-    output_str += "\\item deletion\n"
-    output_str += "\\item inversion\n"
-    output_str += "\\item single/repeated tandem duplication\n"
-    output_str += "\\item left/right duplication inversion\n"
-    output_str += "\\item 2/multiple-break reciprocal balanced translocation\n"
-    output_str += "\\item nonreciprocal balanced translocation\n"
-    output_str += "\\item duplicated insertion\n"
-    output_str += "\\end{itemize}\n"
+
+    output_str = append_action('\\paragraph{Parameters}', output_str)
+    output_str = append_action('\\begin{packed_itemize}', output_str)
+    output_str = append_action('\\item OMKar version: {}'.format(omkar_version), output_str)
+    output_str = append_action('\\item Genome assembly: hg38', output_str)
+    output_str = append_action('\\item Genes: protein coding', output_str)
+    output_str = append_action('\\item Breakpoint Gene Reporting Proximity: {}'.format(breakpoint_reporting_proximity), output_str)
+    output_str = append_action('\\item Threshold for event insertion size: {}'.format(interpretation_insertion_threshold), output_str)
+    output_str = append_action('\\item Threshold for event deletion size: {}'.format(interpretation_deletion_threshold), output_str)
+    output_str = append_action('\\item Supported SV types:', output_str)
+    output_str = append_action('\\begin{packed_itemize}', output_str)
+    output_str = append_action('\\item Deletion', output_str)
+    output_str = append_action('\\item Inversion', output_str)
+    output_str = append_action('\\item Single/repeated Tandem-duplication', output_str)
+    output_str = append_action('\\item Left/right Duplication-inversion', output_str)
+    output_str = append_action('\\item 2/multi-break Reciprocal-balanced-translocation', output_str)
+    output_str = append_action('\\item Nonreciprocal-balanced-translocation', output_str)
+    output_str = append_action('\\item Duplicated-insertion', output_str)
+    output_str = append_action('\\end{packed_itemize}', output_str)
+    output_str = append_action('\\end{packed_itemize}', output_str)
     output_str += "\n"
     output_str += "\\newpage\n"
-    # output_str += "\\end{document}\n"
 
     return output_str
 
@@ -369,14 +372,14 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
     files = sorted(files, key=int_file_keys)
 
     for file in files:
-        # if file == '3.txt':
-        if True:
+        if file == '3.txt':
+        # if True:
             # if file in ['45.txt']:
             #     continue
             # if file in ['145.txt', '450.txt']:
             #     continue
-            if file in ['54.txt', '205.txt']:
-                continue
+            # if file in ['54.txt', '205.txt']:
+            #     continue
             filename = file.split('.')[0]
             file_path = omkar_output_dir + file
             print(file)
@@ -414,29 +417,14 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
             ## Iterate through all events
             final_str += "\\paragraph{Events}\n"
             final_str += "\\begin{packed_enum}\n"
-            c_event_id = 1  # 1-indexed
             for bullet_idx, (main_str, iscn_interpretation) in enumerate(iscn_events):
+                iscn_interpretation = hyperlink_iscn_interpretation(iscn_interpretation)
                 final_str += "\\item {{\\bf {}}}. {}\n".format(main_str, iscn_interpretation)
             final_str += "\\end{packed_enum}\n"
 
-            #
-            # for bullet_idx, main_bullet in enumerate(main_bullets):
-            #     sub_bullet_list = sub_bullets[bullet_idx]
-            #     final_str += "\\textbf{{Event {}: {}}}\n".format(bullet_idx, main_bullet)
-            #     final_str += "\\begin{itemize}[leftmargin=3.5em,labelsep=0.5em]\n"
-            #     for sub_bullet in sub_bullet_list:
-            #         if 'DDG2P' in sub_bullet and len(sub_bullet.split('\n\t')) > 1:
-            #             final_str += "\\begin{itemize}\n"
-            #             for ddg2p_str in sub_bullet.split('\n\t')[1:]:
-            #                 final_str += "\\item {}\n".format(ddg2p_str)
-            #             final_str += "\\end{itemize}\n"
-            #         else:
-            #             final_str += "\\item {}\n".format(sub_bullet)
-            #     final_str += "\\end{itemize}\n"
-            #     final_str += "\n"
-            #     final_str += "\\hfill"
-            #     final_str += "\n"
-            #     final_str += "\n"
+            final_str += "\n"
+            final_str += "\\paragraph{Impacted genes in DDG2P.}$\\;$\\\\\\\\"
+            # final_str +=
 
             final_str += "\n"
             final_str += "\\newpage\n"
@@ -463,20 +451,43 @@ def int_file_keys(f):
 
 
 def latex_hyperlink_coordinates(input_str, proximity=50000):
-    pattern = r"Chr(\d+): (\d{1,3}(?:,\d{3})*)-(\d{1,3}(?:,\d{3})*) \(.*?\)"
+    return_dict = {}  # {replacement_string: hyperlinked_string}
+
+    pattern = r'Chr(\d+): (\d{1,3}(?:,\d{3})*)-(\d{1,3}(?:,\d{3})*) \(.*?\)'
     matches_itr = re.finditer(pattern, input_str)
-    return_list = []  # (replacement_string, start_idx, end_idx, chr, start_idx, end_idx)
     for match in matches_itr:
-        pass
+        replacement_str = input_str[match.start(): match.end()]
+        start_pos = int(match.group(2).replace(',', ''))
+        end_pos = int(match.group(3).replace(',', ''))
+        ucsc_url = get_ucsc_url('chr' + match.group(1), start_pos, end_pos)
+        hyperlinked_str = '\\href{{{}}}{{{}}}'.format(ucsc_url, replacement_str)
+        return_dict[replacement_str] = hyperlinked_str
+
+    pattern = r'Chr(\d+): (\d{1,3}(?:,\d{3})*) \(.*?\)'
+    matches_itr = re.finditer(pattern, input_str)
+    for match in matches_itr:
+        replacement_str = input_str[match.start(): match.end()]
+        chrom = 'chr' + match.group(1)
+        pos = int(match.group(2).replace(',', ''))
+        c_chr_length = get_chr_length(chrom)
+        ucsc_url = get_ucsc_url(chrom, max(0, pos - proximity), min(c_chr_length, pos + proximity))
+        hyperlinked_str = '\\href{{{}}}{{{}}}'.format(ucsc_url, replacement_str)
+        return_dict[replacement_str] = hyperlinked_str
+
+    return return_dict
 
 
+def hyperlink_iscn_interpretation(input_str):
+    hyperlinked_mapping = latex_hyperlink_coordinates(input_str)
+    for replacement_str, hyperlinked_str in hyperlinked_mapping.items():
+        input_str = input_str.replace(replacement_str, hyperlinked_str)
+    return input_str
 
 
 def test_latex(output_name):
     output_path = 'latex_reports/{}'.format(output_name)
     batch_case_str, cases_in_report = batch_generate_latex_case_str(data_dir, image_dir)
     front_str = generate_latex_frontpage('{} Data'.format(' '.join(output_name.split('_'))),
-                                         cases_in_report,
                                          'hg38 all coding genes',
                                          50,
                                          200,
