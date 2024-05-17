@@ -462,8 +462,14 @@ def int_file_keys(f):
     return int(f.split('.')[0])
 
 
-def latex_hyperlink_coordinates(input_str):
-    pattern = r"Chr(\d+): (\d+)-(\d+) ((\d+)-(\d+))"
+def latex_hyperlink_coordinates(input_str, proximity=50000):
+    pattern = r"Chr(\d+): (\d{1,3}(?:,\d{3})*)-(\d{1,3}(?:,\d{3})*) \(.*?\)"
+    matches_itr = re.finditer(pattern, input_str)
+    return_list = []  # (replacement_string, start_idx, end_idx, chr, start_idx, end_idx)
+    for match in matches_itr:
+        pass
+
+
 
 
 def test_latex(output_name):

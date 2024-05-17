@@ -38,19 +38,22 @@ import os
 
 import re
 
-def extract_segments(input_string):
-    pattern = r"Chr(\d+): (\d+),(\d+),(\d+)-(\d+),(\d+),(\d+) \((q\d+\.\d+) - (q\d+\.\d+)\)"
-    matches = re.findall(pattern, input_string)
-    segments = {}
-    for match in matches:
-        chr_num, start1, start2, start3, end1, end2, end3, q_start, q_end = match
-        segment_key = f"Chr{chr_num}: {start1},{start2},{start3}-{end1},{end2},{end3} (q{q_start} - q{q_end})"
-        segments[segment_key] = (f"chr{chr_num}", int(start1+start2+start3), int(end1+end2+end3))
-    return segments
 
-input_string = "Balanced translocation between Chr1 and Chr17, between segments Chr1: 237,668,707-248,943,333 (q43 - q44) and Chr17: 80,544,491-83,246,392 (q25.3 - q25.3)"
-segments = extract_segments(input_string)
-print(segments)
+input_string0 = "Chr1: 237,668,707-248,943,333"
+input_string1 = "Balanced translocation between Chr1 and Chr17, between segments Chr1: 237,668,707-248,943,333 (q43 - q44) and Chr17: 80,544,491-83,246,392 (q25.3 - q25.3)"
+input_string2 = "Deletion on Chr2: 391-97,531,656 (q11.2 - q11.2)"
+
+pattern = r'Chr(\d+): (\d{1,3}(?:,\d{3})*)-(\d{1,3}(?:,\d{3})*) \(.*?\)'
+
+# Extract integers using regex
+matches = re.finditer(pattern, input_string1)
+
+for match_itr in matches:
+    print(match_itr.group(1))
+    print(match_itr.start())
+    print(match_itr.end())
+    print(input_string1[match_itr.start(): match_itr.end()])
+
 
 # if __name__ == "__main__":
 #     path = 'latex_reports/paul_dremsek_plots/002.pdf'
