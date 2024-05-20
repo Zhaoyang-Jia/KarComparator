@@ -23,13 +23,14 @@ class Aligned_Haplotype:
     discordant_block_assignment: {int: str}  # block index: event name, exactly one event can be assigned to one block; only for discordant blocks
     size_dict: {str: int}  # seg_name: bp size
 
-    def __init__(self, mt_aligned, wt_aligned, alignment_score, size_dict, id, chrom):
+    def __init__(self, mt_aligned, wt_aligned, alignment_score, size_dict, id, chrom, mt_hap):
         self.id = id
         self.chrom = chrom
         self.mt_aligned = mt_aligned
         self.wt_aligned = wt_aligned
         self.alignment_score = alignment_score
         self.size_dict = size_dict
+        self.mt_hap = mt_hap
 
         ## get event_blocks
         event_block = []
@@ -123,6 +124,55 @@ class Aligned_Haplotype:
         else:
             raise RuntimeError('block idx not found in the Haplotype')
 
+    def get_closest_mt_block(self, block_idx, search_direction):
+        """
+        real block only exists in mt-block and conc-block
+        :param block_idx:
+        :param search_direction:
+        :return:
+        """
+        if search_direction == 'left':
+            nearest_idx_found = -1
+            return_indexed_seg = ''
+            for block_idx_in_mt, indexed_seg in self.mt_blocks.items():
+                if block_idx_in_mt < block_idx:
+                    # on the leftside
+                    if block_idx_in_mt > nearest_idx_found:
+                        nearest_idx_found = block_idx_in_mt
+                        return_indexed_seg = indexed_seg
+            for block_idx_in_conc, indexed_seg in self.concordant_blocks.items():
+                if block_idx_in_conc < block_idx:
+                    # on the leftside
+                    if block_idx_in_conc > nearest_idx_found:
+                        nearest_idx_found = block_idx_in_conc
+                        return_indexed_seg = indexed_seg
+            if nearest_idx_found == -1:
+                return_indexed_seg = 'p-ter'
+            else:
+                return_indexed_seg = return_indexed_seg[-1]
+        elif search_direction == 'right':
+            nearest_idx_found = 9999
+            return_indexed_seg = ''
+            for block_idx_in_mt, indexed_seg in self.mt_blocks.items():
+                if block_idx_in_mt > block_idx:
+                    # on the rightside
+                    if block_idx_in_mt < nearest_idx_found:
+                        nearest_idx_found = block_idx_in_mt
+                        return_indexed_seg = indexed_seg
+            for block_idx_in_conc, indexed_seg in self.concordant_blocks.items():
+                if block_idx_in_conc > block_idx:
+                    # on the rightside
+                    if block_idx_in_conc < nearest_idx_found:
+                        nearest_idx_found = block_idx_in_conc
+                        return_indexed_seg = indexed_seg
+            if nearest_idx_found == 9999:
+                return_indexed_seg = 'q-ter'
+            else:
+                return_indexed_seg = return_indexed_seg[0]
+        else:
+            raise ValueError('direction illegal')
+        return return_indexed_seg
+
     def report_SV(self, event_blocks, event_types):
         """
         :param event_blocks: cumulative dict, where value is a list of event_block, this helps to group paired-events that were on different chromosomes
@@ -135,14 +185,16 @@ class Aligned_Haplotype:
                 # first block
                 left = 'p-ter'
             else:
-                previous_block, _ = self.get_block_segs_and_block_type(block_idx - 1)
-                left = previous_block[-1]
+                # previous_block, _ = self.get_block_segs_and_block_type(block_idx - 1)
+                left = self.get_closest_mt_block(block_idx, 'left')
+                # left = previous_block[-1]
             if block_idx == len(self.block_indices) - 1:
                 # last block
                 right = 'q-ter'
             else:
-                next_block, _ = self.get_block_segs_and_block_type(block_idx + 1)
-                right = next_block[0]
+                # next_block, _ = self.get_block_segs_and_block_type(block_idx + 1)
+                right = self.get_closest_mt_block(block_idx, 'right')
+                # right = next_block[0]
             return left, right
 
         for mt_block_idx, mt_block in self.mt_blocks.items():
@@ -296,7 +348,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
         wt_hap = wt_hap_list[idx]
         c_chrom = chrom_identities[idx]
         a1, a2, a3 = lcs(mt_hap, wt_hap, segment_size_dict)
-        aligned_haplotypes.append(Aligned_Haplotype(a2, a3, a1, segment_size_dict, hap_id, c_chrom))
+        aligned_haplotypes.append(Aligned_Haplotype(a2, a3, a1, segment_size_dict, hap_id, c_chrom, mt_hap))
         hap_id += 1
 
     def genomewide_seed_search(query_section, query_block_idx, query_hap_idx, query_type):
@@ -735,18 +787,46 @@ def section_size(input_section, size_dict):
     return tot_size
 
 
-# def segs_union(seg_list1, seg_list2):
-#     # Find the index of the overlapping region
-#     overlap_index = len(seg_list1) - len(set(seg_list1) - set(seg_list2))
-#     # Extend the union list to include elements from both lists
-#     union_list = seg_list1[:overlap_index] + seg_list2
-#     return union_list
-
 def populate_wt_indexed_lists(mt_path_chrs, wt_path_dict):
     wt_indexed_lists = []
     for path_chr in mt_path_chrs:
         wt_indexed_lists.append(wt_path_dict[path_chr])
     return wt_indexed_lists
+
+
+def form_dependent_clusters(input_events):
+    """
+    :param input_events:
+    :return: list of list, inner-list contains the path_id of the cluster, outer-list sorted by min-value path_id in the list
+    """
+    dependent_clusters = []
+    cluster_events = []
+    for event_info in input_events:
+        event_paths = []
+        for block in event_info[2]:
+            event_paths.append(int(block.split('.')[0]))
+        # see if there exists a cluster to add
+        cluster_found = False
+        for cluster_idx, cluster in enumerate(dependent_clusters):
+            if event_paths[0] in cluster:
+                for remaining_event_idx in range(1, len(event_paths)):
+                    remaining_path = event_paths[remaining_event_idx]
+                    if remaining_path not in cluster:
+                        cluster.append(remaining_path)
+                cluster_events[cluster_idx].append(event_info)
+                cluster_found = True
+                break
+        if not cluster_found:
+            dependent_clusters.append(event_paths)
+            cluster_events.append([event_info])
+
+    ## sort clusters by min_element
+    min_values = [min(inner_list) for inner_list in dependent_clusters]
+    permutations_indices = sorted(range(len(min_values)), key=lambda k: min_values[k])
+    sorted_dependent_clusters = [dependent_clusters[i] for i in permutations_indices]
+    sorted_cluster_events = [cluster_events[i] for i in permutations_indices]
+
+    return sorted_dependent_clusters, sorted_cluster_events
 
 
 ########################PERIPHERAL UTILS#######################

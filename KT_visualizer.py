@@ -1,8 +1,13 @@
-import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import matplotlib.colors as mcolors
 import colorsys
+from PIL import Image
+import math
+
+from KT_interpreter import *
+from utils import *
+from Structures import *
 
 
 def reduce_saturation(color, factor):
@@ -24,20 +29,21 @@ def get_text_color(bg_color):
 WHOLE_CHR_Y_OFFSET = 2
 CHR_HEADER_Y_OFFSET = -0.2 + WHOLE_CHR_Y_OFFSET
 CHR_BAND_Y_OFFSET = WHOLE_CHR_Y_OFFSET
-CHR_HEADER_HIGHLIGHT_Y_OFFSET = -0.63 + WHOLE_CHR_Y_OFFSET
+CHR_HEADER_HIGHLIGHT_Y_OFFSET = -0.85 + WHOLE_CHR_Y_OFFSET
 ORIGIN_Y_OFFSET = 1.3 + WHOLE_CHR_Y_OFFSET
 TICK_Y_OFFSET = -0.05 + WHOLE_CHR_Y_OFFSET
 TICK_MARKING_Y_OFFSET = -0.3 + WHOLE_CHR_Y_OFFSET
 LABEL_BAR_Y_OFFSET = -0.05 + WHOLE_CHR_Y_OFFSET
 LABEL_MARK_Y_OFFSET = -2.05 + WHOLE_CHR_Y_OFFSET
 
-CHR_HEADER_X_OFFSET = 5
+CHR_HEADER_X_OFFSET = 10
 CHR_HEADER_HIGHLIGHT_COLOR = 'red'
 BAND_WIDTH = 1
 ORIGIN_WIDTH = 0.5
+ORIGIN_MARK_Y_OFFSET = 0.05
 
-BAND_SATURATION = 0.7
-BAND_ALPHA = 0.5
+BAND_SATURATION = 1
+BAND_ALPHA = 0.65
 BAND_TEXT_WEIGHT = 'normal'
 ORIGIN_ALPHA = 0.7
 
@@ -55,11 +61,12 @@ LABEL_BAR_THICKNESS = 1.5
 LABEL_BAR_ALPHA = 1
 LABEL_MARK_ALPHA = 1
 
-BAND_FONTSIZE = 8
-LABEL_MARK_FONTSIZE = 8
-CHR_HEADER_HIGHLIGHT_FONTSIZE = 18
-CHR_HEADER_FONTSIZE = 11
-SCALE_MARKING_FONTSIZE = 7
+BAND_FONTSIZE = 3
+LABEL_MARK_FONTSIZE = 6
+CHR_HEADER_HIGHLIGHT_FONTSIZE = 16
+CHR_HEADER_FONTSIZE = 10
+SCALE_MARKING_FONTSIZE = 5
+ORIGIN_FONTSIZE = 5
 LABEL_MARK_COLOR = 'red'
 
 # constant parameters: do not adjust, dependent to above
@@ -67,16 +74,15 @@ TICK_END_Y_OFFSET = TICK_Y_OFFSET - TICK_LEN
 SUBTICK_END_Y_OFFSET = TICK_Y_OFFSET - SUBTICK_LEN
 LABEL_BAR_END_Y_OFFSET = LABEL_BAR_Y_OFFSET - LABEL_BAR_LEN
 
-
 color_mapping = {
     'gneg': 'white',
     'gpos25': '#C0C0C0',  # light grey
     'gpos50': '#808080',  # medium grey
     'gpos75': '#404040',  # dark grey
-    'gpos100': 'black',   # full black
-    'acen': 'red',        # centromere
-    'gvar': 'blue',       # variable region
-    'stalk': '#87CEEB'    # light blue (skyblue)
+    'gpos100': 'black',  # full black
+    'acen': 'red',  # centromere
+    'gvar': 'blue',  # variable region
+    'stalk': '#87CEEB'  # light blue (skyblue)
 }
 chr_color_mapping = {
     '1': '#73a9a3',
@@ -105,12 +111,11 @@ chr_color_mapping = {
     'Y': '#8da0cb'
 }
 
-
 # Reduce saturation of the colors in the color mapping
 reduced_saturation_mapping = {k: reduce_saturation(v, BAND_SATURATION) for k, v in color_mapping.items()}
 
 
-def plot_chromosome(ax, chromosome_data, y_offset, x_offset):
+def plot_chromosome(ax, chromosome_data, y_offset, x_offset, max_length):
     ## Chrom header
     ax.text(x_offset, y_offset + CHR_HEADER_Y_OFFSET, chromosome_data['name'],
             va='bottom', fontsize=CHR_HEADER_FONTSIZE, rotation=90, weight='bold')
@@ -119,7 +124,7 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset):
     for band in chromosome_data['bands']:
         start = band['start']
         end = band['end']
-        name = band['name']
+        name = band['band']
         stain = band['stain']
         color = reduced_saturation_mapping[stain]
         text_color = get_text_color(color)
@@ -140,8 +145,8 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset):
         origin_bands = patches.Rectangle((x_offset + start + CHR_HEADER_X_OFFSET, y_offset + ORIGIN_Y_OFFSET), end - start, ORIGIN_WIDTH,
                                          linewidth=1, edgecolor='black', facecolor=color, alpha=ORIGIN_ALPHA)
         ax.add_patch(origin_bands)
-        ax.text(x_offset + (start + end) / 2 + CHR_HEADER_X_OFFSET, y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH / 2, name,
-                ha='center', va='center', fontsize=8, color=text_color, rotation=90, weight=BAND_TEXT_WEIGHT)
+        ax.text(x_offset + (start + end) / 2 + CHR_HEADER_X_OFFSET, y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH / 2 + ORIGIN_MARK_Y_OFFSET, name,
+                ha='center', va='center', fontsize=ORIGIN_FONTSIZE, color=text_color, rotation=90, weight=BAND_TEXT_WEIGHT)
 
     ## Modified Chrom's header
     if chromosome_data['highlight']:
@@ -150,14 +155,14 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset):
                 fontsize=CHR_HEADER_HIGHLIGHT_FONTSIZE, rotation=90, weight='bold', color=CHR_HEADER_HIGHLIGHT_COLOR)
 
     ## Add sub-scale ticks
-    for i in range(0, chromosome_data['length'] + 1, 2):
+    for i in range(0, math.floor(chromosome_data['length']) + 1, 2):
         subtick_x_loc = x_offset + i + CHR_HEADER_X_OFFSET
         subtick_y_start_loc = y_offset + TICK_Y_OFFSET
         subtick_y_end_loc = y_offset + SUBTICK_END_Y_OFFSET
         ax.plot([subtick_x_loc, subtick_x_loc], [subtick_y_start_loc, subtick_y_end_loc],
                 color='grey', linewidth=SUBTICK_THICKNESS, alpha=SUBTICK_ALPHA)
     ## Add scale ticks
-    for i in range(0, chromosome_data['length'] + 1, 10):
+    for i in range(0, math.floor(chromosome_data['length']) + 1, 10):
         tick_x_loc = x_offset + i + CHR_HEADER_X_OFFSET
         tick_y_start_loc = y_offset + TICK_Y_OFFSET - SUBTICK_LEN  # to not overlap with the subticks
         tick_y_end_loc = y_offset + TICK_END_Y_OFFSET
@@ -184,128 +189,381 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset):
 
     ## Limit chrom plot size
     # ax.set_xlim(0, chromosome_data['length']+CHR_HEADER_X_OFFSET+10)
-    ax.set_xlim(0, chromosome_data['length'] + CHR_HEADER_X_OFFSET + 6)
-    ax.set_ylim(0, len(chromosomes_data) * 4)
+    ax.set_xlim(0, max_length + CHR_HEADER_X_OFFSET + 6)
+    ax.set_ylim(0, 16)
     ax.axis('off')
 
 
-# Example data for multiple chromosomes## Chrom header
-#     ax.text(x_offset, y_offset + CHR_HEADER_Y_OFFSET, chromosome_data['name'], va='bottom', fontsize=CHR_HEADER_FONTSIZE, rotation=90)
-chromosomes_data = [
-    {
-        'name': 'Chr1',
-        'length': 125,
-        'bands': [
-            {'start': 0, 'end': 15, 'name': 'p15', 'stain': 'gneg'},
-            {'start': 15, 'end': 25, 'name': 'p14', 'stain': 'gpos25'},
-            {'start': 25, 'end': 35, 'name': 'p13', 'stain': 'gpos50'},
-            {'start': 35, 'end': 45, 'name': 'p12', 'stain': 'gpos75'},
-            {'start': 45, 'end': 55, 'name': 'p11.2', 'stain': 'acen'},
-            {'start': 55, 'end': 65, 'name': 'q11.2', 'stain': 'acen'},
-            {'start': 65, 'end': 75, 'name': 'q21', 'stain': 'gpos100'},
-            {'start': 75, 'end': 85, 'name': 'q22', 'stain': 'gneg'},
-            {'start': 85, 'end': 95, 'name': 'q23', 'stain': 'gvar'},
-            {'start': 95, 'end': 105, 'name': 'q24', 'stain': 'gneg'},
-            {'start': 105, 'end': 115, 'name': 'q25', 'stain': 'stalk'},
-            {'start': 115, 'end': 125, 'name': 'q26', 'stain': 'gneg'}
-        ],
-        'origins': [
-            {'start': 0, 'end': 95, 'name': '1'},
-            {'start': 95, 'end': 125, 'name': '2'}
-        ],
-        'highlight': False,
-        'sv_labels': [
-            {'pos': 24, 'label': '[2]INS'}
-        ]
-    },
-    {
-        'name': 'Chr2',
-        'length': 120,
-        'bands': [
-            {'start': 0, 'end': 10, 'name': 'p15', 'stain': 'gneg'},
-            {'start': 10, 'end': 20, 'name': 'p14', 'stain': 'gpos25'},
-            {'start': 20, 'end': 30, 'name': 'p13', 'stain': 'gpos50'},
-            {'start': 30, 'end': 40, 'name': 'p12', 'stain': 'gpos75'},
-            {'start': 40, 'end': 50, 'name': 'p11.2', 'stain': 'acen'},
-            {'start': 50, 'end': 60, 'name': 'q11.2', 'stain': 'acen'},
-            {'start': 60, 'end': 70, 'name': 'q21', 'stain': 'gpos100'},
-            {'start': 70, 'end': 80, 'name': 'q22', 'stain': 'gneg'},
-            {'start': 80, 'end': 90, 'name': 'q23', 'stain': 'gvar'},
-            {'start': 90, 'end': 100, 'name': 'q24', 'stain': 'gneg'},
-            {'start': 100, 'end': 110, 'name': 'q25', 'stain': 'stalk'},
-            {'start': 110, 'end': 120, 'name': 'q26', 'stain': 'gneg'}
-        ],
-        'origins': [
-            {'start': 0, 'end': 60, 'name': '3'},
-            {'start': 60, 'end': 100, 'name': '5'},
-            {'start': 100, 'end': 120, 'name': '1'}
-        ],
-        'highlight': True,
-        'sv_labels': [
-            {'pos': 58, 'label': '[2]DEL'},
-            {'pos': 79, 'label': '[2]DUPINV'}
-        ]
-    },
-    {
-        'name': 'Chr2',
-        'length': 120,
-        'bands': [
-            {'start': 0, 'end': 10, 'name': 'p15', 'stain': 'gneg'},
-            {'start': 10, 'end': 20, 'name': 'p14', 'stain': 'gpos25'},
-            {'start': 20, 'end': 30, 'name': 'p13', 'stain': 'gpos50'},
-            {'start': 30, 'end': 40, 'name': 'p12', 'stain': 'gpos75'},
-            {'start': 40, 'end': 50, 'name': 'p11.2', 'stain': 'acen'},
-            {'start': 50, 'end': 60, 'name': 'q11.2', 'stain': 'acen'},
-            {'start': 60, 'end': 70, 'name': 'q21', 'stain': 'gpos100'},
-            {'start': 70, 'end': 80, 'name': 'q22', 'stain': 'gneg'},
-            {'start': 80, 'end': 90, 'name': 'q23', 'stain': 'gvar'},
-            {'start': 90, 'end': 100, 'name': 'q24', 'stain': 'gneg'},
-            {'start': 100, 'end': 110, 'name': 'q25', 'stain': 'stalk'},
-            {'start': 110, 'end': 120, 'name': 'q26', 'stain': 'gneg'}
-        ],
-        'origins': [
-            {'start': 0, 'end': 60, 'name': '3'},
-            {'start': 60, 'end': 100, 'name': '5'},
-            {'start': 100, 'end': 120, 'name': '1'}
-        ],
-        'highlight': True,
-        'sv_labels': [
-            {'pos': 58, 'label': '[2]DEL'},
-            {'pos': 79, 'label': '[2]T'}
-        ]
-    },
-{
-        'name': 'Chr2',
-        'length': 120,
-        'bands': [
-            {'start': 0, 'end': 10, 'name': 'p15', 'stain': 'gneg'},
-            {'start': 10, 'end': 20, 'name': 'p14', 'stain': 'gpos25'},
-            {'start': 20, 'end': 30, 'name': 'p13', 'stain': 'gpos50'},
-            {'start': 30, 'end': 40, 'name': 'p12', 'stain': 'gpos75'},
-            {'start': 40, 'end': 50, 'name': 'p11.2', 'stain': 'acen'},
-            {'start': 50, 'end': 60, 'name': 'q11.2', 'stain': 'acen'},
-            {'start': 60, 'end': 70, 'name': 'q21', 'stain': 'gpos100'},
-            {'start': 70, 'end': 80, 'name': 'q22', 'stain': 'gneg'},
-            {'start': 80, 'end': 90, 'name': 'q23', 'stain': 'gvar'},
-            {'start': 90, 'end': 100, 'name': 'q24', 'stain': 'gneg'},
-            {'start': 100, 'end': 110, 'name': 'q25', 'stain': 'stalk'},
-            {'start': 110, 'end': 120, 'name': 'q26', 'stain': 'gneg'}
-        ],
-        'origins': [
-            {'start': 0, 'end': 60, 'name': '3'},
-            {'start': 60, 'end': 100, 'name': '5'},
-            {'start': 100, 'end': 120, 'name': '1'}
-        ],
-        'highlight': True,
-        'sv_labels': [
-            {'pos': 58, 'label': '[2]DEL'},
-            {'pos': 79, 'label': '[2]DUP'}
-        ]
-    }
-]
+def rotate_image(input_image_path, output_image_path):
+    # Open an image file
+    with Image.open(input_image_path) as img:
+        # Rotate the image by 90 degrees
+        rotated_img = img.rotate(270, expand=True)
+        # Save the rotated image
+        rotated_img.save(output_image_path)
 
 
-if __name__ == '__main__':
+def generate_visualizer_input(events, aligned_haplotypes):
+    index_to_segment_dict = reverse_dict(segment_to_index_dict)
+    cyto_path = create_cytoband_path()
+    vis_input = []
+    for hap_idx, hap in enumerate(aligned_haplotypes):
+        segment_list = indexed_segments_to_typed_segments(hap.mt_hap, index_to_segment_dict)
+        c_entry = {'hap_id': hap.id,
+                   'segment_list': hap.mt_hap,  # this remains un-altered
+                   'chr': hap.chrom,
+                   'name': hap.chrom,  # remove/reassign
+                   'length': get_chr_length(segment_list),
+                   'bands': label_cytoband(segment_list, cyto_path),
+                   'origins': get_chr_origins(segment_list),
+                   'highlight': chr_is_highlighted(events, hap_idx),
+                   'sv_labels': []}
+        vis_input.append(c_entry)
+    assign_sv_labels(events, vis_input, index_to_segment_dict)
+
+    # TODO: assign names to each entry (i.e. Chr1 -> Chr1a)
+
+    return vis_input
+
+
+def chr_is_highlighted(input_events, hap_id):
+    for event_info in input_events:
+        for block in event_info[2]:
+            event_path_id = int(block.split('.')[0])
+            if hap_id == event_path_id:
+                return True
+    return False
+
+
+def assign_sv_labels(input_events, all_vis_input, i_index_to_segment_dict):
+    name_abbreviation = {'insertion': 'INS',
+                         'deletion': 'DEL',
+                         'inversion': 'INV',
+                         'tandem_duplication': 'DUP',
+                         'left_duplication_inversion': "DUPINV",
+                         'right_duplication_inversion': 'DUPINV',
+                         'balanced_translocation': 'TRANS'}
+
+    def find_and_assign_single_label(path_id, indexed_seg, label_str):
+        path_found = False
+        for entry in all_vis_input:
+            if path_id == entry['hap_id']:
+                if indexed_seg == 'p-ter':
+                    pos = 0
+                elif indexed_seg == 'q-ter':
+                    raise RuntimeError('q-ter found on left bp?')
+                else:
+                    idx_in_segment_list = entry['segment_list'].index(indexed_seg)
+                    pos = 0
+                    for seg in range(0, idx_in_segment_list + 1):
+                        c_indexed_seg = entry['segment_list'][seg]
+                        pos += len(i_index_to_segment_dict[int(c_indexed_seg[:-1])])
+                entry['sv_labels'].append({'pos': pos / 1e6, 'label': label_str})
+                path_found = True
+                break
+        if not path_found:
+            raise RuntimeError('path not found')
+
+    associated_event = []
+    event_id = 1
+    for event_idx, event_info in enumerate(input_events):
+        event_type = event_info[1]
+        if event_type in ['insertion', 'deletion', 'inversion', 'tandem_duplication',
+                          'left_duplication_inversion', 'right_duplication_inversion']:
+            left_segment = event_info[2][0].split('.')[3]
+            event_name = name_abbreviation[event_type]
+            c_path_idx = int(event_info[2][0].split('.')[0])
+            find_and_assign_single_label(c_path_idx, left_segment, '[{}]{}'.format(event_id, event_name))
+        elif event_type.startswith('balanced_translocation_unassociated'):
+            left_segment1 = event_info[2][0].split('.')[3]
+            left_segment2 = event_info[2][1].split('.')[3]
+            event_name = name_abbreviation['balanced_translocation']
+            c_path_idx1 = int(event_info[2][0].split('.')[0])
+            c_path_idx2 = int(event_info[2][1].split('.')[0])
+            find_and_assign_single_label(c_path_idx1, left_segment1, '[{}]{}'.format(event_id, event_name))
+            find_and_assign_single_label(c_path_idx2, left_segment2, '[{}]{}'.format(event_id, event_name))
+        elif event_type.startswith('balanced_translocation_associated'):
+            if event_idx in associated_event:
+                continue
+            next_event_info = input_events[event_idx + 1]
+            event_name = name_abbreviation['balanced_translocation']
+            if 'mt' in event_info[2][0]:
+                left_segment1 = event_info[2][0].split('.')[3]
+                c_path_idx1 = int(event_info[2][0].split('.')[0])
+            elif 'mt' in event_info[2][1]:
+                left_segment1 = event_info[2][1].split('.')[3]
+                c_path_idx1 = int(event_info[2][1].split('.')[0])
+            else:
+                raise RuntimeError('mt string not found')
+            if 'mt' in next_event_info[2][0]:
+                left_segment2 = next_event_info[2][0].split('.')[3]
+                c_path_idx2 = int(next_event_info[2][0].split('.')[0])
+            elif 'mt' in next_event_info[2][1]:
+                left_segment2 = next_event_info[2][1].split('.')[3]
+                c_path_idx2 = int(next_event_info[2][1].split('.')[0])
+            else:
+                raise RuntimeError('mt string not found')
+            find_and_assign_single_label(c_path_idx1, left_segment1, '[{}]{}'.format(event_id, event_name))
+            find_and_assign_single_label(c_path_idx2, left_segment2, '[{}]{}'.format(event_id, event_name))
+        event_id += 1
+
+
+
+def indexed_segments_to_typed_segments(indexed_segment_list, index_to_segment_dict):
+    typed_segment_list = []
+    for seg in indexed_segment_list:
+        direction = seg[-1]
+        temp_seg = index_to_segment_dict[int(seg[:-1])].duplicate()
+        if direction == '-':
+            temp_seg.invert()
+        typed_segment_list.append(temp_seg)
+    return typed_segment_list
+
+
+def create_cytoband_path(cyto_file='Metadata/hg38_400_level_cytoband_updated.tsv'):
+    segment_list = []
+    with open(cyto_file) as fp_read:
+        fp_read.readline()
+        for line in fp_read:
+            line = line.replace('\n', '').split('\t')
+            if int(line[0]) == 23:
+                chrom = 'ChrX'
+            elif int(line[0]) == 24:
+                chrom = 'ChrY'
+            else:
+                chrom = 'Chr' + line[0]
+            start = int(line[1])
+            end = int(line[2])
+            band = line[7]
+            stain = line[8]
+            if '_' in chrom:
+                # non-canonical labeling
+                continue
+            new_seg = Segment(chrom, start, end, band=band, stain=stain)
+            segment_list.append(new_seg)
+    return Path(Arm(segment_list, 'cytoband_arm'))
+
+
+def label_cytoband(input_segment_list, input_cyto_path):
+    c_path = Path(Arm(input_segment_list, 'to_label_cytoband'))
+    c_path.generate_mutual_breakpoints(other_path=input_cyto_path, mutual=False)
+    # now all segs in input_segment_list is a substring of a segment in the cyto_path
+    cytoband_assigned = False
+    for this_seg in c_path.linear_path.segments:
+        for other_seg in input_cyto_path.linear_path.segments:
+            if this_seg.chr_name == other_seg.chr_name and this_seg.start >= other_seg.start and this_seg.end <= other_seg.end:
+                this_seg.band = other_seg.band
+                this_seg.stain = other_seg.stain
+                cytoband_assigned = True
+                break
+        if not cytoband_assigned:
+            print(this_seg)
+            raise RuntimeError('cytoband not found')
+
+    ## gather band length and merge adjacent segments of the same band
+    output_list = []
+    p_end = 0
+    c_band_len = 0
+    p_band = c_path.linear_path.segments[0].band
+    p_stain = c_path.linear_path.segments[0].stain
+    for seg in c_path.linear_path.segments:
+        c_band = seg.band
+        if c_band == p_band:
+            c_band_len += len(seg)
+        else:
+            p_band_dict = {'start': p_end,
+                           'end': p_end + c_band_len,
+                           'band': p_band,
+                           'stain': p_stain}
+            output_list.append(p_band_dict)
+            p_end += c_band_len
+            p_band = c_band
+            p_stain = seg.stain
+            c_band_len = len(seg)
+    # last band
+    last_band_dict = {'start': p_end,
+                      'end': p_end + c_band_len,
+                      'band': p_band,
+                      'stain': p_stain}
+    output_list.append(last_band_dict)
+
+    ## scale band size by Mbp
+    scaled_output_list = []
+    for band in output_list:
+        new_band = {'start': band['start'] / 1e6,
+                    'end': band['end'] / 1e6,
+                    'band': band['band'],
+                    'stain': band['stain']}
+        scaled_output_list.append(new_band)
+    return scaled_output_list
+
+
+def get_chr_origins(input_segment_list):
+    output_list = []
+    p_end = 0
+    c_origin_len = 0
+    p_origin = input_segment_list[0].chr_name
+    for seg in input_segment_list:
+        c_origin = seg.chr_name
+        if c_origin == p_origin:
+            c_origin_len += len(seg)
+        else:
+            p_origin_dict = {'start': p_end,
+                             'end': p_end + c_origin_len,
+                             'name': p_origin}
+            output_list.append(p_origin_dict)
+            p_end += c_origin_len
+            p_origin = c_origin
+            c_origin_len = len(seg)
+    # last origin
+    last_origin_dict = {'start': p_end,
+                        'end': p_end + c_origin_len,
+                        'name': p_origin}
+    output_list.append(last_origin_dict)
+
+    ## scale origin size by Mbp
+    scaled_output_list = []
+    for origin in output_list:
+        new_origin = {'start': origin['start'] / 1e6,
+                      'end': origin['end'] / 1e6,
+                      'name': origin['name'].replace('Chr', '')}
+        scaled_output_list.append(new_origin)
+    return scaled_output_list
+
+
+def get_chr_length(input_segment_list):
+    total_length = 0
+    for seg in input_segment_list:
+        total_length += len(seg)
+    return total_length / 1e6
+
+
+def max_chr_length(vis_input):
+    max_length = -1
+    for chrom in vis_input:
+        c_length = chrom['length']
+        if c_length > max_length:
+            max_length = c_length
+    return math.ceil(max_length)
+
+
+#########################TESTS#########################
+
+def test_artificial_chr_image():
+    # Example data for multiple chromosomes
+    chromosomes_data = [
+        {
+            'name': 'Chr1',
+            'length': 125,
+            'bands': [
+                {'start': 0, 'end': 15, 'name': 'p15', 'stain': 'gneg'},
+                {'start': 15, 'end': 25, 'name': 'p14', 'stain': 'gpos25'},
+                {'start': 25, 'end': 35, 'name': 'p13', 'stain': 'gpos50'},
+                {'start': 35, 'end': 45, 'name': 'p12', 'stain': 'gpos75'},
+                {'start': 45, 'end': 55, 'name': 'p11.2', 'stain': 'acen'},
+                {'start': 55, 'end': 65, 'name': 'q11.2', 'stain': 'acen'},
+                {'start': 65, 'end': 75, 'name': 'q21', 'stain': 'gpos100'},
+                {'start': 75, 'end': 85, 'name': 'q22', 'stain': 'gneg'},
+                {'start': 85, 'end': 95, 'name': 'q23', 'stain': 'gvar'},
+                {'start': 95, 'end': 105, 'name': 'q24', 'stain': 'gneg'},
+                {'start': 105, 'end': 115, 'name': 'q25', 'stain': 'stalk'},
+                {'start': 115, 'end': 125, 'name': 'q26', 'stain': 'gneg'}
+            ],
+            'origins': [
+                {'start': 0, 'end': 95, 'name': '1'},
+                {'start': 95, 'end': 125, 'name': '2'}
+            ],
+            'highlight': False,
+            'sv_labels': [
+                {'pos': 24, 'label': '[2]INS'}
+            ]
+        },
+        {
+            'name': 'Chr2',
+            'length': 120,
+            'bands': [
+                {'start': 0, 'end': 10, 'name': 'p15', 'stain': 'gneg'},
+                {'start': 10, 'end': 20, 'name': 'p14', 'stain': 'gpos25'},
+                {'start': 20, 'end': 30, 'name': 'p13', 'stain': 'gpos50'},
+                {'start': 30, 'end': 40, 'name': 'p12', 'stain': 'gpos75'},
+                {'start': 40, 'end': 50, 'name': 'p11.2', 'stain': 'acen'},
+                {'start': 50, 'end': 60, 'name': 'q11.2', 'stain': 'acen'},
+                {'start': 60, 'end': 70, 'name': 'q21', 'stain': 'gpos100'},
+                {'start': 70, 'end': 80, 'name': 'q22', 'stain': 'gneg'},
+                {'start': 80, 'end': 90, 'name': 'q23', 'stain': 'gvar'},
+                {'start': 90, 'end': 100, 'name': 'q24', 'stain': 'gneg'},
+                {'start': 100, 'end': 110, 'name': 'q25', 'stain': 'stalk'},
+                {'start': 110, 'end': 120, 'name': 'q26', 'stain': 'gneg'}
+            ],
+            'origins': [
+                {'start': 0, 'end': 60, 'name': '3'},
+                {'start': 60, 'end': 100, 'name': '5'},
+                {'start': 100, 'end': 120, 'name': '1'}
+            ],
+            'highlight': True,
+            'sv_labels': [
+                {'pos': 58, 'label': '[2]DEL'},
+                {'pos': 79, 'label': '[2]DUPINV'}
+            ]
+        },
+        {
+            'name': 'Chr2',
+            'length': 120,
+            'bands': [
+                {'start': 0, 'end': 10, 'name': 'p15', 'stain': 'gneg'},
+                {'start': 10, 'end': 20, 'name': 'p14', 'stain': 'gpos25'},
+                {'start': 20, 'end': 30, 'name': 'p13', 'stain': 'gpos50'},
+                {'start': 30, 'end': 40, 'name': 'p12', 'stain': 'gpos75'},
+                {'start': 40, 'end': 50, 'name': 'p11.2', 'stain': 'acen'},
+                {'start': 50, 'end': 60, 'name': 'q11.2', 'stain': 'acen'},
+                {'start': 60, 'end': 70, 'name': 'q21', 'stain': 'gpos100'},
+                {'start': 70, 'end': 80, 'name': 'q22', 'stain': 'gneg'},
+                {'start': 80, 'end': 90, 'name': 'q23', 'stain': 'gvar'},
+                {'start': 90, 'end': 100, 'name': 'q24', 'stain': 'gneg'},
+                {'start': 100, 'end': 110, 'name': 'q25', 'stain': 'stalk'},
+                {'start': 110, 'end': 120, 'name': 'q26', 'stain': 'gneg'}
+            ],
+            'origins': [
+                {'start': 0, 'end': 60, 'name': '3'},
+                {'start': 60, 'end': 100, 'name': '5'},
+                {'start': 100, 'end': 120, 'name': '1'}
+            ],
+            'highlight': True,
+            'sv_labels': [
+                {'pos': 58, 'label': '[2]DEL'},
+                {'pos': 79, 'label': '[2]T'}
+            ]
+        },
+        {
+            'name': 'Chr2',
+            'length': 120,
+            'bands': [
+                {'start': 0, 'end': 10, 'name': 'p15', 'stain': 'gneg'},
+                {'start': 10, 'end': 20, 'name': 'p14', 'stain': 'gpos25'},
+                {'start': 20, 'end': 30, 'name': 'p13', 'stain': 'gpos50'},
+                {'start': 30, 'end': 40, 'name': 'p12', 'stain': 'gpos75'},
+                {'start': 40, 'end': 50, 'name': 'p11.2', 'stain': 'acen'},
+                {'start': 50, 'end': 60, 'name': 'q11.2', 'stain': 'acen'},
+                {'start': 60, 'end': 70, 'name': 'q21', 'stain': 'gpos100'},
+                {'start': 70, 'end': 80, 'name': 'q22', 'stain': 'gneg'},
+                {'start': 80, 'end': 90, 'name': 'q23', 'stain': 'gvar'},
+                {'start': 90, 'end': 100, 'name': 'q24', 'stain': 'gneg'},
+                {'start': 100, 'end': 110, 'name': 'q25', 'stain': 'stalk'},
+                {'start': 110, 'end': 120, 'name': 'q26', 'stain': 'gneg'}
+            ],
+            'origins': [
+                {'start': 0, 'end': 60, 'name': '3'},
+                {'start': 60, 'end': 100, 'name': '5'},
+                {'start': 100, 'end': 120, 'name': '1'}
+            ],
+            'highlight': True,
+            'sv_labels': [
+                {'pos': 58, 'label': '[2]DEL'},
+                {'pos': 79, 'label': '[2]DUP'}
+            ]
+        }
+    ]
+
     plt.rcParams['figure.dpi'] = 250
     n_chrom = len(chromosomes_data)
     n_row = n_chrom // 4 + 1
@@ -318,17 +576,49 @@ if __name__ == '__main__':
 
     # plt.show(bbox_inches='tight')
     plt.savefig('test_fig.png', bbox_inches='tight')
-
-    from PIL import Image
-
-    def rotate_image(input_image_path, output_image_path):
-        # Open an image file
-        with Image.open(input_image_path) as img:
-            # Rotate the image by 90 degrees
-            rotated_img = img.rotate(270, expand=True)
-            # Save the rotated image
-            rotated_img.save(output_image_path)
-
-
     rotate_image('test_fig.png', 'test_fig_rotated.png')
 
+
+def test_make_image(vis_input, i_max_length):
+    plt.rcParams['figure.dpi'] = 300
+    n_chrom = len(vis_input)
+    scaled_length = i_max_length / 200 * 8
+    print('scaled_length', scaled_length)
+    print('2 * min(4, n_chrom)', 2 * min(4, n_chrom))
+    fig, i_ax = plt.subplots(figsize=(scaled_length, 2 * min(4, n_chrom)))  # TODO: scale size according to the size of max_length
+
+    if len(vis_input) == 1:
+        Y_CONST = 0
+    elif len(vis_input) == 2:
+        Y_CONST = 8
+    elif len(vis_input) == 2:
+        Y_CONST = 6
+    else:
+        Y_CONST = 4
+    for chrom_idx, i_chromosome_data in enumerate(vis_input):
+        row = chrom_idx // 4
+        col = chrom_idx % 4
+        plot_chromosome(i_ax, i_chromosome_data, col * Y_CONST, row * 28, i_max_length)
+
+    # plt.show(bbox_inches='tight')
+    plt.savefig('test_input_fig.png', bbox_inches='tight')
+    rotate_image('test_input_fig.png', 'test_input_fig_rotated.png')
+
+
+if __name__ == '__main__':
+    omkar_file_path = '/media/zhaoyang-new/workspace/paul_dremsek/omkar_output/39.txt'
+    mt_indexed_lists, mt_path_chrs, segment_to_index_dict, segment_size_dict = read_OMKar_to_indexed_list(omkar_file_path)
+    mt_path_chrs = [info.split(': ')[-1] for info in mt_path_chrs]
+    wt_path_dict = generate_wt_from_OMKar_output(segment_to_index_dict)
+    wt_indexed_lists = populate_wt_indexed_lists(mt_path_chrs, wt_path_dict)
+    events, aligned_haplotypes = interpret_haplotypes(mt_indexed_lists, wt_indexed_lists, mt_path_chrs, segment_size_dict)
+
+    c_vis_input = generate_visualizer_input(events, aligned_haplotypes)
+    vis_input_used = [c_vis_input[1], c_vis_input[3]]
+    print(max_chr_length(vis_input_used))
+    test_make_image([c_vis_input[1], c_vis_input[3]], max_chr_length(vis_input_used))
+    create_cytoband_path()
+
+    # event<0>,type<balanced_translocation_unassociated>,blocks<['44.1.mt(44+).46+.47+', '45.0.wt(44+).p-ter.45+']>
+
+    

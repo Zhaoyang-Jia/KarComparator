@@ -1,6 +1,5 @@
 from KT_interpreter import *
 from forbidden_region_processing import *
-import pandas as pd
 import re
 
 
@@ -389,6 +388,7 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
             wt_path_dict = generate_wt_from_OMKar_output(segment_dict)
             wt_indexed_lists = populate_wt_indexed_lists(mt_path_chrs, wt_path_dict)
             events, aligned_haplotypes = interpret_haplotypes(mt_indexed_lists, wt_indexed_lists, mt_path_chrs, segment_size_dict)
+            dependent_clusters, cluster_events = form_dependent_clusters(events)
             iscn_events, genes_report = format_report(events, aligned_haplotypes, reverse_dict(segment_dict))
             if len(iscn_events) == 0:
                 # no event in this case

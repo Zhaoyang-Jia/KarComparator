@@ -5,14 +5,18 @@ class Segment:
     segment_type: str
     kt_index: str
     ordinal: int
+    band: str
+    stain: str
 
-    def __init__(self, chr_name: str, start: int, end: int, segment_type=None, kt_index=None):
+    def __init__(self, chr_name: str, start: int, end: int, segment_type=None, kt_index=None, band='', stain=''):
         self.chr_name = chr_name
         self.start = start
         self.end = end
         self.segment_type = segment_type
         self.kt_index = kt_index
         self.ordinal = -1
+        self.band = band
+        self.stain = stain
 
     def __len__(self):
         return abs(self.end - self.start) + 1
