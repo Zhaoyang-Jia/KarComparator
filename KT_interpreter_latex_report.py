@@ -1,5 +1,6 @@
 from KT_interpreter import *
 from forbidden_region_processing import *
+from KT_visualizer import *
 import re
 
 
@@ -311,6 +312,7 @@ def generate_latex_frontpage(title,
     output_str += "\\documentclass[12pt]{article}\n"
     output_str += "\\usepackage[letterpaper, margin=0.75in]{geometry}\n"
     output_str += "\\input{macros}\n"
+    # output_str += "\\usepackage{packed_itemize}\n"
     output_str += "\\setcounter{secnumdepth}{0}\n"
     output_str += "\\usepackage{graphicx}\n"
     output_str += "\\usepackage{setspace}\n"
@@ -372,14 +374,8 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
     files = sorted(files, key=int_file_keys)
 
     for file in files:
-        # if file == '3.txt':
-        if True:
-            # if file in ['45.txt']:
-            #     continue
-            # if file in ['145.txt', '450.txt']:
-            #     continue
-            # if file in ['54.txt', '205.txt']:
-            #     continue
+        if file in ['3.txt', '39.txt', '49.txt', '12.txt', '45.txt']:
+        # if True:
             filename = file.split('.')[0]
             file_path = omkar_output_dir + file
             print(file)
@@ -388,48 +384,126 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
             wt_path_dict = generate_wt_from_OMKar_output(segment_dict)
             wt_indexed_lists = populate_wt_indexed_lists(mt_path_chrs, wt_path_dict)
             events, aligned_haplotypes = interpret_haplotypes(mt_indexed_lists, wt_indexed_lists, mt_path_chrs, segment_size_dict)
-            dependent_clusters, cluster_events = form_dependent_clusters(events)
-            iscn_events, genes_report = format_report(events, aligned_haplotypes, reverse_dict(segment_dict))
-            if len(iscn_events) == 0:
-                # no event in this case
+            if len(events) == 0:
                 continue
-            else:
-                cases_with_events.append(filename)
-            image_path = "{}/{}".format(image_dir, str(filename).zfill(3) + image_suffix)
-            # image_path = "{}/{}".format(image_dir, str(filename) + image_suffix)
+            dependent_clusters, cluster_events = form_dependent_clusters(events)
+            final_str += "\\section{{Sample Id: {}}}\n".format(filename)
+            final_str += "\n"
+            for image_cluster_idx, (c_cluster, c_events) in enumerate(zip(dependent_clusters, cluster_events)):
+                ## include all homologues
+                event_chr = set()
+                for cluster_idx in c_cluster:
+                    event_chr.add(aligned_haplotypes[cluster_idx].chrom)
+                hap_idx_to_plot = []
+                for hap_idx, hap in enumerate(aligned_haplotypes):
+                    if hap.chrom in event_chr:
+                        hap_idx_to_plot.append(hap_idx)
 
-            ## insert image
-            if os.path.exists('latex_reports/' + image_path):
-                # make sure the image file exists
-                final_str += "\\section{{Sample Id: {}}}\n".format(filename)
-                final_str += "\\begin{figure}[h!]\n"
-                final_str += "\\centering\n"
-                final_str += "\\includegraphics[width=3in]{{{}}}\n".format(image_path)
-                final_str += "\\caption{{\\footnotesize Chromosomes with aberrant karyotypes}}\n"
-                final_str += "\\label{{fig:karyotype_id{}}}\n".format(filename)
-                final_str += "\\end{figure}\n"
-                print('latex_reports/' + image_path, 'found')
-            else:
-                final_str += "\\section{{Sample Id: {}}}\n".format(filename)
+                if len(hap_idx_to_plot) > 4:
+                    raise RuntimeError('more than 4 chrom selected')
+                c_aligned_haplotypes = [aligned_haplotypes[i] for i in hap_idx_to_plot]
+
+                ## generate report text
+                iscn_events, genes_report = format_report(c_events, aligned_haplotypes, reverse_dict(segment_dict))
+                ## generate image
+                c_vis_input = generate_visualizer_input(c_events, c_aligned_haplotypes, segment_dict)
+
+                def vis_key(input_vis):
+                    chr_val = input_vis['chr'][3:]
+                    if chr_val == "X":
+                        return_val = 23.0
+                    elif chr_val == "Y":
+                        return_val = 24.0
+                    else:
+                        return_val = float(chr_val)
+                    if input_vis['highlight']:
+                        return_val += 0.5  # highlight always later
+                    return return_val
+
+                c_vis_input = sorted(c_vis_input, key=vis_key)
+
+                image_prefix = "{}/{}_imagecluster{}".format(image_dir, filename, image_cluster_idx)
+                image_path = image_prefix + '_rotated.png'
+                latex_relative_image_path = 'paul_dremsek_plots_new/' + image_path.split('/')[-1]
+                make_image(c_vis_input, max_chr_length(c_vis_input), image_prefix)
+
+                final_str += "\\textbf{{Event Cluster {}}}\n".format(image_cluster_idx + 1)
+                final_str += "\\newline\n"
                 final_str += "\n"
-                print('latex_reports/' + image_path, 'not found')
+                final_str += "\\noindent\n"
+                final_str += "\\begin{minipage}{0.6\\textwidth}\n"
+                # final_str += "\\begin{figure}[h!]\n"
+                final_str += "\\centering\n"
+                final_str += "\\includegraphics[width=4in]{{{}}}\n".format(latex_relative_image_path)
+                # final_str += "\\caption{{\\footnotesize Chromosomes with aberrant karyotypes}}\n"
+                # final_str += "\\label{{fig:karyotype_id{}}}\n".format(filename)
+                # final_str += "\\end{figure}\n"
+                final_str += "\\end{minipage}%\n"
+                final_str += "\\begin{minipage}{0.4\\textwidth}\n"
+                # Iterate through all events
+                final_str += "\\paragraph{SVs}\n"
+                final_str += "\\begin{packed_enum}\n"
+                for bullet_idx, (main_str, iscn_interpretation) in enumerate(iscn_events):
+                    iscn_interpretation = hyperlink_iscn_interpretation(iscn_interpretation)
+                    # format space-symbol better
+                    iscn_interpretation = iscn_interpretation.replace(' on ', '&^&^&^&')
+                    iscn_interpretation = iscn_interpretation.replace(' between ', '!@!@!@!@!')
+                    iscn_interpretation = iscn_interpretation.replace(' ', '\\,')
+                    iscn_interpretation = iscn_interpretation.replace('&^&^&^&', '\\,on ')
+                    iscn_interpretation = iscn_interpretation.replace('!@!@!@!@!', ' between ')
 
-            ## Iterate through all events
-            final_str += "\\paragraph{Events}\n"
-            final_str += "\\begin{packed_enum}\n"
-            for bullet_idx, (main_str, iscn_interpretation) in enumerate(iscn_events):
-                iscn_interpretation = hyperlink_iscn_interpretation(iscn_interpretation)
-                final_str += "\\item {{\\bf {}}}. {}\n".format(main_str, iscn_interpretation)
-            final_str += "\\end{packed_enum}\n"
+                    final_str += "\\item {{\\bf {}}}.\\,{}\n".format(main_str, iscn_interpretation)
+                final_str += "\\end{packed_enum}\n"
 
-            final_str += "\n"
-            final_str += "\\paragraph{Impacted genes in DDG2P}$\\;$\\\\\\\\\n"
-            final_str += latex_gene_table(genes_report)
+                final_str += "\n"
+                final_str += "\\paragraph{Impacted genes in DDG2P}$\\;$\\\\\\\\\n"
+                final_str += latex_gene_table(genes_report)
 
-            final_str += "\n"
-            final_str += "\\newpage\n"
+                final_str += "\n"
+                final_str += "\\end{minipage}\n"
+
+                final_str += "\n"
+                final_str += "\\newpage\n"
+
+
     final_str += "\n"
     final_str += "\\end{document}\n"
+
+    #         image_path = "{}/{}".format(image_dir, str(filename).zfill(3) + image_suffix)
+    #         # image_path = "{}/{}".format(image_dir, str(filename) + image_suffix)
+    #
+    #         ## insert image
+    #         if os.path.exists('latex_reports/' + image_path):
+    #             # make sure the image file exists
+    #             final_str += "\\section{{Sample Id: {}}}\n".format(filename)
+    #             final_str += "\\begin{figure}[h!]\n"
+    #             final_str += "\\centering\n"
+    #             final_str += "\\includegraphics[width=3in]{{{}}}\n".format(image_path)
+    #             final_str += "\\caption{{\\footnotesize Chromosomes with aberrant karyotypes}}\n"
+    #             final_str += "\\label{{fig:karyotype_id{}}}\n".format(filename)
+    #             final_str += "\\end{figure}\n"
+    #             print('latex_reports/' + image_path, 'found')
+    #         else:
+    #             final_str += "\\section{{Sample Id: {}}}\n".format(filename)
+    #             final_str += "\n"
+    #             print('latex_reports/' + image_path, 'not found')
+    #
+    #         ## Iterate through all events
+    #         final_str += "\\paragraph{Events}\n"
+    #         final_str += "\\begin{packed_enum}\n"
+    #         for bullet_idx, (main_str, iscn_interpretation) in enumerate(iscn_events):
+    #             iscn_interpretation = hyperlink_iscn_interpretation(iscn_interpretation)
+    #             final_str += "\\item {{\\bf {}}}. {}\n".format(main_str, iscn_interpretation)
+    #         final_str += "\\end{packed_enum}\n"
+    #
+    #         final_str += "\n"
+    #         final_str += "\\paragraph{Impacted genes in DDG2P}$\\;$\\\\\\\\\n"
+    #         final_str += latex_gene_table(genes_report)
+    #
+    #         final_str += "\n"
+    #         final_str += "\\newpage\n"
+    # final_str += "\n"
+    # final_str += "\\end{document}\n"
     return final_str, cases_with_events
 
 
@@ -494,7 +568,7 @@ def latex_gene_table(genes_report):
 
     ## form latex table
     if len(genes_to_report) == 0:
-        return 'None\n\n'
+        return '\\quad None\n\n'
     return_str = "{\\scriptsize\n"
     return_str += "\\begin{tabular}{|llll|}\\hline\n"
     return_str += "SV & Rationale & Gene Name & Gene Omim  \\\\\\hline\n"
@@ -559,17 +633,15 @@ def test_latex(output_name):
 
 
 if __name__ == "__main__":
+    forbidden_region_file = "Metadata/acrocentric_telo_cen.bed"
     # test_interpreter()
     # test_segs_union()
     # test_reciprocal_trans()
     c_output_name = 'Dremsek'
-    # data_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/latex_reports/paul_dremsek_omkar/'
-    data_dir = '/media/zhaoyang-new/workspace/paul_dremsek/omkar_output/'
-    # data_dir = '/media/zhaoyang-new/workspace/sunnyside/OMKar_output_paths/'
-    # data_dir = '/media/zhaoyang-new/workspace/keyhole/OMKar_output_paths/'
-    forbidden_region_file = "Metadata/acrocentric_telo_cen.bed"
-    # image_dir = '/media/zhaoyang-new/workspace/KarSim/KarComparator/latex_reports/paul_dremsek_plots/'
-    # image_dir = '/media/zhaoyang-new/workspace/KarSim/KarComparator/latex_reports/sunnyside_plots/'
-    image_dir = 'paul_dremsek_plots/'
-    # batch_case_str = batch_generate_latex_case_str(data_dir, 'dremsek_images_2')
+    # c_output_name = 'Keyhole'
+    data_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/real_case_data/dremsek_OMKar_output_paths/'
+    # data_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/real_case_data/keyhole_OMKar_output_paths/'
+    image_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/latex_reports/paul_dremsek_plots_new/'
+    # image_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/latex_reports/keyhole_plots_new/'
+    # batch_case_str = batch_generate_latex_case_str(data_dir, image_dir)
     test_latex(c_output_name)

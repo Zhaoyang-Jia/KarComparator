@@ -29,6 +29,7 @@ def get_text_color(bg_color):
 WHOLE_CHR_Y_OFFSET = 2
 CHR_HEADER_Y_OFFSET = -0.2 + WHOLE_CHR_Y_OFFSET
 CHR_BAND_Y_OFFSET = WHOLE_CHR_Y_OFFSET
+CHR_BAND_MARK_Y_OFFSET = 0.05 + CHR_BAND_Y_OFFSET
 CHR_HEADER_HIGHLIGHT_Y_OFFSET = -0.85 + WHOLE_CHR_Y_OFFSET
 ORIGIN_Y_OFFSET = 1.3 + WHOLE_CHR_Y_OFFSET
 TICK_Y_OFFSET = -0.05 + WHOLE_CHR_Y_OFFSET
@@ -38,12 +39,13 @@ LABEL_MARK_Y_OFFSET = -2.05 + WHOLE_CHR_Y_OFFSET
 
 CHR_HEADER_X_OFFSET = 10
 CHR_HEADER_HIGHLIGHT_COLOR = 'red'
+CHR_HEADER_HIGHLIGHT_X_OFFSET = -0.03
 BAND_WIDTH = 1
 ORIGIN_WIDTH = 0.5
 ORIGIN_MARK_Y_OFFSET = 0.05
 
 BAND_SATURATION = 1
-BAND_ALPHA = 0.65
+BAND_ALPHA = 0.85
 BAND_TEXT_WEIGHT = 'normal'
 ORIGIN_ALPHA = 0.7
 
@@ -56,18 +58,23 @@ SUBTICK_LEN = 0.065
 SUBTICK_THICKNESS = 0.9
 SUBTICK_ALPHA = 0.5
 
-LABEL_BAR_LEN = 0.4
-LABEL_BAR_THICKNESS = 1.5
+LABEL_BAR_LEN = 0.95
+LABEL_BAR_THICKNESS = 1.25
 LABEL_BAR_ALPHA = 1
 LABEL_MARK_ALPHA = 1
 
 BAND_FONTSIZE = 3
 LABEL_MARK_FONTSIZE = 6
-CHR_HEADER_HIGHLIGHT_FONTSIZE = 16
-CHR_HEADER_FONTSIZE = 10
+CHR_HEADER_HIGHLIGHT_FONTSIZE = 12
+CHR_HEADER_FONTSIZE = 7
 SCALE_MARKING_FONTSIZE = 5
 ORIGIN_FONTSIZE = 5
 LABEL_MARK_COLOR = 'red'
+
+BAND_RECT_LINEWIDTH = 0.5
+ORIGIN_RECT_LINEWIDTH = 0.5
+
+IMG_LENGTH_SCALE = 0.85
 
 # constant parameters: do not adjust, dependent to above
 TICK_END_Y_OFFSET = TICK_Y_OFFSET - TICK_LEN
@@ -130,9 +137,9 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset, max_length):
         text_color = get_text_color(color)
 
         chrom_bands = patches.Rectangle((x_offset + start + CHR_HEADER_X_OFFSET, y_offset + CHR_BAND_Y_OFFSET), end - start, BAND_WIDTH,
-                                        linewidth=1, edgecolor='black', facecolor=color, alpha=BAND_ALPHA)
+                                        linewidth=1, edgecolor='black', facecolor=color, alpha=BAND_ALPHA, lw=BAND_RECT_LINEWIDTH)
         ax.add_patch(chrom_bands)
-        ax.text(x_offset + (start + end) / 2 + CHR_HEADER_X_OFFSET, y_offset + BAND_WIDTH / 2 + CHR_BAND_Y_OFFSET, name,
+        ax.text(x_offset + (start + end) / 2 + CHR_HEADER_X_OFFSET, y_offset + BAND_WIDTH / 2 + CHR_BAND_MARK_Y_OFFSET, name,
                 ha='center', va='center', fontsize=BAND_FONTSIZE, color=text_color, rotation=90, weight=BAND_TEXT_WEIGHT)
 
     ## Origins
@@ -143,14 +150,14 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset, max_length):
         color = chr_color_mapping[name]
         text_color = get_text_color(color)
         origin_bands = patches.Rectangle((x_offset + start + CHR_HEADER_X_OFFSET, y_offset + ORIGIN_Y_OFFSET), end - start, ORIGIN_WIDTH,
-                                         linewidth=1, edgecolor='black', facecolor=color, alpha=ORIGIN_ALPHA)
+                                         linewidth=1, edgecolor='black', facecolor=color, alpha=ORIGIN_ALPHA, lw=ORIGIN_RECT_LINEWIDTH)
         ax.add_patch(origin_bands)
         ax.text(x_offset + (start + end) / 2 + CHR_HEADER_X_OFFSET, y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH / 2 + ORIGIN_MARK_Y_OFFSET, name,
                 ha='center', va='center', fontsize=ORIGIN_FONTSIZE, color=text_color, rotation=90, weight=BAND_TEXT_WEIGHT)
 
     ## Modified Chrom's header
     if chromosome_data['highlight']:
-        ax.text(x_offset, y_offset + CHR_HEADER_HIGHLIGHT_Y_OFFSET, "*",
+        ax.text(x_offset + CHR_HEADER_HIGHLIGHT_X_OFFSET, y_offset + CHR_HEADER_HIGHLIGHT_Y_OFFSET, "*",
                 va='bottom', ha='left',
                 fontsize=CHR_HEADER_HIGHLIGHT_FONTSIZE, rotation=90, weight='bold', color=CHR_HEADER_HIGHLIGHT_COLOR)
 
@@ -176,7 +183,8 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset, max_length):
     ## sv_labels
     for sv_label in chromosome_data['sv_labels']:
         pos = sv_label['pos']
-        label = sv_label['label']
+        # label = sv_label['label']
+        label = sv_label['label'].split(']')[0] + ']'
         label_bar_x_loc = x_offset + pos + CHR_HEADER_X_OFFSET
         label_bar_y_start_loc = y_offset + LABEL_BAR_Y_OFFSET
         label_bar_y_end_loc = y_offset + LABEL_BAR_END_Y_OFFSET - SUBTICK_LEN
@@ -203,7 +211,7 @@ def rotate_image(input_image_path, output_image_path):
         rotated_img.save(output_image_path)
 
 
-def generate_visualizer_input(events, aligned_haplotypes):
+def generate_visualizer_input(events, aligned_haplotypes, segment_to_index_dict):
     index_to_segment_dict = reverse_dict(segment_to_index_dict)
     cyto_path = create_cytoband_path()
     vis_input = []
@@ -216,7 +224,7 @@ def generate_visualizer_input(events, aligned_haplotypes):
                    'length': get_chr_length(segment_list),
                    'bands': label_cytoband(segment_list, cyto_path),
                    'origins': get_chr_origins(segment_list),
-                   'highlight': chr_is_highlighted(events, hap_idx),
+                   'highlight': chr_is_highlighted(events, hap.id),
                    'sv_labels': []}
         vis_input.append(c_entry)
     assign_sv_labels(events, vis_input, index_to_segment_dict)
@@ -286,6 +294,7 @@ def assign_sv_labels(input_events, all_vis_input, i_index_to_segment_dict):
             if event_idx in associated_event:
                 continue
             next_event_info = input_events[event_idx + 1]
+            associated_event.append(event_idx + 1)
             event_name = name_abbreviation['balanced_translocation']
             if 'mt' in event_info[2][0]:
                 left_segment1 = event_info[2][0].split('.')[3]
@@ -572,20 +581,20 @@ def test_artificial_chr_image():
     for chrom_idx, i_chromosome_data in enumerate(chromosomes_data):
         row = chrom_idx // 4
         col = chrom_idx % 4
-        plot_chromosome(i_ax, i_chromosome_data, y_offset=col * 4, x_offset=row * 28)
+        plot_chromosome(i_ax, i_chromosome_data, y_offset=col * 3, x_offset=row * 28)
 
     # plt.show(bbox_inches='tight')
     plt.savefig('test_fig.png', bbox_inches='tight')
     rotate_image('test_fig.png', 'test_fig_rotated.png')
 
 
-def test_make_image(vis_input, i_max_length):
-    plt.rcParams['figure.dpi'] = 300
+def make_image(vis_input, i_max_length, output_prefix):
+    plt.rcParams['figure.dpi'] = 500
     n_chrom = len(vis_input)
-    scaled_length = i_max_length / 200 * 8
+    scaled_length = i_max_length / 200 * 8 * IMG_LENGTH_SCALE
     print('scaled_length', scaled_length)
     print('2 * min(4, n_chrom)', 2 * min(4, n_chrom))
-    fig, i_ax = plt.subplots(figsize=(scaled_length, 2 * min(4, n_chrom)))  # TODO: scale size according to the size of max_length
+    fig, i_ax = plt.subplots(figsize=(scaled_length, 1.15 * 4))  # TODO: scale size according to the size of max_length
 
     if len(vis_input) == 1:
         Y_CONST = 0
@@ -601,23 +610,26 @@ def test_make_image(vis_input, i_max_length):
         plot_chromosome(i_ax, i_chromosome_data, col * Y_CONST, row * 28, i_max_length)
 
     # plt.show(bbox_inches='tight')
-    plt.savefig('test_input_fig.png', bbox_inches='tight')
-    rotate_image('test_input_fig.png', 'test_input_fig_rotated.png')
+    plt.savefig(output_prefix + '.png', bbox_inches='tight')
+    rotate_image(output_prefix + '.png', output_prefix + '_rotated.png')
+
+    ## crop image to contain no whitespace
+    # TODO:
 
 
 if __name__ == '__main__':
-    omkar_file_path = '/media/zhaoyang-new/workspace/paul_dremsek/omkar_output/39.txt'
+    omkar_file_path = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/real_case_data/dremsek_OMKar_output_paths/39.txt'
     mt_indexed_lists, mt_path_chrs, segment_to_index_dict, segment_size_dict = read_OMKar_to_indexed_list(omkar_file_path)
     mt_path_chrs = [info.split(': ')[-1] for info in mt_path_chrs]
     wt_path_dict = generate_wt_from_OMKar_output(segment_to_index_dict)
     wt_indexed_lists = populate_wt_indexed_lists(mt_path_chrs, wt_path_dict)
     events, aligned_haplotypes = interpret_haplotypes(mt_indexed_lists, wt_indexed_lists, mt_path_chrs, segment_size_dict)
 
-    c_vis_input = generate_visualizer_input(events, aligned_haplotypes)
-    vis_input_used = [c_vis_input[1], c_vis_input[3]]
+    c_vis_input = generate_visualizer_input(events, aligned_haplotypes, segment_to_index_dict)
+    vis_input_used = [c_vis_input[1], c_vis_input[3], c_vis_input[5], c_vis_input[5]]
     print(max_chr_length(vis_input_used))
-    test_make_image([c_vis_input[1], c_vis_input[3]], max_chr_length(vis_input_used))
-    create_cytoband_path()
+    make_image([c_vis_input[1], c_vis_input[3], c_vis_input[5], c_vis_input[5]], max_chr_length(vis_input_used), 'test_new')
+    # create_cytoband_path()
 
     # event<0>,type<balanced_translocation_unassociated>,blocks<['44.1.mt(44+).46+.47+', '45.0.wt(44+).p-ter.45+']>
 
