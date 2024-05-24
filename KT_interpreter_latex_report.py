@@ -309,27 +309,29 @@ def generate_latex_frontpage(title,
         o = o + input_str + "\n"
         return o
 
+
+    output_str += "\\catcode`\_=12\n"
     output_str += "\\documentclass[12pt]{article}\n"
-    output_str += "\\usepackage[letterpaper, margin=0.75in]{geometry}\n"
     output_str += "\\input{macros}\n"
-    # output_str += "\\usepackage{packed_itemize}\n"
+    output_str += "\\usepackage[letterpaper, margin=0.75in]{geometry}\n"
     output_str += "\\setcounter{secnumdepth}{0}\n"
     output_str += "\\usepackage{graphicx}\n"
     output_str += "\\usepackage{setspace}\n"
     output_str += "\\usepackage{titling}\n"
     output_str += "\\usepackage{enumitem}\n"
-    output_str += "\\usepackage[T1]{fontenc}\n"
-    output_str += "\\catcode`\_=12\n"
+    # output_str += "\\usepackage[T1]{fontenc}\n"
     output_str += "\\renewcommand\\maketitlehookc{\\vspace{-10ex}}\n"
     output_str += "\\usepackage{lipsum}\n"
-    output_str += "\\graphicspath{ {./images/} }\n"
+    # output_str += "\\graphicspath{ {./images/} }\n"
+
+    output_str += "\n"
     output_str += "\\begin{document}\n"
     output_str += "\n"
     output_str += "\\title{" + title + "}\n"
     today = datetime.today()
     formatted_date = today.strftime("%b.%dth, %Y")
     output_str += "\\date{" + str(formatted_date) + "}\n"
-    output_str += "\\maketitle\n"
+    # output_str += "\\maketitle\n"
     output_str += "\n"
     # output_str += "\\textbf{{Samples Included: }} "
     # output_str += ', '.join(sample_names) + "\n"
@@ -360,7 +362,7 @@ def generate_latex_frontpage(title,
     return output_str
 
 
-def batch_generate_latex_case_str(omkar_output_dir, image_dir):
+def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=False):
     """
     :param omkar_output_dir: assume files are named as (int).txt
     :param image_dir: relative path to the latex DIR, assume exists an image file with the same name, but (int).pdf
@@ -389,6 +391,8 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
             dependent_clusters, cluster_events = form_dependent_clusters(events)
             final_str += "\\section{{Sample Id: {}}}\n".format(filename)
             final_str += "\n"
+            ## iterate over all clusters
+            n_clusters = len(dependent_clusters)
             for image_cluster_idx, (c_cluster, c_events) in enumerate(zip(dependent_clusters, cluster_events)):
                 ## include all homologues
                 event_chr = set()
@@ -424,25 +428,30 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
 
                 image_prefix = "{}/{}_imagecluster{}".format(image_dir, filename, image_cluster_idx)
                 image_path = image_prefix + '_rotated.png'
-                latex_relative_image_path = 'paul_dremsek_plots_new/' + image_path.split('/')[-1]
-                make_image(c_vis_input, max_chr_length(c_vis_input), image_prefix)
+                overleaf_relative_image_path = 'paul_dremsek_plots_new/' + image_path.split('/')[-1]
+                pycharm_relative_image_path = image_path
+                if compile_image:
+                    make_image(c_vis_input, max_chr_length(c_vis_input), image_prefix)
 
-                final_str += "\\textbf{{Event Cluster {}}}\n".format(image_cluster_idx + 1)
+                final_str += "\\textbf{{Event Cluster {} (of {})}}\n".format(image_cluster_idx + 1, n_clusters)
                 final_str += "\\newline\n"
                 final_str += "\n"
                 final_str += "\\noindent\n"
-                final_str += "\\begin{minipage}{0.6\\textwidth}\n"
+                final_str += "\\begin{minipage}{0.55\\textwidth}\n"
                 # final_str += "\\begin{figure}[h!]\n"
                 final_str += "\\centering\n"
-                final_str += "\\includegraphics[width=4in]{{{}}}\n".format(latex_relative_image_path)
+                final_str += "\\includegraphics[width=3.6in]{{{}}}\n".format(overleaf_relative_image_path)
                 # final_str += "\\caption{{\\footnotesize Chromosomes with aberrant karyotypes}}\n"
                 # final_str += "\\label{{fig:karyotype_id{}}}\n".format(filename)
                 # final_str += "\\end{figure}\n"
                 final_str += "\\end{minipage}%\n"
-                final_str += "\\begin{minipage}{0.4\\textwidth}\n"
+                final_str += "\\begin{minipage}{0.45\\textwidth}\n"
                 # Iterate through all events
                 final_str += "\\paragraph{SVs}\n"
-                final_str += "\\begin{packed_enum}\n"
+                final_str += "\\medskip\n"
+                # final_str += "\\begin{packed_enum}\n"
+                final_str += "\\begin{flushleft}\n"
+                SV_counter = 1
                 for bullet_idx, (main_str, iscn_interpretation) in enumerate(iscn_events):
                     iscn_interpretation = hyperlink_iscn_interpretation(iscn_interpretation)
                     # format space-symbol better
@@ -452,11 +461,14 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir):
                     iscn_interpretation = iscn_interpretation.replace('&^&^&^&', '\\,on ')
                     iscn_interpretation = iscn_interpretation.replace('!@!@!@!@!', ' between ')
 
-                    final_str += "\\item {{\\bf {}}}.\\,{}\n".format(main_str, iscn_interpretation)
-                final_str += "\\end{packed_enum}\n"
+                    # final_str += "\\item \\textbf{{{}}}.\\,{}\n".format(main_str, iscn_interpretation)
+                    final_str += "\\textbf{{{}.\\;{}}}.\\,{}\n\n".format(SV_counter, main_str, iscn_interpretation)
+                    SV_counter += 1
+                # final_str += "\\end{packed_enum}\n"
+                final_str += "\\end{flushleft}\n"
 
                 final_str += "\n"
-                final_str += "\\paragraph{Impacted genes in DDG2P}$\\;$\\\\\\\\\n"
+                final_str += "\\paragraph{Impacted genes in DDG2P}$\\;$\n\\\\"
                 final_str += latex_gene_table(genes_report)
 
                 final_str += "\n"
@@ -513,7 +525,9 @@ def generate_latex_report(output_filename_prefix, front_page_str, batch_case_str
     with open(latex_path, 'w') as fp_write:
         fp_write.write(front_page_str)
         fp_write.write(batch_case_str)
-    subprocess.run(['pdflatex', '-output-directory=' + directory_path, latex_path])
+    os.chdir('/'.join(output_filename_prefix.split('/')[:-1]))
+    relative_latex_path = latex_path.split('/')[-1]
+    subprocess.run(['pdflatex', relative_latex_path])
 
 
 def chr_range_tostr(bpa, bpb, bpa_band, bpb_band):
@@ -569,7 +583,7 @@ def latex_gene_table(genes_report):
     ## form latex table
     if len(genes_to_report) == 0:
         return '\\quad None\n\n'
-    return_str = "{\\scriptsize\n"
+    return_str = "{\\scriptsize\n\n"
     return_str += "\\begin{tabular}{|llll|}\\hline\n"
     return_str += "SV & Rationale & Gene Name & Gene Omim  \\\\\\hline\n"
     for entry_idx, entry in enumerate(genes_to_report):
@@ -621,9 +635,9 @@ def hyperlink_iscn_interpretation(input_str):
     return input_str
 
 
-def test_latex(output_name):
+def test_latex(output_name, compile_image):
     output_path = 'latex_reports/{}'.format(output_name)
-    batch_case_str, cases_in_report = batch_generate_latex_case_str(data_dir, image_dir)
+    batch_case_str, cases_in_report = batch_generate_latex_case_str(data_dir, image_dir, compile_image=compile_image)
     front_str = generate_latex_frontpage('{} Data'.format(' '.join(output_name.split('_'))),
                                          'hg38 all coding genes',
                                          50,
@@ -639,9 +653,10 @@ if __name__ == "__main__":
     # test_reciprocal_trans()
     c_output_name = 'Dremsek'
     # c_output_name = 'Keyhole'
-    data_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/real_case_data/dremsek_OMKar_output_paths/'
+    data_dir = 'real_case_data/dremsek_OMKar_output_paths/'
     # data_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/real_case_data/keyhole_OMKar_output_paths/'
-    image_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/latex_reports/paul_dremsek_plots_new/'
+    image_dir = 'latex_reports/paul_dremsek_plots_new/'
     # image_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/latex_reports/keyhole_plots_new/'
     # batch_case_str = batch_generate_latex_case_str(data_dir, image_dir)
-    test_latex(c_output_name)
+    os.makedirs(image_dir, exist_ok=True)
+    test_latex(c_output_name, compile_image=False)

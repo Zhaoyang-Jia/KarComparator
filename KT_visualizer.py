@@ -613,9 +613,6 @@ def make_image(vis_input, i_max_length, output_prefix):
     plt.savefig(output_prefix + '.png', bbox_inches='tight')
     rotate_image(output_prefix + '.png', output_prefix + '_rotated.png')
 
-    ## crop image to contain no whitespace
-    # TODO:
-
 
 if __name__ == '__main__':
     omkar_file_path = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/real_case_data/dremsek_OMKar_output_paths/39.txt'
