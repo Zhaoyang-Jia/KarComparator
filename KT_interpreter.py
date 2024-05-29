@@ -794,31 +794,47 @@ def populate_wt_indexed_lists(mt_path_chrs, wt_path_dict):
     return wt_indexed_lists
 
 
-def form_dependent_clusters(input_events):
+def form_dependent_clusters(input_events, i_aligned_haplotypes):
     """
     :param input_events:
     :return: list of list, inner-list contains the path_id of the cluster, outer-list sorted by min-value path_id in the list
     """
     dependent_clusters = []
     cluster_events = []
+    cluster_chrs = []
     for event_info in input_events:
-        event_paths = []
+        event_paths = set()
         for block in event_info[2]:
-            event_paths.append(int(block.split('.')[0]))
+            event_paths.add(int(block.split('.')[0]))
+        event_paths = list(event_paths)
         # see if there exists a cluster to add
-        cluster_found = False
+        cluster_found = -1
         for cluster_idx, cluster in enumerate(dependent_clusters):
-            if event_paths[0] in cluster:
-                for remaining_event_idx in range(1, len(event_paths)):
-                    remaining_path = event_paths[remaining_event_idx]
-                    if remaining_path not in cluster:
-                        cluster.append(remaining_path)
-                cluster_events[cluster_idx].append(event_info)
-                cluster_found = True
-                break
-        if not cluster_found:
+            # search in all clusters
+            for event_path in event_paths:
+                # if there exists one path overlap
+                path_chr = i_aligned_haplotypes[event_path].chrom
+                if path_chr in cluster_chrs[cluster_idx]:
+                    cluster_found = cluster_idx
+                    break
+
+        if cluster_found >= 0:
+            for event_path in event_paths:
+                located_cluster = dependent_clusters[cluster_found]
+                if event_path not in located_cluster:
+                    located_cluster.append(event_path)
+                    cluster_chrs[cluster_found].add(i_aligned_haplotypes[event_path].chrom)
+            cluster_events[cluster_found].append(event_info)
+        elif cluster_found == -1:
             dependent_clusters.append(event_paths)
             cluster_events.append([event_info])
+            c_path_chr = set()
+            for event_path in event_paths:
+                c_path_chr.add(i_aligned_haplotypes[event_path].chrom)
+            cluster_chrs.append(c_path_chr)
+        else:
+            raise RuntimeError
+
 
     ## sort clusters by min_element
     min_values = [min(inner_list) for inner_list in dependent_clusters]
@@ -873,6 +889,18 @@ def get_ucsc_url(chrom, start_pos, end_pos, db='hg38'):
              '&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position='.format(db)
     suffix = '{}%3A{}%2D{}'.format(chrom.lower(), start_pos, end_pos)
     return prefix + suffix
+
+
+def sort_events(input_events):
+    def sort_key(event):
+        event_type = event[1]
+        if 'translocation' in event_type:
+            return -1.0
+        else:
+            path_cluster_idx = '.'.join(event[2][0].split('.')[:2]).split(',')[0]
+            return float(path_cluster_idx)
+
+    return sorted(input_events, key=sort_key)
 
 
 def test_interpreter():

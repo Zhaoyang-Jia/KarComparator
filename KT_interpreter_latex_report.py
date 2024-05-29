@@ -137,7 +137,8 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
                 else:
                     main_str = 'ins({};{})({};{}{})'.format(path_chr, bp2_chr, bp1_band, bp2_band, bp3_band)
                 chr_range = chr_range_tostr(bp2, bp3, bp2_band, bp3_band)
-                iscn_interpretation = 'duplicated-insertion of Chr{}: {} into Chr{}: {} ({})'.format(bp2_chr[3:], chr_range, path_chr, bp1, bp1_band)
+                iscn_interpretation = 'duplicated-insertion of Chr{}: {} into Chr{}: {} ({})'.\
+                    format(bp2_chr[3:], chr_range, path_chr, format(bp1, ',d'), bp1_band)
                 bp_genes, bp_genes_highlight = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
                 cn_signature = 1
                 cn_changed_genes, cn_changed_genes_highlight = report_cnv_genes_on_region(bp2_chr[3:], bp2, bp3)
@@ -170,7 +171,8 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
                 elif event_bp_itr == 'q-ter':
                     qter_idx.append(event_bp_idx)
             if len(pter_idx) + len(qter_idx) != 2 or len(pter_idx) == len(qter_idx):
-                raise RuntimeError('non-terminal 2-break reciprocal translocation detected')
+                pass
+                # raise RuntimeError('non-terminal 2-break reciprocal translocation detected')
             # locate endpoint of event segments, if p-side, choose right, if q-side, choose left
             indexed_event_segs1 = c_event_info[0].split('.')[2].split(')')[0].split('(')[1].split(',')
             indexed_event_segs2 = o_event_info[0].split('.')[2].split(')')[0].split('(')[1].split(',')
@@ -309,7 +311,6 @@ def generate_latex_frontpage(title,
         o = o + input_str + "\n"
         return o
 
-
     output_str += "\\catcode`\_=12\n"
     output_str += "\\documentclass[12pt]{article}\n"
     output_str += "\\input{macros}\n"
@@ -321,7 +322,6 @@ def generate_latex_frontpage(title,
     output_str += "\\usepackage{enumitem}\n"
     # output_str += "\\usepackage[T1]{fontenc}\n"
     output_str += "\\renewcommand\\maketitlehookc{\\vspace{-10ex}}\n"
-    output_str += "\\usepackage{lipsum}\n"
     # output_str += "\\graphicspath{ {./images/} }\n"
 
     output_str += "\n"
@@ -375,9 +375,14 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=Fal
     files = [file for file in os.listdir(omkar_output_dir)]
     files = sorted(files, key=int_file_keys)
 
+    highlight_files = []
+    files = [file for file in files if file not in highlight_files]
+    files = highlight_files + files
+
     for file in files:
-        if file in ['3.txt', '39.txt', '49.txt', '12.txt', '45.txt']:
         # if True:
+        # if file in ['3.txt', '39.txt', '49.txt', '12.txt', '45.txt']:
+        if file == '2280.txt':
             filename = file.split('.')[0]
             file_path = omkar_output_dir + file
             print(file)
@@ -388,7 +393,8 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=Fal
             events, aligned_haplotypes = interpret_haplotypes(mt_indexed_lists, wt_indexed_lists, mt_path_chrs, segment_size_dict)
             if len(events) == 0:
                 continue
-            dependent_clusters, cluster_events = form_dependent_clusters(events)
+            dependent_clusters, cluster_events = form_dependent_clusters(events, aligned_haplotypes)
+            print(dependent_clusters)
             final_str += "\\section{{Sample Id: {}}}\n".format(filename)
             final_str += "\n"
             ## iterate over all clusters
@@ -408,6 +414,7 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=Fal
                 c_aligned_haplotypes = [aligned_haplotypes[i] for i in hap_idx_to_plot]
 
                 ## generate report text
+                c_events = sort_events(c_events)
                 iscn_events, genes_report = format_report(c_events, aligned_haplotypes, reverse_dict(segment_dict))
                 ## generate image
                 c_vis_input = generate_visualizer_input(c_events, c_aligned_haplotypes, segment_dict)
@@ -428,28 +435,26 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=Fal
 
                 image_prefix = "{}/{}_imagecluster{}".format(image_dir, filename, image_cluster_idx)
                 image_path = image_prefix + '_rotated.png'
-                overleaf_relative_image_path = 'paul_dremsek_plots_new/' + image_path.split('/')[-1]
+                overleaf_relative_image_path = image_dir.replace('latex_reports/', '') + image_path.split('/')[-1]
                 pycharm_relative_image_path = image_path
                 if compile_image:
-                    make_image(c_vis_input, max_chr_length(c_vis_input), image_prefix)
+                    if len(c_vis_input) <= 4:
+                        make_image(c_vis_input, max_chr_length(c_vis_input), image_prefix, IMG_LENGTH_SCALE_VERTICAL_SPLIT)
+                    else:
+                        make_image(c_vis_input, max_chr_length(c_vis_input), image_prefix, IMG_LENGTH_SCALE_HORIZONTAL_SPLIT)
 
-                final_str += "\\textbf{{Event Cluster {} (of {})}}\n".format(image_cluster_idx + 1, n_clusters)
-                final_str += "\\newline\n"
+                final_str += "\\subsection{{Event Cluster {} (of {})}}\n".format(image_cluster_idx + 1, n_clusters)
                 final_str += "\n"
-                final_str += "\\noindent\n"
-                final_str += "\\begin{minipage}{0.55\\textwidth}\n"
-                # final_str += "\\begin{figure}[h!]\n"
-                final_str += "\\centering\n"
-                final_str += "\\includegraphics[width=3.6in]{{{}}}\n".format(overleaf_relative_image_path)
-                # final_str += "\\caption{{\\footnotesize Chromosomes with aberrant karyotypes}}\n"
-                # final_str += "\\label{{fig:karyotype_id{}}}\n".format(filename)
-                # final_str += "\\end{figure}\n"
-                final_str += "\\end{minipage}%\n"
-                final_str += "\\begin{minipage}{0.45\\textwidth}\n"
+                # final_str += "\\noindent\n"
+                # final_str += "\\begin{wrapfigure}{r}{0.5\\textwidth}\n"
+
+                # final_str += "\\end{wrapfigure}\n"
+
                 # Iterate through all events
+                final_str += "\\begin{minipage}[t][][t]{0.5\\textwidth}\n"
+                final_str += "\\vspace*{0pt}\n"
                 final_str += "\\paragraph{SVs}\n"
                 final_str += "\\medskip\n"
-                # final_str += "\\begin{packed_enum}\n"
                 final_str += "\\begin{flushleft}\n"
                 SV_counter = 1
                 for bullet_idx, (main_str, iscn_interpretation) in enumerate(iscn_events):
@@ -462,21 +467,22 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=Fal
                     iscn_interpretation = iscn_interpretation.replace('!@!@!@!@!', ' between ')
 
                     # final_str += "\\item \\textbf{{{}}}.\\,{}\n".format(main_str, iscn_interpretation)
-                    final_str += "\\textbf{{{}.\\;{}}}.\\,{}\n\n".format(SV_counter, main_str, iscn_interpretation)
+                    final_str += "\\textbf{{{}.\\;{}}}. {}\n\n".format(SV_counter, main_str, iscn_interpretation)
                     SV_counter += 1
-                # final_str += "\\end{packed_enum}\n"
                 final_str += "\\end{flushleft}\n"
-
                 final_str += "\n"
-                final_str += "\\paragraph{Impacted genes in DDG2P}$\\;$\n\\\\"
+                final_str += "\\paragraph{Impacted genes in DDG2P}\\;\n"
                 final_str += latex_gene_table(genes_report)
-
-                final_str += "\n"
+                final_str += "\\end{minipage}%\n"
+                final_str += "\\hfill\n"
+                final_str += "\\begin{minipage}[t][][t]{0.5\\textwidth}\n"
+                final_str += "\\vspace*{0pt}\n"
+                final_str += "\\centering\n"
+                # final_str += "\\fbox{{\\includegraphics[width=\\linewidth]{{{}}}}}\n".format(overleaf_relative_image_path)
+                final_str += "\\includegraphics[width=\\linewidth]{{{}}}\n".format(overleaf_relative_image_path)
+                final_str += "\\captionof{{figure}}{{sample {}, event cluster {}}}\n".format(filename, image_cluster_idx + 1)
                 final_str += "\\end{minipage}\n"
-
-                final_str += "\n"
-                final_str += "\\newpage\n"
-
+                final_str += "\\newpage\n\n"
 
     final_str += "\n"
     final_str += "\\end{document}\n"
@@ -582,12 +588,14 @@ def latex_gene_table(genes_report):
 
     ## form latex table
     if len(genes_to_report) == 0:
-        return '\\quad None\n\n'
-    return_str = "{\\scriptsize\n\n"
+        return '\\\\\\quad None\n\n'
+    return_str = "\\medskip\n"
+    return_str += "{\\\\\\scriptsize\n"
+    # return_str += "\\begin{flushleft}\n"
     return_str += "\\begin{tabular}{|llll|}\\hline\n"
     return_str += "SV & Rationale & Gene Name & Gene Omim  \\\\\\hline\n"
     for entry_idx, entry in enumerate(genes_to_report):
-        new_line = '{SV} & {Rationale} & {Gene_Name} & {Gene_Omim} \\\\'.\
+        new_line = '{SV} & {Rationale} & {Gene_Name} & {Gene_Omim} \\\\'. \
             format(SV=entry['SV'],
                    Rationale=entry['rationale'],
                    Gene_Name=entry['gene name'],
@@ -598,13 +606,14 @@ def latex_gene_table(genes_report):
             return_str += new_line + "\n"
     return_str += "\\end{tabular}\n"
     return_str += "}\n"
+    # return_str += "\\end{flushleft}\n"
     return return_str
 
 
 def latex_hyperlink_coordinates(input_str, proximity=50000):
     return_dict = {}  # {replacement_string: hyperlinked_string}
 
-    pattern = r'Chr(\d+): (\d{1,3}(?:,\d{3})*)-(\d{1,3}(?:,\d{3})*) \(.*?\)'
+    pattern = r'Chr(\d+|X|Y): (\d{1,3}(?:,\d{3})*)-(\d{1,3}(?:,\d{3})*) \(.*?\)'
     matches_itr = re.finditer(pattern, input_str)
     for match in matches_itr:
         replacement_str = input_str[match.start(): match.end()]
@@ -620,7 +629,7 @@ def latex_hyperlink_coordinates(input_str, proximity=50000):
         replacement_str = input_str[match.start(): match.end()]
         chrom = 'chr' + match.group(1)
         pos = int(match.group(2).replace(',', ''))
-        c_chr_length = get_chr_length(chrom)
+        c_chr_length = get_chr_length_from_forbidden_file(chrom)
         ucsc_url = get_ucsc_url(chrom, max(0, pos - proximity), min(c_chr_length, pos + proximity))
         hyperlinked_str = '\\href{{{}}}{{{}}}'.format(ucsc_url, replacement_str)
         return_dict[replacement_str] = hyperlinked_str
@@ -651,12 +660,9 @@ if __name__ == "__main__":
     # test_interpreter()
     # test_segs_union()
     # test_reciprocal_trans()
-    c_output_name = 'Dremsek'
-    # c_output_name = 'Keyhole'
-    data_dir = 'real_case_data/dremsek_OMKar_output_paths/'
-    # data_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/real_case_data/keyhole_OMKar_output_paths/'
-    image_dir = 'latex_reports/paul_dremsek_plots_new/'
-    # image_dir = '/Users/zhaoyangjia/PyCharm_Repos/KarComparator/latex_reports/keyhole_plots_new/'
+    # c_output_name, data_dir, image_dir = 'Dremsek', 'real_case_data/dremsek_OMKar_output_paths/', 'latex_reports/paul_dremsek_plots_new/'
+    c_output_name, data_dir, image_dir = 'Keyhole', 'real_case_data/keyhole_OMKar_output_paths/', 'latex_reports/keyhole_plots_new/'
+    # c_output_name, data_dir, image_dir = 'Sunnyside', 'real_case_data/sunnyside_OMKar_output_paths/', 'latex_reports/sunnyside_plots_new/'
     # batch_case_str = batch_generate_latex_case_str(data_dir, image_dir)
     os.makedirs(image_dir, exist_ok=True)
     test_latex(c_output_name, compile_image=False)

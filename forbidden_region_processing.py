@@ -40,7 +40,7 @@ def label_path_with_forbidden_regions(input_path_list: [Path], forbidden_region_
                 path_segment_itr.segment_type = 'arm_region'
 
 
-def get_chr_length(input_chr_name, forbidden_region_file='Metadata/acrocentric_telo_cen.bed'):
+def get_chr_length_from_forbidden_file(input_chr_name, forbidden_region_file='Metadata/acrocentric_telo_cen.bed'):
     with open(forbidden_region_file) as fp_read:
         fp_read.readline()  # skip index line
         for line in fp_read:

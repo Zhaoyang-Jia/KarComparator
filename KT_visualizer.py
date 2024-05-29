@@ -26,6 +26,13 @@ def get_text_color(bg_color):
 
 
 # constant parameters, x and y based on the unrotated orientation
+IMAGE_DPI = 500
+IMG_LENGTH_SCALE_VERTICAL_SPLIT = 0.92
+IMG_LENGTH_SCALE_HORIZONTAL_SPLIT = 0.55
+MAX_CHR_LEN_IF_NO_SCALE = 250
+SV_LABEL_MIN_DISTANCE = 5
+MAX_LABEL_EACH_LINE = 2
+
 WHOLE_CHR_Y_OFFSET = 2
 CHR_HEADER_Y_OFFSET = -0.2 + WHOLE_CHR_Y_OFFSET
 CHR_BAND_Y_OFFSET = WHOLE_CHR_Y_OFFSET
@@ -58,7 +65,8 @@ SUBTICK_LEN = 0.065
 SUBTICK_THICKNESS = 0.9
 SUBTICK_ALPHA = 0.5
 
-LABEL_BAR_LEN = 0.95
+LABEL_BAR_LEN1 = 0.95
+LABEL_BAR_LEN2 = 0.7
 LABEL_BAR_THICKNESS = 1.25
 LABEL_BAR_ALPHA = 1
 LABEL_MARK_ALPHA = 1
@@ -74,12 +82,11 @@ LABEL_MARK_COLOR = 'red'
 BAND_RECT_LINEWIDTH = 0.5
 ORIGIN_RECT_LINEWIDTH = 0.5
 
-IMG_LENGTH_SCALE = 0.85
-
 # constant parameters: do not adjust, dependent to above
 TICK_END_Y_OFFSET = TICK_Y_OFFSET - TICK_LEN
 SUBTICK_END_Y_OFFSET = TICK_Y_OFFSET - SUBTICK_LEN
-LABEL_BAR_END_Y_OFFSET = LABEL_BAR_Y_OFFSET - LABEL_BAR_LEN
+LABEL_BAR_END_Y_OFFSET1 = LABEL_BAR_Y_OFFSET - LABEL_BAR_LEN1
+LABEL_BAR_END_Y_OFFSET2 = LABEL_BAR_Y_OFFSET - LABEL_BAR_LEN2
 
 color_mapping = {
     'gneg': 'white',
@@ -122,7 +129,7 @@ chr_color_mapping = {
 reduced_saturation_mapping = {k: reduce_saturation(v, BAND_SATURATION) for k, v in color_mapping.items()}
 
 
-def plot_chromosome(ax, chromosome_data, y_offset, x_offset, max_length):
+def plot_chromosome(ax, chromosome_data, y_offset, x_offset, len_scaling):
     ## Chrom header
     ax.text(x_offset, y_offset + CHR_HEADER_Y_OFFSET, chromosome_data['name'],
             va='bottom', fontsize=CHR_HEADER_FONTSIZE, rotation=90, weight='bold')
@@ -139,8 +146,10 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset, max_length):
         chrom_bands = patches.Rectangle((x_offset + start + CHR_HEADER_X_OFFSET, y_offset + CHR_BAND_Y_OFFSET), end - start, BAND_WIDTH,
                                         linewidth=1, edgecolor='black', facecolor=color, alpha=BAND_ALPHA, lw=BAND_RECT_LINEWIDTH)
         ax.add_patch(chrom_bands)
-        ax.text(x_offset + (start + end) / 2 + CHR_HEADER_X_OFFSET, y_offset + BAND_WIDTH / 2 + CHR_BAND_MARK_Y_OFFSET, name,
-                ha='center', va='center', fontsize=BAND_FONTSIZE, color=text_color, rotation=90, weight=BAND_TEXT_WEIGHT)
+        if end - start > (1 / len_scaling):
+            # do not label band that are too narrow
+            ax.text(x_offset + (start + end) / 2 + CHR_HEADER_X_OFFSET, y_offset + BAND_WIDTH / 2 + CHR_BAND_MARK_Y_OFFSET, name,
+                    ha='center', va='center', fontsize=BAND_FONTSIZE, color=text_color, rotation=90, weight=BAND_TEXT_WEIGHT)
 
     ## Origins
     for origin in chromosome_data['origins']:
@@ -162,18 +171,18 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset, max_length):
                 fontsize=CHR_HEADER_HIGHLIGHT_FONTSIZE, rotation=90, weight='bold', color=CHR_HEADER_HIGHLIGHT_COLOR)
 
     ## Add sub-scale ticks
-    for i in range(0, math.floor(chromosome_data['length']) + 1, 2):
-        subtick_x_loc = x_offset + i + CHR_HEADER_X_OFFSET
+    for i in range(0, math.floor(chromosome_data['length'] / len_scaling) + 1, 2):
+        subtick_x_loc = x_offset + (i * len_scaling) + CHR_HEADER_X_OFFSET
         subtick_y_start_loc = y_offset + TICK_Y_OFFSET
         subtick_y_end_loc = y_offset + SUBTICK_END_Y_OFFSET
         ax.plot([subtick_x_loc, subtick_x_loc], [subtick_y_start_loc, subtick_y_end_loc],
                 color='grey', linewidth=SUBTICK_THICKNESS, alpha=SUBTICK_ALPHA)
     ## Add scale ticks
-    for i in range(0, math.floor(chromosome_data['length']) + 1, 10):
-        tick_x_loc = x_offset + i + CHR_HEADER_X_OFFSET
+    for i in range(0, math.floor(chromosome_data['length'] / len_scaling) + 1, 10):
+        tick_x_loc = x_offset + (i * len_scaling) + CHR_HEADER_X_OFFSET
         tick_y_start_loc = y_offset + TICK_Y_OFFSET - SUBTICK_LEN  # to not overlap with the subticks
         tick_y_end_loc = y_offset + TICK_END_Y_OFFSET
-        tickmark_x_loc = x_offset + i + CHR_HEADER_X_OFFSET + TICK_MARKING_X_OFFSET
+        tickmark_x_loc = x_offset + (i * len_scaling) + CHR_HEADER_X_OFFSET + TICK_MARKING_X_OFFSET
         tickmark_y_loc = y_offset + TICK_MARKING_Y_OFFSET
         ax.plot([tick_x_loc, tick_x_loc], [tick_y_start_loc, tick_y_end_loc],
                 color='red', linewidth=TICK_THICKNESS, alpha=TICK_ALPHA)
@@ -183,23 +192,28 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset, max_length):
     ## sv_labels
     for sv_label in chromosome_data['sv_labels']:
         pos = sv_label['pos']
-        # label = sv_label['label']
-        label = sv_label['label'].split(']')[0] + ']'
+
+        ## format label-text
+        labels = []
+        for label_idx, label_itr in enumerate(sv_label['label']):
+            label_header = label_itr.split(']')[0] + ']'
+            if label_idx != len(sv_label['label']) - 1 and (label_idx + 1) % MAX_LABEL_EACH_LINE == 0:
+                label_header += '\n'
+            labels.append(label_header)
+        label = ''.join(labels)
+
         label_bar_x_loc = x_offset + pos + CHR_HEADER_X_OFFSET
         label_bar_y_start_loc = y_offset + LABEL_BAR_Y_OFFSET
-        label_bar_y_end_loc = y_offset + LABEL_BAR_END_Y_OFFSET - SUBTICK_LEN
+        if len(labels) > 1:
+            label_bar_y_end_loc = y_offset + LABEL_BAR_END_Y_OFFSET2 - SUBTICK_LEN
+        else:
+            label_bar_y_end_loc = y_offset + LABEL_BAR_END_Y_OFFSET1 - SUBTICK_LEN
         label_mark_y_loc = label_bar_y_end_loc + LABEL_MARK_Y_OFFSET
         ax.plot([label_bar_x_loc, label_bar_x_loc], [label_bar_y_start_loc, label_bar_y_end_loc],
                 color=LABEL_MARK_COLOR, linewidth=LABEL_BAR_THICKNESS, alpha=LABEL_BAR_ALPHA)
         ax.text(label_bar_x_loc, label_mark_y_loc, label,
                 ha='center', va='top', fontsize=LABEL_MARK_FONTSIZE, rotation=90,
                 alpha=LABEL_MARK_ALPHA, color=LABEL_MARK_COLOR, weight='normal')
-
-    ## Limit chrom plot size
-    # ax.set_xlim(0, chromosome_data['length']+CHR_HEADER_X_OFFSET+10)
-    ax.set_xlim(0, max_length + CHR_HEADER_X_OFFSET + 6)
-    ax.set_ylim(0, 16)
-    ax.axis('off')
 
 
 def rotate_image(input_image_path, output_image_path):
@@ -315,7 +329,6 @@ def assign_sv_labels(input_events, all_vis_input, i_index_to_segment_dict):
             find_and_assign_single_label(c_path_idx1, left_segment1, '[{}]{}'.format(event_id, event_name))
             find_and_assign_single_label(c_path_idx2, left_segment2, '[{}]{}'.format(event_id, event_name))
         event_id += 1
-
 
 
 def indexed_segments_to_typed_segments(indexed_segment_list, index_to_segment_dict):
@@ -588,30 +601,96 @@ def test_artificial_chr_image():
     rotate_image('test_fig.png', 'test_fig_rotated.png')
 
 
-def make_image(vis_input, i_max_length, output_prefix):
-    plt.rcParams['figure.dpi'] = 500
-    n_chrom = len(vis_input)
-    scaled_length = i_max_length / 200 * 8 * IMG_LENGTH_SCALE
-    print('scaled_length', scaled_length)
-    print('2 * min(4, n_chrom)', 2 * min(4, n_chrom))
-    fig, i_ax = plt.subplots(figsize=(scaled_length, 1.15 * 4))  # TODO: scale size according to the size of max_length
+def make_image(vis_input, i_max_length, output_prefix, param_image_len_scale):
+    plt.rcParams['figure.dpi'] = IMAGE_DPI
 
-    if len(vis_input) == 1:
-        Y_CONST = 0
-    elif len(vis_input) == 2:
-        Y_CONST = 8
-    elif len(vis_input) == 2:
-        Y_CONST = 6
+    if i_max_length <= MAX_CHR_LEN_IF_NO_SCALE:
+        scaled_image_length = (i_max_length / 200) * 8 * param_image_len_scale
     else:
-        Y_CONST = 4
+        scaled_image_length = (MAX_CHR_LEN_IF_NO_SCALE / 200) * 8 * param_image_len_scale
+
+    n_chrom = len(vis_input)
+    if n_chrom <= 4:
+        image_width = 1.0 * 4
+    else:
+        image_width = 1.0 * 8
+    fig, i_ax = plt.subplots(figsize=(scaled_image_length, image_width))
+
+    ## Scale all Chr in the cluster if at least one Chr is too long to fit
+    if i_max_length <= MAX_CHR_LEN_IF_NO_SCALE:
+        chr_len_scaling = 1
+    else:
+        chr_len_scaling = MAX_CHR_LEN_IF_NO_SCALE / i_max_length
+        for vis in vis_input:
+            apply_scaling_to_vis(vis, chr_len_scaling)
+
+    ## Merge SV-labels if they are too close
+    for vis in vis_input:
+        merge_sv_labels(vis, SV_LABEL_MIN_DISTANCE / chr_len_scaling)
+
+    ## Limit chrom plot size
+    i_ax.set_xlim(0, min(i_max_length, MAX_CHR_LEN_IF_NO_SCALE) + CHR_HEADER_X_OFFSET + 1.5)
+    if n_chrom <= 4:
+        i_ax.set_ylim(0, 16)
+    elif n_chrom <= 8:
+        i_ax.set_ylim(0, 32)
+    else:
+        i_ax.set_ylim(0, 4 * n_chrom)
+    i_ax.axis('off')
+
+    ## generate CHR plotting location, depending on the number of chromosomes, fixed distance between two CHR
+    Y_INIT_mapping = {1: 6,
+                      2: 4,
+                      3: 2,
+                      4: 0,
+                      5: 6,
+                      6: 4,
+                      7: 2,
+                      8: 0}
+    if len(vis_input) in Y_INIT_mapping:
+        Y_INIT = Y_INIT_mapping[len(vis_input)]
+    else:
+        Y_INIT = 0
+    Y_CONST = 4
+
     for chrom_idx, i_chromosome_data in enumerate(vis_input):
         row = chrom_idx // 4
         col = chrom_idx % 4
-        plot_chromosome(i_ax, i_chromosome_data, col * Y_CONST, row * 28, i_max_length)
+        plot_chromosome(i_ax, i_chromosome_data, Y_INIT + col * Y_CONST, row * 28, chr_len_scaling)
 
-    # plt.show(bbox_inches='tight')
     plt.savefig(output_prefix + '.png', bbox_inches='tight')
     rotate_image(output_prefix + '.png', output_prefix + '_rotated.png')
+
+
+def merge_sv_labels(vis_entry, min_distance):
+    if len(vis_entry['sv_labels']) == 0:
+        return
+    new_sv_labels = [{'pos': vis_entry['sv_labels'][0]['pos'],
+                      'label': [vis_entry['sv_labels'][0]['label']]}]
+    last_pos = vis_entry['sv_labels'][0]['pos']
+    last_pos_idx = 0
+    for sv_label_idx, sv_label in enumerate(vis_entry['sv_labels'][1:]):
+        c_pos = sv_label['pos']
+        if c_pos - last_pos <= min_distance:
+            new_sv_labels[last_pos_idx]['label'].append(sv_label['label'])
+        else:
+            new_sv_labels.append({'pos': sv_label['pos'],
+                                  'label': [sv_label['label']]})
+            last_pos = sv_label['pos']
+            last_pos_idx = len(new_sv_labels) - 1
+    vis_entry['sv_labels'] = new_sv_labels
+
+
+def apply_scaling_to_vis(vis_entry, scaling_factor):
+    vis_entry['length'] = vis_entry['length'] * scaling_factor
+    for band in vis_entry['bands']:
+        band['start'] = band['start'] * scaling_factor
+        band['end'] = band['end'] * scaling_factor
+    for origin in vis_entry['origins']:
+        origin['start'] = origin['start'] * scaling_factor
+        origin['end'] = origin['end'] * scaling_factor
+    for sv_label in vis_entry['sv_labels']:
+        sv_label['pos'] = sv_label['pos'] * scaling_factor
 
 
 if __name__ == '__main__':
@@ -625,7 +704,7 @@ if __name__ == '__main__':
     c_vis_input = generate_visualizer_input(events, aligned_haplotypes, segment_to_index_dict)
     vis_input_used = [c_vis_input[1], c_vis_input[3], c_vis_input[5], c_vis_input[5]]
     print(max_chr_length(vis_input_used))
-    make_image([c_vis_input[1], c_vis_input[3], c_vis_input[5], c_vis_input[5]], max_chr_length(vis_input_used), 'test_new')
+    make_image([c_vis_input[1], c_vis_input[3], c_vis_input[5], c_vis_input[5]], max_chr_length(vis_input_used), 'test_new', IMG_LENGTH_SCALE_VERTICAL_SPLIT)
     # create_cytoband_path()
 
     # event<0>,type<balanced_translocation_unassociated>,blocks<['44.1.mt(44+).46+.47+', '45.0.wt(44+).p-ter.45+']>
