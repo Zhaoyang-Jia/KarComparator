@@ -137,8 +137,12 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
                 else:
                     main_str = 'ins({};{})({};{}{})'.format(path_chr, bp2_chr, bp1_band, bp2_band, bp3_band)
                 chr_range = chr_range_tostr(bp2, bp3, bp2_band, bp3_band)
+                if bp1 is None:
+                    bp1_text = bp1_band  # TODO: use 0/len(Chr) for pter/qter
+                else:
+                    bp1_text = format(bp1, ',d')
                 iscn_interpretation = 'duplicated-insertion of Chr{}: {} into Chr{}: {} ({})'.\
-                    format(bp2_chr[3:], chr_range, path_chr, format(bp1, ',d'), bp1_band)
+                    format(bp2_chr[3:], chr_range, path_chr, bp1_text, bp1_band)
                 bp_genes, bp_genes_highlight = report_on_genes_based_on_breakpoints([(bp1_chr, bp1), (bp2_chr, bp2), (bp3_chr, bp3), (bp4_chr, bp4)])
                 cn_signature = 1
                 cn_changed_genes, cn_changed_genes_highlight = report_cnv_genes_on_region(bp2_chr[3:], bp2, bp3)
@@ -373,16 +377,21 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=Fal
     final_str = ""
     cases_with_events = []
     files = [file for file in os.listdir(omkar_output_dir)]
-    files = sorted(files, key=int_file_keys)
+    # files = sorted(files, key=int_file_keys)  # TODO: turn back on for files with int ID
 
-    highlight_files = []
+    highlight_files = ['23X_1q21_recurrent_microduplication_r1',
+                       '23X_22q11_duplication_r2',
+                       '23X_Angelman_r1',
+                       '23Y_Cri_du_Chat_r1',
+                       '23Y_WAGR_11p13_deletion_r2']
+    highlight_files = [i + '.1.txt' for i in highlight_files]
     files = [file for file in files if file not in highlight_files]
     files = highlight_files + files
 
     for file in files:
         # if True:
         # if file in ['3.txt', '39.txt', '49.txt', '12.txt', '45.txt']:
-        if file == '2280.txt':
+        if file == '23Y_2p15-16-1_microdeletion_r2.1.txt':
             filename = file.split('.')[0]
             file_path = omkar_output_dir + file
             print(file)
@@ -409,8 +418,8 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=Fal
                     if hap.chrom in event_chr:
                         hap_idx_to_plot.append(hap_idx)
 
-                if len(hap_idx_to_plot) > 4:
-                    raise RuntimeError('more than 4 chrom selected')
+                # if len(hap_idx_to_plot) > 4:
+                #     raise RuntimeError('more than 4 chrom selected')
                 c_aligned_haplotypes = [aligned_haplotypes[i] for i in hap_idx_to_plot]
 
                 ## generate report text
@@ -661,8 +670,9 @@ if __name__ == "__main__":
     # test_segs_union()
     # test_reciprocal_trans()
     # c_output_name, data_dir, image_dir = 'Dremsek', 'real_case_data/dremsek_OMKar_output_paths/', 'latex_reports/paul_dremsek_plots_new/'
-    c_output_name, data_dir, image_dir = 'Keyhole', 'real_case_data/keyhole_OMKar_output_paths/', 'latex_reports/keyhole_plots_new/'
+    # c_output_name, data_dir, image_dir = 'Keyhole', 'real_case_data/keyhole_OMKar_output_paths/', 'latex_reports/keyhole_plots_new/'
     # c_output_name, data_dir, image_dir = 'Sunnyside', 'real_case_data/sunnyside_OMKar_output_paths/', 'latex_reports/sunnyside_plots_new/'
+    c_output_name, data_dir, image_dir = 'Simulation', '/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/omkar_paths/', 'latex_reports/simulation_plots/'
     # batch_case_str = batch_generate_latex_case_str(data_dir, image_dir)
     os.makedirs(image_dir, exist_ok=True)
-    test_latex(c_output_name, compile_image=False)
+    test_latex(c_output_name, compile_image=True)

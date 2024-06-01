@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class Segment:
     chr_name: str
     start: int
@@ -203,6 +206,22 @@ class Segment:
                 return True
 
         return False
+
+    def assign_cn_bin(self, cn_bins):
+        cn = []
+        for bin_idx, cn_bin in enumerate(cn_bins):
+            cn_value = 0.0
+            if self.chr_name.lower() == cn_bin['chrom'].lower():
+                # compute inclusion length
+                seg_start, seg_end = sorted((self.start, self.end))
+                overlap_start = max(seg_start, cn_bin['start'])
+                overlap_end = min(seg_end, cn_bin['end'])
+                if overlap_start < overlap_end:
+                    overlap_length = overlap_end - overlap_start + 1
+                    bin_length = cn_bin['end'] - cn_bin['start'] + 1
+                    cn_value = overlap_length / bin_length
+            cn.append(cn_value)
+        return np.array(cn)
 
 
 class Arm:

@@ -4,6 +4,8 @@ number of SV missed: 39
 number of SV added: 78
 number of SV missed that was found in preILP graph: 15
 Jaccard Score: 0.828696925329429
+precision: 0.8788819875776398
+recall: 0.9355371900826446
 number of significant dummies (total): 107 (143)
 number of significant dummies correct: 83 (77.57009345794393%)
 number of significant CN change (total): 0 (1)

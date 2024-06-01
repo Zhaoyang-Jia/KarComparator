@@ -2,14 +2,16 @@ from COMPARISON_with_graphs import *
 from Karsimulator_Start_Genome import get_event_chr, get_history_events
 from debug_omkar import *
 from read_KarSimulator_output import *
+from Structures import *
 
 import os
 import pandas as pd
+import numpy as np
 import re
 
 ### Can be overwritten during IMPORT
-data_folder = 'new_data_files/cluster_files_testbuild14/'
-omkar_log_dir = 'batch_processing/OMKar_testbuild9/'
+data_folder = '/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/cluster_files/'
+omkar_log_dir = '/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/omkar_output/'
 karsim_file_prefix = 'new_data_files/KarSimulator/'
 karsim_history_edges_folder = 'packaged_data/Karsimulator_history_intermediate_terminal_labeled/'
 forbidden_region_file = 'Metadata/acrocentric_telo_cen.bed'
@@ -70,6 +72,7 @@ def iterative_check_labeled_edges_in_residual_graph(df_row):
     graph.remove_approximate_transition_edges()
     graph.match_transition_edges()
     graph.remove_forbidden_nodes(forbidden_region_file)
+    node_name_to_pos_dict = reverse_dict(graph.node_name)
 
     omkar_residual_segments, omkar_residual_transitions = graph.gather_edges('omkar')
     karsim_residual_segments, karsim_residual_transitions = graph.gather_edges('karsim')
@@ -79,10 +82,12 @@ def iterative_check_labeled_edges_in_residual_graph(df_row):
     dummies_in_residual = 0
     significant_dummies = 0
     significant_dummies_in_residual = 0
+    significant_dummies_edges = []
     total_seg_introduced = 0
     significant_seg_introduced = 0
     seg_in_residual = 0
     significant_seg_in_residual = 0
+    significant_seg_edges = []  # TODO: also report the CNV change by ILP/Graph formation
     for edge in labeled_edges:
         start_node = edge[0]
         end_node = edge[1]
@@ -97,6 +102,11 @@ def iterative_check_labeled_edges_in_residual_graph(df_row):
                 dummies_in_residual += min(multiplicity, omkar_residual_transitions[(start_node, end_node)])
                 if edge_distance > 200000 or edge_distance == -1:
                     significant_dummies_in_residual += 1
+            else:
+                if edge_distance > 200000 or edge_distance == -1:
+                    start_node_chr, start_node_pos = node_name_to_pos_dict[start_node]
+                    end_node_chr, end_node_pos = node_name_to_pos_dict[end_node]
+                    significant_dummies_edges.append((start_node_chr, end_node_chr, start_node_pos, end_node_pos))
         elif edge_type == 'S':
             total_seg_introduced += abs(multiplicity)
             if edge_distance > 200000:
@@ -118,13 +128,14 @@ def iterative_check_labeled_edges_in_residual_graph(df_row):
                 raise RuntimeError('multiplicity == 0 makes no sense')
 
     return total_dummies_introduced, \
-        dummies_in_residual, \
-        total_seg_introduced, \
-        seg_in_residual, \
-        significant_dummies, \
-        significant_dummies_in_residual, \
-        significant_seg_introduced, \
-        significant_seg_in_residual
+           dummies_in_residual, \
+           total_seg_introduced, \
+           seg_in_residual, \
+           significant_dummies, \
+           significant_dummies_in_residual, \
+           significant_seg_introduced, \
+           significant_seg_in_residual, \
+           significant_dummies_edges
 
 
 def iterative_get_dummy_lengths(df_row):
@@ -275,8 +286,10 @@ def process_comparison(df):
     df['SV_missed'] = df['n_karsim_missed_transition'] + df['n_omkar_missed_transition']
     df['CNV_missed'] = df.apply(lambda row: pd.Series(iterative_get_cnv(row)), axis=1)
     df['log10_CNV_missed'] = np.log10(df['CNV_missed'])
-    df[['n_dummies', 'n_leftover_dummies', 'n_seg_changed', 'n_leftover_segchange', 'n_significant_dummies', 'n_leftover_significant_dummies', 'n_significant_seg_change',
-        'n_leftover_significant_seg_change']] \
+    df[['n_dummies', 'n_leftover_dummies', 'n_seg_changed', 'n_leftover_segchange', 'n_significant_dummies', 'n_leftover_significant_dummies',
+        'n_significant_seg_change',
+        'n_leftover_significant_seg_change',
+        'cancelled_significant_dummies']] \
         = df.apply(lambda row: pd.Series(iterative_check_labeled_edges_in_residual_graph(row)), axis=1)
 
     df['dummy_distance'] = df.apply(lambda row: iterative_get_dummy_lengths(row), axis=1)
@@ -310,6 +323,220 @@ def label_missed_SV_edges(df):
     return df
 
 
+def iterative_get_cn_with_bins(df_row, cn_file_name='Metadata/cn_bins_200kbp.txt'):
+    cn_bins = read_cn_bin_file(cn_file_name)
+    graph = form_graph(df_row)
+    karsim_cn, omkar_cn = graph_assign_cn_bin(graph, cn_bins)
+    return karsim_cn, omkar_cn
+
+
+def sum_history_dicts(history_dicts):
+    summed_dict = {}
+    for history_dict in history_dicts:
+        for key, value in history_dict.items():
+            if key in summed_dict:
+                summed_dict[key] += value
+            else:
+                summed_dict[key] = value
+    return summed_dict
+
+
+#################CN###############
+def read_cn_bin_file(cn_file_name):
+    cn_bins = []
+    with open(cn_file_name) as fp_read:
+        for line in fp_read:
+            line = line.replace('\n', '').split('\t')
+            cn_bins.append({'chrom': line[0],
+                            'start': int(line[1]),
+                            'end': int(line[2])})
+    return cn_bins
+
+
+def graph_assign_cn_bin(input_graph: Graph, input_cn_bins):
+    karsim_cn = np.array([0.0 for _ in input_cn_bins])
+    omkar_cn = np.array([0.0 for _ in input_cn_bins])
+    for start_node, end_nodes in input_graph.karsim_dict.items():
+        for end_node in end_nodes:
+            edge_type = end_node[2]
+            if edge_type == 'segment':
+                c_seg = Segment(end_node[0], start_node[1], end_node[1])
+                karsim_cn += c_seg.assign_cn_bin(input_cn_bins)
+    for start_node, end_nodes in input_graph.omkar_dict.items():
+        for end_node in end_nodes:
+            edge_type = end_node[2]
+            if edge_type == 'segment':
+                c_seg = Segment(end_node[0], start_node[1], end_node[1])
+                omkar_cn += c_seg.assign_cn_bin(input_cn_bins)
+    return karsim_cn, omkar_cn
+
+
+def cn_bin_value_boolean_conversion(input_cn, expected_count=2, rounding_allowance=0.01):
+    """
+    a bin will be called '1'/changed if deviated from WT
+    :param rounding_allowance:
+    :param expected_count: WT CN
+    :param input_cn:
+    :return:
+    """
+    output_boolean_cn = []
+    for bin_itr in input_cn:
+        if abs(bin_itr - expected_count) <= rounding_allowance:
+            output_boolean_cn.append(0)
+        else:
+            output_boolean_cn.append(1)
+    return np.array(output_boolean_cn)
+
+
+def cn_jaccard_similarity(cn1, cn2):
+    bool_array1 = cn1.astype(bool)
+    bool_array2 = cn2.astype(bool)
+
+    intersection = np.sum(np.logical_and(bool_array1, bool_array2))
+    union = np.sum(np.logical_or(bool_array1, bool_array2))
+    if union == 0:
+        return 1.0  # If both arrays are all zeros, define Jaccard similarity as 1
+    else:
+        return intersection / union
+
+
+def cn_jaccard_sim_by_case(dict1: {str: [float]}, dict2):
+    if dict1.keys() != dict2.keys():
+        raise RuntimeError
+    case_jaccard_sim = {}
+    for c_file_name, file1_cn in dict1.items():
+        file2_cn = dict2[c_file_name]
+        file1_bool_cn = cn_bin_value_boolean_conversion(file1_cn)
+        file2_bool_cn = cn_bin_value_boolean_conversion(file2_cn)
+        case_jaccard_sim[c_file_name] = cn_jaccard_similarity(file1_bool_cn, file2_bool_cn)
+    return case_jaccard_sim
+
+
+def plot_cn_jaccared_sim_by_case(case_jaccard_sim, output_path):
+    values = list(case_jaccard_sim.values())
+    print('mean jaccard similarity: ', np.array(values).mean())
+    plt.figure(figsize=(8, 5))
+    plt.hist(values, bins=10, edgecolor=(0, 0, 0, 0.5), histtype='bar')
+    plt.xlabel('Jaccard Similarity', fontsize=12)
+    plt.ylabel('Frequency', fontsize=12)
+    plt.title('Histogram of Copy Number Jaccard Similarity, from Simulations (n=28)', fontsize=15, pad=14)
+    plt.savefig(output_path, dpi=300)
+
+
+def plot_cn_jaccared_sim_cos_sim_by_case(case_jaccard_sim, case_cos_sim, output_path):
+    values1 = list(case_jaccard_sim.values())
+    values2 = list(case_cos_sim.values())
+    print('mean jaccard similarity: ', np.array(values1).mean())
+    print('mean cos similarity: ', np.array(values2).mean())
+    plt.figure(figsize=(6, 5))
+    plt.hist(values1, bins=10, alpha=0.7, label='Jaccard Similarity', edgecolor=(0, 0, 0, 0.5))
+    plt.hist(values2, bins=10, alpha=0.7, label='Cosine Similarity', color='orange', edgecolor=(0, 0, 0, 0.5))
+    plt.xlabel('Similarity Score', fontsize=14)
+    plt.ylabel('Frequency', fontsize=14)
+    plt.title('Histogram of Affected Copy Number Similarities\nfrom Simulations (n=28)', fontsize=15, pad=9)
+    plt.legend(fontsize=14)
+    plt.savefig(output_path, dpi=300)
+
+
+def output_cn_dict_by_case(case_jaccard_sim, output_file_path):
+    with open(output_file_path, 'w') as fp_write:
+        for case_name, case_jaccard_score in case_jaccard_sim.items():
+            fp_write.write('{}\t{}\n'.format(case_name, case_jaccard_score))
+
+
+def read_cn_jaccard_sim_by_case_and_plot(jaccard_sim_file_path, output_pic_path):
+    case_jaccard_sim = {}
+    with open(jaccard_sim_file_path) as fp_read:
+        for line in fp_read:
+            line = line.replace('\n', '').split('\t')
+            case_jaccard_sim[line[0]] = float(line[1])
+    plot_cn_jaccared_sim_by_case(case_jaccard_sim, output_pic_path)
+
+
+def read_cn_jaccard_sim_cos_sim_and_plot(jaccard_sim_file_path, cos_sim_file_path, output_pic_path):
+    case_jaccard_sim = {}
+    with open(jaccard_sim_file_path) as fp_read:
+        for line in fp_read:
+            line = line.replace('\n', '').split('\t')
+            case_jaccard_sim[line[0]] = float(line[1])
+    case_cos_sim = {}
+    with open(cos_sim_file_path) as fp_read:
+        for line in fp_read:
+            line = line.replace('\n', '').split('\t')
+            case_cos_sim[line[0]] = float(line[1])
+    plot_cn_jaccared_sim_cos_sim_by_case(case_jaccard_sim, case_cos_sim, output_pic_path)
+
+
+def vector_addition(lists):
+    result = [sum(x) for x in zip(*lists)]
+    return result
+
+
+def cos_similarity(arr1, arr2):
+    dot_product = np.dot(arr1, arr2)
+    norm1 = np.linalg.norm(arr1)
+    norm2 = np.linalg.norm(arr2)
+
+    cosine_sim = dot_product / (norm1 * norm2)
+    return cosine_sim
+
+
+def cos_sim_by_case(dict1: {str: [float]}, dict2):
+    if dict1.keys() != dict2.keys():
+        raise RuntimeError
+    case_cos_sim = {}
+    cos_sim_sum = 0.0
+    for c_file_name, file1_cn in dict1.items():
+        file2_cn = dict2[c_file_name]
+        c_cos_sim = cos_similarity(np.array(file1_cn), np.array(file2_cn))
+        case_cos_sim[c_file_name] = c_cos_sim
+        cos_sim_sum += c_cos_sim
+    avg_cos_sim = cos_sim_sum / len(dict1)
+    return case_cos_sim, avg_cos_sim
+
+
+def union_altered_cn_bin(cn1, cn2):
+    cn1_bool = cn_bin_value_boolean_conversion(cn1)
+    cn2_bool = cn_bin_value_boolean_conversion(cn2)
+    print('cn1: ', cn1_bool.sum())
+    print('cn2: ', cn2_bool.sum())
+    return np.logical_or(cn1_bool, cn2_bool)
+
+
+def cos_sim_with_jaccard_union_by_case(dict1: {str: [float]}, dict2):
+    """
+    for each case, find the bins as the union of the mutated bins, and compute the cosine similarity
+    :param dict1:
+    :param dict2:
+    :return:
+    """
+    if dict1.keys() != dict2.keys():
+        raise RuntimeError
+    case_cos_sim = {}
+    for c_file_name, file1_cn in dict1.items():
+        file2_cn = dict2[c_file_name]
+        bin_filter = union_altered_cn_bin(file1_cn, file2_cn)
+        print('union: ', bin_filter.sum())
+        file1_cn_sublist = [val for idx, val in enumerate(file1_cn) if bin_filter[idx] == 1]
+        file2_cn_sublist = [val for idx, val in enumerate(file2_cn) if bin_filter[idx] == 1]
+        case_cos_sim[c_file_name] = cos_similarity(np.array(file1_cn_sublist),
+                                                   np.array(file2_cn_sublist))
+    return case_cos_sim
+
+
+def cos_sim_stacked(dict1: {str: [float]}, dict2):
+    if dict1.keys() != dict2.keys():
+        raise RuntimeError
+    file1_concat_cn = []
+    file2_concat_cn = []
+    for c_file_name, file1_cn in dict1.items():
+        file2_cn = dict2[c_file_name]
+        file1_concat_cn += file1_cn
+        file2_concat_cn += file2_cn
+    return cos_similarity(np.array(file1_concat_cn), np.array(file2_concat_cn))
+##############################################
+
+
 if __name__ == "__main__":
     i_df = prep_df()
     i_df = process_comparison(i_df)
@@ -320,4 +547,6 @@ if __name__ == "__main__":
     i_df = i_df.sort_values('n_karsim_missed_transition', ascending=False)
     i_df = label_missed_SV_edges(i_df)
     i_df.to_csv('missed_sv_edges_labeled.csv')
-
+    # read_cn_jaccard_sim_cos_sim_and_plot('/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/analyses_summary/cn_jaccard_scores.txt',
+    #                                      '/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/analyses_summary/cn_cos_scores.txt',
+    #                                      '/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/analyses_summary/cn_jaccard_cos_plot.png')
