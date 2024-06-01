@@ -556,7 +556,7 @@ def iterative_label_graph_with_sv_types(df_row):
     return sv_edge_event_types_tally1, sv_edge_event_types_tally2, sv_edge_event_types_tally3
 
 
-def accuracy_by_event_types():
+def accuracy_by_event_types(output_file_path):
     df = prep_df()
     df[['karsim_edge_type_tally_prematching',
         'karsim_edge_type_tally_postmatching',
@@ -567,9 +567,43 @@ def accuracy_by_event_types():
     tally_dicts2 = sum_history_dicts(df['karsim_edge_type_tally_postmatching'].tolist())
     tally_dicts3 = sum_history_dicts(df['karsim_edge_type_tally_postforbiddenremoval'].tolist())
 
-    print(tally_dicts1)
-    print(tally_dicts2)
-    print(tally_dicts3)
+    event_types_info = {}
+    for key in tally_dicts1:
+        val1 = tally_dicts1[key]
+        val2 = tally_dicts2.get(key, 0)
+        val3 = tally_dicts3.get(key, 0)
+        event_types_info[key] = (val1, val2, val3)
+
+    ## merge composite events, remove terminal events
+    new_event_types_info = {}
+    for event_type, (val1, val2, val3) in event_types_info.items():
+        if 'terminal' in event_type:
+            continue
+        event_type = event_type.replace('composite-', '')
+        if event_type in new_event_types_info:
+            (old_val1, old_val2, old_val3) = new_event_types_info[event_type]
+            new_event_types_info[event_type] = (old_val1 + val1, old_val2 + val2, old_val3 + val3)
+        else:
+            new_event_types_info[event_type] = (val1, val2, val3)
+
+    event_types = []
+    prematching_count = []
+    postmatching_count = []
+    postforbiddenremoval_count = []
+    for key, (val1, val2, val3) in new_event_types_info.items():
+        event_types.append(key)
+        prematching_count.append(val1)
+        postmatching_count.append(val2)
+        postforbiddenremoval_count.append(val3)
+
+    stat_df = pd.DataFrame({'event_type': event_types,
+                            'prematching_count': prematching_count,
+                            'postmatching_count': postmatching_count,
+                            'postforbiddenremoval_count': postforbiddenremoval_count})
+
+    stat_df['postmatching_score'] = 1 - stat_df['postmatching_count'] / stat_df['prematching_count']
+    stat_df['postforbiddenremoval_score'] = 1 - stat_df['postforbiddenremoval_count'] / stat_df['prematching_count']
+    stat_df.to_csv(output_file_path, sep='\t', index=False)
 
 
 ################################################
@@ -598,4 +632,4 @@ def test_graph_label_sv_types():
 
 
 if __name__ == "__main__":
-    accuracy_by_event_types()
+    accuracy_by_event_types('score_by_event_types.csv')
