@@ -467,6 +467,13 @@ def edge_conversion(indexed_seg1, indexed_seg2, index_to_segment_dict):
     print('(\'{}\', {}, \'{}\', {})'.format(chr1, pos1, chr2, pos2))
 
 
+def edges_are_similar(edge1: (str, int, str, int), edge2, allowance=5):
+    if edge1[0] == edge2[0] and edge1[2] == edge2[2]:
+        if abs(edge1[1] - edge2[1]) <= allowance and abs(edge1[3] - edge2[3]) <= allowance:
+            return True
+    return False
+
+
 def test():
     index_dict, return_list = read_KarSimulator_output_to_path("sample_input/23X_Cri_du_Chat_r1.kt.txt",
                                            "Metadata/acrocentric_telo_cen.bed", 'sample_output/')

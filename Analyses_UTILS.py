@@ -534,10 +534,47 @@ def cos_sim_stacked(dict1: {str: [float]}, dict2):
         file1_concat_cn += file1_cn
         file2_concat_cn += file2_cn
     return cos_similarity(np.array(file1_concat_cn), np.array(file2_concat_cn))
+
+
 ##############################################
+################ACCURACY BY SV TYPES##########
+def iterative_label_graph_with_sv_types(df_row):
+    karsim_filename = df_row['file_name']
+    karsim_history_edges_filepath = karsim_history_edges_folder + karsim_filename + '.history_sv.txt'
+    graph = form_graph(df_row)
+    graph.add_sv_label_to_karsim_edges(karsim_history_edges_filepath)
+    sv_edge_event_types_tally1 = graph.tally_karsim_edge_event_types()
+
+    graph.prune_same_edges()
+    graph.remove_approximate_transition_edges()
+    graph.match_transition_edges()
+    sv_edge_event_types_tally2 = graph.tally_karsim_edge_event_types()
+
+    graph.remove_forbidden_nodes(forbidden_region_file)
+    sv_edge_event_types_tally3 = graph.tally_karsim_edge_event_types()
+
+    return sv_edge_event_types_tally1, sv_edge_event_types_tally2, sv_edge_event_types_tally3
 
 
-if __name__ == "__main__":
+def accuracy_by_event_types():
+    df = prep_df()
+    df[['karsim_edge_type_tally_prematching',
+        'karsim_edge_type_tally_postmatching',
+        'karsim_edge_type_tally_postforbiddenremoval']] = \
+        df.apply(lambda row: iterative_label_graph_with_sv_types(row), axis=1, result_type='expand')
+
+    tally_dicts1 = sum_history_dicts(df['karsim_edge_type_tally_prematching'].tolist())
+    tally_dicts2 = sum_history_dicts(df['karsim_edge_type_tally_postmatching'].tolist())
+    tally_dicts3 = sum_history_dicts(df['karsim_edge_type_tally_postforbiddenremoval'].tolist())
+
+    print(tally_dicts1)
+    print(tally_dicts2)
+    print(tally_dicts3)
+
+
+################################################
+
+def test_label_missed_sv_edges():
     i_df = prep_df()
     i_df = process_comparison(i_df)
     SV_missed = i_df['n_karsim_missed_transition'].sum()
@@ -547,6 +584,18 @@ if __name__ == "__main__":
     i_df = i_df.sort_values('n_karsim_missed_transition', ascending=False)
     i_df = label_missed_SV_edges(i_df)
     i_df.to_csv('missed_sv_edges_labeled.csv')
-    # read_cn_jaccard_sim_cos_sim_and_plot('/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/analyses_summary/cn_jaccard_scores.txt',
-    #                                      '/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/analyses_summary/cn_cos_scores.txt',
-    #                                      '/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/analyses_summary/cn_jaccard_cos_plot.png')
+
+
+def test_cnv_plot():
+    read_cn_jaccard_sim_cos_sim_and_plot(
+        '/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/analyses_summary/cn_jaccard_scores.txt',
+        '/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/analyses_summary/cn_cos_scores.txt',
+        '/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/analyses_summary/cn_jaccard_cos_plot.png')
+
+
+def test_graph_label_sv_types():
+    i_df = prep_df()
+
+
+if __name__ == "__main__":
+    accuracy_by_event_types()

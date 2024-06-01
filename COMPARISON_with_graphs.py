@@ -10,6 +10,7 @@ from Structures import *
 from read_cluster_file import *
 from utils import *
 from forbidden_region_processing import read_forbidden_regions
+from read_KarSimulator_output import *
 
 d = 500000
 
@@ -53,7 +54,8 @@ def pop_edge(chr1, pos1, chr2, pos2, edge_type, target_dict):
 class Graph:
     node_name: {(str, int): str}  # chr, position: node name
     segment_edge_type: {(str, int, str, int): str}  # documents for comparison forbidden regions
-    karsim_dict: {(str, int): [(str, int, str)]}  # chr1, pos1: chr2, pos2, edge_type
+    karsim_dict: {(str, int): [(str, int, str, str)]}  # chr1, pos1: chr2, pos2, edge_type
+    karsim_edge_label: {(str, int, str, int): str}  # label of what SV introduced this edge
     omkar_dict: {(str, int): [(str, int, str)]}  # chr1, pos1: chr2, pos2, edge_type
     approximated_cnv: int
     karsim_n_transition_approximated: int
@@ -65,12 +67,58 @@ class Graph:
         self.node_name = {}
         self.segment_edge_type = {}
         self.karsim_dict = {}
+        self.karsim_edge_label = {}
         self.omkar_dict = {}
         self.approximated_cnv = 0
         self.karsim_n_transition_approximated = 0
         self.omkar_n_transition_approximated = 0
         self.edges_of_interest = []
         self.events = {}
+
+    def add_sv_label_to_karsim_edges(self, sv_label_file_path):
+        event_sv_edges = read_history_edges_intermediate_file(sv_label_file_path)
+        for start_node, end_nodes in self.karsim_dict.items():
+            new_end_nodes = []
+            for end_node in end_nodes:
+                if end_node[2] == 'segment':
+                    # do not touch segment edges
+                    new_end_nodes.append(end_node)
+                    continue
+                elif end_node[0] == start_node[0] and abs(end_node[1] - start_node[1]) <= 5:
+                    # do not touch concordant transition edges\
+                    new_end_nodes.append(end_node)
+                    continue
+                c_edge = (*start_node, *end_node[:2])
+                c_edge_event_type = ''
+                for entry in event_sv_edges:
+                    event_type = entry[0]
+                    event_edges = entry[1]
+                    if any(edges_are_similar(c_edge, event_edge) for event_edge in event_edges):
+                        c_edge_event_type = event_type
+                        break
+                if c_edge_event_type == '':
+                    c_edge_event_type = 'ENF'
+                new_end_nodes.append((*end_node, c_edge_event_type))
+            self.karsim_dict[start_node] = new_end_nodes
+
+    def tally_karsim_edge_event_types(self):
+        """
+        this is for sanity checking whether all SV edges are labeled with an event type
+        :param current_tally_dict: dict to be appended to
+        :return: dict {event_type: multiplicity}
+        """
+        current_tally_dict = {}
+        for start_node, end_nodes in self.karsim_dict.items():
+            for end_node in end_nodes:
+                if len(end_node) < 4:
+                    # these are the concordant transition / segment edges
+                    continue
+                sv_edge_type = end_node[3]
+                if sv_edge_type in current_tally_dict:
+                    current_tally_dict[sv_edge_type] += 1
+                else:
+                    current_tally_dict[sv_edge_type] = 1
+        return current_tally_dict
 
     def add_edge_to_dict(self, chr1, pos1, chr2, pos2, edge_type, target_dict: str):
         if target_dict == 'omkar':
