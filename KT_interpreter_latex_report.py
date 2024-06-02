@@ -379,11 +379,12 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=Fal
     files = [file for file in os.listdir(omkar_output_dir)]
     # files = sorted(files, key=int_file_keys)  # TODO: turn back on for files with int ID
 
-    highlight_files = ['23X_1q21_recurrent_microduplication_r1',
-                       '23X_22q11_duplication_r2',
-                       '23X_Angelman_r1',
-                       '23Y_Cri_du_Chat_r1',
-                       '23Y_WAGR_11p13_deletion_r2']
+    # highlight_files = ['23X_1q21_recurrent_microduplication_r1',
+    #                    '23X_22q11_duplication_r2',
+    #                    '23X_Angelman_r1',
+    #                    '23Y_Cri_du_Chat_r1',
+    #                    '23Y_WAGR_11p13_deletion_r2']
+    highlight_files = []
     highlight_files = [i + '.1.txt' for i in highlight_files]
     files = [file for file in files if file not in highlight_files]
     files = highlight_files + files
@@ -391,7 +392,7 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=Fal
     for file in files:
         # if True:
         # if file in ['3.txt', '39.txt', '49.txt', '12.txt', '45.txt']:
-        if file == '23Y_2p15-16-1_microdeletion_r2.1.txt':
+        if file == 'CMT1A_example':
             filename = file.split('.')[0]
             file_path = omkar_output_dir + file
             print(file)
@@ -672,7 +673,7 @@ if __name__ == "__main__":
     # c_output_name, data_dir, image_dir = 'Dremsek', 'real_case_data/dremsek_OMKar_output_paths/', 'latex_reports/paul_dremsek_plots_new/'
     # c_output_name, data_dir, image_dir = 'Keyhole', 'real_case_data/keyhole_OMKar_output_paths/', 'latex_reports/keyhole_plots_new/'
     # c_output_name, data_dir, image_dir = 'Sunnyside', 'real_case_data/sunnyside_OMKar_output_paths/', 'latex_reports/sunnyside_plots_new/'
-    c_output_name, data_dir, image_dir = 'Simulation', '/media/zhaoyang-new/workspace/KarSim/KarComparator/omkar_analyses_pipeline/builds/b14/omkar_paths/', 'latex_reports/simulation_plots/'
+    c_output_name, data_dir, image_dir = 'ACC_Simulation', 'omkar_analyses_pipeline/builds/b14/omkar_paths/', 'latex_reports/ACC_simulation_plots/'
     # batch_case_str = batch_generate_latex_case_str(data_dir, image_dir)
     os.makedirs(image_dir, exist_ok=True)
     test_latex(c_output_name, compile_image=True)
