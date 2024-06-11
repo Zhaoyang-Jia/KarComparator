@@ -607,6 +607,30 @@ def accuracy_by_event_types(output_file_path):
 
 
 ################################################
+################ACCURACY BY COMPLEXITY##########
+
+def iterative_complexity_score(df_row):
+    c_histories = df_row['histories']
+    scoring_dict = {'duplication inversion': 1.5,
+                    'inversion': 1.5,
+                    'deletion': 0.5,
+                    'tandem duplication': 1.0,
+                    'balanced reciprocal translocation': 1.0,  # this is technically 2.0 since each balanced trans appears twice in histories
+                    'nonreciprocal translocation': 2.0,
+                    'chromosomal': 2.0,
+                    'arm': 2.0}
+
+    def get_event_score(i_event_type):
+        for scoring_event, scoring_score in scoring_dict.items():
+            if scoring_event in i_event_type:
+                return scoring_score
+        raise RuntimeError('event name not found', i_event_type)
+
+    sum_score = 0.0
+    for event_type, multiplicity in c_histories.items():
+        sum_score += get_event_score(event_type) * multiplicity
+    return math.ceil(sum_score)
+
 
 def test_label_missed_sv_edges():
     i_df = prep_df()

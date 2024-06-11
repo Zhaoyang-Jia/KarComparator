@@ -25,38 +25,59 @@ df[['preILP_similar_SV', 'n_preILP_similar_SV']] \
     = df.apply(lambda row: pd.Series(AU.iterative_check_missed_SV_in_preILP(row['file_name'], row['karsim_missed_transition'])), axis=1)
 df = AU.label_missed_SV_edges(df)
 
-# CN
-print('CN started')
-df[['karsim_CN', 'omkar_CN']] \
-    = df.apply(lambda row: pd.Series(AU.iterative_get_cn_with_bins(row, cn_file_name=cn_bin_file)), axis=1)
-print('CN conglomerate started')
-karsim_sum_CN = df.groupby('file_name')['karsim_CN'].apply(AU.vector_addition)
-karsim_sum_CN_dict = karsim_sum_CN.to_dict()
-omkar_sum_CN = df.groupby('file_name')['omkar_CN'].apply(AU.vector_addition)
-omkar_sum_CN_dict = omkar_sum_CN.to_dict()
-# print('cos sim started')
-# case_cos_sim, avg_case_cos_sim = AU.cos_sim_by_case(karsim_sum_CN_dict, omkar_sum_CN_dict)
-# stacked_cos_sim = AU.cos_sim_stacked(karsim_sum_CN_dict, omkar_sum_CN_dict)
-print('CN Jaccard similairty started')
-case_jaccard_sim = AU.cn_jaccard_sim_by_case(karsim_sum_CN_dict, omkar_sum_CN_dict)
-altered_bin_union_cos_sim = AU.cos_sim_with_jaccard_union_by_case(karsim_sum_CN_dict, omkar_sum_CN_dict)
-AU.plot_cn_jaccared_sim_by_case(case_jaccard_sim, output_dir + 'cn_jaccard_plot.png')
-AU.output_cn_dict_by_case(case_jaccard_sim, output_dir + 'cn_jaccard_scores.txt')
-AU.output_cn_dict_by_case(altered_bin_union_cos_sim, output_dir + 'cn_cos_scores.txt')
-# sanity check
-bp_CNV = df.groupby('file_name')['CNV_missed'].sum()
-bp_CNV_dict = bp_CNV.to_dict()
-for c_file_name, bp_cnv_value in bp_CNV_dict.items():
-    c_case_cos_sim = altered_bin_union_cos_sim[c_file_name]
-    c_case_jaccard_sim = case_jaccard_sim[c_file_name]
-    karsim_cn_vector = np.array(karsim_sum_CN_dict[c_file_name])
-    omkar_cn_vector = np.array(omkar_sum_CN_dict[c_file_name])
-    sum_bin_abs_diff = np.sum(np.abs(omkar_cn_vector - karsim_cn_vector))
-    # print('{}, cos_sim: {}, bp_CNV: {}, bin_diff: {}'.format(c_file_name, case_cos_sim[c_file_name], bp_cnv_value, sum_bin_abs_diff))
-    print('{}, jaccard_sim: {}, cos_sim: {}, bp_CNV: {}, bin_diff: {}'.format(c_file_name, c_case_jaccard_sim, c_case_cos_sim, bp_cnv_value, sum_bin_abs_diff))
-# print('avg case cos sim: {}'.format(avg_case_cos_sim))
-# print('stacked cos sim: {}'.format(stacked_cos_sim))
+## CN
+# print('CN started')
+# df[['karsim_CN', 'omkar_CN']] \
+#     = df.apply(lambda row: pd.Series(AU.iterative_get_cn_with_bins(row, cn_file_name=cn_bin_file)), axis=1)
+# print('CN conglomerate started')
+# karsim_sum_CN = df.groupby('file_name')['karsim_CN'].apply(AU.vector_addition)
+# karsim_sum_CN_dict = karsim_sum_CN.to_dict()
+# omkar_sum_CN = df.groupby('file_name')['omkar_CN'].apply(AU.vector_addition)
+# omkar_sum_CN_dict = omkar_sum_CN.to_dict()
+# # print('cos sim started')
+# # case_cos_sim, avg_case_cos_sim = AU.cos_sim_by_case(karsim_sum_CN_dict, omkar_sum_CN_dict)
+# # stacked_cos_sim = AU.cos_sim_stacked(karsim_sum_CN_dict, omkar_sum_CN_dict)
+# print('CN Jaccard similairty started')
+# case_jaccard_sim = AU.cn_jaccard_sim_by_case(karsim_sum_CN_dict, omkar_sum_CN_dict)
+# altered_bin_union_cos_sim = AU.cos_sim_with_jaccard_union_by_case(karsim_sum_CN_dict, omkar_sum_CN_dict)
+# AU.plot_cn_jaccared_sim_by_case(case_jaccard_sim, output_dir + 'cn_jaccard_plot.png')
+# AU.output_cn_dict_by_case(case_jaccard_sim, output_dir + 'cn_jaccard_scores.txt')
+# AU.output_cn_dict_by_case(altered_bin_union_cos_sim, output_dir + 'cn_cos_scores.txt')
+# # sanity check
+# bp_CNV = df.groupby('file_name')['CNV_missed'].sum()
+# bp_CNV_dict = bp_CNV.to_dict()
+# for c_file_name, bp_cnv_value in bp_CNV_dict.items():
+#     c_case_cos_sim = altered_bin_union_cos_sim[c_file_name]
+#     c_case_jaccard_sim = case_jaccard_sim[c_file_name]
+#     karsim_cn_vector = np.array(karsim_sum_CN_dict[c_file_name])
+#     omkar_cn_vector = np.array(omkar_sum_CN_dict[c_file_name])
+#     sum_bin_abs_diff = np.sum(np.abs(omkar_cn_vector - karsim_cn_vector))
+#     # print('{}, cos_sim: {}, bp_CNV: {}, bin_diff: {}'.format(c_file_name, case_cos_sim[c_file_name], bp_cnv_value, sum_bin_abs_diff))
+#     print('{}, jaccard_sim: {}, cos_sim: {}, bp_CNV: {}, bin_diff: {}'.format(c_file_name, c_case_jaccard_sim, c_case_cos_sim, bp_cnv_value, sum_bin_abs_diff))
+# # print('avg case cos sim: {}'.format(avg_case_cos_sim))
+# # print('stacked cos sim: {}'.format(stacked_cos_sim))
 
+## accuracy by case complexity
+df['complexity score'] = df.apply(lambda row: AU.iterative_complexity_score(row), axis=1)
+df['TP'] = df['n_initial_SVs'] - df['n_karsim_missed_transition']
+df['FP'] = df['n_omkar_missed_transition']
+df['FN'] = df['n_karsim_missed_transition']
+df['precision'] = df['TP'] / (df['TP'] + df['FP'])
+df['recall'] = df['TP'] / (df['TP'] + df['FN'])
+df.loc[df['n_initial_SVs'] == 0, 'recall'] = 1
+df.loc[df['TP'] + df['FP'] == 0, 'precision'] = 1
+complexity_df = df.groupby('complexity score').agg({'recall': list, 'precision': list}).reset_index()
+complexity_df['complexity_group'] = pd.cut(complexity_df['complexity score'], bins=[0, 1, 2, 4, 7, 15], labels=['1', '2', '3-4', '5-7', '8-15'])
+final_grouped_df = complexity_df.groupby('complexity_group').agg({'recall': sum, 'precision': sum}).reset_index()
+final_grouped_df['n_clusters'] = final_grouped_df['recall'].apply(len)
+final_grouped_df['recall_mean'] = final_grouped_df['recall'].apply(lambda x: np.mean(x))
+final_grouped_df['recall_std'] = final_grouped_df['recall'].apply(lambda x: np.std(x))
+final_grouped_df['precision_mean'] = final_grouped_df['precision'].apply(lambda x: np.mean(x))
+final_grouped_df['precision_std'] = final_grouped_df['precision'].apply(lambda x: np.std(x))
+
+final_grouped_df.to_csv(output_dir + 'complexity_grouped_df.csv', index=False)
+
+## summarize for summary statistics
 n_path_diff = (df['n_path_diff'] != 0).sum()
 n_initial_SV = df['n_initial_SVs'].sum()
 SV_missed = df['n_karsim_missed_transition'].sum()

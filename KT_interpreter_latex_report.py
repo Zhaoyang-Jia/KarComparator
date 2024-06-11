@@ -392,7 +392,7 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=Fal
     for file in files:
         # if True:
         # if file in ['3.txt', '39.txt', '49.txt', '12.txt', '45.txt']:
-        if file == 'CMT1A_example':
+        if file == 'CMT1A_example.txt':
             filename = file.split('.')[0]
             file_path = omkar_output_dir + file
             print(file)
