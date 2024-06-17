@@ -73,8 +73,6 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=Fal
     :param image_dir: relative path to the latex DIR, assume exists an image file with the same name, but (int).pdf
     :return:
     """
-    image_suffix = '.pdf'
-
     final_str = ""
     cases_with_events = []
     files = [file for file in os.listdir(omkar_output_dir)]
@@ -253,61 +251,23 @@ def int_file_keys(f):
 
 def latex_gene_table(genes_report):
     ## format genes to report
-    genes_to_report = []
-    for event_idx, report_dict in enumerate(genes_report):
-        one_based_idx = event_idx + 1
-        for entry in report_dict['bp_genes_highlight']:
-            gene_entry = entry[0]
-            disease_entry = entry[1]
-            gene_name = gene_entry[0]
-            gene_omim = gene_entry[1]
-            disease_names = []
-            disease_omim = []
-            for disease in disease_entry:
-                disease_names.append(disease[0])
-                disease_omim.append(disease[1])
-            genes_to_report.append({'SV': one_based_idx,
-                                    'rationale': 'breakpoint proximal',
-                                    'gene name': gene_name,
-                                    'gene omim': gene_omim,
-                                    'diseases': disease_names,
-                                    'disease omims': disease_omim})
-        for entry in report_dict['cnv_genes_highlight']:
-            gene_entry = entry[0]
-            disease_entry = entry[1]
-            gene_name = gene_entry[0]
-            gene_omim = gene_entry[1]
-            disease_names = []
-            disease_omim = []
-            for disease in disease_entry:
-                disease_names.append(disease[0])
-                disease_omim.append(disease[1])
-            if report_dict['cnv'] > 0:
-                cnv_str = "+" + str(report_dict['cnv'])
-            else:
-                cnv_str = str(report_dict['cnv'])
-            genes_to_report.append({'SV': one_based_idx,
-                                    'rationale': 'CN' + cnv_str,
-                                    'gene name': gene_name,
-                                    'gene omim': gene_omim,
-                                    'diseases': disease_names,
-                                    'disease omims': disease_omim})
+    formatted_genes_report = format_genes_report(genes_report)
 
     ## form latex table
-    if len(genes_to_report) == 0:
+    if len(formatted_genes_report) == 0:
         return '\\\\\\quad None\n\n'
     return_str = "\\medskip\n"
     return_str += "{\\\\\\scriptsize\n"
     # return_str += "\\begin{flushleft}\n"
     return_str += "\\begin{tabular}{|llll|}\\hline\n"
     return_str += "SV & Rationale & Gene Name & Gene Omim  \\\\\\hline\n"
-    for entry_idx, entry in enumerate(genes_to_report):
+    for entry_idx, entry in enumerate(formatted_genes_report):
         new_line = '{SV} & {Rationale} & {Gene_Name} & {Gene_Omim} \\\\'. \
             format(SV=entry['SV'],
                    Rationale=entry['rationale'],
                    Gene_Name=entry['gene name'],
                    Gene_Omim=entry['gene omim'])
-        if entry_idx == len(genes_to_report) - 1:
+        if entry_idx == len(formatted_genes_report) - 1:
             return_str += new_line + "\\hline\n"
         else:
             return_str += new_line + "\n"

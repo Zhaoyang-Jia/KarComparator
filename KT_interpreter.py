@@ -1202,6 +1202,49 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
     return iscn_events, gene_reports
 
 
+def format_genes_report(genes_report):
+    formatted_genes_report = []
+    for event_idx, report_dict in enumerate(genes_report):
+        one_based_idx = event_idx + 1
+        for entry in report_dict['bp_genes_highlight']:
+            gene_entry = entry[0]
+            disease_entry = entry[1]
+            gene_name = gene_entry[0]
+            gene_omim = gene_entry[1]
+            disease_names = []
+            disease_omim = []
+            for disease in disease_entry:
+                disease_names.append(disease[0])
+                disease_omim.append(disease[1])
+            formatted_genes_report.append({'SV': one_based_idx,
+                                    'rationale': 'breakpoint proximal',
+                                    'gene name': gene_name,
+                                    'gene omim': gene_omim,
+                                    'diseases': disease_names,
+                                    'disease omims': disease_omim})
+        for entry in report_dict['cnv_genes_highlight']:
+            gene_entry = entry[0]
+            disease_entry = entry[1]
+            gene_name = gene_entry[0]
+            gene_omim = gene_entry[1]
+            disease_names = []
+            disease_omim = []
+            for disease in disease_entry:
+                disease_names.append(disease[0])
+                disease_omim.append(disease[1])
+            if report_dict['cnv'] > 0:
+                cnv_str = "+" + str(report_dict['cnv'])
+            else:
+                cnv_str = str(report_dict['cnv'])
+            formatted_genes_report.append({'SV': one_based_idx,
+                                    'rationale': 'CN' + cnv_str,
+                                    'gene name': gene_name,
+                                    'gene omim': gene_omim,
+                                    'diseases': disease_names,
+                                    'disease omims': disease_omim})
+    return formatted_genes_report
+
+
 def chr_range_tostr(bpa, bpb, bpa_band, bpb_band):
     return "{}-{} ({} - {})".format(format(bpa, ',d'), format(bpb, ',d'), bpa_band, bpb_band)
 
