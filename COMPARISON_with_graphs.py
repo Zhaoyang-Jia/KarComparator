@@ -797,7 +797,7 @@ def form_graph_from_cluster(cluster_file, forbidden_region_file='/media/zhaoyang
     return graph
 
 
-def draw_graph(cluster_file, output_dir):
+def draw_graph(cluster_file, output_dir, copy=False):
     import os
     import shutil
 
@@ -807,23 +807,22 @@ def draw_graph(cluster_file, output_dir):
 
     os.makedirs(folder, exist_ok=True)
 
-    shutil.copyfile(omkar_paths_dir + file_basename_no_cluster + '.1.txt',
-                    folder + file_basename_no_cluster + '.omkar_paths.txt')
-    shutil.copyfile('new_data_files/KarSimulator/' + file_basename_no_cluster + '.kt.txt',
-                    folder + file_basename_no_cluster + '.karsim_paths.txt')
-    # shutil.copyfile('new_data_files/alignment_files/' + file_basename + '.alignment.txt',
-    #                 folder + file_basename + '.alignment.txt')
-    shutil.copyfile(cluster_dir + file_basename + '.txt',
-                    folder + file_basename + '.cluster.txt')
+    if copy:
+        shutil.copyfile(omkar_paths_dir + file_basename_no_cluster + '.1.txt',
+                        folder + file_basename_no_cluster + '.omkar_paths.txt')
+        shutil.copyfile('new_data_files/KarSimulator/' + file_basename_no_cluster + '.kt.txt',
+                        folder + file_basename_no_cluster + '.karsim_paths.txt')
+        shutil.copyfile(cluster_dir + file_basename + '.txt',
+                        folder + file_basename + '.cluster.txt')
 
-    base_file_name = cluster_file.split('/')[-1].split('cluster')[0]
-    node_file = omkar_output_dir + base_file_name + '.1/' + base_file_name + '.1.preILP_nodes.txt'
-    edge_file = omkar_output_dir + base_file_name + '.1/' + base_file_name + '.1.preILP_edges.txt'
-    shutil.copyfile(node_file, folder + file_basename + '.preILP_nodes.txt')
-    shutil.copyfile(edge_file, folder + file_basename + '.preILP_edges.txt')
-    print(node_file)
-    print(folder)
-    print(file_basename)
+        base_file_name = cluster_file.split('/')[-1].split('cluster')[0]
+        node_file = omkar_output_dir + base_file_name + '.1/' + base_file_name + '.1.preILP_nodes.txt'
+        edge_file = omkar_output_dir + base_file_name + '.1/' + base_file_name + '.1.preILP_edges.txt'
+        shutil.copyfile(node_file, folder + file_basename + '.preILP_nodes.txt')
+        shutil.copyfile(edge_file, folder + file_basename + '.preILP_edges.txt')
+        print(node_file)
+        print(folder)
+        print(file_basename)
 
     graph = form_graph_from_cluster(cluster_file)
 
@@ -850,26 +849,34 @@ def export_graph_vertices(cluster_file):
 
 
 omkar_output_dir = 'batch_processing/OMKar_testbuild4/'
-cluster_dir = 'new_data_files/cluster_files_testbuild7/'
+# cluster_dir = 'new_data_files/cluster_files_testbuild7/'
+cluster_dir = 'new_data_files/cluster_files/'
 omkar_paths_dir = 'new_data_files/OMKar_testbuild4/'
 
+# if __name__ == "__main__":
+#     import subprocess
+#     file_name = '23Y_2p15-16-1_microdeletion_r2'
+#     cluster_number = '2'
+#
+#     input_cluster_file = cluster_dir + file_name + 'cluster_' + cluster_number + '.txt'
+#     draw_graph(input_cluster_file, 'new_data_files/complete_graphs/')
+#
+#     print('debug-omkar')
+#     chr_of_int = ['4']  # figure this out by looking at the cluster file first, required for running the debug_omkar
+#     debug_omkar_script = './debug_omkar.py'
+#     omkar_V_rename_dict = export_graph_vertices(input_cluster_file)
+#     input_file_basename = input_cluster_file.split('/')[-1].split('.')[0]
+#     subprocess.run(['python', debug_omkar_script,
+#                     '--output_dir', 'new_data_files/complete_graphs/' + input_file_basename + '/',
+#                     '--case_file', file_name,
+#                     '--chr_of_int', str(chr_of_int),
+#                     '--rename_dict', str(omkar_V_rename_dict)])
+
+
 if __name__ == "__main__":
-    import subprocess
-    file_name = '23Y_2p15-16-1_microdeletion_r2'
-    cluster_number = '2'
+    file_name = 'artificial_example'
+    cluster_number = '0'
 
     input_cluster_file = cluster_dir + file_name + 'cluster_' + cluster_number + '.txt'
-    draw_graph(input_cluster_file, 'new_data_files/complete_graphs/')
-
-    print('debug-omkar')
-    chr_of_int = ['4']  # figure this out by looking at the cluster file first, required for running the debug_omkar
-    debug_omkar_script = './debug_omkar.py'
-    omkar_V_rename_dict = export_graph_vertices(input_cluster_file)
-    input_file_basename = input_cluster_file.split('/')[-1].split('.')[0]
-    subprocess.run(['python', debug_omkar_script,
-                    '--output_dir', 'new_data_files/complete_graphs/' + input_file_basename + '/',
-                    '--case_file', file_name,
-                    '--chr_of_int', str(chr_of_int),
-                    '--rename_dict', str(omkar_V_rename_dict)])
-
+    draw_graph(input_cluster_file, 'publication_figures/')
 

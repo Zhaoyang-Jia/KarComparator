@@ -14,10 +14,12 @@ def image_to_base64(image_path):
 
 
 def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, compile_image=False):
+    headers = []
     cases_with_events = []
     image_paths = []
     iscn_reports = []
     genes_reports = []
+    debug_outputs = []  # list of dicts [{'segs': [], 'mt_haps': [], 'wt_haps': []}]
     files = [file for file in os.listdir(omkar_output_dir)]
     for file in files:
         if file_of_interest is not None:
@@ -26,9 +28,10 @@ def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, 
         filename = file.split('.')[0]
         file_path = omkar_output_dir + file
         print(file)
-        mt_indexed_lists, mt_path_chrs, segment_dict, segment_size_dict = read_OMKar_to_indexed_list(file_path, forbidden_region_file)
+        mt_indexed_lists, mt_path_chrs, segment_to_index_dict, segment_size_dict = read_OMKar_to_indexed_list(file_path, forbidden_region_file)
+        index_to_segment_dict = reverse_dict(segment_to_index_dict)
         mt_path_chrs = [info.split(': ')[-1] for info in mt_path_chrs]
-        wt_path_dict = generate_wt_from_OMKar_output(segment_dict)
+        wt_path_dict = generate_wt_from_OMKar_output(segment_to_index_dict)
         wt_indexed_lists = populate_wt_indexed_lists(mt_path_chrs, wt_path_dict)
         events, aligned_haplotypes = interpret_haplotypes(mt_indexed_lists, wt_indexed_lists, mt_path_chrs, segment_size_dict)
         if len(events) == 0:
@@ -40,6 +43,8 @@ def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, 
         ## iterate over all clusters
         n_clusters = len(dependent_clusters)
         for image_cluster_idx, (c_cluster, c_events) in enumerate(zip(dependent_clusters, cluster_events)):
+            # to remove all later file names, check cluster_idx != 0
+            headers.append('{}: cluster {} (out of {})'.format(filename, image_cluster_idx + 1, n_clusters))
             ## include all homologues
             event_chr = set()
             for cluster_idx in c_cluster:
@@ -51,11 +56,26 @@ def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, 
 
             c_aligned_haplotypes = [aligned_haplotypes[i] for i in hap_idx_to_plot]
 
+            ## generate debug output
+            debug_segs = set()
+            debug_mt_haps = []
+            debug_wt_haps = []
+            for aligned_haplotype in c_aligned_haplotypes:
+                unique_segs = aligned_haplotype.unique_segment_indices()
+                for seg in unique_segs:
+                    seg_object = index_to_segment_dict[int(seg)]
+                    debug_segs.add((seg, seg_object.chr_name, f"{seg_object.start:,}", f"{seg_object.end:,}", f"{len(seg_object):,}"))
+                debug_mt_haps.append(aligned_haplotype.mt_hap)
+                debug_wt_haps.append(aligned_haplotype.wt_hap)
+            debug_segs = list(debug_segs)
+            debug_segs = sorted(debug_segs, key=lambda x: int(x[0]))
+            debug_outputs.append({'segs': debug_segs, 'mt_haps': debug_mt_haps, 'wt_haps': debug_wt_haps})
+
             ## generate report text
             c_events = sort_events(c_events)
-            iscn_events, genes_report = format_report(c_events, aligned_haplotypes, reverse_dict(segment_dict))
+            iscn_events, genes_report = format_report(c_events, aligned_haplotypes, index_to_segment_dict)
             ## generate image
-            c_vis_input = generate_visualizer_input(c_events, c_aligned_haplotypes, segment_dict)
+            c_vis_input = generate_visualizer_input(c_events, c_aligned_haplotypes, segment_to_index_dict)
 
             def vis_key(input_vis):
                 chr_val = input_vis['chr'][3:]
@@ -83,7 +103,7 @@ def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, 
             iscn_reports.append(iscn_events)
             genes_reports.append(genes_report)
 
-    return cases_with_events, image_paths, iscn_reports, genes_reports
+    return headers, cases_with_events, image_paths, iscn_reports, genes_reports, debug_outputs
 
 
 def html_hyperlink_coordinates(input_str, proximity=50000):
@@ -121,12 +141,12 @@ def hyperlink_iscn_interpretation(input_str):
 
 
 def test(compile_image, cases_of_interest):
-    omkar_output_dir = 'real_case_data/sunnyside_OMKar_output_paths/'
-    image_output_dir = 'html_reports/test_HTML_plots/'
+    omkar_output_dir = 'omkar_analyses_pipeline/builds/b14/omkar_paths/'
+    image_output_dir = 'html_reports/karsim_plots/'
     os.makedirs(image_output_dir, exist_ok=True)
 
-    title = 'Sunnyside'
-    cases_with_events, image_paths, iscn_reports, genes_reports = batch_populate_contents(omkar_output_dir, image_output_dir,
+    title = 'Karsim'
+    headers, cases_with_events, image_paths, iscn_reports, genes_reports, debug_outputs = batch_populate_contents(omkar_output_dir, image_output_dir,
                                                                                           file_of_interest=cases_of_interest, compile_image=compile_image)
     images_base64 = [image_to_base64(img) for img in image_paths]
 
@@ -139,7 +159,7 @@ def test(compile_image, cases_of_interest):
             hyperlinked_sv_interpretation = hyperlink_iscn_interpretation(sv_interpretation)
             iscn_report[iscn_report_idx][1] = hyperlinked_sv_interpretation
 
-    content = [(text, image, table_content) for text, image, table_content in zip(iscn_reports, images_base64, formatted_genes_reports)]
+    content = [(header, text, image, table_content, debug) for header, text, image, table_content, debug in zip(headers, iscn_reports, images_base64, formatted_genes_reports, debug_outputs)]
 
     env = Environment(loader=FileSystemLoader('html_reports/'))
     template = env.get_template('template.html')
@@ -200,4 +220,4 @@ def manual_test():
 
 if __name__ == "__main__":
     forbidden_region_file = "Metadata/acrocentric_telo_cen.bed"
-    test(True, ['130.txt', '205.txt'])
+    test(False, None)

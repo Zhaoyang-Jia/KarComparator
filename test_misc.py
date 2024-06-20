@@ -47,17 +47,22 @@
 #
 # print("Sum of absolute differences:", result)
 
-import base64
-img = "/Users/zhaoyangjia/PyCharm_Repos/KarComparator/latex_reports/paul_dremsek_plots_new/3_imagecluster0_rotated.png"
+# import base64
+# img = "/Users/zhaoyangjia/PyCharm_Repos/KarComparator/latex_reports/paul_dremsek_plots_new/3_imagecluster0_rotated.png"
+#
+# def image_to_base64(image_path):
+#     try:
+#         with open(image_path, "rb") as img_file:
+#             return base64.b64encode(img_file.read()).decode('utf-8')
+#     except FileNotFoundError:
+#         print(f"Error: File {image_path} not found.")
+#         return ""
+#
+# print(image_to_base64(img))
 
-def image_to_base64(image_path):
-    try:
-        with open(image_path, "rb") as img_file:
-            return base64.b64encode(img_file.read()).decode('utf-8')
-    except FileNotFoundError:
-        print(f"Error: File {image_path} not found.")
-        return ""
-
-print(image_to_base64(img))
+x = ['a', 'b', 'c']
+y = ['d', 'e', 'f']
+for z in x + y:
+    print(z)
 
 

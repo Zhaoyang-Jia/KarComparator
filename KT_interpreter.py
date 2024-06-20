@@ -22,8 +22,10 @@ class Aligned_Haplotype:
     concordant_blocks: {int: (str,)}
     discordant_block_assignment: {int: str}  # block index: event name, exactly one event can be assigned to one block; only for discordant blocks
     size_dict: {str: int}  # seg_name: bp size
+    mt_hap = []
+    wt_hap =[]
 
-    def __init__(self, mt_aligned, wt_aligned, alignment_score, size_dict, id, chrom, mt_hap):
+    def __init__(self, mt_aligned, wt_aligned, alignment_score, size_dict, id, chrom, mt_hap, wt_hap):
         self.id = id
         self.chrom = chrom
         self.mt_aligned = mt_aligned
@@ -31,6 +33,7 @@ class Aligned_Haplotype:
         self.alignment_score = alignment_score
         self.size_dict = size_dict
         self.mt_hap = mt_hap
+        self.wt_hap = wt_hap
 
         ## get event_blocks
         event_block = []
@@ -108,6 +111,14 @@ class Aligned_Haplotype:
 
     def __str__(self):
         return "ID<{}>".format(self.id)
+
+    def unique_segment_indices(self):
+        return_set = set()
+        for seg in self.wt_hap + self.mt_hap:
+            seg_index = seg[:-1]
+            return_set.add(seg_index)
+        return return_set
+
 
     def get_block_segs_and_block_type(self, block_idx):
         """
@@ -348,7 +359,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
         wt_hap = wt_hap_list[idx]
         c_chrom = chrom_identities[idx]
         a1, a2, a3 = lcs(mt_hap, wt_hap, segment_size_dict)
-        aligned_haplotypes.append(Aligned_Haplotype(a2, a3, a1, segment_size_dict, hap_id, c_chrom, mt_hap))
+        aligned_haplotypes.append(Aligned_Haplotype(a2, a3, a1, segment_size_dict, hap_id, c_chrom, mt_hap, wt_hap))
         hap_id += 1
 
     def genomewide_seed_search(query_section, query_block_idx, query_hap_idx, query_type):
