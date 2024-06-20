@@ -522,7 +522,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
                 aligned_hap.discordant_block_assignment[c_wt_block_idx] = 'deletion,{}'.format(event_id)
                 event_id += 1
 
-    ## unbalanced translocation: all remaining mt_blocks are insertions (i.e. unbalanced translocations)
+    ## duplicated insertion: all remaining mt_blocks are insertions (i.e. unbalanced translocations)
     for aligned_hap in aligned_haplotypes:
         for c_mt_block_idx, c_mt_block in aligned_hap.mt_blocks.items():
             if len(aligned_hap.discordant_block_assignment[c_mt_block_idx]) > 0:
@@ -914,14 +914,11 @@ def sort_events(input_events):
     return sorted(input_events, key=sort_key)
 
 
-def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict):
+def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict, debug=False):
     iscn_events = []
     gene_reports = []
     associated_event_already_reported = []
     for event in interpreted_events:
-        main_str = ''
-        iscn_interpretation = ''
-
         event_id = event[0]
         event_type = event[1]
         if event_id in associated_event_already_reported:
@@ -1202,6 +1199,8 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict)
             raise RuntimeError('illegal type assigned')
         if len(main_str) == 0 or len(iscn_interpretation) == 0:
             raise RuntimeError('missed interpretation')
+        if debug:
+            iscn_interpretation += '\t {}'.format(event)
         iscn_events.append([main_str, iscn_interpretation])
         gene_reports.append({'bp_genes': bp_genes,
                              'bp_genes_highlight': bp_genes_highlight,

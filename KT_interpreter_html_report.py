@@ -13,7 +13,7 @@ def image_to_base64(image_path):
         return ""
 
 
-def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, compile_image=False):
+def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, compile_image=False, debug=False):
     headers = []
     cases_with_events = []
     image_paths = []
@@ -73,7 +73,7 @@ def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, 
 
             ## generate report text
             c_events = sort_events(c_events)
-            iscn_events, genes_report = format_report(c_events, aligned_haplotypes, index_to_segment_dict)
+            iscn_events, genes_report = format_report(c_events, aligned_haplotypes, index_to_segment_dict, debug=debug)
             ## generate image
             c_vis_input = generate_visualizer_input(c_events, c_aligned_haplotypes, segment_to_index_dict)
 
@@ -140,14 +140,11 @@ def hyperlink_iscn_interpretation(input_str):
     return input_str
 
 
-def test(compile_image, cases_of_interest):
-    omkar_output_dir = 'omkar_analyses_pipeline/builds/b14/omkar_paths/'
-    image_output_dir = 'html_reports/karsim_plots/'
+def test(compile_image, cases_of_interest, title, omkar_output_dir, image_output_dir, output_file, debug=False):
     os.makedirs(image_output_dir, exist_ok=True)
 
-    title = 'Karsim'
     headers, cases_with_events, image_paths, iscn_reports, genes_reports, debug_outputs = batch_populate_contents(omkar_output_dir, image_output_dir,
-                                                                                          file_of_interest=cases_of_interest, compile_image=compile_image)
+                                                                                          file_of_interest=cases_of_interest, compile_image=compile_image, debug=debug)
     images_base64 = [image_to_base64(img) for img in image_paths]
 
     formatted_genes_reports = [format_genes_report(genes_report) for genes_report in genes_reports]
@@ -163,9 +160,8 @@ def test(compile_image, cases_of_interest):
 
     env = Environment(loader=FileSystemLoader('html_reports/'))
     template = env.get_template('template.html')
-    rendered_html = template.render(title=title, content=content, columns_order=columns_order)
+    rendered_html = template.render(title=title, content=content, columns_order=columns_order, debug=debug)
 
-    output_file = 'html_reports/test.html'
     with open(output_file, 'w') as f:
         f.write(rendered_html)
     print(f"HTML file generated: {os.path.abspath(output_file)}")
@@ -220,4 +216,9 @@ def manual_test():
 
 if __name__ == "__main__":
     forbidden_region_file = "Metadata/acrocentric_telo_cen.bed"
-    test(False, None)
+    # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'keyhole', 'real_case_data/keyhole_OMKar_output_paths/', 'html_reports/keyhole_plots/', 'html_reports/keyhole.html'
+    # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'sunnyside', 'real_case_data/sunnyside_OMKar_output_paths/', 'html_reports/sunnyside_plots/', 'html_reports/sunnyside.html'
+    # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'dremsek', 'real_case_data/dremsek_OMKar_output_paths/', 'html_reports/dremsek_plots/', 'html_reports/dremsek.html'
+    # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'karsim', 'omkar_analyses_pipeline/builds/b14/omkar_paths/', 'html_reports/karsim_plots/', 'html_reports/karsim.html'
+    i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'test', 'omkar_analyses_pipeline/builds/b14/omkar_paths/', 'html_reports/test_plots/', 'html_reports/test.html'
+    test(True, ['23Y_WAGR_11p13_deletion_r2.1.txt'], i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)

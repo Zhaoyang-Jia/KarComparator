@@ -33,6 +33,13 @@ MAX_CHR_LEN_IF_NO_SCALE = 250
 SV_LABEL_MIN_DISTANCE = 5
 MAX_LABEL_EACH_LINE = 2
 
+MIN_LENGTH_ARROW_DISPLAY = 1.5  # smallest orientation contig to have arrow labels
+ORIENTATION_ARROW_SIZE = MIN_LENGTH_ARROW_DISPLAY
+ORIENTATION_ARROW_X_OFFSET = 0.1
+ORIENTATION_COLOR = 'black'
+ORIENTATION_ALPHA = 0.7
+ORIENTATION_BAR_WEIGHT = 0.5
+
 WHOLE_CHR_Y_OFFSET = 2
 CHR_HEADER_Y_OFFSET = -0.2 + WHOLE_CHR_Y_OFFSET
 CHR_BAND_Y_OFFSET = WHOLE_CHR_Y_OFFSET
@@ -164,6 +171,49 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset, len_scaling):
         ax.text(x_offset + (start + end) / 2 + CHR_HEADER_X_OFFSET, y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH / 2 + ORIGIN_MARK_Y_OFFSET, name,
                 ha='center', va='center', fontsize=ORIGIN_FONTSIZE, color=text_color, rotation=90, weight=BAND_TEXT_WEIGHT)
 
+    ## Contig Orientations
+    for orientation in chromosome_data['orientation']:
+        if orientation['type'] == 'bar':
+            loc = orientation['loc']
+            x = x_offset + loc + CHR_HEADER_X_OFFSET
+            ax.plot([x, x],
+                    [y_offset + ORIGIN_Y_OFFSET, y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH],
+                    alpha=ORIENTATION_ALPHA,
+                    color=ORIENTATION_COLOR,
+                    lw=ORIENTATION_BAR_WEIGHT)
+        elif orientation['type'] == 'up_arrow':
+            x1 = x_offset + orientation['start'] + ORIENTATION_ARROW_X_OFFSET + CHR_HEADER_X_OFFSET
+            x2 = x_offset + orientation['end'] + CHR_HEADER_X_OFFSET
+            y1 = y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH / 2
+            y2a = y_offset + ORIGIN_Y_OFFSET
+            y2b = y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH
+            ax.plot([x1, x2],
+                    [y1, y2a],
+                    alpha=ORIENTATION_ALPHA,
+                    color=ORIENTATION_COLOR,
+                    lw=ORIENTATION_BAR_WEIGHT)
+            ax.plot([x1, x2],
+                    [y1, y2b],
+                    alpha=ORIENTATION_ALPHA,
+                    color=ORIENTATION_COLOR,
+                    lw=ORIENTATION_BAR_WEIGHT)
+        elif orientation['type'] == 'down_arrow':
+            x1 = x_offset + orientation['start'] + CHR_HEADER_X_OFFSET
+            x2 = x_offset + orientation['end'] - ORIENTATION_ARROW_X_OFFSET + CHR_HEADER_X_OFFSET
+            y1a = y_offset + ORIGIN_Y_OFFSET
+            y1b = y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH
+            y2 = y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH / 2
+            ax.plot([x1, x2],
+                    [y1a, y2],
+                    alpha=ORIENTATION_ALPHA,
+                    color=ORIENTATION_COLOR,
+                    lw=ORIENTATION_BAR_WEIGHT)
+            ax.plot([x1, x2],
+                    [y1b, y2],
+                    alpha=ORIENTATION_ALPHA,
+                    color=ORIENTATION_COLOR,
+                    lw=ORIENTATION_BAR_WEIGHT)
+
     ## Modified Chrom's header
     if chromosome_data['highlight']:
         ax.text(x_offset + CHR_HEADER_HIGHLIGHT_X_OFFSET, y_offset + CHR_HEADER_HIGHLIGHT_Y_OFFSET, "*",
@@ -238,6 +288,7 @@ def generate_visualizer_input(events, aligned_haplotypes, segment_to_index_dict)
                    'length': get_chr_length(segment_list),
                    'bands': label_cytoband(segment_list, cyto_path),
                    'origins': get_chr_origins(segment_list),
+                   'orientation': label_orientation(segment_list),
                    'highlight': chr_is_highlighted(events, hap.id),
                    'sv_labels': []}
         vis_input.append(c_entry)
@@ -246,6 +297,66 @@ def generate_visualizer_input(events, aligned_haplotypes, segment_to_index_dict)
     # TODO: assign names to each entry (i.e. Chr1 -> Chr1a)
 
     return vis_input
+
+
+def label_orientation(segment_list,
+                      min_length_with_arrow=MIN_LENGTH_ARROW_DISPLAY,
+                      arrow_size=ORIENTATION_ARROW_SIZE):
+    """
+    generate arrow and box for a haplotype
+    :param arrow_size:
+    :param segment_list:
+    :param min_length_with_arrow:
+    :return:
+    """
+    ## find orientation contigs
+    orientation_contigs = []
+    current_orientation = True  # True for forward, False for backward
+    current_idx = 0
+    current_chr_origin = segment_list[0].chr_name
+    previous_idx = 0
+    for seg in segment_list:
+        if len(seg) <= 2:
+            continue
+        seg_orientation = seg.direction()
+        if seg_orientation == current_orientation and seg.chr_name == current_chr_origin:
+            current_idx += len(seg)
+        else:
+            orientation_contigs.append({'start': previous_idx / 1e6, 'end': current_idx / 1e6,
+                                        'length': (current_idx - previous_idx + 1) / 1e6, 'orientation': current_orientation})
+            previous_idx = current_idx
+            current_idx += len(seg)
+            current_orientation = seg_orientation
+            current_chr_origin = seg.chr_name
+    # add the last contig
+    orientation_contigs.append({'start': previous_idx / 1e6, 'end': current_idx / 1e6,
+                                'length': (current_idx - previous_idx + 1) / 1e6, 'orientation': current_orientation})
+
+    ## format plotting parameters: boundary marker and arrows
+    orientation_parameters = []
+    if len(orientation_contigs) == 0:
+        raise RuntimeError('no contig')
+    elif len(orientation_contigs) == 1 and orientation_contigs[0]['orientation'] == False:
+        raise RuntimeError('single contig but backward')
+    elif len(orientation_contigs) == 1 and orientation_contigs[0]['orientation'] == True:
+        orientation_parameters.append({'start': orientation_contigs[0]['end'] - arrow_size,
+                                       'end': orientation_contigs[0]['end'],
+                                       'type': 'down_arrow'})
+    else:
+        for contig_idx, contig in enumerate(orientation_contigs):
+            if contig_idx + 1 != len(orientation_contigs):
+                orientation_parameters.append({'loc': contig['end'], 'type': 'bar'})
+            if contig['length'] >= min_length_with_arrow:
+                if contig['orientation']:
+                    orientation_parameters.append({'start': contig['end'] - arrow_size,
+                                                   'end': contig['end'],
+                                                   'type': 'down_arrow'})
+                else:
+                    orientation_parameters.append({'start': contig['start'],
+                                                   'end': contig['start'] + arrow_size,
+                                                   'type': 'up_arrow'})
+    return orientation_parameters
+
 
 
 def chr_is_highlighted(input_events, hap_id):
