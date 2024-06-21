@@ -742,12 +742,13 @@ def make_image(vis_input, i_max_length, output_prefix, param_image_len_scale):
     ## Limit chrom plot size
     i_ax.set_xlim(0, min(i_max_length, MAX_CHR_LEN_IF_NO_SCALE) + CHR_HEADER_X_OFFSET + 1.5)
     if n_chrom <= 4:
-        i_ax.set_ylim(0, 16)
+        ylim = 16
     elif n_chrom <= 8:
-        i_ax.set_ylim(0, 32)
+        ylim = 32
     else:
-        i_ax.set_ylim(0, 4 * n_chrom)
-    i_ax.axis('off')
+        ylim = 4 * n_chrom
+    i_ax.set_ylim(0, ylim)
+    # i_ax.axis('off')  # use this for debugging plotting locations
 
     ## generate CHR plotting location, depending on the number of chromosomes, fixed distance between two CHR
     Y_INIT_mapping = {1: 6,
@@ -793,6 +794,12 @@ def merge_sv_labels(vis_entry, min_distance):
 
 
 def apply_scaling_to_vis(vis_entry, scaling_factor):
+    """
+    When adding any new entry to the vis parameters, update this
+    :param vis_entry:
+    :param scaling_factor:
+    :return:
+    """
     vis_entry['length'] = vis_entry['length'] * scaling_factor
     for band in vis_entry['bands']:
         band['start'] = band['start'] * scaling_factor
@@ -802,6 +809,12 @@ def apply_scaling_to_vis(vis_entry, scaling_factor):
         origin['end'] = origin['end'] * scaling_factor
     for sv_label in vis_entry['sv_labels']:
         sv_label['pos'] = sv_label['pos'] * scaling_factor
+    for orientation in vis_entry['orientation']:
+        if orientation['type'] == 'bar':
+            orientation['loc'] = orientation['loc'] * scaling_factor
+        else:
+            orientation['start'] = orientation['start'] * scaling_factor
+            orientation['end'] = orientation['end'] * scaling_factor
 
 
 if __name__ == '__main__':
