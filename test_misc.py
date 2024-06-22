@@ -60,9 +60,27 @@
 #
 # print(image_to_base64(img))
 
-x = ['a', 'b', 'c']
-y = ['d', 'e', 'f']
-for z in x + y:
-    print(z)
+# x = ['a', 'b', 'c']
+# y = ['d', 'e', 'f']
+# for z in x + y:
+#     print(z)
 
+# import re
+#
+# # Example string
+# text = "This is an example (with some text inside parentheses) and (another example)."
+#
+# # Regular expression to match everything inside parentheses
+# pattern = r'\(.*?\)'
+#
+# # Find all matches in the text
+# matches = re.findall(pattern, text)
+#
+# print(matches)
+
+x = [1, 2, 3]
+y = {1, 5, 6}
+
+z = y.intersection(x)
+print(len(z))
 

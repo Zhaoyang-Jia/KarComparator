@@ -100,9 +100,10 @@ def batch_generate_latex_case_str(omkar_output_dir, image_dir, compile_image=Fal
             wt_path_dict = generate_wt_from_OMKar_output(segment_dict)
             wt_indexed_lists = populate_wt_indexed_lists(mt_path_chrs, wt_path_dict)
             events, aligned_haplotypes = interpret_haplotypes(mt_indexed_lists, wt_indexed_lists, mt_path_chrs, segment_size_dict)
+            index_to_segment_dict = reverse_dict(segment_dict)
             if len(events) == 0:
                 continue
-            dependent_clusters, cluster_events = form_dependent_clusters(events, aligned_haplotypes)
+            dependent_clusters, cluster_events = form_dependent_clusters(events, aligned_haplotypes, index_to_segment_dict)
             print(dependent_clusters)
             final_str += "\\section{{Sample Id: {}}}\n".format(filename)
             final_str += "\n"

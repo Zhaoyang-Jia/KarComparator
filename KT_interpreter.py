@@ -1,4 +1,5 @@
 from Report_Genes import *
+import re
 # from reportlab.pdfgen import canvas
 # from reportlab.lib import colors
 # from reportlab.lib.pagesizes import letter
@@ -805,53 +806,118 @@ def populate_wt_indexed_lists(mt_path_chrs, wt_path_dict):
     return wt_indexed_lists
 
 
-def form_dependent_clusters(input_events, i_aligned_haplotypes):
+def form_dependent_clusters(input_events, i_aligned_haplotypes, index_to_segment_dict):
     """
+    This code can be optimized
     :param input_events:
     :return: list of list, inner-list contains the path_id of the cluster, outer-list sorted by min-value path_id in the list
     """
-    dependent_clusters = []
-    cluster_events = []
-    cluster_chrs = []
-    for event_info in input_events:
+    def hap_origins(aligned_haplotype):
+        ## returns the set of chromosomal origins this MT hap contains
+        return_set = set()
+        for seg in aligned_haplotype.mt_hap:
+            indexed_hap = int(seg[:-1])
+            return_set.add(index_to_segment_dict[indexed_hap].chr_name)
+        return return_set
+
+    def get_aligned_hap(i_id):
+        ## find the aligned hap with the id of interest
+        for aligned_hap in i_aligned_haplotypes:
+            if aligned_hap.id == i_id:
+                return aligned_hap
+        raise RuntimeError('no aligned hap of this ID is found')
+
+    def get_event_chr(event_info, seg_pattern=r'\(.*?\)'):
+        event_scripts = event_info[2]
         event_paths = set()
-        for block in event_info[2]:
+        event_segs = set()
+        for block in event_scripts:
             event_paths.add(int(block.split('.')[0]))
-        event_paths = list(event_paths)
-        # see if there exists a cluster to add
-        cluster_found = -1
-        for cluster_idx, cluster in enumerate(dependent_clusters):
+            seg_string = block.split('.')[2]
+            matches = re.findall(seg_pattern, seg_string)
+            for match in matches:
+                match = match.replace('(', '')
+                match = match.replace(')', '')
+                match = match.replace('+', '')
+                match = match.replace('-', '')
+                match = match.split(',')
+                for indexed_seg in match:
+                    event_segs.add(index_to_segment_dict[int(indexed_seg)])
+
+        c_involved_chr = set()
+        for event_path in event_paths:
+            c_involved_chr = c_involved_chr.union(hap_origins(get_aligned_hap(event_path)))
+        for event_seg in event_segs:
+            c_involved_chr.add(event_seg.chr_name)
+        return c_involved_chr
+
+    ## cluster the chromosomes
+    cluster_chrs = []
+    for event_info_itr in input_events:
+        involved_chr = get_event_chr(event_info_itr)
+
+        ## append/merge cluster if exists, otherwise create new cluster
+        cluster_found = []
+        for cluster_idx, cluster in enumerate(cluster_chrs):
             # search in all clusters
-            for event_path in event_paths:
-                # if there exists one path overlap
-                path_chr = i_aligned_haplotypes[event_path].chrom
-                if path_chr in cluster_chrs[cluster_idx]:
-                    cluster_found = cluster_idx
-                    break
+            chr_intersection = involved_chr.intersection(cluster)
+            if len(chr_intersection) > 0:
+                cluster_found.append(cluster_idx)
 
-        if cluster_found >= 0:
-            for event_path in event_paths:
-                located_cluster = dependent_clusters[cluster_found]
-                if event_path not in located_cluster:
-                    located_cluster.append(event_path)
-                    cluster_chrs[cluster_found].add(i_aligned_haplotypes[event_path].chrom)
-            cluster_events[cluster_found].append(event_info)
-        elif cluster_found == -1:
-            dependent_clusters.append(event_paths)
-            cluster_events.append([event_info])
-            c_path_chr = set()
-            for event_path in event_paths:
-                c_path_chr.add(i_aligned_haplotypes[event_path].chrom)
-            cluster_chrs.append(c_path_chr)
+        if len(cluster_found) == 1:
+            cluster_chrs[cluster_found[0]] = involved_chr.union(cluster_chrs[cluster_found[0]])
+        elif len(cluster_found) > 0:
+            # union all chrs found
+            new_cluster = set()
+            for cluster_idx in cluster_found:
+                new_cluster = new_cluster.union(cluster_chrs[cluster_idx])
+            new_cluster = new_cluster.union(involved_chr)
+            # remove these sets from the previous cluster list
+            new_cluster_chrs = [cluster for cluster_idx, cluster in enumerate(cluster_chrs) if cluster_idx not in cluster_found]
+            cluster_chrs = new_cluster_chrs
+            cluster_chrs.append(new_cluster)
         else:
-            raise RuntimeError
+            # i.e. len(cluster_found) == 0
+            cluster_chrs.append(involved_chr)
 
+    dependent_clusters = [[] for _ in cluster_chrs]
+    cluster_events = [[] for _ in cluster_chrs]
+    ## for each aligned_hap, it should belong to exactly one bin
+    for aligned_hap in i_aligned_haplotypes:
+        if len(aligned_hap.discordant_block_assignment) == 0:
+            # non-event hap
+            continue
+        hap_chr = hap_origins(aligned_hap)
+        cluster_found = []
+        for cluster_idx, cluster in enumerate(cluster_chrs):
+            if len(cluster.intersection(hap_chr)) > 0:
+                cluster_found.append(cluster_idx)
+        if len(cluster_found) != 1:
+            raise RuntimeError(cluster_found)
+        dependent_clusters[cluster_found[0]].append(aligned_hap.id)
+
+    ## for each event, it should belong to exactly one bin
+    for event_info_itr in input_events:
+        event_chr = get_event_chr(event_info_itr)
+        cluster_found = []
+        for cluster_idx, cluster in enumerate(cluster_chrs):
+            if len(cluster.intersection(event_chr)) > 0:
+                cluster_found.append(cluster_idx)
+        if len(cluster_found) != 1:
+            raise RuntimeError()
+        cluster_events[cluster_found[0]].append(event_info_itr)
 
     ## sort clusters by min_element
-    min_values = [min(inner_list) for inner_list in dependent_clusters]
-    permutations_indices = sorted(range(len(min_values)), key=lambda k: min_values[k])
-    sorted_dependent_clusters = [dependent_clusters[i] for i in permutations_indices]
-    sorted_cluster_events = [cluster_events[i] for i in permutations_indices]
+    min_values = []
+    for bin_idx, bin_itr in enumerate(cluster_chrs):
+        chr_numbers = []
+        for chr_itr in bin_itr:
+            chr_numbers.append(int(chr_itr.replace('Chr', '')))
+        min_values.append(min(chr_numbers))
+
+    zipped_clusters = zip(min_values, cluster_chrs, dependent_clusters, cluster_events)
+    sorted_zipped_clusters = sorted(zipped_clusters, key=lambda x: x[0])
+    sorted_min_values, sorted_cluster_chrs, sorted_dependent_clusters, sorted_cluster_events = zip(*sorted_zipped_clusters)
 
     return sorted_dependent_clusters, sorted_cluster_events
 

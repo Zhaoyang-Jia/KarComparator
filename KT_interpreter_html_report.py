@@ -38,7 +38,7 @@ def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, 
             continue
         else:
             cases_with_events.append(filename)
-        dependent_clusters, cluster_events = form_dependent_clusters(events, aligned_haplotypes)
+        dependent_clusters, cluster_events = form_dependent_clusters(events, aligned_haplotypes, index_to_segment_dict)
         print(dependent_clusters)
         ## iterate over all clusters
         n_clusters = len(dependent_clusters)
