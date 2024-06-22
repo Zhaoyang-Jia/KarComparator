@@ -33,9 +33,9 @@ MAX_CHR_LEN_IF_NO_SCALE = 250
 SV_LABEL_MIN_DISTANCE = 5
 MAX_LABEL_EACH_LINE = 2
 
-MIN_LENGTH_ARROW_DISPLAY = 1.5  # smallest orientation contig to have arrow labels
-ORIENTATION_ARROW_SIZE = MIN_LENGTH_ARROW_DISPLAY
-ORIENTATION_ARROW_X_OFFSET = 0.1
+MIN_LENGTH_ARROW_WITHOUT_SCALE = 1.5  # smallest orientation contig to have arrow labels
+MIN_LENGTH_SHOW_ORIGIN_NAME = 2.5
+ORIENTATION_ARROW_X_OFFSET = 0.15
 ORIENTATION_COLOR = 'black'
 ORIENTATION_ALPHA = 0.7
 ORIENTATION_BAR_WEIGHT = 0.5
@@ -158,61 +158,63 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset, len_scaling):
             ax.text(x_offset + (start + end) / 2 + CHR_HEADER_X_OFFSET, y_offset + BAND_WIDTH / 2 + CHR_BAND_MARK_Y_OFFSET, name,
                     ha='center', va='center', fontsize=BAND_FONTSIZE, color=text_color, rotation=90, weight=BAND_TEXT_WEIGHT)
 
-    ## Origins
-    for origin in chromosome_data['origins']:
-        start = origin['start']
-        end = origin['end']
-        name = origin['name']
-        color = chr_color_mapping[name]
-        text_color = get_text_color(color)
-        origin_bands = patches.Rectangle((x_offset + start + CHR_HEADER_X_OFFSET, y_offset + ORIGIN_Y_OFFSET), end - start, ORIGIN_WIDTH,
-                                         linewidth=1, edgecolor='black', facecolor=color, alpha=ORIGIN_ALPHA, lw=ORIGIN_RECT_LINEWIDTH)
-        ax.add_patch(origin_bands)
-        ax.text(x_offset + (start + end) / 2 + CHR_HEADER_X_OFFSET, y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH / 2 + ORIGIN_MARK_Y_OFFSET, name,
-                ha='center', va='center', fontsize=ORIGIN_FONTSIZE, color=text_color, rotation=90, weight=BAND_TEXT_WEIGHT)
+    # ## Origins
+    # for origin in chromosome_data['origins']:
+    #     start = origin['start']
+    #     end = origin['end']
+    #     name = origin['name']
+    #     color = chr_color_mapping[name]
+    #     text_color = get_text_color(color)
+    #     origin_bands = patches.Rectangle((x_offset + start + CHR_HEADER_X_OFFSET, y_offset + ORIGIN_Y_OFFSET), end - start, ORIGIN_WIDTH,
+    #                                      linewidth=1, edgecolor='black', facecolor=color, alpha=ORIGIN_ALPHA, lw=ORIGIN_RECT_LINEWIDTH)
+    #     ax.add_patch(origin_bands)
+    #     ax.text(x_offset + (start + end) / 2 + CHR_HEADER_X_OFFSET, y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH / 2 + ORIGIN_MARK_Y_OFFSET, name,
+    #             ha='center', va='center', fontsize=ORIGIN_FONTSIZE, color=text_color, rotation=90, weight=BAND_TEXT_WEIGHT)
 
-    ## Contig Orientations
-    for orientation in chromosome_data['orientation']:
-        if orientation['type'] == 'bar':
-            loc = orientation['loc']
-            x = x_offset + loc + CHR_HEADER_X_OFFSET
-            ax.plot([x, x],
-                    [y_offset + ORIGIN_Y_OFFSET, y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH],
-                    alpha=ORIENTATION_ALPHA,
-                    color=ORIENTATION_COLOR,
-                    lw=ORIENTATION_BAR_WEIGHT)
-        elif orientation['type'] == 'up_arrow':
-            x1 = x_offset + orientation['start'] + ORIENTATION_ARROW_X_OFFSET + CHR_HEADER_X_OFFSET
-            x2 = x_offset + orientation['end'] + CHR_HEADER_X_OFFSET
+    ## Orientations Contig
+    for contig in chromosome_data['orientation_contigs']:
+        origin_color = chr_color_mapping[contig['origin']]
+        if contig['length'] <= MIN_LENGTH_ARROW_WITHOUT_SCALE:
+            # triangle
+            x1 = x_offset + contig['start'] + CHR_HEADER_X_OFFSET
+            x2 = x_offset + contig['end'] + CHR_HEADER_X_OFFSET
             y1 = y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH / 2
             y2a = y_offset + ORIGIN_Y_OFFSET
             y2b = y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH
-            ax.plot([x1, x2],
-                    [y1, y2a],
-                    alpha=ORIENTATION_ALPHA,
-                    color=ORIENTATION_COLOR,
-                    lw=ORIENTATION_BAR_WEIGHT)
-            ax.plot([x1, x2],
-                    [y1, y2b],
-                    alpha=ORIENTATION_ALPHA,
-                    color=ORIENTATION_COLOR,
-                    lw=ORIENTATION_BAR_WEIGHT)
-        elif orientation['type'] == 'down_arrow':
-            x1 = x_offset + orientation['start'] + CHR_HEADER_X_OFFSET
-            x2 = x_offset + orientation['end'] - ORIENTATION_ARROW_X_OFFSET + CHR_HEADER_X_OFFSET
-            y1a = y_offset + ORIGIN_Y_OFFSET
-            y1b = y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH
-            y2 = y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH / 2
-            ax.plot([x1, x2],
-                    [y1a, y2],
-                    alpha=ORIENTATION_ALPHA,
-                    color=ORIENTATION_COLOR,
-                    lw=ORIENTATION_BAR_WEIGHT)
-            ax.plot([x1, x2],
-                    [y1b, y2],
-                    alpha=ORIENTATION_ALPHA,
-                    color=ORIENTATION_COLOR,
-                    lw=ORIENTATION_BAR_WEIGHT)
+            if not contig['orientation']:
+                # up (left) arrow
+                x1 += ORIENTATION_ARROW_X_OFFSET
+                vertices = [(x1, y1), (x2, y2a), (x2, y2b)]
+            else:
+                # down (right) arrow
+                x2 -= ORIENTATION_ARROW_X_OFFSET
+                vertices = [(x1, y2a), (x1, y2b), (x2, y1)]
+        else:
+            # pentagon
+            vertex_y = y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH / 2
+            bottom_y = y_offset + ORIGIN_Y_OFFSET
+            top_y = y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH
+            if not contig['orientation']:
+                vertex_x = x_offset + contig['start'] + CHR_HEADER_X_OFFSET
+                x2 = vertex_x + MIN_LENGTH_ARROW_WITHOUT_SCALE
+                x3 = x_offset + contig['end'] + CHR_HEADER_X_OFFSET
+                vertices = [(vertex_x, vertex_y), (x2, bottom_y), (x3, bottom_y), (x3, top_y), (x2, top_y)]
+            else:
+                vertex_x = x_offset + contig['end'] + CHR_HEADER_X_OFFSET
+                x1 = x_offset + contig['start'] + CHR_HEADER_X_OFFSET
+                x2 = vertex_x - MIN_LENGTH_ARROW_WITHOUT_SCALE
+                vertices = [(x1, top_y), (x1, bottom_y), (x2, bottom_y), (vertex_x, vertex_y), (x2, top_y)]
+
+        # IDK why it is saying the vertices is of the wrong type
+        patch = patches.Polygon(vertices, closed=True, edgecolor='black', facecolor=origin_color, alpha=ORIGIN_ALPHA, lw=ORIGIN_RECT_LINEWIDTH)
+        ax.add_patch(patch)
+
+        if contig['length'] > MIN_LENGTH_SHOW_ORIGIN_NAME:
+            x = x_offset + (contig['start'] + contig['end']) / 2 + CHR_HEADER_X_OFFSET
+            y = y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH / 2 + ORIGIN_MARK_Y_OFFSET
+            text_color = get_text_color(origin_color)
+            ax.text(x, y, contig['origin'],
+                    ha='center', va='center', fontsize=ORIGIN_FONTSIZE, color=text_color, rotation=90, weight=BAND_TEXT_WEIGHT)
 
     ## Modified Chrom's header
     if chromosome_data['highlight']:
@@ -287,8 +289,7 @@ def generate_visualizer_input(events, aligned_haplotypes, segment_to_index_dict)
                    'name': hap.chrom,  # remove/reassign
                    'length': get_chr_length(segment_list),
                    'bands': label_cytoband(segment_list, cyto_path),
-                   'origins': get_chr_origins(segment_list),
-                   'orientation': label_orientation(segment_list),
+                   'orientation_contigs': get_orientation_contigs(segment_list),
                    'highlight': chr_is_highlighted(events, hap.id),
                    'sv_labels': []}
         vis_input.append(c_entry)
@@ -299,14 +300,10 @@ def generate_visualizer_input(events, aligned_haplotypes, segment_to_index_dict)
     return vis_input
 
 
-def label_orientation(segment_list,
-                      min_length_with_arrow=MIN_LENGTH_ARROW_DISPLAY,
-                      arrow_size=ORIENTATION_ARROW_SIZE):
+def get_orientation_contigs(segment_list):
     """
-    generate arrow and box for a haplotype
-    :param arrow_size:
+    generate orientation contigs, continuous in chr_origin and orientation
     :param segment_list:
-    :param min_length_with_arrow:
     :return:
     """
     ## find orientation contigs
@@ -323,39 +320,18 @@ def label_orientation(segment_list,
             current_idx += len(seg)
         else:
             orientation_contigs.append({'start': previous_idx / 1e6, 'end': current_idx / 1e6,
-                                        'length': (current_idx - previous_idx + 1) / 1e6, 'orientation': current_orientation})
+                                        'length': (current_idx - previous_idx + 1) / 1e6, 'orientation': current_orientation,
+                                        'origin': current_chr_origin.replace('Chr', '')})
             previous_idx = current_idx
             current_idx += len(seg)
             current_orientation = seg_orientation
             current_chr_origin = seg.chr_name
     # add the last contig
     orientation_contigs.append({'start': previous_idx / 1e6, 'end': current_idx / 1e6,
-                                'length': (current_idx - previous_idx + 1) / 1e6, 'orientation': current_orientation})
+                                'length': (current_idx - previous_idx + 1) / 1e6, 'orientation': current_orientation,
+                                'origin': current_chr_origin.replace('Chr', '')})
 
-    ## format plotting parameters: boundary marker and arrows
-    orientation_parameters = []
-    if len(orientation_contigs) == 0:
-        raise RuntimeError('no contig')
-    elif len(orientation_contigs) == 1 and orientation_contigs[0]['orientation'] == False:
-        raise RuntimeError('single contig but backward')
-    elif len(orientation_contigs) == 1 and orientation_contigs[0]['orientation'] == True:
-        orientation_parameters.append({'start': orientation_contigs[0]['end'] - arrow_size,
-                                       'end': orientation_contigs[0]['end'],
-                                       'type': 'down_arrow'})
-    else:
-        for contig_idx, contig in enumerate(orientation_contigs):
-            if contig_idx + 1 != len(orientation_contigs):
-                orientation_parameters.append({'loc': contig['end'], 'type': 'bar'})
-            if contig['length'] >= min_length_with_arrow:
-                if contig['orientation']:
-                    orientation_parameters.append({'start': contig['end'] - arrow_size,
-                                                   'end': contig['end'],
-                                                   'type': 'down_arrow'})
-                else:
-                    orientation_parameters.append({'start': contig['start'],
-                                                   'end': contig['start'] + arrow_size,
-                                                   'type': 'up_arrow'})
-    return orientation_parameters
+    return orientation_contigs
 
 
 
@@ -528,39 +504,6 @@ def label_cytoband(input_segment_list, input_cyto_path):
                     'band': band['band'],
                     'stain': band['stain']}
         scaled_output_list.append(new_band)
-    return scaled_output_list
-
-
-def get_chr_origins(input_segment_list):
-    output_list = []
-    p_end = 0
-    c_origin_len = 0
-    p_origin = input_segment_list[0].chr_name
-    for seg in input_segment_list:
-        c_origin = seg.chr_name
-        if c_origin == p_origin:
-            c_origin_len += len(seg)
-        else:
-            p_origin_dict = {'start': p_end,
-                             'end': p_end + c_origin_len,
-                             'name': p_origin}
-            output_list.append(p_origin_dict)
-            p_end += c_origin_len
-            p_origin = c_origin
-            c_origin_len = len(seg)
-    # last origin
-    last_origin_dict = {'start': p_end,
-                        'end': p_end + c_origin_len,
-                        'name': p_origin}
-    output_list.append(last_origin_dict)
-
-    ## scale origin size by Mbp
-    scaled_output_list = []
-    for origin in output_list:
-        new_origin = {'start': origin['start'] / 1e6,
-                      'end': origin['end'] / 1e6,
-                      'name': origin['name'].replace('Chr', '')}
-        scaled_output_list.append(new_origin)
     return scaled_output_list
 
 
@@ -748,7 +691,7 @@ def make_image(vis_input, i_max_length, output_prefix, param_image_len_scale):
     else:
         ylim = 4 * n_chrom
     i_ax.set_ylim(0, ylim)
-    # i_ax.axis('off')  # use this for debugging plotting locations
+    i_ax.axis('off')  # turn on for debugging plotting locations
 
     ## generate CHR plotting location, depending on the number of chromosomes, fixed distance between two CHR
     Y_INIT_mapping = {1: 6,
@@ -804,17 +747,15 @@ def apply_scaling_to_vis(vis_entry, scaling_factor):
     for band in vis_entry['bands']:
         band['start'] = band['start'] * scaling_factor
         band['end'] = band['end'] * scaling_factor
-    for origin in vis_entry['origins']:
-        origin['start'] = origin['start'] * scaling_factor
-        origin['end'] = origin['end'] * scaling_factor
+    # for origin in vis_entry['origins']:
+    #     origin['start'] = origin['start'] * scaling_factor
+    #     origin['end'] = origin['end'] * scaling_factor
     for sv_label in vis_entry['sv_labels']:
         sv_label['pos'] = sv_label['pos'] * scaling_factor
-    for orientation in vis_entry['orientation']:
-        if orientation['type'] == 'bar':
-            orientation['loc'] = orientation['loc'] * scaling_factor
-        else:
-            orientation['start'] = orientation['start'] * scaling_factor
-            orientation['end'] = orientation['end'] * scaling_factor
+    for orientation in vis_entry['orientation_contigs']:
+        orientation['start'] = orientation['start'] * scaling_factor
+        orientation['end'] = orientation['end'] * scaling_factor
+        orientation['length'] = orientation['length'] * scaling_factor
 
 
 if __name__ == '__main__':

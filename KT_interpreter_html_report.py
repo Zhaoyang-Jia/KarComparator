@@ -56,21 +56,6 @@ def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, 
 
             c_aligned_haplotypes = [aligned_haplotypes[i] for i in hap_idx_to_plot]
 
-            ## generate debug output
-            debug_segs = set()
-            debug_mt_haps = []
-            debug_wt_haps = []
-            for aligned_haplotype in c_aligned_haplotypes:
-                unique_segs = aligned_haplotype.unique_segment_indices()
-                for seg in unique_segs:
-                    seg_object = index_to_segment_dict[int(seg)]
-                    debug_segs.add((seg, seg_object.chr_name, f"{seg_object.start:,}", f"{seg_object.end:,}", f"{len(seg_object):,}"))
-                debug_mt_haps.append(aligned_haplotype.mt_hap)
-                debug_wt_haps.append(aligned_haplotype.wt_hap)
-            debug_segs = list(debug_segs)
-            debug_segs = sorted(debug_segs, key=lambda x: int(x[0]))
-            debug_outputs.append({'segs': debug_segs, 'mt_haps': debug_mt_haps, 'wt_haps': debug_wt_haps})
-
             ## generate report text
             c_events = sort_events(c_events)
             iscn_events, genes_report = format_report(c_events, aligned_haplotypes, index_to_segment_dict, debug=debug)
@@ -102,6 +87,33 @@ def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, 
             image_paths.append(relative_image_path)
             iscn_reports.append(iscn_events)
             genes_reports.append(genes_report)
+
+            ## generate debug output
+            debug_segs = set()
+            debug_mt_haps = []
+            debug_wt_haps = []
+            debug_hap_ids = []
+            for aligned_haplotype in c_aligned_haplotypes:
+                unique_segs = aligned_haplotype.unique_segment_indices()
+                for seg in unique_segs:
+                    seg_object = index_to_segment_dict[int(seg)]
+                    debug_segs.add((seg, seg_object.chr_name, f"{seg_object.start:,}", f"{seg_object.end:,}", f"{len(seg_object):,}"))
+            debug_segs = list(debug_segs)
+            debug_segs = sorted(debug_segs, key=lambda x: int(x[0]))
+
+            for c_vis in c_vis_input:
+                debug_hap_ids.append(c_vis['hap_id'])
+                # find the correct aligned_haplotype for mt/wt
+                hap_found = False
+                for aligned_haplotype in aligned_haplotypes:
+                    if aligned_haplotype.id == c_vis['hap_id']:
+                        debug_mt_haps.append(aligned_haplotype.mt_hap)
+                        debug_wt_haps.append(aligned_haplotype.wt_hap)
+                        hap_found = True
+                        break
+                if not hap_found:
+                    raise RuntimeError('hap not found')
+            debug_outputs.append({'segs': debug_segs, 'mt_haps': debug_mt_haps, 'wt_haps': debug_wt_haps, 'IDs': debug_hap_ids})
 
     return headers, cases_with_events, image_paths, iscn_reports, genes_reports, debug_outputs
 
@@ -143,6 +155,7 @@ def hyperlink_iscn_interpretation(input_str):
 def test(compile_image, cases_of_interest, title, omkar_output_dir, image_output_dir, output_file, debug=False):
     os.makedirs(image_output_dir, exist_ok=True)
 
+    # one tuple per cluster (event)
     headers, cases_with_events, image_paths, iscn_reports, genes_reports, debug_outputs = batch_populate_contents(omkar_output_dir, image_output_dir,
                                                                                           file_of_interest=cases_of_interest, compile_image=compile_image, debug=debug)
     images_base64 = [image_to_base64(img) for img in image_paths]
