@@ -235,6 +235,7 @@ if __name__ == "__main__":
     # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'karsim', 'omkar_analyses_pipeline/builds/b14/omkar_paths/', 'html_reports/karsim_plots/', 'html_reports/karsim.html'
     i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'test', 'omkar_analyses_pipeline/builds/b14/omkar_paths/', 'html_reports/test_plots/', 'html_reports/test.html'
     test(True, ['23Y_CMT1A_r2.1.txt'], i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)
+    # test(True, None, i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)
 
     # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'sunnyside', 'real_case_data/sunnyside_OMKar_output_paths/', 'html_reports/sunnyside_plots/', 'html_reports/sunnyside.html'
     # test(True, None, i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)

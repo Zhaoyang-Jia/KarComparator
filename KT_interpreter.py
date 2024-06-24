@@ -24,7 +24,7 @@ class Aligned_Haplotype:
     discordant_block_assignment: {int: str}  # block index: event name, exactly one event can be assigned to one block; only for discordant blocks
     size_dict: {str: int}  # seg_name: bp size
     mt_hap = []
-    wt_hap =[]
+    wt_hap = []
 
     def __init__(self, mt_aligned, wt_aligned, alignment_score, size_dict, id, chrom, mt_hap, wt_hap):
         self.id = id
@@ -78,7 +78,7 @@ class Aligned_Haplotype:
                 event_block.append((seg_idx, block_end))
                 seg_idx = block_end
 
-        ## extract concordant blocks, mt/wt blocks
+        ## extract concordant blocks, mt/wt blocks: first form blocks using INT-idx, then convert to STR
         discordant_blocks = {event_block_boundaries: block_types[event_block_idx] for event_block_idx, event_block_boundaries in enumerate(event_block)}
         # all gaps in discordant blocks are concordant blocks
         self.block_indices = {}
@@ -109,6 +109,14 @@ class Aligned_Haplotype:
         if p_endpoint < len(self.wt_aligned):
             self.block_indices[block_id] = (p_endpoint, len(self.wt_aligned))
             self.concordant_blocks[block_id] = wt_aligned[p_endpoint: len(self.wt_aligned)]
+
+        ## convert all block indices to STR
+        str_block_indices = {}
+        str_discordant_assignment = {}
+        str_mt_block = {}
+        str_wt_block = {}
+        str_concordant = {}
+
 
     def __str__(self):
         return "ID<{}>".format(self.id)
@@ -912,7 +920,13 @@ def form_dependent_clusters(input_events, i_aligned_haplotypes, index_to_segment
     for bin_idx, bin_itr in enumerate(cluster_chrs):
         chr_numbers = []
         for chr_itr in bin_itr:
-            chr_numbers.append(int(chr_itr.replace('Chr', '')))
+            c_chr_number = chr_itr.replace('Chr', '')
+            if c_chr_number.upper() == 'X':
+                chr_numbers.append(23)
+            elif c_chr_number.upper() == 'Y':
+                chr_numbers.append(24)
+            else:
+                chr_numbers.append(int(c_chr_number))
         min_values.append(min(chr_numbers))
 
     zipped_clusters = zip(min_values, cluster_chrs, dependent_clusters, cluster_events)

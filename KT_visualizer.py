@@ -195,12 +195,12 @@ def plot_chromosome(ax, chromosome_data, y_offset, x_offset, len_scaling):
             bottom_y = y_offset + ORIGIN_Y_OFFSET
             top_y = y_offset + ORIGIN_Y_OFFSET + ORIGIN_WIDTH
             if not contig['orientation']:
-                vertex_x = x_offset + contig['start'] + CHR_HEADER_X_OFFSET
+                vertex_x = x_offset + contig['start'] + CHR_HEADER_X_OFFSET + ORIENTATION_ARROW_X_OFFSET
                 x2 = vertex_x + MIN_LENGTH_ARROW_WITHOUT_SCALE
                 x3 = x_offset + contig['end'] + CHR_HEADER_X_OFFSET
                 vertices = [(vertex_x, vertex_y), (x2, bottom_y), (x3, bottom_y), (x3, top_y), (x2, top_y)]
             else:
-                vertex_x = x_offset + contig['end'] + CHR_HEADER_X_OFFSET
+                vertex_x = x_offset + contig['end'] + CHR_HEADER_X_OFFSET - ORIENTATION_ARROW_X_OFFSET
                 x1 = x_offset + contig['start'] + CHR_HEADER_X_OFFSET
                 x2 = vertex_x - MIN_LENGTH_ARROW_WITHOUT_SCALE
                 vertices = [(x1, top_y), (x1, bottom_y), (x2, bottom_y), (vertex_x, vertex_y), (x2, top_y)]
