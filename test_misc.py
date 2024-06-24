@@ -78,9 +78,15 @@
 #
 # print(matches)
 
-x = [1, 2, 3]
-y = {1, 5, 6}
+# x = [1, 2, 3]
+# y = {1, 5, 6}
+#
+# z = y.intersection(x)
+# print(len(z))
 
-z = y.intersection(x)
-print(len(z))
-
+import re
+match = re.match(r'(\d+)(\D*)', '0a')
+print(match.group(1))
+print(match.group(2))
+print(ord(match.group(2)) - 96)
+print()

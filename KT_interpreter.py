@@ -111,12 +111,17 @@ class Aligned_Haplotype:
             self.concordant_blocks[block_id] = wt_aligned[p_endpoint: len(self.wt_aligned)]
 
         ## convert all block indices to STR
-        str_block_indices = {}
-        str_discordant_assignment = {}
-        str_mt_block = {}
-        str_wt_block = {}
-        str_concordant = {}
+        def change_dict_key_type(input_dict):
+            new_dict = {}
+            for key, value in input_dict.items():
+                new_dict[str(key)] = value
+            return new_dict
 
+        self.block_indices = change_dict_key_type(self.block_indices)
+        self.discordant_block_assignment = change_dict_key_type(self.discordant_block_assignment)
+        self.concordant_blocks = change_dict_key_type(self.concordant_blocks)
+        self.mt_blocks = change_dict_key_type(self.mt_blocks)
+        self.wt_blocks = change_dict_key_type(self.wt_blocks)
 
     def __str__(self):
         return "ID<{}>".format(self.id)
@@ -128,70 +133,137 @@ class Aligned_Haplotype:
             return_set.add(seg_index)
         return return_set
 
-
-    def get_block_segs_and_block_type(self, block_idx):
+    def get_block_segs_and_block_type(self, block_name):
         """
         given block_idx, get block segs and block type
-        :param block_idx:
+        :param block_name:
         :return:
         """
-        if block_idx in self.wt_blocks:
-            return self.wt_blocks[block_idx], self.wt_blocks
-        elif block_idx in self.mt_blocks:
-            return self.mt_blocks[block_idx], self.mt_blocks
-        elif block_idx in self.concordant_blocks:
-            return self.concordant_blocks[block_idx], self.concordant_blocks
+        if block_name in self.wt_blocks:
+            return self.wt_blocks[block_name], self.wt_blocks
+        elif block_name in self.mt_blocks:
+            return self.mt_blocks[block_name], self.mt_blocks
+        elif block_name in self.concordant_blocks:
+            return self.concordant_blocks[block_name], self.concordant_blocks
         else:
             raise RuntimeError('block idx not found in the Haplotype')
 
-    def get_closest_mt_block(self, block_idx, search_direction):
+    def next_block(self, current_block_name):
+        ### OPTIMIZE: add a variable in self to store the ordered list of block names, so no for loop needed
+        current_block_value = block_value(current_block_name)
+        min_value = float('inf')
+        next_block = None
+        for block in self.block_indices:
+            value = block_value(block)
+            if current_block_value < value < min_value:
+                next_block = block
+                min_value = value
+        return next_block
+
+    def previous_block(self, current_block_name):
+        current_block_value = block_value(current_block_name)
+        max_value = -1.0
+        previous_block = None
+        for block in self.block_indices:
+            value = block_value(block)
+            if max_value < value < current_block_value:
+                previous_block = block
+                max_value = value
+        return previous_block
+
+    def closest_block(self, current_block_name, direction, block_type):
         """
-        real block only exists in mt-block and conc-block
-        :param block_idx:
-        :param search_direction:
+        get the closest left/right block of 'this' block;
+        :param current_block_name: mt/wt/concordant
+        :param direction: left/right
+        :param block_type: 'this' block may not be in the block_type
         :return:
         """
-        if search_direction == 'left':
-            nearest_idx_found = -1
-            return_indexed_seg = ''
-            for block_idx_in_mt, indexed_seg in self.mt_blocks.items():
-                if block_idx_in_mt < block_idx:
-                    # on the leftside
-                    if block_idx_in_mt > nearest_idx_found:
-                        nearest_idx_found = block_idx_in_mt
-                        return_indexed_seg = indexed_seg
-            for block_idx_in_conc, indexed_seg in self.concordant_blocks.items():
-                if block_idx_in_conc < block_idx:
-                    # on the leftside
-                    if block_idx_in_conc > nearest_idx_found:
-                        nearest_idx_found = block_idx_in_conc
-                        return_indexed_seg = indexed_seg
-            if nearest_idx_found == -1:
-                return_indexed_seg = 'p-ter'
-            else:
-                return_indexed_seg = return_indexed_seg[-1]
-        elif search_direction == 'right':
-            nearest_idx_found = 9999
-            return_indexed_seg = ''
-            for block_idx_in_mt, indexed_seg in self.mt_blocks.items():
-                if block_idx_in_mt > block_idx:
-                    # on the rightside
-                    if block_idx_in_mt < nearest_idx_found:
-                        nearest_idx_found = block_idx_in_mt
-                        return_indexed_seg = indexed_seg
-            for block_idx_in_conc, indexed_seg in self.concordant_blocks.items():
-                if block_idx_in_conc > block_idx:
-                    # on the rightside
-                    if block_idx_in_conc < nearest_idx_found:
-                        nearest_idx_found = block_idx_in_conc
-                        return_indexed_seg = indexed_seg
-            if nearest_idx_found == 9999:
-                return_indexed_seg = 'q-ter'
-            else:
-                return_indexed_seg = return_indexed_seg[0]
+        if block_type == 'mt':
+            blocks = self.mt_blocks
+        elif block_type == 'wt':
+            blocks = self.wt_blocks
+        elif block_type == 'concordant':
+            blocks = self.concordant_blocks
         else:
-            raise ValueError('direction illegal')
-        return return_indexed_seg
+            raise ValueError()
+        if direction not in ['left', 'right']:
+            raise ValueError()
+
+        if direction == 'left':
+            max_block = current_block_name
+            c_value = block_value(current_block_name)
+            max_value = -1.0
+            for block in blocks:
+                if max_value < block_value(block) < c_value:
+                    max_block = block
+                    max_value = block_value(block)
+            if max_block == current_block_name:
+                return None
+            else:
+                return max_block
+        else:
+            min_block = current_block_name
+            c_value = block_value(current_block_name)
+            min_value = float('inf')
+            for block in blocks:
+                if min_value > block_value(block) > c_value:
+                    min_block = block
+                    min_value = block_value(block)
+            if min_block == current_block_name:
+                return None
+            else:
+                return min_block
+
+    def get_closest_real_seg(self, block_name, search_direction):
+        """
+        real block only exists in mt-block and concordant-block
+        :param block_name:
+        :param search_direction: left/right
+        :return: list of indexed_segs corresponding to the closest block
+        """
+        if search_direction == 'left':
+            left_mt = self.closest_block(block_name, 'left', 'mt')
+            left_concordant = self.closest_block(block_name, 'left', 'concordant')
+            print()
+            if left_mt is None and left_concordant is None:
+                return 'p-ter'
+            else:
+                if left_mt is None:
+                    left_mt_val = -1.0
+                else:
+                    left_mt_val = block_value(left_mt)
+                if left_concordant is None:
+                    left_concordant_val = -1.0
+                else:
+                    left_concordant_val = block_value(left_concordant)
+                if left_concordant_val > left_mt_val:
+                    return self.concordant_blocks[left_concordant][-1]
+                elif left_concordant_val < left_mt_val:
+                    return self.mt_blocks[left_mt][-1]
+                else:
+                    raise RuntimeError()
+        elif search_direction == 'right':
+            right_mt = self.closest_block(block_name, 'right', 'mt')
+            right_concordant = self.closest_block(block_name, 'right', 'concordant')
+            print()
+            if right_mt is None and right_concordant is None:
+                return 'q-ter'
+            else:
+                if right_mt is None:
+                    right_mt_val = float('inf')
+                else:
+                    right_mt_val = block_value(right_mt)
+                if right_concordant is None:
+                    right_concordant_val = float('inf')
+                else:
+                    right_concordant_val = block_value(right_concordant)
+                if right_concordant_val < right_mt_val:
+                    return self.concordant_blocks[right_concordant][0]
+                elif right_concordant_val > right_mt_val:
+                    return self.mt_blocks[right_mt][0]
+                else:
+                    raise RuntimeError()
 
     def report_SV(self, event_blocks, event_types):
         """
@@ -206,14 +278,14 @@ class Aligned_Haplotype:
                 left = 'p-ter'
             else:
                 # previous_block, _ = self.get_block_segs_and_block_type(block_idx - 1)
-                left = self.get_closest_mt_block(block_idx, 'left')
+                left = self.get_closest_real_seg(block_idx, 'left')
                 # left = previous_block[-1]
             if block_idx == len(self.block_indices) - 1:
                 # last block
                 right = 'q-ter'
             else:
                 # next_block, _ = self.get_block_segs_and_block_type(block_idx + 1)
-                right = self.get_closest_mt_block(block_idx, 'right')
+                right = self.get_closest_real_seg(block_idx, 'right')
                 # right = next_block[0]
             return left, right
 
@@ -269,6 +341,17 @@ class Aligned_Haplotype:
             if seed_start != -1:
                 return c_block_idx
         return -1
+
+
+def block_value(block_name):
+    # assumes there are at most 100 sub-blocks (in terms of ASCII)
+    pattern = r'(\d+)(\D*)'
+    match = re.match(pattern, block_name)
+    if len(match.group(2)) == 0:
+        char_value = 0.0
+    else:
+        char_value = 0.01 * (ord(match.group(2)) - 96)
+    return int(match.group(1)) + char_value
 
 
 def lcs(list1, list2, size_dict):
@@ -405,139 +488,139 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
     ### Order of resolving: balanced-translocation, inv, dup-inv, tandem-dup, del, unbalanced-translocation
     ## resolve all balanced translocations
     for aligned_hap_idx, aligned_hap in enumerate(aligned_haplotypes):
-        for c_wt_block_idx, c_wt_block in aligned_hap.wt_blocks.items():
-            if len(aligned_hap.discordant_block_assignment[c_wt_block_idx]) > 0:
+        for c_wt_block_name, c_wt_block in aligned_hap.wt_blocks.items():
+            if len(aligned_hap.discordant_block_assignment[c_wt_block_name]) > 0:
                 # already has assignment
                 continue
             aligned_hap.discordant_block_assignment[
-                c_wt_block_idx] = 'under investigation'  # block it from being matched in intra-chr event; maybe not necessary
-            balanced_translocation_found = genomewide_seed_search(c_wt_block, c_wt_block_idx, aligned_hap_idx, 'ins')
+                c_wt_block_name] = 'under investigation'  # block it from being matched in intra-chr event; maybe not necessary
+            balanced_translocation_found = genomewide_seed_search(c_wt_block, c_wt_block_name, aligned_hap_idx, 'ins')
             if balanced_translocation_found:
                 event_id += 1
             else:
                 # reset block assignment for query
-                aligned_hap.discordant_block_assignment[c_wt_block_idx] = ''
-        for c_mt_block_idx, c_mt_block in aligned_hap.mt_blocks.items():
-            if len(aligned_hap.discordant_block_assignment[c_mt_block_idx]) > 0:
+                aligned_hap.discordant_block_assignment[c_wt_block_name] = ''
+        for c_mt_block_name, c_mt_block in aligned_hap.mt_blocks.items():
+            if len(aligned_hap.discordant_block_assignment[c_mt_block_name]) > 0:
                 # already has assignment
                 continue
-            aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'under investigation'  # block it from being matched in intra-chr event
-            balanced_translocation_found = genomewide_seed_search(c_mt_block, c_mt_block_idx, aligned_hap_idx, 'del')
+            aligned_hap.discordant_block_assignment[c_mt_block_name] = 'under investigation'  # block it from being matched in intra-chr event
+            balanced_translocation_found = genomewide_seed_search(c_mt_block, c_mt_block_name, aligned_hap_idx, 'del')
             if balanced_translocation_found:
                 event_id += 1
             else:
                 # reset block assignment for query
-                aligned_hap.discordant_block_assignment[c_mt_block_idx] = ''
+                aligned_hap.discordant_block_assignment[c_mt_block_name] = ''
 
     ## inversion: mt{- k-} wt{k+ -} OR mt{k- -} wt{- k+}
     for aligned_hap in aligned_haplotypes:
         # case: mt{k- -} wt{- k+}, ins of inverted-seg + del of uninverted-seg
-        for c_mt_block_idx, c_mt_block in aligned_hap.mt_blocks.items():
+        for c_mt_block_name, c_mt_block in aligned_hap.mt_blocks.items():
             if c_mt_block[0][-1] == "+":
                 # not inverted
                 continue
-            if len(aligned_hap.discordant_block_assignment[c_mt_block_idx]) > 0:
+            if len(aligned_hap.discordant_block_assignment[c_mt_block_name]) > 0:
                 continue
-            if c_mt_block_idx + 1 >= len(aligned_hap.block_indices) or \
-                    (c_mt_block_idx + 1) not in aligned_hap.wt_blocks or \
-                    len(aligned_hap.discordant_block_assignment[c_mt_block_idx + 1]) > 0:
+            if aligned_hap.next_block(c_mt_block_name) is not None or \
+                    aligned_hap.next_block(c_mt_block_name) not in aligned_hap.wt_blocks or \
+                    len(aligned_hap.discordant_block_assignment[aligned_hap.next_block(c_mt_block_name)]) > 0:
                 # this is the last block, next block is not a del-block, OR next del-block has assignment
                 continue
             uninverted_segs = [seg[:-1] + '+' for seg in c_mt_block[::-1]]
-            next_del_block = aligned_hap.wt_blocks[c_mt_block_idx + 1]
+            next_del_block = aligned_hap.wt_blocks[aligned_hap.next_block(c_mt_block_name)]
             seed_start, seed_end = is_seeded(next_del_block, uninverted_segs, segment_size_dict, indel_direction='both', d=d, eps=eps)
             if seed_start != -1:
-                aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'inversion,{}'.format(event_id)
-                aligned_hap.discordant_block_assignment[c_mt_block_idx + 1] = 'inversion,{}'.format(event_id)
+                aligned_hap.discordant_block_assignment[c_mt_block_name] = 'inversion,{}'.format(event_id)
+                aligned_hap.discordant_block_assignment[aligned_hap.next_block(c_mt_block_name)] = 'inversion,{}'.format(event_id)
                 event_id += 1
         # case: mt{- k-} wt{k+ -}, del of uninverted-seg + ins of inverted-seg
-        for c_wt_block_idx, c_wt_block in aligned_hap.wt_blocks.items():
-            if len(aligned_hap.discordant_block_assignment[c_wt_block_idx]) > 0:
+        for c_wt_block_name, c_wt_block in aligned_hap.wt_blocks.items():
+            if len(aligned_hap.discordant_block_assignment[c_wt_block_name]) > 0:
                 continue
-            if c_wt_block_idx + 1 >= len(aligned_hap.block_indices) or \
-                    (c_wt_block_idx + 1) not in aligned_hap.mt_blocks or \
-                    len(aligned_hap.discordant_block_assignment[c_wt_block_idx + 1]) > 0:
+            if aligned_hap.next_block(c_wt_block_name) is not None or \
+                    aligned_hap.next_block(c_wt_block_name) not in aligned_hap.mt_blocks or \
+                    len(aligned_hap.discordant_block_assignment[aligned_hap.next_block(c_wt_block_name)]) > 0:
                 # this is the last block, next block is not a ins-block, OR next ins-block has assignment
                 continue
             inverted_segs = [seg[:-1] + '-' for seg in c_wt_block[::-1]]
-            next_ins_block = aligned_hap.mt_blocks[c_wt_block_idx + 1]
+            next_ins_block = aligned_hap.mt_blocks[aligned_hap.next_block(c_wt_block_name)]
             seed_start, seed_end = is_seeded(next_ins_block, inverted_segs, segment_size_dict, indel_direction='both', d=d, eps=eps)
             if seed_start != -1:
-                aligned_hap.discordant_block_assignment[c_wt_block_idx] = 'inversion,{}'.format(event_id)
-                aligned_hap.discordant_block_assignment[c_wt_block_idx + 1] = 'inversion,{}'.format(event_id)
+                aligned_hap.discordant_block_assignment[c_wt_block_name] = 'inversion,{}'.format(event_id)
+                aligned_hap.discordant_block_assignment[aligned_hap.next_block(c_wt_block_name)] = 'inversion,{}'.format(event_id)
                 event_id += 1
 
     ## duplication inversion
     for aligned_hap in aligned_haplotypes:
-        for c_mt_block_idx, c_mt_block in aligned_hap.mt_blocks.items():
+        for c_mt_block_name, c_mt_block in aligned_hap.mt_blocks.items():
             # left-dup-inv: ins of inverted-seg + concordant block w/ uninverted-seg as seed
             if c_mt_block[0][-1] == "+":
                 # not inverted
                 continue
-            if len(aligned_hap.discordant_block_assignment[c_mt_block_idx]) > 0:
+            if len(aligned_hap.discordant_block_assignment[c_mt_block_name]) > 0:
                 continue
             uninverted_segs = [seg[:-1] + '+' for seg in c_mt_block[::-1]]
             # this is not the last block, AND next block is concordant
-            if c_mt_block_idx + 1 < len(aligned_hap.block_indices) and \
-                    (c_mt_block_idx + 1) in aligned_hap.concordant_blocks:
-                next_concordant_block = aligned_hap.concordant_blocks[c_mt_block_idx + 1]
+            if aligned_hap.next_block(c_mt_block_name) is not None and \
+                    aligned_hap.next_block(c_mt_block_name) in aligned_hap.concordant_blocks:
+                next_concordant_block = aligned_hap.concordant_blocks[aligned_hap.next_block(c_mt_block_name)]
                 seed_start, seed_end = is_seeded(next_concordant_block, uninverted_segs, segment_size_dict, indel_direction='left', d=d, eps=eps)
                 if seed_start != -1:
-                    aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'left_duplication_inversion,{}'.format(event_id)
+                    aligned_hap.discordant_block_assignment[c_mt_block_name] = 'left_duplication_inversion,{}'.format(event_id)
                     event_id += 1
                     continue
             # right-dup-inv: concordant block w/ uninverted-seg as seed + ins of inverted-seg
             # this is not the first block, AND previous block is concordant
-            if c_mt_block_idx - 1 >= 0 and \
-                    (c_mt_block_idx - 1) in aligned_hap.concordant_blocks:
-                previous_concordant_block = aligned_hap.concordant_blocks[c_mt_block_idx - 1]
+            if aligned_hap.previous_block(c_mt_block_name) is not None and \
+                    aligned_hap.previous_block(c_mt_block_name) in aligned_hap.concordant_blocks:
+                previous_concordant_block = aligned_hap.concordant_blocks[aligned_hap.previous_block(c_mt_block_name)]
                 seed_start, seed_end = is_seeded(previous_concordant_block, uninverted_segs, segment_size_dict, indel_direction='right', d=d, eps=eps)
                 if seed_start != -1:
-                    aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'right_duplication_inversion,{}'.format(event_id)
+                    aligned_hap.discordant_block_assignment[c_mt_block_name] = 'right_duplication_inversion,{}'.format(event_id)
                     event_id += 1
 
     ## tandem-dup: mt{k+ k+}, wt{- k+} OR wt{k+ -}
     for aligned_hap in aligned_haplotypes:
-        for c_mt_block_idx, c_mt_block in aligned_hap.mt_blocks.items():
-            if len(aligned_hap.discordant_block_assignment[c_mt_block_idx]) > 0:
+        for c_mt_block_name, c_mt_block in aligned_hap.mt_blocks.items():
+            if len(aligned_hap.discordant_block_assignment[c_mt_block_name]) > 0:
                 continue
             block_segs = list(c_mt_block)
             # case: mt{k+ k+}, wt{- k+}, ins seg + concordant block w/ ins-seg as seed
             # this is not the last block, AND next block is concordant
-            if c_mt_block_idx + 1 < len(aligned_hap.block_indices) and \
-                    (c_mt_block_idx + 1) in aligned_hap.concordant_blocks:
-                next_concordant_block = aligned_hap.concordant_blocks[c_mt_block_idx + 1]
+            if aligned_hap.next_block(c_mt_block_name) is not None and \
+                    aligned_hap.next_block(c_mt_block_name) in aligned_hap.concordant_blocks:
+                next_concordant_block = aligned_hap.concordant_blocks[aligned_hap.next_block(c_mt_block_name)]
                 seed_start, seed_end = is_seeded(next_concordant_block, block_segs, segment_size_dict, indel_direction='left', d=d, eps=eps)
                 if seed_start != -1:
-                    aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'tandem_duplication,{}'.format(event_id)
+                    aligned_hap.discordant_block_assignment[c_mt_block_name] = 'tandem_duplication,{}'.format(event_id)
                     event_id += 1
                     continue
             # case: mt{k+ k+}, wt{k+ -}, concordant block w/ ins-seg as seed + ins seg
             # this is not the first block, AND previous block is concordant
-            if c_mt_block_idx - 1 >= 0 and \
-                    (c_mt_block_idx - 1) in aligned_hap.concordant_blocks:
-                previous_concordant_block = aligned_hap.concordant_blocks[c_mt_block_idx - 1]
+            if aligned_hap.previous_block(c_mt_block_name) is not None and \
+                    aligned_hap.previous_block(c_mt_block_name) in aligned_hap.concordant_blocks:
+                previous_concordant_block = aligned_hap.concordant_blocks[aligned_hap.previous_block(c_mt_block_name)]
                 seed_start, seed_end = is_seeded(previous_concordant_block, block_segs, segment_size_dict, indel_direction='right', d=d, eps=eps)
                 if seed_start != -1:
-                    aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'tandem_duplication,{}'.format(event_id)
+                    aligned_hap.discordant_block_assignment[c_mt_block_name] = 'tandem_duplication,{}'.format(event_id)
                     event_id += 1
 
     ## deletion: all remaining wt_blocks are deletions
     for aligned_hap in aligned_haplotypes:
-        for c_wt_block_idx, c_wt_block in aligned_hap.wt_blocks.items():
-            if len(aligned_hap.discordant_block_assignment[c_wt_block_idx]) > 0:
+        for c_wt_block_name, c_wt_block in aligned_hap.wt_blocks.items():
+            if len(aligned_hap.discordant_block_assignment[c_wt_block_name]) > 0:
                 continue
             else:
-                aligned_hap.discordant_block_assignment[c_wt_block_idx] = 'deletion,{}'.format(event_id)
+                aligned_hap.discordant_block_assignment[c_wt_block_name] = 'deletion,{}'.format(event_id)
                 event_id += 1
 
     ## duplicated insertion: all remaining mt_blocks are insertions (i.e. unbalanced translocations)
     for aligned_hap in aligned_haplotypes:
-        for c_mt_block_idx, c_mt_block in aligned_hap.mt_blocks.items():
-            if len(aligned_hap.discordant_block_assignment[c_mt_block_idx]) > 0:
+        for c_mt_block_name, c_mt_block in aligned_hap.mt_blocks.items():
+            if len(aligned_hap.discordant_block_assignment[c_mt_block_name]) > 0:
                 continue
             else:
-                aligned_hap.discordant_block_assignment[c_mt_block_idx] = 'insertion,{}'.format(event_id)
+                aligned_hap.discordant_block_assignment[c_mt_block_name] = 'insertion,{}'.format(event_id)
                 event_id += 1
 
     ## congregate events for report
@@ -594,71 +677,69 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
             if conglomerated_event_types[event_id] != 'balanced_translocation':
                 # event already labeled by previous balanced translocation chaining, skip
                 continue
-            # origin_path_idx = int(event_block_list[0].split('.')[0])
-            # origin_block_idx = int(event_block_list[0].split('.')[1])
             c_path_idx = int(event_block_list[1].split('.')[0])
-            c_block_idx = int(event_block_list[1].split('.')[1])
+            c_block_name = event_block_list[1].split('.')[1]
             origin_path_idx = c_path_idx
-            origin_block_idx = c_block_idx
+            origin_block_idx = c_block_name
             event_id_visited = [event_id]
             loop_closed = False
             while True:
                 ## find the next paired balanced translocations
-                next_block_idx = -1
+                next_block_name = -1
                 next_block_event_id = -1
                 # search left
-                left_block_idx = c_block_idx - 1
-                if left_block_idx in aligned_haplotypes[c_path_idx].discordant_block_assignment:
-                    # note: if left_block_idx < 0, won't be in discordant block list
-                    left_block_type_info = aligned_haplotypes[c_path_idx].discordant_block_assignment[left_block_idx]
+                left_block_name = aligned_haplotypes[c_path_idx].previous_block(c_block_name)
+                if left_block_name in aligned_haplotypes[c_path_idx].discordant_block_assignment:
+                    # note: if left_block_name < 0, won't be in discordant block list
+                    left_block_type_info = aligned_haplotypes[c_path_idx].discordant_block_assignment[left_block_name]
                     left_block_type = left_block_type_info.split(',')[0]
                     if left_block_type == 'balanced_translocation':
-                        next_block_idx = left_block_idx
+                        next_block_name = left_block_name
                         next_block_event_id = int(left_block_type_info.split(',')[1])
-                right_block_idx = c_block_idx + 1
-                if right_block_idx in aligned_haplotypes[c_path_idx].discordant_block_assignment:
-                    # note: if left_block_idx >= n_blocks, won't be in discordant block list
-                    right_block_type_info = aligned_haplotypes[c_path_idx].discordant_block_assignment[right_block_idx]
+                right_block_name = aligned_haplotypes[c_path_idx].next_block(c_block_name)
+                if right_block_name in aligned_haplotypes[c_path_idx].discordant_block_assignment:
+                    # note: if left_block_name >= n_blocks, won't be in discordant block list
+                    right_block_type_info = aligned_haplotypes[c_path_idx].discordant_block_assignment[right_block_name]
                     right_block_type = right_block_type_info.split(',')[0]
                     if right_block_type == 'balanced_translocation':
-                        if next_block_idx != -1:
+                        if next_block_name != -1:
                             raise RuntimeError(
                                 'balanced translocation chaining appeared on both sides, require additional implementation for better implementation')
-                        next_block_idx = right_block_idx
+                        next_block_name = right_block_name
                         next_block_event_id = int(right_block_type_info.split(',')[1])
 
                 ## navigate to the other side of the pair
-                if next_block_idx == -1:
+                if next_block_name == -1:
                     # all event_id_visited are non-loop closed balanced translocations
                     break
                 # find the located block in event_block pairing
                 c_event_block_list = event_blocks[next_block_event_id]
                 # either the first/second is the paired block
                 path_idx1 = int(c_event_block_list[0].split('.')[0])
-                block_idx1 = int(c_event_block_list[0].split('.')[1])
+                block_idx1 = c_event_block_list[0].split('.')[1]
                 path_idx2 = int(c_event_block_list[1].split('.')[0])
-                block_idx2 = int(c_event_block_list[1].split('.')[1])
-                if path_idx1 == c_path_idx and block_idx1 == next_block_idx:
+                block_idx2 = c_event_block_list[1].split('.')[1]
+                if path_idx1 == c_path_idx and block_idx1 == next_block_name:
                     if next_block_event_id in event_id_visited and next_block_event_id != event_id_visited[0]:
                         raise RuntimeError('duplicate event found, loop closed not with the origin block')
                     elif next_block_event_id not in event_id_visited:
                         # thus, when we are back to the first event_id, do not append
                         event_id_visited.append(next_block_event_id)
                     c_path_idx = path_idx2
-                    c_block_idx = block_idx2
-                elif path_idx2 == c_path_idx and block_idx2 == next_block_idx:
+                    c_block_name = block_idx2
+                elif path_idx2 == c_path_idx and block_idx2 == next_block_name:
                     if next_block_event_id in event_id_visited and next_block_event_id != event_id_visited[0]:
                         raise RuntimeError('duplicate event found, loop closed not with the origin block')
                     elif next_block_event_id not in event_id_visited:
                         # thus, when we are back to the first event_id, do not append
                         event_id_visited.append(next_block_event_id)
                     c_path_idx = path_idx1
-                    c_block_idx = block_idx1
+                    c_block_name = block_idx1
                 else:
                     raise RuntimeError('bug in event finding, block pair located was not found')
 
                 ## base-case: returned to the original start, loop closed
-                if c_path_idx == origin_path_idx and c_block_idx == origin_block_idx:
+                if c_path_idx == origin_path_idx and c_block_name == origin_block_idx:
                     loop_closed = True
                     break
 
