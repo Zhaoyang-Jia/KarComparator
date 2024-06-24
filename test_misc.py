@@ -85,8 +85,38 @@
 # print(len(z))
 
 import re
-match = re.match(r'(\d+)(\D*)', '0a')
-print(match.group(1))
-print(match.group(2))
-print(ord(match.group(2)) - 96)
-print()
+# match = re.match(r'(\d+)(\D*)', '0a')
+# print(match.group(1))
+# print(match.group(2))
+# print(ord(match.group(2)) - 96)
+# print()
+
+def split_int_char(input_string):
+    # Regular expression to match an integer followed by 0 to 3 characters
+    match = re.match(r'(\d+)(\D*)', input_string)
+    if match:
+        int_part = match.group(1)
+        char_part = match.group(2)
+        if len(match.group(2)) == 0:
+            char_value = 0.0
+        else:
+            char_value = 0.0
+            multiplier = 0.01
+            for character in match.group(2):
+                char_value += multiplier * (ord(character) - 96)
+                multiplier *= 0.01
+        return int_part, char_part, int(match.group(1)) + char_value
+    return None, None, None  # In case there's no match
+
+# Example usage
+input_string1 = "123a"
+input_string2 = "456ab"
+input_string3 = "789abc"
+
+int_part1, char_part1, v1 = split_int_char(input_string1)
+int_part2, char_part2, v2 = split_int_char(input_string2)
+int_part3, char_part3, v3 = split_int_char(input_string3)
+
+print(f"Input: {input_string1} -> Integer part: {int_part1}, Character part: {char_part1}, value: {v1}")
+print(f"Input: {input_string2} -> Integer part: {int_part2}, Character part: {char_part2}, value: {v2}")
+print(f"Input: {input_string3} -> Integer part: {int_part3}, Character part: {char_part3}, value: {v3}")

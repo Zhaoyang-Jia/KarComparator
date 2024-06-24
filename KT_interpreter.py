@@ -148,6 +148,17 @@ class Aligned_Haplotype:
         else:
             raise RuntimeError('block idx not found in the Haplotype')
 
+    def split_block(self, current_block_name, split_left_idx, split_right_idx):
+        """
+        split a block into [start, split_left_idx], [split_left_idx + 1, split_right_idx], [split_right_idx + 1, end]
+        :param current_block_name:
+        :param split_left_idx:
+        :param split_right_idx:
+        :return:
+        """
+        pass
+
+
     def next_block(self, current_block_name):
         ### OPTIMIZE: add a variable in self to store the ordered list of block names, so no for loop needed
         current_block_value = block_value(current_block_name)
@@ -350,7 +361,11 @@ def block_value(block_name):
     if len(match.group(2)) == 0:
         char_value = 0.0
     else:
-        char_value = 0.01 * (ord(match.group(2)) - 96)
+        char_value = 0.0
+        multiplier = 0.01
+        for character in match.group(2):
+            char_value += multiplier * (ord(character) - 96)
+            multiplier *= 0.01
     return int(match.group(1)) + char_value
 
 
@@ -521,7 +536,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
                 continue
             if len(aligned_hap.discordant_block_assignment[c_mt_block_name]) > 0:
                 continue
-            if aligned_hap.next_block(c_mt_block_name) is not None or \
+            if aligned_hap.next_block(c_mt_block_name) is None or \
                     aligned_hap.next_block(c_mt_block_name) not in aligned_hap.wt_blocks or \
                     len(aligned_hap.discordant_block_assignment[aligned_hap.next_block(c_mt_block_name)]) > 0:
                 # this is the last block, next block is not a del-block, OR next del-block has assignment
@@ -537,7 +552,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
         for c_wt_block_name, c_wt_block in aligned_hap.wt_blocks.items():
             if len(aligned_hap.discordant_block_assignment[c_wt_block_name]) > 0:
                 continue
-            if aligned_hap.next_block(c_wt_block_name) is not None or \
+            if aligned_hap.next_block(c_wt_block_name) is None or \
                     aligned_hap.next_block(c_wt_block_name) not in aligned_hap.mt_blocks or \
                     len(aligned_hap.discordant_block_assignment[aligned_hap.next_block(c_wt_block_name)]) > 0:
                 # this is the last block, next block is not a ins-block, OR next ins-block has assignment
