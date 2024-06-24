@@ -1,5 +1,7 @@
 .DS_store
 *.iml
+*.png
+*.html
 *__pycache__*
 /latex_reports/dremsek_images/
 /latex_reports/dremsek_images_2/
@@ -11,4 +13,3 @@
 /omkar_analyses_pipeline/test_input/
 /Metadata/gencode.v46.basic.annotation.gtf
 /real_case_data/
-/html_reports/
