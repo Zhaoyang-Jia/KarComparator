@@ -13,6 +13,10 @@ def image_to_base64(image_path):
         return ""
 
 
+def int_file_keys(filename):
+    return int(filename.split('_')[0])
+
+
 def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, compile_image=False, debug=False):
     headers = []
     cases_with_events = []
@@ -21,6 +25,7 @@ def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, 
     genes_reports = []
     debug_outputs = []  # list of dicts [{'segs': [], 'mt_haps': [], 'wt_haps': []}]
     files = [file for file in os.listdir(omkar_output_dir)]
+    files = sorted(files, key=int_file_keys)
     for file in files:
         if file_of_interest is not None:
             if file not in file_of_interest:
@@ -93,6 +98,8 @@ def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, 
             debug_mt_haps = []
             debug_wt_haps = []
             debug_hap_ids = []
+            debug_mt_aligned = []
+            debug_wt_aligned = []
             for aligned_haplotype in c_aligned_haplotypes:
                 unique_segs = aligned_haplotype.unique_segment_indices()
                 for seg in unique_segs:
@@ -109,11 +116,14 @@ def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, 
                     if aligned_haplotype.id == c_vis['hap_id']:
                         debug_mt_haps.append(aligned_haplotype.mt_hap)
                         debug_wt_haps.append(aligned_haplotype.wt_hap)
+                        debug_mt_aligned.append(aligned_haplotype.mt_aligned)
+                        debug_wt_aligned.append(aligned_haplotype.wt_aligned)
                         hap_found = True
                         break
                 if not hap_found:
                     raise RuntimeError('hap not found')
-            debug_outputs.append({'segs': debug_segs, 'mt_haps': debug_mt_haps, 'wt_haps': debug_wt_haps, 'IDs': debug_hap_ids})
+            debug_outputs.append({'segs': debug_segs, 'mt_haps': debug_mt_haps, 'wt_haps': debug_wt_haps, 'IDs': debug_hap_ids,
+                                  'mt_aligned': debug_mt_aligned, 'wt_aligned': debug_wt_aligned})
 
     return headers, cases_with_events, image_paths, iscn_reports, genes_reports, debug_outputs
 
@@ -232,10 +242,11 @@ if __name__ == "__main__":
     # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'keyhole', 'real_case_data/keyhole_OMKar_output_paths/', 'html_reports/keyhole_plots/', 'html_reports/keyhole.html'
     # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'sunnyside', 'real_case_data/sunnyside_OMKar_output_paths/', 'html_reports/sunnyside_plots/', 'html_reports/sunnyside.html'
     # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'dremsek', 'real_case_data/dremsek_OMKar_output_paths/', 'html_reports/dremsek_plots/', 'html_reports/dremsek.html'
-    i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'karsim', 'omkar_analyses_pipeline/builds/b14/omkar_paths/', 'html_reports/karsim_plots/', 'html_reports/karsim2.html'
+    i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'Dremsek_b14', 'real_case_data/dremsek_b14_paths/', 'html_reports/dremsek_plots_b14/', 'html_reports/dremsek_b14.html'
+    # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'karsim', 'omkar_analyses_pipeline/builds/b14/omkar_paths/', 'html_reports/karsim_plots/', 'html_reports/karsim2.html'
     # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'test', 'omkar_analyses_pipeline/builds/b14/omkar_paths/', 'html_reports/test_plots/', 'html_reports/test3.html'
-    # test(True, ['23X_15q26_overgrowth_r1.1.txt'], i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)
-    test(True, None, i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)
+    # test(True, ['23X_22q11_duplication_r2.1.txt'], i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)
+    test(False, None, i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)
 
     # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'sunnyside', 'real_case_data/sunnyside_OMKar_output_paths/', 'html_reports/sunnyside_plots/', 'html_reports/sunnyside.html'
     # test(True, None, i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)

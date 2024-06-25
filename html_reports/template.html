@@ -107,6 +107,11 @@
                 {% for wt_hap in debug_info.wt_haps %}
                 <p>{{ wt_hap }}</p>
                 {% endfor %}
+
+                <p><strong>alignments</strong></p>
+                {% for mt_aligned in debug_info.mt_aligned %}
+                <p>{{ mt_aligned }} {{ debug_info.wt_aligned[loop.index - 1] }}</p>
+                {% endfor %}
                 {% endif %}
 
                 {% if not debug %}
