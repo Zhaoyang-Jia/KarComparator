@@ -146,7 +146,7 @@ class Aligned_Haplotype:
         elif block_name in self.concordant_blocks:
             return self.concordant_blocks[block_name], self.concordant_blocks
         else:
-            raise RuntimeError('block idx not found in the Haplotype')
+            return None, None
 
     def split_block(self, current_block_name, split_left_idx, split_right_idx):
         """
@@ -229,6 +229,28 @@ class Aligned_Haplotype:
                 previous_block = block
                 max_value = value
         return previous_block
+
+    def next_different_type_block(self, block_name):
+        current_block_name = block_name
+        _, original_block_dict = self.get_block_segs_and_block_type(current_block_name)
+        while True:
+            current_block_name = self.next_block(current_block_name)
+            if current_block_name is None:
+                return None
+            _, current_block_dict = self.get_block_segs_and_block_type(current_block_name)
+            if current_block_dict != original_block_dict:
+                return current_block_name, current_block_dict
+
+    def previous_different_type_block(self, block_name):
+        current_block_name = block_name
+        _, original_block_dict = self.get_block_segs_and_block_type(current_block_name)
+        while True:
+            current_block_name = self.previous_block(current_block_name)
+            if current_block_name is None:
+                return None
+            _, current_block_dict = self.get_block_segs_and_block_type(current_block_name)
+            if current_block_dict != original_block_dict:
+                return current_block_name, current_block_dict
 
     def closest_block(self, current_block_name, direction, block_type):
         """
@@ -790,7 +812,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
                 next_block_name = -1
                 next_block_event_id = -1
                 # search left
-                left_block_name = aligned_haplotypes[c_path_idx].previous_block(c_block_name)
+                left_block_name, _ = aligned_haplotypes[c_path_idx].previous_different_type_block(c_block_name)
                 if left_block_name in aligned_haplotypes[c_path_idx].discordant_block_assignment:
                     # note: if left_block_name < 0, won't be in discordant block list
                     left_block_type_info = aligned_haplotypes[c_path_idx].discordant_block_assignment[left_block_name]
@@ -798,15 +820,14 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
                     if left_block_type == 'balanced_translocation':
                         next_block_name = left_block_name
                         next_block_event_id = int(left_block_type_info.split(',')[1])
-                right_block_name = aligned_haplotypes[c_path_idx].next_block(c_block_name)
+                right_block_name, _ = aligned_haplotypes[c_path_idx].next_different_type_block(c_block_name)
                 if right_block_name in aligned_haplotypes[c_path_idx].discordant_block_assignment:
                     # note: if left_block_name >= n_blocks, won't be in discordant block list
                     right_block_type_info = aligned_haplotypes[c_path_idx].discordant_block_assignment[right_block_name]
                     right_block_type = right_block_type_info.split(',')[0]
                     if right_block_type == 'balanced_translocation':
                         if next_block_name != -1:
-                            raise RuntimeError(
-                                'balanced translocation chaining appeared on both sides, require additional implementation for better implementation')
+                            print('balanced translocation chaining appeared on both sides, require additional implementation for more precise interpretation')
                         next_block_name = right_block_name
                         next_block_event_id = int(right_block_type_info.split(',')[1])
 
@@ -853,6 +874,7 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
             else:
                 for event_id_idx, event_id_itr in enumerate(event_id_visited):
                     if event_id_idx >= len(event_id_visited) - 1:
+                        # loop back to the first event
                         next_event_id_idx = 0
                     else:
                         next_event_id_idx = event_id_idx + 1
