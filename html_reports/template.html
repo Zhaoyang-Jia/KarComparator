@@ -29,6 +29,12 @@
             border: 1px solid #ccc; /* Optional: to visually separate the table container */
             margin-top: 10px; /* Adds space between text and table */
         }
+        .segment-table-container {
+            max-height: 250px; /* Approximate height for 10 rows, adjust as needed */
+            overflow-y: auto;
+            border: 1px solid #ccc; /* Optional: to visually separate the table container */
+            margin-top: 10px; /* Adds space between text and table */
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -74,47 +80,7 @@
                 <p><strong>{{ loop.index }}. {{ sv[0] }}</strong>: {{ sv[1] }}</p>
                 {% endfor %}
 
-                {% if debug %}
-                <table>
-                    <thead>
-                        <tr>
-                            <th>seg index</th>
-                            <th>chr</th>
-                            <th>start</th>
-                            <th>end</th>
-                            <th>size</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for seg in debug_info.segs %}
-                        <tr>
-                            <td>{{ seg[0] }}</td>
-                            <td>{{ seg[1] }}</td>
-                            <td>{{ seg[2] }}</td>
-                            <td>{{ seg[3] }}</td>
-                            <td>{{ seg[4] }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-
-                <p><strong>mt_haps</strong></p>
-                {% for mt_hap in debug_info.mt_haps %}
-                <p>{{ debug_info.IDs[loop.index - 1] }}: {{ mt_hap }}</p>
-                {% endfor %}
-
-                <p><strong>wt_haps</strong></p>
-                {% for wt_hap in debug_info.wt_haps %}
-                <p>{{ wt_hap }}</p>
-                {% endfor %}
-
-                <p><strong>alignments</strong></p>
-                {% for mt_aligned in debug_info.mt_aligned %}
-                <p>{{ mt_aligned }} {{ debug_info.wt_aligned[loop.index - 1] }}</p>
-                {% endfor %}
-                {% endif %}
-
-                {% if not debug %}
+                {% if table_content %}
                 <div class="table-container">
                 <table>
                     <thead>
@@ -136,6 +102,49 @@
                 </table>
                 </div>
                 {% endif %}
+
+                <div class="segment-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>seg index</th>
+                                <th>chr</th>
+                                <th>start</th>
+                                <th>end</th>
+                                <th>size</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for seg in debug_info.segs %}
+                            <tr>
+                                <td>{{ seg[0] }}</td>
+                                <td>{{ seg[1] }}</td>
+                                <td>{{ seg[2] }}</td>
+                                <td>{{ seg[3] }}</td>
+                                <td>{{ seg[4] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>mt_haps</strong></p>
+                {% for mt_hap in debug_info.mt_haps %}
+                <p>{{ debug_info.IDs[loop.index - 1] }}: {{ mt_hap }}</p>
+                {% endfor %}
+
+                <p><strong>wt_haps</strong></p>
+                {% for wt_hap in debug_info.wt_haps %}
+                <p>{{ wt_hap }}</p>
+                {% endfor %}
+
+                {% if debug %}
+                    <p><strong>alignments</strong></p>
+                    {% for mt_aligned in debug_info.mt_aligned %}
+                    <p>{{ mt_aligned }} {{ debug_info.wt_aligned[loop.index - 1] }}</p>
+                    {% endfor %}
+                {% endif %}
+
             </div>
             <div class="right-panel">
                 <img src="data:image/png;base64,{{ image }}" alt="Image">

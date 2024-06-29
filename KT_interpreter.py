@@ -231,26 +231,74 @@ class Aligned_Haplotype:
         return previous_block
 
     def next_different_type_block(self, block_name):
+        """
+        :param block_name:
+        :param different_type: True->search for next block of different type; False->search for next block of same type
+        :return:
+        """
         current_block_name = block_name
         _, original_block_dict = self.get_block_segs_and_block_type(current_block_name)
+        skipped_distance = 0
         while True:
             current_block_name = self.next_block(current_block_name)
             if current_block_name is None:
-                return None
+                return None, None
             _, current_block_dict = self.get_block_segs_and_block_type(current_block_name)
+
             if current_block_dict != original_block_dict:
-                return current_block_name, current_block_dict
+                return current_block_name, skipped_distance
+            else:
+                current_block_segs, _ = self.get_block_segs_and_block_type(current_block_name)
+                skipped_distance += section_size(current_block_segs, self.size_dict)
+
+    def next_block_if_same_type(self, block_name):
+        """
+        :param block_name:
+        :return: None if the next block is not of the same type, else, return next block's name
+        """
+        _, original_block_dict = self.get_block_segs_and_block_type(block_name)
+        next_block_name = self.next_block(block_name)
+        if next_block_name is None:
+            return None
+        else:
+            _, next_block_dict = self.get_block_segs_and_block_type(next_block_name)
+            if next_block_dict == original_block_dict:
+                return next_block_name
+            else:
+                return None
 
     def previous_different_type_block(self, block_name):
+        """
+        :param block_name:
+        :param different_type: True->search for next block of different type; False->search for next block of same type
+        :return:
+        """
         current_block_name = block_name
         _, original_block_dict = self.get_block_segs_and_block_type(current_block_name)
+        skipped_distance = 0
         while True:
             current_block_name = self.previous_block(current_block_name)
             if current_block_name is None:
-                return None
+                return None, None
             _, current_block_dict = self.get_block_segs_and_block_type(current_block_name)
+
             if current_block_dict != original_block_dict:
-                return current_block_name, current_block_dict
+                return current_block_name, skipped_distance
+            else:
+                current_block_segs, _ = self.get_block_segs_and_block_type(current_block_name)
+                skipped_distance += section_size(current_block_segs, self.size_dict)
+
+    def previous_block_if_same_type(self, block_name):
+        _, original_block_dict = self.get_block_segs_and_block_type(block_name)
+        previous_block_name = self.previous_block(block_name)
+        if previous_block_name is None:
+            return None
+        else:
+            _, previous_block_dict = self.get_block_segs_and_block_type(previous_block_name)
+            if previous_block_dict == original_block_dict:
+                return previous_block_name
+            else:
+                return None
 
     def closest_block(self, current_block_name, direction, block_type):
         """
@@ -763,7 +811,86 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
                 raise ValueError('same ID, multiple event types')
         conglomerated_event_types[c_id] = c_event_type
 
-    # consolidate neighboring blocks for events with paired blocks
+    ## consolidate neighboring blocks for events with paired blocks
+    ## balanced translocations will enumerate all possible cycles and mark a set of min-distance cycles as the set of reciprocal translocations
+    reciprocal_cycles = []
+
+    def find_reciprocal_cycles(current_path_idx, next_block_name,
+                               events_visited, blocks_visited, current_distance):
+        # Note: current_block_name and next_block_name are both on current_path_idx
+        if next_block_name is None:
+            ### not a cycle and ended
+            reciprocal_cycles.append({'blocks': blocks_visited,
+                                      'events': events_visited,
+                                      'distance': current_distance,
+                                      'is_cycle': False})
+            return
+        next_event_type = aligned_haplotypes[current_path_idx].discordant_block_assignment[next_block_name].split(',')[0]
+        if next_event_type != 'balanced_translocation':
+            # cycle exhausted
+            reciprocal_cycles.append({'blocks': blocks_visited,
+                                      'events': events_visited,
+                                      'distance': current_distance,
+                                      'is_cycle': False})
+            return
+        next_event_id = int(aligned_haplotypes[current_path_idx].discordant_block_assignment[next_block_name].split(',')[1])
+        if next_event_id == events_visited[0]:
+            ### cycle closed: next block's event ID returns to the original event ID
+            reciprocal_cycles.append({'blocks': blocks_visited + [f"{current_path_idx}.{next_block_name}"],
+                                      'events': events_visited,
+                                      'distance': current_distance,
+                                      'is_cycle': True})
+            return
+        else:
+            if next_event_id in events_visited:
+                # cycle is convoluted, traced back to itself in the middle (like small epsilon)
+                reciprocal_cycles.append({'blocks': blocks_visited,
+                                          'events': events_visited,
+                                          'distance': current_distance,
+                                          'is_cycle': False})
+                return
+            ### continue search
+            ## move across the event ID
+            next_event_pair = event_blocks[next_event_id]
+            # either the first/second is the paired block
+            path_idx1 = int(next_event_pair[0].split('.')[0])
+            block_idx1 = next_event_pair[0].split('.')[1]
+            path_idx2 = int(next_event_pair[1].split('.')[0])
+            block_idx2 = next_event_pair[1].split('.')[1]
+            if path_idx1 == current_path_idx and block_idx1 == next_block_name:
+                paired_path_idx = path_idx2
+                paired_block_name = block_idx2
+            elif path_idx2 == current_path_idx and block_idx2 == next_block_name:
+                paired_path_idx = path_idx1
+                paired_block_name = block_idx1
+            else:
+                raise RuntimeError('bug in event finding, block pair located was not found')
+            ## search left and right: skipping over all blocks of current-type, iterate over all blocks of next type
+            left_block, left_skipped_distance = aligned_haplotypes[paired_path_idx].previous_different_type_block(paired_block_name)
+            right_block, right_skipped_distance = aligned_haplotypes[paired_path_idx].next_different_type_block(paired_block_name)
+            if left_block not in aligned_haplotypes[paired_path_idx].discordant_block_assignment:
+                left_block = None
+            if right_block not in aligned_haplotypes[paired_path_idx].discordant_block_assignment:
+                right_block = None
+            while left_block is not None:
+                find_reciprocal_cycles(paired_path_idx, left_block,
+                                       events_visited + [next_event_id],
+                                       blocks_visited + [f"{current_path_idx}.{next_block_name}", f"{paired_path_idx}.{paired_block_name}"],
+                                       current_distance + left_skipped_distance)
+                # venture leftward for the same block type
+                left_block_segs, _ = aligned_haplotypes[paired_path_idx].get_block_segs_and_block_type(left_block)
+                left_skipped_distance += section_size(left_block_segs, segment_size_dict)
+                left_block = aligned_haplotypes[paired_path_idx].previous_block_if_same_type(left_block)
+            while right_block is not None:
+                find_reciprocal_cycles(paired_path_idx, right_block,
+                                       events_visited + [next_event_id],
+                                       blocks_visited + [f"{current_path_idx}.{next_block_name}", f"{paired_path_idx}.{paired_block_name}"],
+                                       current_distance + right_skipped_distance)
+                # venture rightward for the same block type
+                right_block_segs, _ = aligned_haplotypes[paired_path_idx].get_block_segs_and_block_type(right_block)
+                right_skipped_distance += section_size(right_block_segs, segment_size_dict)
+                right_block = aligned_haplotypes[paired_path_idx].next_block_if_same_type(right_block)
+
     for event_id, event_type in event_types.items():
         event_type = event_type[0]
         event_block_list = event_blocks[event_id]
@@ -798,94 +925,53 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
                                                       bp2)]
             event_blocks[event_id] = new_block_list
         elif event_type == 'balanced_translocation':
-            if conglomerated_event_types[event_id] != 'balanced_translocation':
-                # event already labeled by previous balanced translocation chaining, skip
-                continue
-            c_path_idx = int(event_block_list[1].split('.')[0])
-            c_block_name = event_block_list[1].split('.')[1]
-            origin_path_idx = c_path_idx
-            origin_block_idx = c_block_name
-            event_id_visited = [event_id]
-            loop_closed = False
-            while True:
-                ## find the next paired balanced translocations
-                next_block_name = -1
-                next_block_event_id = -1
-                # search left
-                left_block_name, _ = aligned_haplotypes[c_path_idx].previous_different_type_block(c_block_name)
-                if left_block_name in aligned_haplotypes[c_path_idx].discordant_block_assignment:
-                    # note: if left_block_name < 0, won't be in discordant block list
-                    left_block_type_info = aligned_haplotypes[c_path_idx].discordant_block_assignment[left_block_name]
-                    left_block_type = left_block_type_info.split(',')[0]
-                    if left_block_type == 'balanced_translocation':
-                        next_block_name = left_block_name
-                        next_block_event_id = int(left_block_type_info.split(',')[1])
-                right_block_name, _ = aligned_haplotypes[c_path_idx].next_different_type_block(c_block_name)
-                if right_block_name in aligned_haplotypes[c_path_idx].discordant_block_assignment:
-                    # note: if left_block_name >= n_blocks, won't be in discordant block list
-                    right_block_type_info = aligned_haplotypes[c_path_idx].discordant_block_assignment[right_block_name]
-                    right_block_type = right_block_type_info.split(',')[0]
-                    if right_block_type == 'balanced_translocation':
-                        if next_block_name != -1:
-                            print('balanced translocation chaining appeared on both sides, require additional implementation for more precise interpretation')
-                        next_block_name = right_block_name
-                        next_block_event_id = int(right_block_type_info.split(',')[1])
+            current_path_idx = int(event_block_list[1].split('.')[0])
+            current_block_name = event_block_list[1].split('.')[1]
+            events_visited = [event_id]
+            blocks_visited = [f"{current_path_idx}.{current_block_name}"]
+            ## search left and right: skipping over all blocks of current-type, iterate over all blocks of next type
+            left_block, left_skipped_distance = aligned_haplotypes[current_path_idx].previous_different_type_block(current_block_name)
+            right_block, right_skipped_distance = aligned_haplotypes[current_path_idx].next_different_type_block(current_block_name)
+            if left_block not in aligned_haplotypes[current_path_idx].discordant_block_assignment:
+                left_block = None
+            if right_block not in aligned_haplotypes[current_path_idx].discordant_block_assignment:
+                right_block = None
+            while left_block is not None:
+                find_reciprocal_cycles(current_path_idx, left_block,
+                                       events_visited,
+                                       blocks_visited,
+                                       left_skipped_distance)
+                # venture leftward for the same block type
+                left_block_segs, _ = aligned_haplotypes[current_path_idx].get_block_segs_and_block_type(left_block)
+                left_skipped_distance += section_size(left_block_segs, segment_size_dict)
+                left_block = aligned_haplotypes[current_path_idx].previous_block_if_same_type(left_block)
+            while right_block is not None:
+                find_reciprocal_cycles(current_path_idx, right_block,
+                                       events_visited,
+                                       blocks_visited,
+                                       right_skipped_distance)
+                # venture rightward for the same block type
+                right_block_segs, _ = aligned_haplotypes[current_path_idx].get_block_segs_and_block_type(right_block)
+                right_skipped_distance += section_size(right_block_segs, segment_size_dict)
+                right_block = aligned_haplotypes[current_path_idx].next_block_if_same_type(right_block)
 
-                ## navigate to the other side of the pair
-                if next_block_name == -1:
-                    # all event_id_visited are non-loop closed balanced translocations
-                    break
-                # find the located block in event_block pairing
-                c_event_block_list = event_blocks[next_block_event_id]
-                # either the first/second is the paired block
-                path_idx1 = int(c_event_block_list[0].split('.')[0])
-                block_idx1 = c_event_block_list[0].split('.')[1]
-                path_idx2 = int(c_event_block_list[1].split('.')[0])
-                block_idx2 = c_event_block_list[1].split('.')[1]
-                if path_idx1 == c_path_idx and block_idx1 == next_block_name:
-                    if next_block_event_id in event_id_visited and next_block_event_id != event_id_visited[0]:
-                        raise RuntimeError('duplicate event found, loop closed not with the origin block')
-                    elif next_block_event_id not in event_id_visited:
-                        # thus, when we are back to the first event_id, do not append
-                        event_id_visited.append(next_block_event_id)
-                    c_path_idx = path_idx2
-                    c_block_name = block_idx2
-                elif path_idx2 == c_path_idx and block_idx2 == next_block_name:
-                    if next_block_event_id in event_id_visited and next_block_event_id != event_id_visited[0]:
-                        raise RuntimeError('duplicate event found, loop closed not with the origin block')
-                    elif next_block_event_id not in event_id_visited:
-                        # thus, when we are back to the first event_id, do not append
-                        event_id_visited.append(next_block_event_id)
-                    c_path_idx = path_idx1
-                    c_block_name = block_idx1
-                else:
-                    raise RuntimeError('bug in event finding, block pair located was not found')
 
-                ## base-case: returned to the original start, loop closed
-                if c_path_idx == origin_path_idx and c_block_name == origin_block_idx:
-                    loop_closed = True
-                    break
-
-            if not loop_closed:
-                for event_id_itr in event_id_visited:
-                    if conglomerated_event_types[event_id_itr] not in ['balanced_translocation', 'balanced_translocation_unassociated']:
-                        raise RuntimeError('illegal labeling of balanced translocation')
-                    conglomerated_event_types[event_id_itr] = 'balanced_translocation_unassociated'
-            else:
-                for event_id_idx, event_id_itr in enumerate(event_id_visited):
-                    if event_id_idx >= len(event_id_visited) - 1:
-                        # loop back to the first event
-                        next_event_id_idx = 0
-                    else:
-                        next_event_id_idx = event_id_idx + 1
-                    if conglomerated_event_types[event_id_itr] != 'balanced_translocation':
-                        raise RuntimeError('illegal labeling of balanced translocation')
-                    conglomerated_event_types[event_id_itr] = 'balanced_translocation_associated' + '<{}>'.format(event_id_visited[next_event_id_idx])
-
-        elif event_type.startswith('balanced_translocation_associated') or \
-                event_type.startswith('balanced_translocation_unassociated'):
-            # already labeled
-            continue
+    ## process cycles to find reciprocal events
+    # if not loop_closed:
+    #     for event_id_itr in event_id_visited:
+    #         if conglomerated_event_types[event_id_itr] not in ['balanced_translocation', 'balanced_translocation_unassociated']:
+    #             raise RuntimeError('illegal labeling of balanced translocation')
+    #         conglomerated_event_types[event_id_itr] = 'balanced_translocation_unassociated'
+    # else:
+    #     for event_id_idx, event_id_itr in enumerate(event_id_visited):
+    #         if event_id_idx >= len(event_id_visited) - 1:
+    #             # loop back to the first event
+    #             next_event_id_idx = 0
+    #         else:
+    #             next_event_id_idx = event_id_idx + 1
+    #         if conglomerated_event_types[event_id_itr] != 'balanced_translocation':
+    #             raise RuntimeError('illegal labeling of balanced translocation')
+    #         conglomerated_event_types[event_id_itr] = 'balanced_translocation_associated' + '<{}>'.format(event_id_visited[next_event_id_idx])
 
     output_list = []
     for event_id in sorted_event_id:
