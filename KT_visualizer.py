@@ -295,8 +295,6 @@ def generate_visualizer_input(events, aligned_haplotypes, segment_to_index_dict)
         vis_input.append(c_entry)
     assign_sv_labels(events, vis_input, index_to_segment_dict)
 
-    # TODO: assign names to each entry (i.e. Chr1 -> Chr1a)
-
     return vis_input
 
 
@@ -345,6 +343,13 @@ def chr_is_highlighted(input_events, hap_id):
 
 
 def assign_sv_labels(input_events, all_vis_input, i_index_to_segment_dict):
+    """
+    append sv-label info to all_vis_input entries
+    :param input_events:
+    :param all_vis_input:
+    :param i_index_to_segment_dict:
+    :return:
+    """
     name_abbreviation = {'insertion': 'INS',
                          'deletion': 'DEL',
                          'inversion': 'INV',
@@ -375,6 +380,9 @@ def assign_sv_labels(input_events, all_vis_input, i_index_to_segment_dict):
 
     associated_event = []
     event_id = 1
+
+    # event_idx_to_assign = [i for i in range(len(input_events))]
+
     for event_idx, event_info in enumerate(input_events):
         event_type = event_info[1]
         if event_type in ['insertion', 'deletion', 'inversion', 'tandem_duplication',
@@ -652,6 +660,7 @@ def test_artificial_chr_image():
 
     # plt.show(bbox_inches='tight')
     plt.savefig('test_fig.png', bbox_inches='tight')
+    plt.close()
     rotate_image('test_fig.png', 'test_fig_rotated.png')
 
 

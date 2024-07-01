@@ -28,7 +28,7 @@ def batch_populate_contents(omkar_output_dir, image_dir, file_of_interest=None, 
     # files = sorted(files, key=int_file_keys)
     for file in files:
         if file_of_interest is not None:
-            if file not in file_of_interest:
+            if file.split('.')[0] not in file_of_interest:
                 continue
         filename = file.split('.')[0]
         file_path = omkar_output_dir + file
@@ -243,10 +243,10 @@ if __name__ == "__main__":
     # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'sunnyside', 'real_case_data/sunnyside_OMKar_output_paths/', 'html_reports/sunnyside_plots/', 'html_reports/sunnyside.html'
     # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'dremsek', 'real_case_data/dremsek_OMKar_output_paths/', 'html_reports/dremsek_plots/', 'html_reports/dremsek.html'
     # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'Dremsek_b14', 'real_case_data/dremsek_b14_paths/', 'html_reports/dremsek_plots_b14/', 'html_reports/dremsek_b14.html'
-    # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'karsim', 'omkar_analyses_pipeline/builds/b14/omkar_paths/', 'html_reports/karsim_plots/', 'html_reports/karsim2.html'
+    # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'karsim', 'omkar_analyses_pipeline/builds/b14/omkar_paths/', 'html_reports/karsim_plots/', 'html_reports/karsim.html'
     # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'test', 'omkar_analyses_pipeline/builds/b14/omkar_paths/', 'html_reports/test_plots/', 'html_reports/test3.html'
     # test(True, ['23X_22q11_duplication_r2.1.txt'], i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)
-    test(True, ['2280.txt'], i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)
+    test(True, None, i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)
 
-    # i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'sunnyside', 'real_case_data/sunnyside_OMKar_output_paths/', 'html_reports/sunnyside_plots/', 'html_reports/sunnyside.html'
-    # test(True, None, i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)
+    i_title, i_omkar_output_dir, i_image_output_dir, i_output_file = 'sunnyside', 'real_case_data/sunnyside_OMKar_output_paths/', 'html_reports/sunnyside_plots/', 'html_reports/sunnyside.html'
+    test(True, None, i_title, i_omkar_output_dir, i_image_output_dir, i_output_file, debug=True)

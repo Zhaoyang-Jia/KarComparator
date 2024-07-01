@@ -121,4 +121,6 @@ import re
 # print(f"Input: {input_string2} -> Integer part: {int_part2}, Character part: {char_part2}, value: {v2}")
 # print(f"Input: {input_string3} -> Integer part: {int_part3}, Character part: {char_part3}, value: {v3}")
 
-print('xyz' + chr(0 + 97))
+# print('xyz' + chr(0 + 97))
+
+print(-1 % 4)
