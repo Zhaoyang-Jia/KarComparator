@@ -381,8 +381,6 @@ def assign_sv_labels(input_events, all_vis_input, i_index_to_segment_dict):
     associated_event = []
     event_id = 1
 
-    # event_idx_to_assign = [i for i in range(len(input_events))]
-
     for event_idx, event_info in enumerate(input_events):
         event_type = event_info[1]
         if event_type in ['insertion', 'deletion', 'inversion', 'tandem_duplication',
@@ -731,17 +729,33 @@ def merge_sv_labels(vis_entry, min_distance):
         return
     new_sv_labels = [{'pos': vis_entry['sv_labels'][0]['pos'],
                       'label': [vis_entry['sv_labels'][0]['label']]}]
-    last_pos = vis_entry['sv_labels'][0]['pos']
-    last_pos_idx = 0
+    used_pos = [vis_entry['sv_labels'][0]['pos']]
+
+    def closest_distance(i_pos):
+        c_min_distance = -1
+        conflict_pos = -1
+        for pos in used_pos:
+            dist = abs(pos - i_pos)
+            if c_min_distance == -1 or dist < c_min_distance:
+                c_min_distance = dist
+                conflict_pos = pos
+        r_conflict_pos_idx = -1
+        for sv_label_itr_idx, sv_label_itr in enumerate(vis_entry['sv_labels']):
+            if sv_label_itr['pos'] == conflict_pos:
+                r_conflict_pos_idx = sv_label_itr_idx
+                break
+        if r_conflict_pos_idx == -1:
+            raise RuntimeError()
+        return c_min_distance, r_conflict_pos_idx
+
     for sv_label_idx, sv_label in enumerate(vis_entry['sv_labels'][1:]):
         c_pos = sv_label['pos']
-        if c_pos - last_pos <= min_distance:
-            new_sv_labels[last_pos_idx]['label'].append(sv_label['label'])
+        closest_conflict, conflict_pos_idx = closest_distance(c_pos)
+        if closest_conflict <= min_distance:
+            new_sv_labels[conflict_pos_idx]['label'].append(sv_label['label'])
         else:
             new_sv_labels.append({'pos': sv_label['pos'],
                                   'label': [sv_label['label']]})
-            last_pos = sv_label['pos']
-            last_pos_idx = len(new_sv_labels) - 1
     vis_entry['sv_labels'] = new_sv_labels
 
 
