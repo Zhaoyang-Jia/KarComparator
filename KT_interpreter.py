@@ -250,8 +250,9 @@ class Aligned_Haplotype:
             if current_block_dict != original_block_dict:
                 return current_block_name, skipped_distance
             else:
-                current_block_segs, _ = self.get_block_segs_and_block_type(current_block_name)
-                skipped_distance += section_size(current_block_segs, self.size_dict)
+                if self.discordant_block_assignment[current_block_name] in ['deletion', 'insertion']:
+                    current_block_segs, _ = self.get_block_segs_and_block_type(current_block_name)
+                    skipped_distance += section_size(current_block_segs, self.size_dict)
 
     def next_block_if_same_type(self, block_name):
         """
@@ -287,8 +288,10 @@ class Aligned_Haplotype:
             if current_block_dict != original_block_dict:
                 return current_block_name, skipped_distance
             else:
-                current_block_segs, _ = self.get_block_segs_and_block_type(current_block_name)
-                skipped_distance += section_size(current_block_segs, self.size_dict)
+                # NOTE: only count distance of deletion and insertion
+                if self.discordant_block_assignment[current_block_name] in ['deletion', 'insertion']:
+                    current_block_segs, _ = self.get_block_segs_and_block_type(current_block_name)
+                    skipped_distance += section_size(current_block_segs, self.size_dict)
 
     def previous_block_if_same_type(self, block_name):
         _, original_block_dict = self.get_block_segs_and_block_type(block_name)
@@ -447,7 +450,7 @@ class Aligned_Haplotype:
 
         return event_blocks, event_types
 
-    def search_translocation_seed(self, query_section, query_block_name, seed_type):
+    def search_translocation_seed(self, query_section, query_block_name, seed_type, allow_inversion):
         """
         :param query_block_name:
         :param query_section:
@@ -468,24 +471,28 @@ class Aligned_Haplotype:
         max_size = -1
         max_size_ref_block = None
         max_size_query_sublist = None
+        sublist_inverted = False
         for c_block_name, c_block in query_block.items():
             if len(self.discordant_block_assignment[c_block_name]) != 0:
                 # already has assignment
                 # TODO: can improve this by bipartite matching, instead of enumerative matching to greedily find the max size matching, one pair at a time
                 continue
-            overlap_query_sublist, _, _, overlap_size = max_size_overlap(c_block, query_section, self.size_dict, -1)
+            overlap_query_sublist, _, _, overlap_size, c_sublist_inverted = max_size_overlap(c_block, query_section,
+                                                                                             self.size_dict, -1,
+                                                                                             allow_inversion=allow_inversion)
             if overlap_query_sublist != -1:
                 if overlap_size > max_size:
                     max_size = overlap_size
                     max_size_ref_block = c_block_name
                     max_size_query_sublist = overlap_query_sublist
+                    sublist_inverted = c_sublist_inverted
 
         ## split blocks for the matching
         if max_size_ref_block is None:
             return None
         ref_block_start_idx = sublist_idx(max_size_query_sublist, query_block[max_size_ref_block])
         ref_block_end_idx = ref_block_start_idx + len(max_size_query_sublist)
-        query_block_start_idx = sublist_idx(max_size_query_sublist, query_section)
+        query_block_start_idx = sublist_idx(max_size_query_sublist, query_section, inverted=sublist_inverted)
         query_block_end_idx = query_block_start_idx + len(max_size_query_sublist)
         return {'ref_block': {'max_size_ref_block': max_size_ref_block,
                               'ref_block_start_idx': ref_block_start_idx,
@@ -618,12 +625,11 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
         :param query_type:
         :return:
         """
-        seed_found = False
         for aligned_hap_idx1, aligned_hap1 in enumerate(aligned_haplotypes):
             if aligned_hap_idx1 == query_hap_idx:
                 # first get inter-chr event
                 continue
-            splitting_info = aligned_hap1.search_translocation_seed(query_section, query_block_name_presplit, query_type)
+            splitting_info = aligned_hap1.search_translocation_seed(query_section, query_block_name_presplit, query_type, True)
             if splitting_info is not None:
                 ref_hap = aligned_haplotypes[aligned_hap_idx1]
                 query_hap = aligned_haplotypes[query_hap_idx]
@@ -636,55 +642,75 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
                 aligned_hap1.discordant_block_assignment[ref_block_name_postsplit] = 'balanced_translocation,{}'.format(event_id)
                 aligned_haplotypes[query_hap_idx].discordant_block_assignment[query_block_name_postsplit] = 'balanced_translocation,{}'.format(event_id)
                 seed_found = True
-                break
-        if not seed_found:
-            # at last, check intra-chr event
-            splitting_info = aligned_haplotypes[query_hap_idx].search_translocation_seed(query_section, query_block_name_presplit, query_type)
-            if splitting_info is not None:
-                ref_hap = aligned_haplotypes[query_hap_idx]
-                query_hap = aligned_haplotypes[query_hap_idx]
-                ref_block_name_postsplit = ref_hap.split_block(splitting_info['ref_block']['max_size_ref_block'],
-                                                               splitting_info['ref_block']['ref_block_start_idx'],
-                                                               splitting_info['ref_block']['ref_block_end_idx'])
-                query_block_name_postsplit = query_hap.split_block(splitting_info['query_block']['query_block_name'],
-                                                                   splitting_info['query_block']['query_block_start_idx'],
-                                                                   splitting_info['query_block']['query_block_end_idx'])
-                aligned_haplotypes[query_hap_idx].discordant_block_assignment[ref_block_name_postsplit] = 'balanced_translocation,{}'.format(event_id)
-                aligned_haplotypes[query_hap_idx].discordant_block_assignment[query_block_name_postsplit] = 'balanced_translocation,{}'.format(event_id)
-                seed_found = True
-        if seed_found:
-            return True
-        else:
-            return False
+                if ref_block_name_postsplit != splitting_info['ref_block']['max_size_ref_block'] or \
+                        query_block_name_postsplit != splitting_info['query_block']['query_block_name']:
+                    block_splitted = True
+                else:
+                    block_splitted = False
+                return seed_found, block_splitted
+        # at last, check intra-chr event
+        # do not allow intra-chr reciprocal events to have inversion, otherwise, normal inversions will be marked
+        splitting_info = aligned_haplotypes[query_hap_idx].search_translocation_seed(query_section, query_block_name_presplit, query_type, False)
+        if splitting_info is not None:
+            ref_hap = aligned_haplotypes[query_hap_idx]
+            query_hap = aligned_haplotypes[query_hap_idx]
+            ref_block_name_postsplit = ref_hap.split_block(splitting_info['ref_block']['max_size_ref_block'],
+                                                           splitting_info['ref_block']['ref_block_start_idx'],
+                                                           splitting_info['ref_block']['ref_block_end_idx'])
+            query_block_name_postsplit = query_hap.split_block(splitting_info['query_block']['query_block_name'],
+                                                               splitting_info['query_block']['query_block_start_idx'],
+                                                               splitting_info['query_block']['query_block_end_idx'])
+            aligned_haplotypes[query_hap_idx].discordant_block_assignment[ref_block_name_postsplit] = 'balanced_translocation,{}'.format(event_id)
+            aligned_haplotypes[query_hap_idx].discordant_block_assignment[query_block_name_postsplit] = 'balanced_translocation,{}'.format(event_id)
+
+            seed_found = True
+            if ref_block_name_postsplit != splitting_info['ref_block']['max_size_ref_block'] or \
+                    query_block_name_postsplit != splitting_info['query_block']['query_block_name']:
+                block_splitted = True
+            else:
+                block_splitted = False
+            return seed_found, block_splitted
+
+        return False, False
 
     ### Order of resolving: balanced-translocation, inv, dup-inv, tandem-dup, del, unbalanced-translocation
     ## resolve all balanced translocations
-    for aligned_hap_idx, aligned_hap in enumerate(aligned_haplotypes):
-        for c_wt_block_name, c_wt_block in aligned_hap.wt_blocks.items():
-            if len(aligned_hap.discordant_block_assignment[c_wt_block_name]) > 0:
-                # already has assignment
-                continue
-            # block it from being matched in intra-chr event; maybe not necessary
-            aligned_hap.discordant_block_assignment[c_wt_block_name] = 'under investigation'
-            balanced_translocation_found = genomewide_seed_search_for_translocation(c_wt_block, c_wt_block_name, aligned_hap_idx, 'ins')
-            if balanced_translocation_found:
-                event_id += 1
-                break
-            else:
-                # reset block assignment for query
-                aligned_hap.discordant_block_assignment[c_wt_block_name] = ''
-        for c_mt_block_name, c_mt_block in aligned_hap.mt_blocks.items():
-            if len(aligned_hap.discordant_block_assignment[c_mt_block_name]) > 0:
-                # already has assignment
-                continue
-            aligned_hap.discordant_block_assignment[c_mt_block_name] = 'under investigation'  # block it from being matched in intra-chr event
-            balanced_translocation_found = genomewide_seed_search_for_translocation(c_mt_block, c_mt_block_name, aligned_hap_idx, 'del')
-            if balanced_translocation_found:
-                event_id += 1
-                break
-            else:
-                # reset block assignment for query
-                aligned_hap.discordant_block_assignment[c_mt_block_name] = ''
+    # re-run all haps when splitting occurs, as more balanced translocation can be found
+    run = True
+    while run:
+        splitted = False
+        for aligned_hap_idx, aligned_hap in enumerate(aligned_haplotypes):
+            for c_wt_block_name, c_wt_block in aligned_hap.wt_blocks.items():
+                if len(aligned_hap.discordant_block_assignment[c_wt_block_name]) > 0:
+                    # already has assignment
+                    continue
+                # block it from being matched in intra-chr event; maybe not necessary
+                aligned_hap.discordant_block_assignment[c_wt_block_name] = 'under investigation'
+                balanced_translocation_found, c_splitted = genomewide_seed_search_for_translocation(c_wt_block, c_wt_block_name, aligned_hap_idx, 'ins')
+                if balanced_translocation_found:
+                    event_id += 1
+                    if c_splitted:
+                        splitted = True
+                    break
+                else:
+                    # reset block assignment for query
+                    aligned_hap.discordant_block_assignment[c_wt_block_name] = ''
+            for c_mt_block_name, c_mt_block in aligned_hap.mt_blocks.items():
+                if len(aligned_hap.discordant_block_assignment[c_mt_block_name]) > 0:
+                    # already has assignment
+                    continue
+                aligned_hap.discordant_block_assignment[c_mt_block_name] = 'under investigation'  # block it from being matched in intra-chr event
+                balanced_translocation_found, c_splitted = genomewide_seed_search_for_translocation(c_mt_block, c_mt_block_name, aligned_hap_idx, 'del')
+                if balanced_translocation_found:
+                    event_id += 1
+                    if c_splitted:
+                        splitted = True
+                    break
+                else:
+                    # reset block assignment for query
+                    aligned_hap.discordant_block_assignment[c_mt_block_name] = ''
+        if splitted is False:
+            run = False
 
     ## inversion: mt{- k-} wt{k+ -} OR mt{k- -} wt{- k+}
     for aligned_hap in aligned_haplotypes:
@@ -857,6 +883,9 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
             ## search left and right: skipping over all blocks of current-type, iterate over all blocks of next type
             left_block, left_skipped_distance = aligned_haplotypes[paired_path_idx].previous_different_type_block(paired_block_name)
             right_block, right_skipped_distance = aligned_haplotypes[paired_path_idx].next_different_type_block(paired_block_name)
+            # we opt to do not inherit the skip distance of the same type
+            # left_skipped_distance = 0
+            # right_skipped_distance = 0
             if left_block not in aligned_haplotypes[paired_path_idx].discordant_block_assignment:
                 left_block = None
             if right_block not in aligned_haplotypes[paired_path_idx].discordant_block_assignment:
@@ -936,6 +965,9 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
             ## search left and right: skipping over all blocks of current-type, iterate over all blocks of next type
             left_block, left_skipped_distance = aligned_haplotypes[paired_path_idx].previous_different_type_block(paired_block_name)
             right_block, right_skipped_distance = aligned_haplotypes[paired_path_idx].next_different_type_block(paired_block_name)
+            # we opt to do not inherit the skip distance of the same type
+            # left_skipped_distance = 0
+            # right_skipped_distance = 0
             if left_block not in aligned_haplotypes[paired_path_idx].discordant_block_assignment:
                 left_block = None
             if right_block not in aligned_haplotypes[paired_path_idx].discordant_block_assignment:
@@ -959,13 +991,14 @@ def interpret_haplotypes(mt_hap_list: [[str]], wt_hap_list: [[str]], chrom_ident
                 right_skipped_distance += section_size(right_block_segs, segment_size_dict)
                 right_block = aligned_haplotypes[paired_path_idx].next_block_if_same_type(right_block)
 
-    reciprocal_cycles = remove_identical_cycles(reciprocal_cycles)
     # remove cycles with large distance
     cycle_with_large_distance = []
     for cycle_idx, cycle in enumerate(reciprocal_cycles):
         if cycle['distance'] >= 7000000:
             cycle_with_large_distance.append(cycle_idx)
     reciprocal_cycles = [cycle for cycle_idx, cycle in enumerate(reciprocal_cycles) if cycle_idx not in cycle_with_large_distance]
+    # remove identical cycles after removing cycle with large distance, as different directions can result in different distances
+    reciprocal_cycles = remove_identical_cycles(reciprocal_cycles)
     selected_cycles = []  # for later sorting purpose
 
     ## iteratively resolve the most represented event
@@ -1112,16 +1145,33 @@ def continuous_extension(input_hap, idx_ptr):
     return final_ptr
 
 
-def sublist_idx(list1, list2):
+def sublist_idx(list1, list2, inverted=False):
     # list 1 is small, list 2 is large (presumed superlist)
-    for i in range(len(list2) - len(list1) + 1):
-        if list2[i:i + len(list1)] == list1:
+    if inverted:
+        copy_list1 = invert_seg_list(list1)
+    else:
+        copy_list1 = copy.deepcopy(list1)
+    for i in range(len(list2) - len(copy_list1) + 1):
+        if list2[i:i + len(copy_list1)] == copy_list1:
             return i
     return None
 
 
-def max_size_overlap(supergroup_section, query_section, size_dict, d):
+def invert_seg_list(input_seg_list):
+    inverted_seg_list = []
+    for seg in input_seg_list[::-1]:
+        if seg[-1] == '-':
+            inverted_seg_list.append(seg[:-1] + '+')
+        elif seg[-1] == '+':
+            inverted_seg_list.append(seg[:-1] + '-')
+        else:
+            raise RuntimeError()
+    return inverted_seg_list
+
+
+def max_size_overlap(supergroup_section, query_section, size_dict, d, allow_inversion=False):
     """
+    :param allow_inversion: whether the match in query_section can be inverted
     :param supergroup_section:
     :param query_section:
     :param size_dict:
@@ -1130,6 +1180,15 @@ def max_size_overlap(supergroup_section, query_section, size_dict, d):
     """
     all_sublists = [query_section[i:j + 1] for i in range(len(query_section)) for j in range(i, len(query_section))]
     sublist_sizes = [section_size(sublist, size_dict) for sublist in all_sublists]
+    inverted_sublist_start_idx = -1
+    if allow_inversion and query_section[0][-1] == "+":
+        # we only try to flip the query section when it is the positive orientation (the negative orientation will have a counterpart to come, which is positive
+        inverted_sublists = []
+        for sublist in all_sublists:
+            inverted_sublists.append(invert_seg_list(sublist))
+        inverted_sublist_start_idx = len(all_sublists)
+        all_sublists += inverted_sublists
+        sublist_sizes += sublist_sizes
 
     sublists_found = []
     seed_start_location_in_supergroup = []
@@ -1152,11 +1211,18 @@ def max_size_overlap(supergroup_section, query_section, size_dict, d):
 
     if max_size_sublist_idx == -1:
         # not found
-        return -1, -1, -1, -1
+        return -1, -1, -1, -1, -1
     max_size_sublist = all_sublists[max_size_sublist_idx]
     max_size_sublist_start_location = seed_start_location_in_supergroup[max_size_sublist_idx]
     max_size_sublist_end_location = seed_start_location_in_supergroup[max_size_sublist_idx] + len(max_size_sublist)
-    return max_size_sublist, max_size_sublist_start_location, max_size_sublist_end_location, max_size
+    if inverted_sublist_start_idx == -1:
+        sublist_inverted = False
+    else:
+        if max_size_sublist_idx >= inverted_sublist_start_idx:
+            sublist_inverted = True
+        else:
+            sublist_inverted = False
+    return max_size_sublist, max_size_sublist_start_location, max_size_sublist_end_location, max_size, sublist_inverted
 
 
 def is_seeded(supergroup_section, cont_section, size_dict, indel_direction, d, eps):
@@ -1170,7 +1236,7 @@ def is_seeded(supergroup_section, cont_section, size_dict, indel_direction, d, e
     :param eps: epsilon, allowed 1/2 indel size (i.e. 2 * eps >= indel size)
     :return: [start, end) indices in the supergroup
     """
-    max_size_sublist, max_size_sublist_start_location, max_size_sublist_end_location, _ = max_size_overlap(supergroup_section, cont_section, size_dict, d)
+    max_size_sublist, max_size_sublist_start_location, max_size_sublist_end_location, _, _ = max_size_overlap(supergroup_section, cont_section, size_dict, d)
     if max_size_sublist == -1:
         return -1, -1
 
@@ -1365,12 +1431,42 @@ def report_on_genes_based_on_breakpoints(breakpoints):
 
 
 def report_cnv_genes_on_region(chrom, start, end, proximity=50000):
+    if start > end:
+        temp = start
+        start = end
+        end = temp
     start = max(0, start - proximity)
     end = end + proximity
     genes = get_genes_in_region('chr' + chrom, start, end)
     DDG_df = get_DDG_overlapped_genes(genes)
     DDG_gene_list, DDG_disease_list = tostring_gene_disease_omim(DDG_df)
     return genes, list(zip(DDG_gene_list, DDG_disease_list))
+
+
+def conglomerate_cn_genes(input_genes_reports):
+    """
+    if a gene is +1 and -1 CN, then it is reported in neither;
+    :param input_genes_reports:
+    :return:
+    """
+    cnv_genes = {}
+    responsible_events = {}
+    cnv_highlighted_genes = {}
+    for gene_report_idx, gene_report in enumerate(input_genes_reports):
+        one_based_index = gene_report_idx + 1
+        for gene in gene_report['cnv_genes']:
+            if gene in cnv_genes:
+                cnv_genes[gene] += gene_report['cnv']
+                responsible_events[gene].append(one_based_index)
+            else:
+                cnv_genes[gene] = gene_report['cnv']
+                responsible_events[gene] = [one_based_index]
+        for gene_info in gene_report['cnv_genes_highlight']:
+            gene_tuple = gene_info[0]
+            cnv_highlighted_genes[gene_tuple[0]] = gene_info
+    new_cnv_genes = {gene: cnv for gene, cnv in cnv_genes.items() if cnv != 0}
+    new_responsible_events = {gene: events for gene, events in responsible_events.items() if cnv_genes[gene] != 0}
+    return new_cnv_genes, new_responsible_events, cnv_highlighted_genes
 
 
 def get_ucsc_url(chrom, start_pos, end_pos, db='hg38'):
@@ -1692,6 +1788,7 @@ def format_report(interpreted_events, aligned_haplotypes, index_to_segment_dict,
 
 
 def format_genes_report(genes_report):
+    conglomerated_cnv_genes, cnv_genes_events, cnv_highlighted_genes = conglomerate_cn_genes(genes_report)
     formatted_genes_report = []
     for event_idx, report_dict in enumerate(genes_report):
         one_based_idx = event_idx + 1
@@ -1711,21 +1808,20 @@ def format_genes_report(genes_report):
                                            'gene omim': gene_omim,
                                            'diseases': disease_names,
                                            'disease omims': disease_omim})
-        for entry in report_dict['cnv_genes_highlight']:
-            gene_entry = entry[0]
-            disease_entry = entry[1]
-            gene_name = gene_entry[0]
-            gene_omim = gene_entry[1]
+    for gene_name, cnv in conglomerated_cnv_genes.items():
+        if gene_name in cnv_highlighted_genes:
+            related_events = cnv_genes_events[gene_name]
+            gene_omim = cnv_highlighted_genes[gene_name][0][1]
             disease_names = []
             disease_omim = []
-            for disease in disease_entry:
+            for disease in cnv_highlighted_genes[gene_name][1]:
                 disease_names.append(disease[0])
                 disease_omim.append(disease[1])
-            if report_dict['cnv'] > 0:
-                cnv_str = "+" + str(report_dict['cnv'])
+            if cnv > 0:
+                cnv_str = "+" + str(cnv)
             else:
-                cnv_str = str(report_dict['cnv'])
-            formatted_genes_report.append({'SV': one_based_idx,
+                cnv_str = str(cnv)
+            formatted_genes_report.append({'SV': ','.join([str(i) for i in sorted(related_events)]),
                                            'rationale': 'CN' + cnv_str,
                                            'gene name': gene_name,
                                            'gene omim': gene_omim,
